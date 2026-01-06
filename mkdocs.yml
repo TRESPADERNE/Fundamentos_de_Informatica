@@ -1,0 +1,37 @@
+site_name: Fundamentos de Informática
+site_description: Apuntes y material de clase
+use_directory_urls: false # Desactivar URLs amigables para que coincidan rutas web y locales
+
+theme:
+  name: material
+  logo: img/logo_eii.jpg # Ruta al archivo del logotipo (debes subirlo a docs/img/)
+  favicon: img/logo_eii.jpg # Icono de la pestaña del navegador
+  language: es  # Para que los botones y búsqueda estén en español
+  palette:
+    primary: indigo # Puedes cambiarlo a 'teal', 'blue', etc.
+    accent: indigo
+  features:
+    - navigation.tabs # Menú horizontal arriba
+    - navigation.sections # Organización por secciones
+    - toc.integrate # Integra el índice en la barra lateral izquierda
+    - search.suggest
+    - content.code.copy # Botón para copiar código
+
+markdown_extensions:
+  - pymdownx.arithmatex: # PARA MATEMÁTICAS (LaTeX)
+      generic: true
+  - pymdownx.betterem
+  - pymdownx.details # Para bloques colapsables
+  - pymdownx.superfences # Para código y diagramas
+  - tables # Para tablas académicas
+  - admonition # Para cuadros de "Nota", "Aviso", "Ejemplo"
+
+nav:
+  - Inicio: index.md
+  - Lenguajes de Programación: Lenguajes_de_Programacion.md
+  - Prueba: Lenguajes_de_Programacion1.md
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - javascripts/print_button.js # Script para botón de imprimir
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
