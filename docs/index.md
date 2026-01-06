@@ -5,7 +5,7 @@ hide:
   - toc
 ---
 
-# Fundamentos de Informática
+# Fundamentos de Informátic
 **Grado en Ingeniería Biomédica**
 *Departamento de Ingeniería de Sistemas y Automática. EII. Universidad de Valladolid*
 
