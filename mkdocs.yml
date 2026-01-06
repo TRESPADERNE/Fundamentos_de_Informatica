@@ -25,6 +25,7 @@ markdown_extensions:
   - pymdownx.superfences # Para código y diagramas
   - tables # Para tablas académicas
   - admonition # Para cuadros de "Nota", "Aviso", "Ejemplo"
+  - attr_list # Para atributos en imágenes y otros elementos
 
 nav:
   - Inicio: index.md

@@ -128,11 +128,8 @@ Un paradigma de programación describe una forma de realizar los cálculos y la 
 
 > **Nota:** La mejor forma de entender un paradigma es aprender un lenguaje de programación que implemente ese paradigma, por lo que no entraremos por el momento en más detalles.
 
-<p align="center">
-  <img src="img/paradigmas.jpg" alt="Paradigmas de Programación">
-  <br>
-  <em>Clasificación de los paradigmas de programación.</em>
-</p>
+![Paradigmas de Programación](img/paradigmas.jpg){: style="display: block; margin: 0 auto" }
+<center>*Clasificación de los paradigmas de programación.*</center>
 
 ---
 
@@ -147,11 +144,8 @@ En esa jungla encontraréis herramientas para todo. Python es una navaja suiza (
 
 
 
-<p align="center">
-  <img src="img/nube_lenguajes.jpg" alt="Nube de lenguajes">
-  <br>
-  <em>La jungla de lenguajes de programación.</em>
-</p>
+![Nube de lenguajes](img/nube_lenguajes.jpg){: style="display: block; margin: 0 auto" }
+<center>*La jungla de lenguajes de programación.*</center>
 
 
 
@@ -167,18 +161,11 @@ Dado el enorme número de lenguajes existentes, la industria se guía por índic
 
     Al obtener respuestas inmediatas y código generado a medida por la IA, muchos desarrolladores ya no acuden a postear sus dudas en la comunidad. Esto plantea la incógnita de si rankings como RedMonk, que dependen de estos datos, seguirán siendo fiables en el futuro cercano.
 
-<p align="center">
-  <img src="img/tiobe.jpg" alt="Ranking TIOBE">
-  <br>
-  <em>Ranking TIOBE: Evolución histórica de la popularidad.</em>
-</p>
+![Ranking TIOBE](img/tiobe.jpg){: style="display: block; margin: 0 auto" }
+<center>*Ranking TIOBE: Evolución histórica de la popularidad.*</center>
 
-<p align="center">
-  <img src="img/redmonk.png" alt="Ranking Redmonk">
-  <br>
-  <em>Ranking Redmonk: Eje vertical (Popularidad en StackOverflow), Eje horizontal (Proyectos en GitHub).</em>
-
-</p>
+![Ranking Redmonk](img/redmonk.png){: style="display: block; margin: 0 auto" }
+<center>*Ranking Redmonk: Eje vertical (Popularidad en StackOverflow), Eje horizontal (Proyectos en GitHub).*</center>
 
 
 
@@ -197,11 +184,8 @@ Dado que nuestra asignatura se orienta a titulaciones de ingeniería (Biomédica
 
 4.  **Multiparadigma:** Permite empezar programando de forma imperativa (sencilla) y avanzar hacia la orientación a objetos o funcional progresivamente, sin imponer una estructura rígida desde la línea 1.
 
-<p align="center">
-  <img src="img/startcoding.jpg" alt="¿Qué lenguaje aprender primero?">
-  <br>
-  <em>¿Qué lenguaje aprender en primer lugar?</em>
-</p>
+![¿Qué lenguaje aprender primero?](img/startcoding.jpg){: style="display: block; margin: 0 auto" }
+<center>*¿Qué lenguaje aprender en primer lugar?*</center>
 
 
 ## 4. Compiladores (El modelo C/C++)
@@ -222,11 +206,8 @@ El compilador detecta errores en tiempo de compilación (sintaxis), pero no erro
 **¿Qué ocurre al ejecutarlo? (El Loader)**
 Cuando un usuario ejecuta ese archivo `.exe`, un componente del sistema operativo llamado **cargador (loader)** transfiere el código y los datos del fichero binario a la memoria *RAM*, y la CPU comienza a procesar las instrucciones en código máquina que contiene.
 
-<p align="center">
-  <img src="img/compilacion.jpg" alt="Proceso de compilación en C++">
-  <br>
-  <em>Proceso de compilación en C++</em>
-</p>
+![Proceso de compilación en C++](img/compilacion.jpg){: style="display: block; margin: 0 auto" }
+<center>*Proceso de compilación en C++*</center>
 
 ### Fases de la Traducción (Interior del Compilador)
 El compilador realiza la traducción típicamente en 2 grandes fases:
@@ -240,11 +221,8 @@ El compilador realiza la traducción típicamente en 2 grandes fases:
     *   **Optimización:** Fase crítica donde el compilador mejora el código (elimina código muerto, desenrolla bucles) para reducir tamaño o aumentar velocidad.
     *   Generación de código máquina específico para la arquitectura.
 
-<p align="center">
-  <img src="img/traduccion_compilador.jpg" alt="Fases de la traducción de un compilador">
-  <br>
-  <em>Fases de la traducción de un compilador</em>
-</p>
+![Fases de la traducción de un compilador](img/traduccion_compilador.jpg){: style="display: block; margin: 0 auto" }
+<center>*Fases de la traducción de un compilador*</center>
 
 #### Importancia de la Arquitectura y Retrocompatibilidad
 Dado que cada familia de CPU tiene un conjunto de instrucciones diferente (ISA), es necesario utilizar un compilador adaptado a esa arquitectura específica.
@@ -300,11 +278,8 @@ Para mejorar el rendimiento, las VMs modernas (como la JVM de Java o V8 de JS) c
 *   **Java vs Android:** Mientras que en ordenadores se usa la JVM estándar, Android utiliza su propia máquina virtual llamada **ART (Android Run Time)**. Aunque se programa en Java, el bytecode es diferente debido a temas de licencias y para optimizar el consumo de batería en móviles.
 *   **.NET (C#):** El entorno de Microsoft destaca por ser **multilenguaje**: compila alrededor de 35 lenguajes diferentes a un mismo bytecode llamado **CIL** (*Common Intermediate Language*). El lenguaje **C#** (*C Sharp*) es el más utilizado de este ecosistema y guarda muchas similitudes con Java y C++. Finalmente, un compilador JIT llamado **CLR** (*Common Language Runtime*) traduce y ejecuta ese código en la plataforma hardware definitiva.
 
-<p align="center">
-  <img src="img/clr.jpg" alt="clr">
-  <br>
-  <em>La Máquina Virtual multilenguaje de Microsoft</em>
-</p>
+![clr](img/clr.jpg){: style="display: block; margin: 0 auto" }
+<center>*La Máquina Virtual multilenguaje de Microsoft*</center>
 
 ## 6. Compiladores frente a Intérpretes
 
@@ -319,11 +294,8 @@ A continuación, comparamos los enfoques principales: **Compilación Pura** (C++
 | **Portabilidad** | Baja. Requiere recompilar para cada SO. | Alta. Solo requiere el intérprete instalado. | **Muy Alta (WORA).** Bytecode universal. |
 | **Detección Errores** | Todos los de sintaxis reportados antes de correr. | El programa se detiene al encontrar el primer error. | Errores de sintaxis al generar bytecode; lógica en ejecución. |
 
-<p align="center">
-  <img src="img/compilador_mv.jpg" alt="clr">
-  <br>
-  <em>Compilación vs Máquina Virtual</em>
-</p>
+![Compilación vs Máquina Virtual](img/compilador_mv.jpg){: style="display: block; margin: 0 auto" }
+<center>*Compilación vs Máquina Virtual*</center>
 
 
 
