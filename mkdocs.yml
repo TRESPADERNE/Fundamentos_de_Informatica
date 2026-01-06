@@ -1,6 +1,19 @@
 site_name: Fundamentos de Informática
 site_description: Apuntes y material de clase
-use_directory_urls: true
+use_directory_urls: false
+
+# Información Institucional (Pie de página y Redes)
+copyright: Departamento de Ingeniería de Sistemas y Automática. EII. Universidad de Valladolid
+
+# Iconos sociales (Aparecen en el pie de página)
+extra:
+  social:
+    - icon: fontawesome/solid/university
+      link: https://www.uva.es
+      name: Universidad de Valladolid
+    - icon: fontawesome/solid/building
+      link: http://www.isa.uva.es
+      name: Departamento ISA
 
 theme:
   name: material
@@ -26,10 +39,16 @@ markdown_extensions:
   - tables # Para tablas académicas
   - admonition # Para cuadros de "Nota", "Aviso", "Ejemplo"
   - attr_list # Para atributos en imágenes y otros elementos
+  - pymdownx.snippets: # Para incluir ficheros comunes
+      base_path: docs
+  - toc:
+      slugify: !!python/name:pymdownx.slugs.uslugify
 
 nav:
   - Inicio: index.md
   - Lenguajes de Programación: Lenguajes_de_Programacion.md
+  - Web UVa: https://www.uva.es
+  - Web ISA: http://www.isa.uva.es
 
 extra_javascript:
   - javascripts/mathjax.js

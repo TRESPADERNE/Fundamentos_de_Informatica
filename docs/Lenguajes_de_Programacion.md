@@ -1,11 +1,8 @@
 # Lenguajes de Programación
-**Fundamentos de Informática**
-*Departamento de Ingeniería de Sistemas y Automática. EII. Universidad de Valladolid*
 
----
 
 ## Índice
-1. [Introducción a los lenguajes de programación](#1-introduccion-a-los-lenguajes-de-programacion)
+1. [Introducción a los lenguajes de programación](#1-introducción-a-los-lenguajes-de-programación)
 2. [Niveles de Abstracción](#2-niveles-de-abstracción)
 3. [Paradigmas y Panorama Actual](#3-paradigmas-y-panorama-actual)
 4. [Compiladores (El modelo C/C++)](#4-compiladores-el-modelo-cc)
