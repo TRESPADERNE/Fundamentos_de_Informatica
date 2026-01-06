@@ -1,6 +1,6 @@
 site_name: Fundamentos de Informática
 site_description: Apuntes y material de clase
-use_directory_urls: false # Desactivar URLs amigables para que coincidan rutas web y locales
+use_directory_urls: true
 
 theme:
   name: material
@@ -29,7 +29,6 @@ markdown_extensions:
 nav:
   - Inicio: index.md
   - Lenguajes de Programación: Lenguajes_de_Programacion.md
-  - Prueba: Lenguajes_de_Programacion1.md
 
 extra_javascript:
   - javascripts/mathjax.js
