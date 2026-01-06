@@ -129,7 +129,7 @@ Un paradigma de programación describe una forma de realizar los cálculos y la 
 > **Nota:** La mejor forma de entender un paradigma es aprender un lenguaje de programación que implemente ese paradigma, por lo que no entraremos por el momento en más detalles.
 
 ![Paradigmas de Programación](img/paradigmas.jpg){: style="display: block; margin: 0 auto" }
-<center>*Clasificación de los paradigmas de programación.*</center>
+<center><em>Clasificación de los paradigmas de programación.</em></center>
 
 ---
 
@@ -145,7 +145,7 @@ En esa jungla encontraréis herramientas para todo. Python es una navaja suiza (
 
 
 ![Nube de lenguajes](img/nube_lenguajes.jpg){: style="display: block; margin: 0 auto" }
-<center>*La jungla de lenguajes de programación.*</center>
+<center><em>La jungla de lenguajes de programación.</em></center>
 
 
 
@@ -162,10 +162,10 @@ Dado el enorme número de lenguajes existentes, la industria se guía por índic
     Al obtener respuestas inmediatas y código generado a medida por la IA, muchos desarrolladores ya no acuden a postear sus dudas en la comunidad. Esto plantea la incógnita de si rankings como RedMonk, que dependen de estos datos, seguirán siendo fiables en el futuro cercano.
 
 ![Ranking TIOBE](img/tiobe.jpg){: style="display: block; margin: 0 auto" }
-<center>*Ranking TIOBE: Evolución histórica de la popularidad.*</center>
+<center><em>Ranking TIOBE: Evolución histórica de la popularidad.</em></center>
 
 ![Ranking Redmonk](img/redmonk.png){: style="display: block; margin: 0 auto" }
-<center>*Ranking Redmonk: Eje vertical (Popularidad en StackOverflow), Eje horizontal (Proyectos en GitHub).*</center>
+<center><em>Ranking Redmonk: Eje vertical (Popularidad en StackOverflow), Eje horizontal (Proyectos en GitHub).</em></center>
 
 
 
@@ -185,7 +185,7 @@ Dado que nuestra asignatura se orienta a titulaciones de ingeniería (Biomédica
 4.  **Multiparadigma:** Permite empezar programando de forma imperativa (sencilla) y avanzar hacia la orientación a objetos o funcional progresivamente, sin imponer una estructura rígida desde la línea 1.
 
 ![¿Qué lenguaje aprender primero?](img/startcoding.jpg){: style="display: block; margin: 0 auto" }
-<center>*¿Qué lenguaje aprender en primer lugar?*</center>
+<center><em>¿Qué lenguaje aprender en primer lugar?</em></center>
 
 
 ## 4. Compiladores (El modelo C/C++)
@@ -207,7 +207,7 @@ El compilador detecta errores en tiempo de compilación (sintaxis), pero no erro
 Cuando un usuario ejecuta ese archivo `.exe`, un componente del sistema operativo llamado **cargador (loader)** transfiere el código y los datos del fichero binario a la memoria *RAM*, y la CPU comienza a procesar las instrucciones en código máquina que contiene.
 
 ![Proceso de compilación en C++](img/compilacion.jpg){: style="display: block; margin: 0 auto" }
-<center>*Proceso de compilación en C++*</center>
+<center><em>Proceso de compilación en C++</em></center>
 
 ### Fases de la Traducción (Interior del Compilador)
 El compilador realiza la traducción típicamente en 2 grandes fases:
@@ -222,7 +222,7 @@ El compilador realiza la traducción típicamente en 2 grandes fases:
     *   Generación de código máquina específico para la arquitectura.
 
 ![Fases de la traducción de un compilador](img/traduccion_compilador.jpg){: style="display: block; margin: 0 auto" }
-<center>*Fases de la traducción de un compilador*</center>
+<center><em>Fases de la traducción de un compilador</em></center>
 
 #### Importancia de la Arquitectura y Retrocompatibilidad
 Dado que cada familia de CPU tiene un conjunto de instrucciones diferente (ISA), es necesario utilizar un compilador adaptado a esa arquitectura específica.
@@ -279,7 +279,7 @@ Para mejorar el rendimiento, las VMs modernas (como la JVM de Java o V8 de JS) c
 *   **.NET (C#):** El entorno de Microsoft destaca por ser **multilenguaje**: compila alrededor de 35 lenguajes diferentes a un mismo bytecode llamado **CIL** (*Common Intermediate Language*). El lenguaje **C#** (*C Sharp*) es el más utilizado de este ecosistema y guarda muchas similitudes con Java y C++. Finalmente, un compilador JIT llamado **CLR** (*Common Language Runtime*) traduce y ejecuta ese código en la plataforma hardware definitiva.
 
 ![clr](img/clr.jpg){: style="display: block; margin: 0 auto" }
-<center>*La Máquina Virtual multilenguaje de Microsoft*</center>
+<center><em>La Máquina Virtual multilenguaje de Microsoft</em></center>
 
 ## 6. Compiladores frente a Intérpretes
 
@@ -295,7 +295,7 @@ A continuación, comparamos los enfoques principales: **Compilación Pura** (C++
 | **Detección Errores** | Todos los de sintaxis reportados antes de correr. | El programa se detiene al encontrar el primer error. | Errores de sintaxis al generar bytecode; lógica en ejecución. |
 
 ![Compilación vs Máquina Virtual](img/compilador_mv.jpg){: style="display: block; margin: 0 auto" }
-<center>*Compilación vs Máquina Virtual*</center>
+<center><em>Compilación vs Máquina Virtual</em></center>
 
 
 
