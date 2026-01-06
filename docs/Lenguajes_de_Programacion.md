@@ -1,4 +1,4 @@
-# FI_2: Lenguajes de Programación
+# Lenguajes de Programación
 **Fundamentos de Informática**
 *Departamento de Ingeniería de Sistemas y Automática. EII. Universidad de Valladolid*
 
@@ -6,12 +6,13 @@
 
 ## Índice
 1. [Introducción a los lenguajes de programación](#1-introduccion-a-los-lenguajes-de-programacion)
-2. [Clasificación](#2-clasificacion-niveles)
-3. [Compiladores (Enfoque C++)](#3-compiladores-el-modelo-cc)
-4. [Intérpretes y Máquinas Virtuales](#4-interpretes-y-maquinas-virtuales)
-5. [Compiladores frente a Intérpretes](#5-compiladores-frente-a-interpretes-resumen)
-6. [Ecosistema de Desarrollo (IDEs)](#6-ecosistema-de-desarrollo-ides)
-7. [Futuro de la Programación](#7-futuro-de-la-programacion)
+2. [Niveles de Abstracción](#2-niveles-de-abstracción)
+3. [Paradigmas y Panorama Actual](#3-paradigmas-y-panorama-actual)
+4. [Compiladores (El modelo C/C++)](#4-compiladores-el-modelo-cc)
+5. [Intérpretes y Máquinas Virtuales](#5-intérpretes-y-máquinas-virtuales)
+6. [Compiladores frente a Intérpretes](#6-compiladores-frente-a-intérpretes)
+7. [Ecosistema de Desarrollo (IDEs)](#7-ecosistema-de-desarrollo-ides)
+8. [Ética y Responsabilidad en la Era de la IA](#8-ética-y-responsabilidad-en-la-era-de-la-ia)
 
 ---
 
@@ -46,9 +47,7 @@ Un Lenguaje de Programación es un conjunto de **símbolos y reglas** con los qu
 
 ---
 
-## 2. Clasificación: Niveles
-
-### 2.1 Niveles de Abstracción
+## 2. Niveles de Abstracción
 
 El concepto de **abstracción** en informática se refiere a la capacidad de ocultar la complejidad interna del hardware para facilitar la programación. Cuanto mayor es el nivel de abstracción de un lenguaje, más nos alejamos de los detalles físicos de la máquina (transistores, registros, direcciones de memoria) para centrarnos en la lógica del problema a resolver (fórmulas, objetos, datos).
 
@@ -120,7 +119,7 @@ Para visualizar la diferencia de abstracción, veamos cómo se imprime un mensaj
 | **C++ (Alto Nivel)** | `std::cout << "Hola Mundo";` |
 | **Python (Muy Alto Nivel)** | `print("Hola Mundo")` |
 
-### Paradigmas de programación
+## 3. Paradigmas y Panorama Actual
 Un paradigma de programación describe una forma de realizar los cálculos y la manera en que se deben estructurar y organizar las tareas que debe llevar a cabo un programa.
 
 *   Los lenguajes de programación suelen implementar, a menudo de forma parcial, **varios paradigmas**.
@@ -154,24 +153,34 @@ En esa jungla encontraréis herramientas para todo. Python es una navaja suiza (
   <em>La jungla de lenguajes de programación.</em>
 </p>
 
+
+
+### Popularidad y Demanda (Rankings)
+
+Dado el enorme número de lenguajes existentes, la industria se guía por índices de popularidad para decidir qué tecnologías adoptar. No existe un *mejor* lenguaje absoluto, pero sí tendencias de mercado claras. Dos de los indicadores más fiables son:
+
+1.  **Índice TIOBE:** Se basa en el número de resultados en motores de búsqueda. Es un buen indicador de *de qué se está hablando* o *qué se está buscando aprender*.
+2.  **Ranking RedMonk:** Cruza datos de **GitHub** (cantidad de código escrito) y **Stack Overflow** (cantidad de preguntas técnicas). Es un indicador más preciso de *qué se está usando realmente en proyectos*.
+
+!!! warning El declive de Stack Overflow y la era de la IA
+    **Stack Overflow** ha sido la página web de referencia absoluta para resolver dudas de programación durante más de una década. Sin embargo, su tráfico e interacción han sufrido una caída significativa con el advenimiento de asistentes de IA generativa (como **ChatGPT** o **GitHub Copilot**).
+
+    Al obtener respuestas inmediatas y código generado a medida por la IA, muchos desarrolladores ya no acuden a postear sus dudas en la comunidad. Esto plantea la incógnita de si rankings como RedMonk, que dependen de estos datos, seguirán siendo fiables en el futuro cercano.
+
 <p align="center">
-  <img src="img/startcoding.jpg" alt="¿Qué lenguaje aprender primero?">
+  <img src="img/tiobe.jpg" alt="Ranking TIOBE">
   <br>
-  <em>¿Qué lenguaje aprender en primer lugar?</em>
+  <em>Ranking TIOBE: Evolución histórica de la popularidad.</em>
 </p>
 
 <p align="center">
   <img src="img/redmonk.png" alt="Ranking Redmonk">
   <br>
-  <em>Ranking Redmonk</em>
+  <em>Ranking Redmonk: Eje vertical (Popularidad en StackOverflow), Eje horizontal (Proyectos en GitHub).</em>
 
 </p>
 
-<p align="center">
-  <img src="img/tiobe.jpg" alt="Ranking TIOBE">
-  <br>
-  <em>Ranking TIOBE</em>
-</p>
+
 
 ### ¿Por qué Python como primer lenguaje en Ingeniería?
 
@@ -188,24 +197,38 @@ Dado que nuestra asignatura se orienta a titulaciones de ingeniería (Biomédica
 
 4.  **Multiparadigma:** Permite empezar programando de forma imperativa (sencilla) y avanzar hacia la orientación a objetos o funcional progresivamente, sin imponer una estructura rígida desde la línea 1.
 
----
+<p align="center">
+  <img src="img/startcoding.jpg" alt="¿Qué lenguaje aprender primero?">
+  <br>
+  <em>¿Qué lenguaje aprender en primer lugar?</em>
+</p>
 
-## 3. Compiladores (El modelo C/C++)
+
+## 4. Compiladores (El modelo C/C++)
 
 Un **compilador** es un programa que traduce todo el código fuente de una sola vez a un programa equivalente en otro lenguaje (normalmente código máquina) para su posterior ejecución.
 
-> **Nota:** El compilador detecta errores en tiempo de compilación (sintaxis), pero no errores en tiempo de ejecución (lógica).
+Es importante destacar que los compiladores son **algunas de las piezas de software más complejas y fascinantes** de la informática. Su construcción requiere una **altísima capacitación**, ya que actúan como puente entre dos mundos: deben comprender la teoría matemática del lenguaje formal y, a la vez, explotar al máximo los recursos físicos del hardware.
 
-### Proceso de compilación en C++
+El compilador detecta errores en tiempo de compilación (sintaxis), pero no errores en tiempo de ejecución (lógica).
+
+### Generación del Ejecutable (El proceso de Build)
 1.  **Edición:** Se escribe el código fuente: las extensiones de los archivos típicos son `.cpp` y `.h`.
 2.  **Preprocesamiento:** Es una fase previa de *preparación* del texto. El preprocesador limpia el código eliminando las notas del autor (comentarios) e incrusta el contenido de ficheros externos necesarios (como si hiciera un *copiar y pegar* automático de las bibliotecas), dejando el código listo para traducir.
 3.  **Compilación:** Traduce el código preprocesado a **código objeto** (`.o` o `.obj`). Este código es binario pero aún no es ejecutable por sí mismo porque le faltan las conexiones con el resto del proyecto.
     > Un programa suele dividirse en **muchos archivos fuente**. En esta fase, cada archivo se traduce por separado, pero si uno necesita usar una función que está escrita en *otro* archivo, todavía no *sabe* dónde encontrarla. Esas *referencias* cruzadas están pendientes de resolver.
 4.  **Enlazado (Linker):** Une todos los archivos objeto del programador con las **bibliotecas externas** (ej. funciones matemáticas) para crear un único fichero **ejecutable** binario (`.exe`).
 
-`[INSERTAR FIGURA: Diagrama de flujo Preprocesador -> Compilador -> Enlazador]`
+**¿Qué ocurre al ejecutarlo? (El Loader)**
+Cuando un usuario ejecuta ese archivo `.exe`, un componente del sistema operativo llamado **cargador (loader)** transfiere el código y los datos del fichero binario a la memoria *RAM*, y la CPU comienza a procesar las instrucciones en código máquina que contiene.
 
-### Etapas internas del compilador
+<p align="center">
+  <img src="img/compilacion.jpg" alt="Proceso de compilación en C++">
+  <br>
+  <em>Proceso de compilación en C++</em>
+</p>
+
+### Fases de la Traducción (Interior del Compilador)
 El compilador realiza la traducción típicamente en 2 grandes fases:
 
 1.  **Fase de Análisis (Front-end):**
@@ -217,39 +240,73 @@ El compilador realiza la traducción típicamente en 2 grandes fases:
     *   **Optimización:** Fase crítica donde el compilador mejora el código (elimina código muerto, desenrolla bucles) para reducir tamaño o aumentar velocidad.
     *   Generación de código máquina específico para la arquitectura.
 
+<p align="center">
+  <img src="img/traduccion_compilador.jpg" alt="Fases de la traducción de un compilador">
+  <br>
+  <em>Fases de la traducción de un compilador</em>
+</p>
+
+#### Importancia de la Arquitectura y Retrocompatibilidad
+Dado que cada familia de CPU tiene un conjunto de instrucciones diferente (ISA), es necesario utilizar un compilador adaptado a esa arquitectura específica.
+Muchas firmas, como Intel, garantizan **retrocompatibilidad**: código escrito para sus CPU más antiguas (como la 8086 de los años 70) puede ejecutarse en sus chips modernos (arquitectura x86). Sin embargo, lo opuesto no es cierto: un ejecutable generado aprovechando las características de un chip moderno de 64 bits no funcionará en uno antiguo de 16 bits.
+
 ---
 
-## 4. Intérpretes y Máquinas Virtuales
+## 5. Intérpretes y Máquinas Virtuales
 
 ### Intérprete Puro
-A diferencia del compilador, el **intérprete** lee, traduce y ejecuta el código fuente línea a línea (o bloque a bloque) en tiempo real.
-*   No genera un ejecutable independiente.
-*   **Ventaja:** Flexibilidad, depuración rápida, tipado dinámico.
-*   **Desventaja:** Menor velocidad de ejecución (se traduce cada vez que se ejecuta).
+A diferencia del compilador, que actúa como un traductor de libros (traduce la obra entera antes de entregarla), el **intérprete** actúa como un **traductor simultáneo**: lee una instrucción, la traduce y la ejecuta al vuelo.
+
+**Ejemplo ilustrativo (Pseudocódigo / Python):**
+Imaginemos un programa con un error de sintaxis.
+```python
+a = 10
+b = 20
+print(a, b)
+c = a + / b   # <--- ¡¡ERROR DE SINTAXIS!! (Sobran operadores)
+print(c)
+```
+*   **Comportamiento Compilado:** El proceso de traducción falla antes de empezar (Compilation Error). No se genera ningún archivo ejecutable y el usuario **no ve nada** en pantalla.
+*   **Comportamiento Interpretado:** El programa arranca inmediatamente. El usuario ve por la consola los valores de `a` y `b ` y, justo depués, el programa **se estrella (crash)** al intentar ejecutar la cuarta línea.
+
+*   No genera un ejecutable independiente (como un `.exe`). Necesitas tener el intérprete instalado en la máquina para correr el código.
+*   **Ventaja:** Flexibilidad, depuración rápida, y capacidad de ejecutar código generado dinámicamente.
+*   **Desventaja:** Menor velocidad de ejecución: la CPU pierde tiempo traduciendo lo mismo una y otra vez.
 
 ### Modelo Híbrido: Máquinas Virtuales
-Muchos lenguajes modernos (Java, Python, C#) utilizan un esquema intermedio.
-1.  El código fuente se compila a un **Código Intermedio** o **Bytecode** (ej. `.class` en Java, `.pyc` en Python). Este código es universal y no depende de la CPU.
-2.  Una **Máquina Virtual (VM)** instalada en el ordenador del usuario interpreta ese Bytecode y lo traduce a código máquina nativo.
+Muchos lenguajes actuales (Java, Python, C#) buscan un punto intermedio utilizando una estrategia de *CPU Imaginaria*.
 
-`[INSERTAR FIGURA: Comparativa flujo Compilador vs Intérprete]`
+1.  **Fase de Compilación a Bytecode:**
+    El código fuente no se traduce a la ISA de la CPU real (Intel, ARM, etc.), sino que se genera un **fichero intermedio** conteniendo **Bytecode** (ej. `.class` en Java, `.pyc` en Python).
+    Este Bytecode no es más que la **ISA (Instruction Set Architecture)** de una *máquina ideal* que no existe físicamente. Es como traducir un libro de español a **Esperanto** en lugar de a 50 idiomas distintos.
+
+2.  **Fase de Ejecución (La Máquina Virtual):**
+    La **Máquina Virtual (VM)** no es hardware, sino un **programa** (software) instalado en el ordenador del usuario que actúa como ese procesador ficticio.
+    De facto, la VM funciona como un **intérprete puro** (pero sobre el bytecode, no sobre el código fuente): lee las instrucciones del archivo intermedio y las traduce a la **ISA nativa** de la máquina real (Inglés, Francés, Chino...) en tiempo real.
+    > Como ocurre con cualquier intérprete, si una instrucción de bytecode está dentro de un bucle, la VM la traducirá una y otra vez en cada iteración (salvo optimizaciones JIT), lo que implica una sobrecarga de rendimiento respecto al código nativo.
+
 
 **Ventajas de la Máquina Virtual:**
-*   **Portabilidad (WORA):** "Write Once, Run Anywhere". El mismo bytecode corre en Windows, Linux o Mac, siempre que exista la VM correspondiente.
-*   **Seguridad:** La VM actúa como una caja de arena (*sandbox*), aislando el código del hardware real.
-*   **Gestión de Memoria:** La mayoría de VMs incluyen un **Recolector de Basura (Garbage Collector)** que libera memoria automáticamente, evitando fugas de memoria comunes en C++.
+*   **Portabilidad (WORA):** *Write Once, Run Anywhere*. El mismo bytecode corre en Windows, Linux o Mac, siempre que exista la VM correspondiente. Nótese que, aunque el bytecode es universal, **el software de la VM sí es específico para cada plataforma** (por eso debes descargar una versión distinta de Java o Python si usas Windows, Mac o Linux), ya que es la pieza que lidia con el hardware real.
+*   **Seguridad:** La VM actúa como un entorno aislado (*sandbox*), protegiendo el hardware real.
+*   **Gestión de Memoria (Limpieza automática):** En lenguajes de bajo nivel (como C), la gestión de la **memoria dinámica** es manual. Si un programador solicita espacio extra durante la ejecución, es responsable de liberarlo explícitamente. Un simple olvido en este paso provoca fallos graves (*fugas de memoria*). Para evitarlo, la VM incluye un **Recolector de Basura (*Garbage Collector*)**: un "servicio de limpieza" automático que detecta qué datos ya no sirven y los borra por ti.
 
 **Compilación JIT (Just-In-Time):**
 Para mejorar el rendimiento, las VMs modernas (como la JVM de Java o V8 de JS) compilan trozos de bytecode a código nativo *mientras* el programa se ejecuta, combinando la velocidad de un compilado con la flexibilidad de un interpretado.
 
-**Ejemplos:**
-*   **Java:** Usa la JVM (Java Virtual Machine).
-*   **Python:** Usa la PVM.
-*   **.NET (C#):** Compila a CIL (Common Intermediate Language) y lo ejecuta el CLR (Common Language Runtime).
+**Ejemplos del Mundo Real:**
 
----
+*   **El Navegador Web:** Es la *máquina virtual* que más usamos. Chrome o Firefox interpretan el código de las páginas web (JavaScript/WebAssembly) para que funcionen igual en tu PC, en un Mac o en tu móvil.
+*   **Java vs Android:** Mientras que en ordenadores se usa la JVM estándar, Android utiliza su propia máquina virtual llamada **ART (Android Run Time)**. Aunque se programa en Java, el bytecode es diferente debido a temas de licencias y para optimizar el consumo de batería en móviles.
+*   **.NET (C#):** El entorno de Microsoft destaca por ser **multilenguaje**: compila alrededor de 35 lenguajes diferentes a un mismo bytecode llamado **CIL** (*Common Intermediate Language*). El lenguaje **C#** (*C Sharp*) es el más utilizado de este ecosistema y guarda muchas similitudes con Java y C++. Finalmente, un compilador JIT llamado **CLR** (*Common Language Runtime*) traduce y ejecuta ese código en la plataforma hardware definitiva.
 
-## 5. Compiladores frente a Intérpretes (Resumen)
+<p align="center">
+  <img src="img/clr.jpg" alt="clr">
+  <br>
+  <em>La Máquina Virtual multilenguaje de Microsoft</em>
+</p>
+
+## 6. Compiladores frente a Intérpretes
 
 A continuación, comparamos los enfoques principales: **Compilación Pura** (C++), **Interpretación Pura** (versiones antiguas de BASIC, Scripts de Shell) y **Enfoque Híbrido/VM** (Java, Python).
 
@@ -262,11 +319,15 @@ A continuación, comparamos los enfoques principales: **Compilación Pura** (C++
 | **Portabilidad** | Baja. Requiere recompilar para cada SO. | Alta. Solo requiere el intérprete instalado. | **Muy Alta (WORA).** Bytecode universal. |
 | **Detección Errores** | Todos los de sintaxis reportados antes de correr. | El programa se detiene al encontrar el primer error. | Errores de sintaxis al generar bytecode; lógica en ejecución. |
 
-`[INSERTAR FIGURA: Esquema árbol Compilación vs VM]`
+<p align="center">
+  <img src="img/compilador_mv.jpg" alt="clr">
+  <br>
+  <em>Compilación vs Máquina Virtual</em>
+</p>
 
----
 
-## 6. Ecosistema de Desarrollo (IDEs)
+
+## 7. Ecosistema de Desarrollo (IDEs)
 
 Programar en un simple editor de texto (como el Bloc de Notas) es posible, pero ineficiente. Los profesionales usan **IDEs (Integrated Development Environment)**, que combinan múltiples herramientas en una sola interfaz:
 
@@ -275,20 +336,16 @@ Programar en un simple editor de texto (como el Bloc de Notas) es posible, pero 
 3.  **Depurador (Debugger):** Herramienta vital que permite detener la ejecución paso a paso para inspeccionar variables y encontrar errores lógicos.
 4.  **Gestión de proyectos:** Organización de ficheros y control de versiones (Git).
 
-*Ejemplos populares:* Visual Studio Code (ligero y multipropósito), Eclipse/IntelliJ (Java), Visual Studio (C++/C#), PyCharm (Python).
+*Ejemplos populares:* Visual Studio Code (ligero y multipropósito), Eclipse/IntelliJ (Java), Visual Studio (C++/C#), PyCharm (Python), Spyder (Python)
 
----
-
-## 7. Futuro de la Programación
 
 La forma en que programamos está en constante evolución:
-*   **Asistentes de IA:** Herramientas como GitHub Copilot generan código automáticamente a partir de descripciones en lenguaje natural, cambiando el rol del programador de "escritor" a "supervisor".
+*   **Asistentes de IA:** Herramientas como GitHub Copilot generan código automáticamente a partir de descripciones en lenguaje natural, cambiando el rol del programador de *escritor* a *supervisor*.
 *   **Low-Code / No-Code:** Plataformas visuales para crear aplicaciones sin escribir código manual, democratizando el desarrollo.
 *   **Computación Cuántica:** Nuevos paradigmas y lenguajes (como Q# de Microsoft) diseñados para operar con qubits, resolviendo problemas inabordables para la informática clásica.
 
----
-
-### Bibliografía y Referencias
-*   M. Franklin. *Computer Architecture and Organization. From Software to Hardware.* Pearson 2007.
-*   Documentación oficial de C++ (cppreference.com) y Python (docs.python.org).
-*   TIOBE Index & IEEE Spectrum (Rankings de lenguajes).
+## 8. Ética y Responsabilidad en la Era de la IA
+El uso masivo de asistentes como ChatGPT o Copilot plantea importantes **desafíos éticos y académicos**:
+1.  **Integridad Académica (*Cheating*):** En la universidad, presentar código generado por IA como propio sin comprenderlo se considera **plagio** y anula el proceso de aprendizaje. Una calculadora resuelve operaciones, pero no te enseña matemáticas; la IA escribe código, pero no te enseña a razonar la lógica (*Vibecoding*).
+2.  **Responsabilidad Profesional:** Las IAs sufren **alucinaciones** (inventan código plausible pero incorrecto). En ingeniería (sanidad, automoción...), un fallo de software puede costar vidas. El ingeniero humano siempre será el **responsable legal y moral** de validar línea por línea lo que la máquina escribe.
+3.  **Dependencia:** Para supervisar eficazmente a una IA, primero hay que ser un experto. Si delegas el aprendizaje básico, nunca tendrás criterio para corregir a tu asistente.
