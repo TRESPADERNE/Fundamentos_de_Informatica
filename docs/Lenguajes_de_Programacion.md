@@ -51,6 +51,7 @@ El concepto de **abstracción** en informática se refiere a la capacidad de ocu
 
 
 Básicamente se pueden establecer tres niveles de abstracción:
+
 1.  **Lenguaje máquina** (Bajo nivel)
 2.  **Lenguaje ensamblador** (Bajo nivel)
 3.  **Lenguajes de Alto nivel**
@@ -78,6 +79,7 @@ Emplea palabras nemotécnicas (abreviaturas) para hacer referencia a las instruc
 
 
 En este ejemplo, la instrucción binaria se compone de 3 partes que el hardware decodifica:
+
 1.  **Código de operación (5 primeros bits):** La secuencia `10110` ordena **mover** (*MOV*) un dato a un registro.
     > *Nota:* Un **registro** es una posición de memoria ultrarrápida situada *dentro* de la propia CPU.
 2.  **Registro destino (3 siguientes bits):** El código `000` corresponde al registro interno denominado **AL**.
@@ -92,6 +94,7 @@ El programa escrito en lenguaje ensamblador (**Programa Fuente**) debe ser tradu
 
 
 **Características clave:**
+
 *   **Traducción directa:** Generalmente existe una correspondencia 1 a 1 entre instrucción ensamblador y máquina.
 *   **Dependencia:** ¡Cada familia de CPU's tiene su propio lenguaje ensamblador!
 
@@ -138,6 +141,7 @@ Un paradigma de programación describe una forma de realizar los cálculos y la 
 
 
 A menudo, el panorama actual se percibe como una ***jungla* de lenguajes**.
+
 *   Existen miles de lenguajes (se estima que hay más de 9.000 creados históricamente).
 *   Para un alumno novel, enfrentarse a esta imagen provoca la parálisis de la elección: *¿Por cuál empiezo? ¿Cuál es el *mejor*?*
 *   **La realidad:** No todos tienen la misma importancia. Muchos son académicos, otros están obsoletos (como el latín) y otros son de nicho muy específico.
@@ -199,6 +203,7 @@ Es importante destacar que los compiladores son **algunas de las piezas de softw
 El compilador detecta errores en tiempo de compilación (sintaxis), pero no errores en tiempo de ejecución (lógica).
 
 ### Generación del Ejecutable (El proceso de Build)
+
 1.  **Edición:** Se escribe el código fuente: las extensiones de los archivos típicos son `.cpp` y `.h`.
 2.  **Preprocesamiento:** Es una fase previa de *preparación* del texto. El preprocesador limpia el código eliminando las notas del autor (comentarios) e incrusta el contenido de ficheros externos necesarios (como si hiciera un *copiar y pegar* automático de las bibliotecas), dejando el código listo para traducir.
 3.  **Compilación:** Traduce el código preprocesado a **código objeto** (`.o` o `.obj`). Este código es binario pero aún no es ejecutable por sí mismo porque le faltan las conexiones con el resto del proyecto.
@@ -223,6 +228,8 @@ El compilador realiza la traducción típicamente en 2 grandes fases:
     *   **Optimización:** Fase crítica donde el compilador mejora el código (elimina código muerto, desenrolla bucles) para reducir tamaño o aumentar velocidad.
     *   Generación de código máquina específico para la arquitectura.
 
+**Tabla de Símbolos:** Durante todo este proceso, el compilador mantiene una estructura de datos llamada **Tabla de Símbolos**. Esta actúa como una base de datos centralizada donde se registra información sobre cada identificador encontrado (variables, funciones, tipos), permitiendo verificar, por ejemplo, que no usemos una variable que no ha sido declarada previamente.
+
 ![Fases de la traducción de un compilador](img/traduccion_compilador.jpg){: style="display: block; margin: 0 auto" }
 <center><em>Fases de la traducción de un compilador</em></center>
 
@@ -246,6 +253,7 @@ print(a, b)
 c = a + / b   # <--- ¡¡ERROR DE SINTAXIS!! (Sobran operadores)
 print(c)
 ```
+
 *   **Comportamiento Compilado:** El proceso de traducción falla antes de empezar (Compilation Error). No se genera ningún archivo ejecutable y el usuario **no ve nada** en pantalla.
 *   **Comportamiento Interpretado:** El programa arranca inmediatamente. El usuario ve por la consola los valores de `a` y `b ` y, justo depués, el programa **se estrella (crash)** al intentar ejecutar la cuarta línea.
 
@@ -267,6 +275,7 @@ Muchos lenguajes actuales (Java, Python, C#) buscan un punto intermedio utilizan
 
 
 **Ventajas de la Máquina Virtual:**
+
 *   **Portabilidad (WORA):** *Write Once, Run Anywhere*. El mismo bytecode corre en Windows, Linux o Mac, siempre que exista la VM correspondiente. Nótese que, aunque el bytecode es universal, **el software de la VM sí es específico para cada plataforma** (por eso debes descargar una versión distinta de Java o Python si usas Windows, Mac o Linux), ya que es la pieza que lidia con el hardware real.
 *   **Seguridad:** La VM actúa como un entorno aislado (*sandbox*), protegiendo el hardware real.
 *   **Gestión de Memoria (Limpieza automática):** En lenguajes de bajo nivel (como C), la gestión de la **memoria dinámica** es manual. Si un programador solicita espacio extra durante la ejecución, es responsable de liberarlo explícitamente. Un simple olvido en este paso provoca fallos graves (*fugas de memoria*). Para evitarlo, la VM incluye un **Recolector de Basura (*Garbage Collector*)**: un "servicio de limpieza" automático que detecta qué datos ya no sirven y los borra por ti.
@@ -322,6 +331,7 @@ La forma en que programamos está en constante evolución:
 
 ## 8. Ética y Responsabilidad en la Era de la IA
 El uso masivo de asistentes como ChatGPT o Copilot plantea importantes **desafíos éticos y académicos**:
+
 1.  **Integridad Académica (*Cheating*):** En la universidad, presentar código generado por IA como propio sin comprenderlo se considera **plagio** y anula el proceso de aprendizaje. Una calculadora resuelve operaciones, pero no te enseña matemáticas; la IA escribe código, pero no te enseña a razonar la lógica (*Vibecoding*).
 2.  **Responsabilidad Profesional:** Las IAs sufren **alucinaciones** (inventan código plausible pero incorrecto). En ingeniería (sanidad, automoción...), un fallo de software puede costar vidas. El ingeniero humano siempre será el **responsable legal y moral** de validar línea por línea lo que la máquina escribe.
 3.  **Dependencia:** Para supervisar eficazmente a una IA, primero hay que ser un experto. Si delegas el aprendizaje básico, nunca tendrás criterio para corregir a tu asistente.
