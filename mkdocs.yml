@@ -42,15 +42,22 @@ markdown_extensions:
   - pymdownx.snippets: # Para incluir ficheros comunes
       base_path: docs
   - toc:
-      slugify: !!python/name:pymdownx.slugs.uslugify
+      slugify: !!python/name:markdown.extensions.toc.slugify_unicode
 
 nav:
   - Inicio: index.md
-  - Lenguajes de Programación: Lenguajes_de_Programacion.md
-  - Web UVa: https://www.uva.es
-  - Web ISA: http://www.isa.uva.es
+  - Lenguajes de Programación: Lenguajes_de_programacion.md
+  - Representación de la Información: Representacion_de_la_informacion.md
 
 extra_javascript:
   - javascripts/mathjax.js
   - javascripts/print_button.js # Script para botón de imprimir
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+extra_css:
+  - stylesheets/extra.css  # Ajusta la ruta si tu archivo se llama distinto
+
+plugins:
+  - search
+  - print-site:
+      add_to_navigation: true

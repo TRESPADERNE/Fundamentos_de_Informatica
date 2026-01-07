@@ -114,6 +114,7 @@ Estos lenguajes buscan acercarse a la forma de pensar humana y alejarse del deta
         > Ejemplo: `x = 3` (Python infiere que `x` es un entero por el valor asignado, sin necesidad de declararlo).
 
 **Ejemplo Comparativo: `"Hola Mundo"`**
+
 Para visualizar la diferencia de abstracción, veamos cómo se imprime un mensaje en pantalla en distintos niveles:
 
 | Nivel | Código Ejemplo |
@@ -130,7 +131,8 @@ Un paradigma de programación describe una forma de realizar los cálculos y la 
 *   Entre los diferentes tipos de paradigmas, una división básica es dividirlos en **imperativos** (se detalla *cómo* se realizan los cálculos) y **declarativos** (se indica *qué* cálculos deben realizarse).
 *   Otros paradigmas se centran en la estructura y organización: programación **estructurada**, **modular**, **orientada a objetos**, genérica, orientada a eventos, concurrente...
 
-> **Nota:** La mejor forma de entender un paradigma es aprender un lenguaje de programación que implemente ese paradigma, por lo que no entraremos en más detalles.
+!!! note Nota
+    La mejor forma de entender un paradigma es aprender un lenguaje de programación que lo implemente, por lo que no entraremos en más detalles.
 
 ![Paradigmas de Programación](img/paradigmas.jpg){: style="display: block; margin: 0 auto" }
 <center><em>Clasificación de los paradigmas de programación.</em></center>
@@ -204,7 +206,7 @@ El compilador detecta errores en tiempo de compilación (sintaxis), pero no erro
 
 ### Generación del Ejecutable (El proceso de Build)
 
-1.  **Edición:** Se escribe el código fuente: las extensiones de los archivos típicos son `.cpp` y `.h`.
+1.  **Edición:** Se escribe el código fuente: las extensiones habituales de los archivos son `.cpp` y `.h`.
 2.  **Preprocesamiento:** Es una fase previa de *preparación* del texto. El **preprocesador** limpia el código eliminando las notas del autor (comentarios) e incrusta el contenido de ficheros externos necesarios (como si hiciera un *copiar y pegar* automático de las bibliotecas), dejando el código listo para traducir.
 3.  **Compilación:** Traduce el código preprocesado a **código objeto** (`.o` o `.obj`). Este código es binario pero aún no es ejecutable por sí mismo porque le faltan las conexiones con el resto del proyecto.
     > Un programa suele dividirse en **muchos archivos fuente**. En esta fase, cada archivo se traduce por separado, pero si uno necesita usar una función que está escrita en *otro* archivo, todavía no *sabe* dónde encontrarla. Esas *referencias* cruzadas están pendientes de resolver.

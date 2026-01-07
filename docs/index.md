@@ -5,16 +5,12 @@ hide:
   - toc
 ---
 
-# Fundamentos de Informática
-**Grado en Ingeniería Biomédica**
-*Departamento de Ingeniería de Sistemas y Automática. EII. Universidad de Valladolid*
+# Grado en Ingeniería Biomédica
+## Departamento de Ingeniería de Sistemas y Automática. EII. Universidad de Valladolid
 
 ---
 
-Bienvenido a la página de apuntes de la asignatura. A continuación encontrarás el índice de los temas disponibles.
+### Fundamentos de Informática
 
-## Índice de Temas
-
-### Bloque I: Introducción
-*   [**Tema 1: Lenguajes de Programación**](Lenguajes_de_Programacion.md)
-    *   *Conceptos básicos, clasificación, compiladores vs intérpretes.*
+*   [**Tema 1: Lenguajes de Programación**](Lenguajes_de_programacion.md)
+*   [**Tema 2: Representación de la Información**](Representacion_de_la_informacion.md)
