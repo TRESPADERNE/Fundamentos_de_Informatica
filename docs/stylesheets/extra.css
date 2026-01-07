@@ -1,5 +1,40 @@
+/* 1. Quitamos el fondo rojo de prueba */
+body {
+    background-color: transparent !important;
+    border-top: none !important;
+}
+
+/* 2. Ajustamos las notas al tamaño estándar de Material (0.8rem) */
+:root {
+  --md-admonition-font-size: 0.8rem !important;
+}
+
+.md-typeset .admonition, 
+.md-typeset details.admonition {
+    font-size: 0.8rem !important;
+}
+
+/* El título un pelín más negrita para que destaque, pero al mismo tamaño */
+.md-typeset .admonition-title, 
+.md-typeset summary {
+    font-size: 0.8rem !important;
+    font-weight: 700 !important;
+}
+
+/* Forzamos el texto interno */
+.md-typeset .admonition > .admonition-content,
+.md-typeset .admonition p,
+.md-typeset details.admonition p {
+    font-size: 0.8rem !important;
+    line-height: 1.6 !important; /* Altura de línea estándar */
+}
+
+
+/* ==========================================
+   2. TU CONFIGURACIÓN DE IMPRESIÓN (MANTENIDA)
+   ========================================== */
 @media print {
-  /* 1. LIMPIEZA DE INTERFAZ (Vital para que no se vea pixelado) */
+  /* Limpieza de interfaz */
   header, footer, nav, .md-sidebar, .md-header, .md-footer, .md-nav, .md-search, .md-top, .md-content__button {
     display: none !important;
   }
@@ -12,38 +47,38 @@
     display: block !important;
   }
 
-  /* 2. CÓDIGO EN BLOQUE (El grande, como el de Python) */
+  /* Código en bloque */
   pre, .highlight, .highlight pre {
     background-color: #f8f8f8 !important;
     color: #000 !important;
     font-family: "Courier New", monospace !important;
     font-size: 9pt !important;
-    white-space: pre-wrap !important; /* Salto solo si la línea es muy larga */
+    white-space: pre-wrap !important;
     word-break: normal !important;
     border: 0.5pt solid #ddd !important;
-    display: block !important; /* Este sí es un bloque */
+    display: block !important;
     padding: 10pt !important;
     margin: 1em 0 !important;
   }
 
-  /* 3. CÓDIGO EN LÍNEA (Como `x=3` dentro de una frase) */
-  /* IMPORTANTE: Aquí NO debe haber saltos de línea */
+  /* Código en línea */
   p code, li code {
-    display: inline !important; /* ESTO ARREGLA TU PROBLEMA */
+    display: inline !important;
     background-color: #f0f0f0 !important;
     padding: 2px 4px !important;
     font-family: "Courier New", monospace !important;
     font-size: 10pt !important;
     border-radius: 3px !important;
-    white-space: nowrap !important; /* Evita que x=3 se parta en dos */
+    white-space: nowrap !important;
   }
 
-  /* 4. ADMONITIONS (Note y Warning) */
+  /* Admonitions en impresión */
   .admonition {
     border: 1px solid #999 !important;
     margin: 1.5em 0 !important;
     page-break-inside: avoid !important;
     display: block !important;
+    font-size: 11pt !important; /* Tamaño para el PDF */
   }
 
   .admonition-title {
@@ -55,7 +90,7 @@
   }
 
   .admonition-title::before, .admonition-title::after {
-    display: none !important; /* Fuera iconos que se desplazan */
+    display: none !important;
   }
 
   /* Colores nítidos para PDF */
@@ -64,7 +99,7 @@
   .admonition.warning { border-left: 6pt solid #e67e00 !important; }
   .admonition.warning > .admonition-title { background-color: #fff8f0 !important; }
 
-  /* 5. TEXTO GENERAL */
+  /* Texto general */
   body, .md-typeset, p, li {
     font-family: Arial, sans-serif !important;
     font-size: 11pt !important;
