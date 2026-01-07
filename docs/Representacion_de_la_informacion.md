@@ -73,8 +73,8 @@ Es un error común pensar que los bits suman capacidad linealmente. En realidad,
 
 
 **Problema inverso:** Si necesito codificar $m$ valores, ¿cuál es el número mínimo $n$ de bits necesarios?
-$$ n = \lceil \log_2 m \rceil $$
-*(Donde $\lceil \dots \rceil$ significa redondear hacia el entero superior)*
+
+$$ n = \lceil \log_2 m \rceil \quad \longrightarrow \quad \text{Tomamos el entero más próximo por exceso} $$
 
 !!! example "Ejemplo de cálculo de bits"
     Tenemos un almacén con **17524** contenedores y queremos identificarlos con una etiqueta binaria única.
@@ -113,6 +113,7 @@ Cada posición $i$ tiene un **peso** asignado que es una potencia de la base ($b
 Para traducir cualquier número a nuestro sistema decimal, simplemente sumamos cada dígito multiplicado por su peso. Esto se formaliza mediante el **polinomio equivalente**:
 
 $$ N = \sum_{i=-k}^{n-1} d_i \cdot b^i $$
+
 $$ N = d_{n-1}b^{n-1} + \dots + d_1 b^1 + d_0 b^0 + d_{-1} b^{-1} + \dots + d_{-k} b^{-k} $$
 
 donde:
