@@ -31,8 +31,8 @@ Un Lenguaje de Programación es un conjunto de **símbolos y reglas** con los qu
 
 **Diferencia clave entre Sintaxis y Semántica:**
 
-*   *Ejemplo en lenguaje natural:* La frase **"La silla come manzanas"* es **sintácticamente correcta** (Sujeto + Verbo + Predicado), pero **semánticamente incorrecta** (carece de sentido lógico).
-*   *Ejemplo en programación (Python):* La insltrucción `resultado = "Hola" / 2` es **sintácticamente correcta** (estructura válida: variable = valor / valor), pero **semánticamente errónea** (no tiene sentido lógico ni matemático dividir un texto (`"Hola"`) entre un número (`2`).
+*   *Ejemplo en lenguaje natural:* La frase *"La silla come manzanas"* es **sintácticamente correcta** (Sujeto + Verbo + Predicado), pero **semánticamente incorrecta** (carece de sentido lógico).
+*   *Ejemplo en programación (Python):* La instrucción `resultado = "Hola" / 2` es **sintácticamente correcta** (estructura válida: variable = valor / valor), pero **semánticamente errónea** (no tiene sentido lógico ni matemático dividir un texto (`"Hola"`) entre un número (`2`).
 
 ### Comparativa: Lenguaje Natural vs. Programación
 
@@ -108,12 +108,12 @@ Estos lenguajes buscan acercarse a la forma de pensar humana y alejarse del deta
 *   **Legibilidad y Edición:** Se escriben como **texto plano** (usando palabras en inglés como `if`, `while`) y permiten el uso de **comentarios** para explicar el código a otros humanos.
 *   **Necesidad de Traducción:** Para poder ejecutarse, necesitan ser traducidos al lenguaje del procesador mediante **Compiladores** o **Intérpretes**.
 *   **Tipado:**
-    *   *Estático (C++, Java):* El tipo de dato debe definirse explícitamente antes de compilar.
+    *   **Estático** (C++, Java): El tipo de dato debe definirse explícitamente antes de compilar.
         > Ejemplo: `int x = 3;` (El programador obliga a que `x` sea un número entero).
-    *   *Dinámico (Python, JS):* El tipo se deduce automáticamente durante la ejecución.
+    *   **Dinámico** (Python, JS): El tipo se deduce automáticamente durante la ejecución.
         > Ejemplo: `x = 3` (Python infiere que `x` es un entero por el valor asignado, sin necesidad de declararlo).
 
-##### Ejemplo Comparativo: "Hola Mundo"
+**Ejemplo Comparativo: `"Hola Mundo"`**
 Para visualizar la diferencia de abstracción, veamos cómo se imprime un mensaje en pantalla en distintos niveles:
 
 | Nivel | Código Ejemplo |
@@ -130,7 +130,7 @@ Un paradigma de programación describe una forma de realizar los cálculos y la 
 *   Entre los diferentes tipos de paradigmas, una división básica es dividirlos en **imperativos** (se detalla *cómo* se realizan los cálculos) y **declarativos** (se indica *qué* cálculos deben realizarse).
 *   Otros paradigmas se centran en la estructura y organización: programación **estructurada**, **modular**, **orientada a objetos**, genérica, orientada a eventos, concurrente...
 
-> **Nota:** La mejor forma de entender un paradigma es aprender un lenguaje de programación que implemente ese paradigma, por lo que no entraremos por el momento en más detalles.
+> **Nota:** La mejor forma de entender un paradigma es aprender un lenguaje de programación que implemente ese paradigma, por lo que no entraremos en más detalles.
 
 ![Paradigmas de Programación](img/paradigmas.jpg){: style="display: block; margin: 0 auto" }
 <center><em>Clasificación de los paradigmas de programación.</em></center>
@@ -165,7 +165,7 @@ Dado el enorme número de lenguajes existentes, la industria se guía por índic
 !!! warning El declive de Stack Overflow y la era de la IA
     **Stack Overflow** ha sido la página web de referencia absoluta para resolver dudas de programación durante más de una década. Sin embargo, su tráfico e interacción han sufrido una caída significativa con el advenimiento de asistentes de IA generativa (como **ChatGPT** o **GitHub Copilot**).
 
-    Al obtener respuestas inmediatas y código generado a medida por la IA, muchos desarrolladores ya no acuden a postear sus dudas en la comunidad. Esto plantea la incógnita de si rankings como RedMonk, que dependen de estos datos, seguirán siendo fiables en el futuro cercano.
+    Al obtener respuestas inmediatas y código generado a medida por la IA, muchos desarrolladores ya no acuden a publicar sus dudas en la comunidad. Esto plantea la incógnita de si rankings como RedMonk, que dependen de estos datos, seguirán siendo fiables en el futuro cercano.
 
 ![Ranking TIOBE](img/tiobe.jpg){: style="display: block; margin: 0 auto" }
 <center><em>Ranking TIOBE: Evolución histórica de la popularidad.</em></center>
@@ -177,7 +177,7 @@ Dado el enorme número de lenguajes existentes, la industria se guía por índic
 
 ### ¿Por qué Python como primer lenguaje en Ingeniería?
 
-Dado que nuestra asignatura se orienta a titulaciones de ingeniería (Biomédica, Electrónica, Mecánica, Química...), la elección de Python como primer lenguaje no es arbitraria y se justifica por varios motivos técnicos y prácticos frente a opciones clásicas como C o C++:
+Dado que nuestra asignatura se orienta a titulaciones de ingeniería (Biomédica, Electrónica, Mecánica, Química, etc.), la elección de Python como primer lenguaje no es arbitraria y se justifica por varios motivos técnicos y prácticos frente a opciones clásicas como C o C++:
 
 1.  **Foco en la resolución del problema:** En ingeniería, la programación es una herramienta para resolver problemas (filtrar una señal fisiológica, simular una estructura mecánica, analizar datos químicos), no un fin en sí mismo. La sintaxis de Python es limpia y legible (cercana al pseudocódigo), lo que reduce la **carga cognitiva**: el alumno dedica su esfuerzo mental a entender el algoritmo, no a pelear con llaves, puntos y comas o gestión de memoria manual.
 
@@ -205,7 +205,7 @@ El compilador detecta errores en tiempo de compilación (sintaxis), pero no erro
 ### Generación del Ejecutable (El proceso de Build)
 
 1.  **Edición:** Se escribe el código fuente: las extensiones de los archivos típicos son `.cpp` y `.h`.
-2.  **Preprocesamiento:** Es una fase previa de *preparación* del texto. El preprocesador limpia el código eliminando las notas del autor (comentarios) e incrusta el contenido de ficheros externos necesarios (como si hiciera un *copiar y pegar* automático de las bibliotecas), dejando el código listo para traducir.
+2.  **Preprocesamiento:** Es una fase previa de *preparación* del texto. El **preprocesador** limpia el código eliminando las notas del autor (comentarios) e incrusta el contenido de ficheros externos necesarios (como si hiciera un *copiar y pegar* automático de las bibliotecas), dejando el código listo para traducir.
 3.  **Compilación:** Traduce el código preprocesado a **código objeto** (`.o` o `.obj`). Este código es binario pero aún no es ejecutable por sí mismo porque le faltan las conexiones con el resto del proyecto.
     > Un programa suele dividirse en **muchos archivos fuente**. En esta fase, cada archivo se traduce por separado, pero si uno necesita usar una función que está escrita en *otro* archivo, todavía no *sabe* dónde encontrarla. Esas *referencias* cruzadas están pendientes de resolver.
 4.  **Enlazado (Linker):** Une todos los archivos objeto del programador con las **bibliotecas externas** (ej. funciones matemáticas) para crear un único fichero **ejecutable** binario (`.exe`).
@@ -255,7 +255,7 @@ print(c)
 ```
 
 *   **Comportamiento Compilado:** El proceso de traducción falla antes de empezar (Compilation Error). No se genera ningún archivo ejecutable y el usuario **no ve nada** en pantalla.
-*   **Comportamiento Interpretado:** El programa arranca inmediatamente. El usuario ve por la consola los valores de `a` y `b ` y, justo depués, el programa **se estrella (crash)** al intentar ejecutar la cuarta línea.
+*   **Comportamiento Interpretado:** El programa arranca inmediatamente. El usuario ve por la consola los valores de `a` y `b ` y, justo después, el programa **se estrella (crash)** al intentar ejecutar la cuarta línea.
 
 *   No genera un ejecutable independiente (como un `.exe`). Necesitas tener el intérprete instalado en la máquina para correr el código.
 *   **Ventaja:** Flexibilidad, depuración rápida, y capacidad de ejecutar código generado dinámicamente.
@@ -326,7 +326,7 @@ La forma en que programamos está en constante evolución:
 
 *   **Asistentes de IA:** Herramientas como GitHub Copilot generan código automáticamente a partir de descripciones en lenguaje natural, cambiando el rol del programador de *escritor* a *supervisor*.
 *   **Low-Code / No-Code:** Plataformas visuales para crear aplicaciones sin escribir código manual, democratizando el desarrollo.
-*   **Computación Cuántica:** Nuevos paradigmas y lenguajes (como Q# de Microsoft) diseñados para operar con qubits, resolviendo problemas inabordables para la informática clásica.
+*   **Computación Cuántica:** Nuevos paradigmas y lenguajes (como Q# de Microsoft) diseñados para operar con **qubits** (bits cuánticos). Aunque su funcionamiento queda fuera del alcance de esta asignatura, esta tecnología promete resolver problemas hoy inabordables para la informática clásica.
 
 
 ## 8. Ética y Responsabilidad en la Era de la IA
