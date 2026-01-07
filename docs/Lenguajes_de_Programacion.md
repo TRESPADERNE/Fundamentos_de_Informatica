@@ -30,6 +30,7 @@ Un Lenguaje de Programación es un conjunto de **símbolos y reglas** con los qu
 3.  **Semántica:** Reglas que establecen el significado o comportamiento de dichas instrucciones.
 
 **Diferencia clave entre Sintaxis y Semántica:**
+
 *   *Ejemplo en lenguaje natural:* La frase **"La silla come manzanas"* es **sintácticamente correcta** (Sujeto + Verbo + Predicado), pero **semánticamente incorrecta** (carece de sentido lógico).
 *   *Ejemplo en programación (Python):* La insltrucción `resultado = "Hola" / 2` es **sintácticamente correcta** (estructura válida: variable = valor / valor), pero **semánticamente errónea** (no tiene sentido lógico ni matemático dividir un texto (`"Hola"`) entre un número (`2`).
 
@@ -47,6 +48,7 @@ Un Lenguaje de Programación es un conjunto de **símbolos y reglas** con los qu
 ## 2. Niveles de Abstracción
 
 El concepto de **abstracción** en informática se refiere a la capacidad de ocultar la complejidad interna del hardware para facilitar la programación. Cuanto mayor es el nivel de abstracción de un lenguaje, más nos alejamos de los detalles físicos de la máquina (transistores, registros, direcciones de memoria) para centrarnos en la lógica del problema a resolver (fórmulas, objetos, datos).
+
 
 Básicamente se pueden establecer tres niveles de abstracción:
 1.  **Lenguaje máquina** (Bajo nivel)
@@ -74,6 +76,7 @@ Emplea palabras nemotécnicas (abreviaturas) para hacer referencia a las instruc
 | :--- | :--- |
 | `10110000 01100001` | `MOV AL, 61h` |
 
+
 En este ejemplo, la instrucción binaria se compone de 3 partes que el hardware decodifica:
 1.  **Código de operación (5 primeros bits):** La secuencia `10110` ordena **mover** (*MOV*) un dato a un registro.
     > *Nota:* Un **registro** es una posición de memoria ultrarrápida situada *dentro* de la propia CPU.
@@ -86,6 +89,7 @@ El lenguaje ensamblador permite escribir `MOV AL, 61h` en lugar de la cadena de 
 El programa escrito en lenguaje ensamblador (**Programa Fuente**) debe ser traducido a lenguaje de máquina (**Programa Objeto**), ya que el procesador solo entiende 0s y 1s. Esta tarea la realiza una herramienta llamada **Ensamblador**.
 
 `[Programa Fuente] --> [Ensamblador] --> [Programa Objeto]`
+
 
 **Características clave:**
 *   **Traducción directa:** Generalmente existe una correspondencia 1 a 1 entre instrucción ensamblador y máquina.
@@ -131,6 +135,7 @@ Un paradigma de programación describe una forma de realizar los cálculos y la 
 ---
 
 ### La *jungla* de los lenguajes
+
 
 A menudo, el panorama actual se percibe como una ***jungla* de lenguajes**.
 *   Existen miles de lenguajes (se estima que hay más de 9.000 creados históricamente).
@@ -309,9 +314,11 @@ Programar en un simple editor de texto (como el Bloc de Notas) es posible, pero 
 
 
 La forma en que programamos está en constante evolución:
+
 *   **Asistentes de IA:** Herramientas como GitHub Copilot generan código automáticamente a partir de descripciones en lenguaje natural, cambiando el rol del programador de *escritor* a *supervisor*.
 *   **Low-Code / No-Code:** Plataformas visuales para crear aplicaciones sin escribir código manual, democratizando el desarrollo.
 *   **Computación Cuántica:** Nuevos paradigmas y lenguajes (como Q# de Microsoft) diseñados para operar con qubits, resolviendo problemas inabordables para la informática clásica.
+
 
 ## 8. Ética y Responsabilidad en la Era de la IA
 El uso masivo de asistentes como ChatGPT o Copilot plantea importantes **desafíos éticos y académicos**:
