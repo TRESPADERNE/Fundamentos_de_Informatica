@@ -131,7 +131,7 @@ Un paradigma de programación describe una forma de realizar los cálculos y la 
 *   Entre los diferentes tipos de paradigmas, una división básica es dividirlos en **imperativos** (se detalla *cómo* se realizan los cálculos) y **declarativos** (se indica *qué* cálculos deben realizarse).
 *   Otros paradigmas se centran en la estructura y organización: programación **estructurada**, **modular**, **orientada a objetos**, genérica, orientada a eventos, concurrente...
 
-!!! note Nota
+!!! note "Nota"
     La mejor forma de entender un paradigma es aprender un lenguaje de programación que lo implemente, por lo que no entraremos en más detalles.
 
 ![Paradigmas de Programación](img/paradigmas.jpg){: style="display: block; margin: 0 auto" }
@@ -164,7 +164,7 @@ Dado el enorme número de lenguajes existentes, la industria se guía por índic
 1.  **Índice TIOBE:** Se basa en el número de resultados en motores de búsqueda. Es un buen indicador de *de qué se está hablando* o *qué se está buscando aprender*.
 2.  **Ranking RedMonk:** Cruza datos de **GitHub** (cantidad de código escrito) y **Stack Overflow** (cantidad de preguntas técnicas). Es un indicador más preciso de *qué se está usando realmente en proyectos*.
 
-!!! warning El declive de Stack Overflow y la era de la IA
+!!! warning "El declive de Stack Overflow y la era de la IA"
     **Stack Overflow** ha sido la página web de referencia absoluta para resolver dudas de programación durante más de una década. Sin embargo, su tráfico e interacción han sufrido una caída significativa con el advenimiento de asistentes de IA generativa (como **ChatGPT** o **GitHub Copilot**).
 
     Al obtener respuestas inmediatas y código generado a medida por la IA, muchos desarrolladores ya no acuden a publicar sus dudas en la comunidad. Esto plantea la incógnita de si rankings como RedMonk, que dependen de estos datos, seguirán siendo fiables en el futuro cercano.

@@ -76,7 +76,7 @@ Es un error común pensar que los bits suman capacidad linealmente. En realidad,
 
 $$ n = \lceil \log_2 m \rceil \quad \longrightarrow \quad \text{Tomamos el entero más próximo por exceso} $$
 
-!!! example "Ejemplo de cálculo de bits"
+!!! example "Ejemplo de cálculo de bits necesarios"
     Tenemos un almacén con **17524** contenedores y queremos identificarlos con una etiqueta binaria única.
 
     $$ \log_2 17524 \approx 14.097 $$
@@ -123,9 +123,11 @@ donde:
 *   $i$: Es el índice de la posición ($i=0$ es la primera posición entera).
 
 
-!!! example Ejemplo: Hexadecimal a Decimal
+!!! example "Ejemplo: Hexadecimal a Decimal"
     Valor del número $3F.D_{16}$:
+
     $$ 3 \cdot 16^1 + 15 \cdot 16^0 + 13 \cdot 16^{-1} = 48 + 15 + 0.8125 = 63.8125_{10} $$
+
     *(Nota: F=15, D=13)*
 
 ### Conversión de Decimal a Base $b$
@@ -147,7 +149,7 @@ Tomamos la parte decimal pura (0.xxxx) y la **multiplicamos** por la base destin
 *   El proceso se repite tomando solo la parte decimal restante del resultado anterior.
 *   En este caso, los dígitos se leen en **orden directo** (en el orden en que aparecen).
 
-!!! example Ejemplo Completo: 35.625 a Binario
+!!! example "Ejemplo Completo: 35.625 a Binario"
     **Paso 1: Parte Entera (35)**
 
     *   $35 / 2 = 17$, Resto **1** (Este es el último bit, LSB)
@@ -156,7 +158,7 @@ Tomamos la parte decimal pura (0.xxxx) y la **multiplicamos** por la base destin
     *   $4 / 2 = 2$, Resto **0**
     *   $2 / 2 = 1$, Resto **0**
     *   $1 / 2 = 0$, Resto **1** (Este es el primer bit, MSB)
-    
+
     $\rightarrow$ Leemos de abajo hacia arriba: **$100011_2$**
 
     **Paso 2: Parte Fraccionaria (0.625)**
@@ -164,7 +166,7 @@ Tomamos la parte decimal pura (0.xxxx) y la **multiplicamos** por la base destin
     *   $0.625 \times 2 = \mathbf{1}.25 \rightarrow$ Guardo el **1**, me quedo con $0.25$
     *   $0.25 \times 2 = \mathbf{0}.5 \rightarrow$ Guardo el **0**, me quedo con $0.5$
     *   $0.5 \times 2 = \mathbf{1}.0 \rightarrow$ Guardo el **1**, me queda $0.0$ (Fin)
-    
+
     $\rightarrow$ Leemos de arriba hacia abajo: **$.101_2$**
 
     **Resultado Final:** $35.625_{10} = 100011.101_2$
@@ -173,7 +175,7 @@ Tomamos la parte decimal pura (0.xxxx) y la **multiplicamos** por la base destin
 En la parte fraccionaria, la conversión a menudo no es exacta, resultando en números periódicos infinitos (al igual que $1/3$ es $0.333...$ en decimal).
     
 
-!!! example Ejemplo con error de truncamiento
+!!! example "Ejemplo con error de truncamiento"
     Por ejemplo, el simple valor $0.1_{10}$ en binario es una fracción periódica: $0.0001100110011...$
     
     Dado que el ordenador tiene un número finito de bits para guardar el número, está obligado a **cortar (truncar)** la secuencia en algún punto. Esto implica que el ordenador casi nunca guarda *exactamente* el número real que escribimos, sino una aproximación muy cercana.
@@ -213,8 +215,10 @@ La conversión es directa y visual, ya que cada dígito en estas bases correspon
     *(Nota: Los ceros de relleno son cruciales. Si en la parte fraccionaria hubiéramos tomado `1` como `0001` (1) en vez de `1000` (8), el error sería enorme)*
 
 Convertir directamente de Octal a Hexadecimal o viceversa es simple si se usa como estrategia el **Binario como puente**:
-    $$\text{Octal} \xrightarrow{\text{expandir a 3 bits}} \text{Binario} \xrightarrow{\text{agrupar de 4 bits}} \text{Hexadecimal}$$
-    $$\text{Hexadecimal} \xrightarrow{\text{expandir a 4 bits}} \text{Binario} \xrightarrow{\text{agrupar de 3 bits}} \text{Octal}$$
+
+$$ \text{Octal} \xrightarrow{\text{expandir a 3 bits}} \text{Binario} \xrightarrow{\text{agrupar de 4 bits}} \text{Hexadecimal} $$
+
+$$ \text{Hexadecimal} \xrightarrow{\text{expandir a 4 bits}} \text{Binario} \xrightarrow{\text{agrupar de 3 bits}} \text{Octal} $$
 
 
 ## 3. Representación de Números Enteros
@@ -260,7 +264,7 @@ Es la forma más intuitiva para los humanos de representar números negativos. C
 
 **Rango de Representación:** $[-(2^{n-1} - 1), \quad +(2^{n-1} - 1)]$
 
-!!! example Representar en *Signo y Magnitud* -47 con 8 bits
+!!! example "Representar en *Signo y Magnitud* -47 con 8 bits"
     Queremos codificar el número decimal **$-47_{10}$**.
     
     1.  **Bit de Signo:** Como es negativo, el bit más a la izquierda (MSB) es **`1`**.
@@ -293,12 +297,13 @@ El complemento a la base $b$ de un número positivo $X$ codificado con $n$ cifra
 Lo más interesante del C2 es que el bit de signo (MSB, posición $n-1$) no es solo una etiqueta, sino que tiene **valor matemático**. Su peso es igual a la potencia correspondiente pero con **signo negativo**.
 
 $$ N = -d_{n-1} \cdot 2^{n-1} + \sum_{i=0}^{n-2} d_i \cdot 2^i $$
+
 $$ N = \mathbf{-d_{n-1}2^{n-1}} + d_{n-2}2^{n-2} + \dots + d_1 2^1 + d_0 2^0 $$
 
 *   **Rango:** $[-2^{n-1}, \quad 2^{n-1} - 1]$. (Es asimétrico: hay un valor negativo extra porque el 0 "gasta" una combinación de los positivos).
 
 
-!!! example Ejemplo: Obtener el número negativo $-13$ en C2 con 6 bits
+!!! example "Ejemplo: Obtener el número negativo $-13$ en C2 con 6 bits"
     
     Escribir el positivo: $13_{10} = 001101_2$ (Rellenamos con ceros hasta 6 bits)
     
@@ -318,18 +323,21 @@ $$ N = \mathbf{-d_{n-1}2^{n-1}} + d_{n-2}2^{n-2} + \dots + d_1 2^1 + d_0 2^0 $$
     *   $2^6 - 13 = 64 - 13 = 51$
     *   Convertimos 51 a binario puro $\to$ **`110011`**
 
-!!! example Ejemplo: Obtener el número negativo $-13$ en C2 con 10 bits
+!!! example "Ejemplo: Obtener el número negativo $-13$ en C2 con 10 bits"
     
     Escribir el positivo: $13_{10} = 0000001101_2$ (Rellenamos con ceros hasta 10 bits)
     
     **Método 1: Inversión + 1 (Estándar)**
+
     *   Invertir todos los bits: `1111110010`
     *   Sumar 1: `1111110010` + `1` = **`1111110011`**
     
     **Método 2: Regla rápida (Visual)**
+
     *   `000000110`**`1`** $\to$ Invertir parte izquierda $\to$ **`111111001`**`1`
 
     **Método 3: Definición Matemática**
+
     *   $2^{10} - 13 = 1024 - 13 = 1011$
     *   $1011_{10}$ en binario es **`1111110011`**
     
@@ -340,7 +348,7 @@ $$ N = \mathbf{-d_{n-1}2^{n-1}} + d_{n-2}2^{n-2} + \dots + d_1 2^1 + d_0 2^0 $$
     
     Esta técnica fue utilizada en algunas series de computadoras pioneras descendientes de la **ENIAC**, como la serie **UNIVAC**. Actualmente está en desuso frente al Complemento a 2 porque, al igual que el Signo-Magnitud, sufre del problema del *doble cero*.
 
-!!! tip La Analogía del Reloj
+!!! tip "La Analogía del Reloj"
     El Complemento a 2 funciona exactamente igual que los minutos en un reloj analógico (aritmética modular).
     
     Si el reloj marca las `:00` y queremos restar 10 minutos:
@@ -377,7 +385,7 @@ int x = -23; // Memoria: 11111111 ... 11101001 (Complemento a 2)
 **Enteros sin Signo (`unsigned`)**
 Eliminan el bit de signo para duplicar el rango positivo ($[0, 2^{32}-1]$ en 32 bits).
 
-!!! warning Riesgo de Desbordamiento
+!!! warning "Riesgo de Desbordamiento"
     En C++, si sumas 1 al máximo entero representable, el valor *da la vuelta* y pasa a ser el mínimo negativo (en `signed`) o cero (en `unsigned`). **!El ejecutable no genera una excepción!**
 
 #### Python
@@ -394,7 +402,7 @@ Para lograr esto, Python no guarda el número tal cual lo hace el procesador. En
 Matemáticamente, funciona igual que nuestro sistema decimal (donde sumamos unidades, decenas, centenas...), pero usando potencias de $2^{30}$:
 $$N = \sum_{i=0} d_i \cdot (2^{30})^i = d_0 + d_1 \cdot 2^{30} + d_2 \cdot 2^{60} + \dots$$
 
-!!! example Ejemplo Práctico
+!!! example "Ejemplo Práctico"
     Imagina un número enorme como `123456789101112131415` (requiere unos 70 bits).
     1.  Como no cabe en un registro de CPU de 64 bits, Python lo descompone.
     2.  Calcula sus *dígitos* en base $2^{30}$ y obtiene tres bloques: `437976919`, `87719511` y `107`.
@@ -404,7 +412,7 @@ $$N = \sum_{i=0} d_i \cdot (2^{30})^i = d_0 + d_1 \cdot 2^{30} + d_2 \cdot 2^{60
 
     Si multiplicas este número por 1000 y el resultado necesita más espacio, Python simplemente añade un cuarto dígito a la lista.
 
-!!! note El precio de la magia
+!!! note "El precio de la magia"
     Mientras que en C++ sumar dos números es **una sola instrucción** eléctrica (nanosegundos), en Python implica ejecutar un pequeño programa que recorre estas listas, gestiona los acarreos y asigna memoria. Es mucho más cómodo, pero mucho más lento.
 
 
