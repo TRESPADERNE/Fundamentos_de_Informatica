@@ -73,7 +73,8 @@ Es un error común pensar que los bits suman capacidad linealmente. En realidad,
 
 
 **Problema inverso:** Si necesito codificar $m$ valores, ¿cuál es el número mínimo $n$ de bits necesarios?
-$$ n = \lceil \log_2 m \rceil \quad \longrightarrow \quad \text{Tomamos el entero más próximo por exceso} $$
+$$ n = \lceil \log_2 m \rceil $$
+*(Donde $\lceil \dots \rceil$ significa redondear hacia el entero superior)*
 
 !!! example "Ejemplo de cálculo de bits"
     Tenemos un almacén con **17524** contenedores y queremos identificarlos con una etiqueta binaria única.
