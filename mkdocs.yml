@@ -37,6 +37,7 @@ markdown_extensions:
   - pymdownx.details # Para bloques colapsables
   - pymdownx.superfences # Para código y diagramas
   - tables # Para tablas académicas
+  - md_in_html
   - admonition # Para cuadros de "Nota", "Aviso", "Ejemplo"
   - attr_list # Para atributos en imágenes y otros elementos
   - pymdownx.snippets: # Para incluir ficheros comunes

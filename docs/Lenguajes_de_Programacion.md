@@ -298,6 +298,8 @@ Para mejorar el rendimiento, las VMs modernas (como la JVM de Java o V8 de JS) c
 
 A continuación, comparamos los enfoques principales: **Compilación Pura** (C++), **Interpretación Pura** (versiones antiguas de BASIC, Scripts de Shell) y **Enfoque Híbrido/VM** (Java, Python).
 
+<div class="center-table" markdown>
+
 | Característica | Compilador Nativo (C++) | Intérprete Puro | Máquina Virtual (Java/Python) |
 | :--- | :--- | :--- | :--- |
 | **Proceso** | Fuente $\to$ Máquina (Ejecutable) | Fuente $\to$ Ejecución directa | Fuente $\to$ Bytecode $\to$ VM |
@@ -306,6 +308,12 @@ A continuación, comparamos los enfoques principales: **Compilación Pura** (C++
 | **Privacidad Código** | Alta (se entrega binario difícil de leer). | Nula (se entrega código fuente visible). | Media (se entrega bytecode, que es reversible). |
 | **Portabilidad** | Baja. Requiere recompilar para cada SO. | Alta. Solo requiere el intérprete instalado. | **Muy Alta (WORA).** Bytecode universal. |
 | **Detección Errores** | Todos los de sintaxis reportados antes de correr. | El programa se detiene al encontrar el primer error. | Errores de sintaxis al generar bytecode; lógica en ejecución. |
+
+</div>
+
+<p style="text-align: center;"><em>Compiladores vs. Intérpretes vs. Máquinas Virtuales</em></p>
+
+<br>
 
 ![Compilación vs Máquina Virtual](img/compilador_mv.jpg){: style="display: block; margin: 0 auto" }
 <center><em>Compilación vs Máquina Virtual</em></center>

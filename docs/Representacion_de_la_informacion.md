@@ -6,15 +6,19 @@
 3. [Representación de Números Enteros](#3-representación-de-números-enteros)
 4. [Representación de Números Reales (Coma Flotante)](#4-representación-de-números-reales-coma-flotante)
 5. [Representación de Caracteres](#5-representación-de-caracteres)
-6. [Aritmética Binaria (Ampliación)](#6-aritmética-binaria-ampliación)
-7. [Bibliografía Recomendada](#bibliografía-recomendada)
 
 ---
 
 ## 1. Fundamentos de la Información Digital
 
 ### Naturaleza de la Información Digital
-Desde una perspectiva técnica, la **información** se define como todo aquello capaz de reducir la incertidumbre o aportar conocimiento. En un sistema informático, esta información se materializa en forma de datos procesables.
+Desde una perspectiva técnica, la **información** se define como todo aquello capaz de reducir la incertidumbre o aportar conocimiento.
+
+![Informacion](img/informacion.jpg){: style="display: block; margin: 0 auto" }
+<center><em>Atributos y descriptores para la reducción de la incertidumbre</em></center>
+<br>
+
+En un sistema informático, esta información se materializa en forma de datos procesables.
 
 En la arquitectura moderna de computadores (modelo **Von Neumann**), es fundamental comprender que la memoria principal almacena indistintamente dos categorías de entidades:
 
@@ -22,6 +26,8 @@ En la arquitectura moderna de computadores (modelo **Von Neumann**), es fundamen
 2.  **Datos:** La materia prima (números, caracteres, señales) sobre la que operan dichas instrucciones.
 
 A bajo nivel, no existe diferencia física entre instrucciones y datos; ambos se representan universalmente mediante **patrones de bits** ($0$ y $1$), que en última instancia corresponden a estados físicos del hardware (niveles de voltaje, cargas eléctricas, magnetización...). Es el contexto de ejecución (cómo y cuándo accede el procesador a ellos) lo que determina su interpretación.
+
+Esta naturaleza binaria se mantiene porque es la solución tecnológica más robusta: es más sencillo y seguro para un circuito distinguir entre dos estados extremos (On/Off) que intentar diferenciar 10 niveles de voltaje precisos para una supuesta aplicación de codificación adaptada al sistema decimal.
 
 ### Almacenamiento en el Ordenador: La Memoria
 La memoria principal del ordenador se estructura como una **gran tabla lineal de celdas**. Cada celda es un espacio de almacenamiento direccionable individualmente.
@@ -38,28 +44,100 @@ En este esquema distinguimos dos conceptos clave:
 
 
 #### Visualización de la Memoria
-Podemos imaginar la memoria como una tabla donde cada fila representa una celda y contiene un Byte:
+Podemos imaginar la memoria como una tabla donde cada fila representa una celda con su propia **dirección**. En las arquitecturas actuales lo habitual es el **direccionamiento por Byte**, donde cada dirección de memoria apunta a 8 bits.
 
-| Contenido (Binario) | Interpretación Posible |
-| :---: | :--- |
-| `01000001` | Letra 'A' |
-| `00010100` | Entero 20 |
-| `11100011` | Instrucción CPU |
+Dado que muchos datos requieren más capacidad, es común que un solo dato ocupe **varias celdas (direcciones) consecutivas**:
 
-Esta naturaleza binaria se mantiene porque es la solución tecnológica más robusta: es más sencillo y seguro para un circuito distinguir entre dos estados extremos (On/Off) que intentar diferenciar 10 niveles de voltaje precisos para una supuesta aplicación de codificación adaptada al sistema decimal.
+
+<div align="center">
+<table style="margin: 0 auto;">
+<thead>
+<tr>
+<th style="text-align:center">Dirección</th>
+<th style="text-align:center">Contenido (Binario)</th>
+<th style="text-align:left">Interpretación del Dato</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>...</code></td>
+<td style="text-align:center"><code>...</code></td>
+<td style="text-align:left">...</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>1010</code></td>
+<td style="text-align:center"><code>01000001</code></td>
+<td style="text-align:left">Letra 'A' (1 Byte)</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>...</code></td>
+<td style="text-align:center"><code>...</code></td>
+<td style="text-align:left">...</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>2000</code></td>
+<td style="text-align:center"><code>00000000</code></td>
+<td rowspan="4" style="text-align:center; vertical-align:middle; background-color: #f8f8f8"><strong>Entero de 32 bits (4 Bytes)</strong><br>Valor: 484</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>2001</code></td>
+<td style="text-align:center"><code>00000000</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>2002</code></td>
+<td style="text-align:center"><code>00000001</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>2003</code></td>
+<td style="text-align:center"><code>11100100</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>...</code></td>
+<td style="text-align:center"><code>...</code></td>
+<td style="text-align:left">...</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>3008</code></td>
+<td style="text-align:center"><code>11100011</code></td>
+<td rowspan="3" style="text-align:center; vertical-align:middle; background-color: #f0f0f0"><strong>Instrucción CPU (64 bits)</strong><br>8 Bytes</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>...</code></td>
+<td style="text-align:center"><code>...</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>3015</code></td>
+<td style="text-align:center"><code>10101100</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>...</code></td>
+<td style="text-align:center"><code>...</code></td>
+<td style="text-align:left">...</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<p style="text-align: center;"><em>Modelo de la memoria como una tabla de celdas</em></p>
+
+
 
 ### Necesidad de la Codificación
 Los humanos interactuamos con información simbólica (letras, números) o analógica (imágenes, sonido), mientras que el procesador trabaja internamente con estados binarios. Para salvar esta brecha es necesaria una transformación rigurosa:
 
 $$ \text{Mundo Real} \xrightarrow{\text{Codificación}} \text{Mundo Digital} $$
 
-Matemáticamente, la codificación debe ser una **transformación inyectiva**.
-Esto significa que a cada elemento del conjunto original (ej. la letra 'A') le debe corresponder una secuencia de bits **única y exclusiva**. Si dos elementos distintos compartieran el mismo código, el proceso inverso (**decodificación**) sería ambiguo y no podríamos recuperar la información original sin errores.
+En la vida real usamos habitualmente codificaciones: el NIA de un alumno de la UVa, el DNI, el código postal, etc.
+
+Matemáticamente, la codificación debe ser una **transformación inyectiva**. En el caso informático esto significa que a cada elemento del conjunto original (ej. la letra 'A') le debe corresponder una secuencia de bits **única y exclusiva**. Si dos elementos distintos compartieran el mismo código, el proceso inverso (**decodificación**) sería ambiguo y no podríamos recuperar la información original sin errores.
 
 #### Capacidad de Representación (Combinatoria)
 Es un error común pensar que los bits suman capacidad linealmente. En realidad, la capacidad de diferenciar valores crece de forma **exponencial**: cada bit añadido **duplica** las posibilidades del anterior.
 
 **Regla General:** Con $n$ bits podemos representar $m = 2^n$ valores diferentes.
+
+<div class="center-table" markdown>
 
 | Nº Bits | Cálculo ($2^n$) | Cantidad de Valores | Ejemplo de uso |
 | :---: | :---: | :---: | :--- |
@@ -71,7 +149,9 @@ Es un error común pensar que los bits suman capacidad linealmente. En realidad,
 | **10** | $2^{10}$ | **1.024** | Aprox. 1000 ($1K$ en Binario) |
 | **32** | $2^{32}$ | **~4.000 Millones** | Direcciones IP (Internet) |
 
+</div>
 
+<p style="text-align: center;"><em>Número de bits frente a capacidad de representación</em></p>
 **Problema inverso:** Si necesito codificar $m$ valores, ¿cuál es el número mínimo $n$ de bits necesarios?
 
 $$ n = \lceil \log_2 m \rceil \quad \longrightarrow \quad \text{Tomamos el entero más próximo por exceso} $$
@@ -86,14 +166,16 @@ $$ n = \lceil \log_2 m \rceil \quad \longrightarrow \quad \text{Tomamos el enter
 
 ## 2. Sistemas de Numeración
 
-Antes de abordar cómo se almacenan en un sistema informático tipos de datos específicos (enteros, reales, texto), es imprescindible revisar la base matemática que lo sustenta. Aunque en la vida cotidiana operamos en base 10, el hardware impone el uso de bases potencias de 2.
+Antes de abordar cómo se almacenan en un sistema informático tipos de datos específicos (enteros, reales, texto), es imprescindible revisar la base matemática que lo sustenta. Aunque en la vida cotidiana operamos en **base** 10, el hardware impone el uso de bases potencias de 2.
 
 El objetivo de este apartado no es convertirse en calculadoras humanas, sino entender la **lógica de traducción** entre el mundo humano y el de la máquina. Este conocimiento es vital para interpretar direcciones de memoria, entender los límites de capacidad de las variables o comprender cómo se representa internamente cualquier tipo de dato.
 
 ### Definición
 Un sistema de numeración es una colección de símbolos y reglas para construir números válidos. Los sistemas usados en informática son **posicionales**: el valor de una cifra depende de su símbolo y de la posición que ocupa.
 
-### Sistemas usuales en informática
+La **base ($b$)** es el número total de símbolos permitidos en el sistema. En un sistema posicional, la base también determina cuántas unidades de un orden inferior son necesarias para formar una unidad del orden inmediato superior (ej. 10 unidades forman 1 decena). Además, la base coincide con el valor por el cual se multiplican las posiciones sucesivas.
+
+<div class="center-table" markdown>
 
 | Sistema | Base ($b$) | Símbolos |
 | :--- | :--- | :--- |
@@ -101,6 +183,10 @@ Un sistema de numeración es una colección de símbolos y reglas para construir
 | **Binario** | 2 | $\{0, 1\}$ |
 | **Octal** | 8 ($2^3$) | $\{0, 1, 2, 3, 4, 5, 6, 7\}$ |
 | **Hexadecimal** | 16 ($2^4$) | $\{0, ..., 9, A, B, C, D, E, F\}$ |
+
+</div>
+
+<p style="text-align: center;"><em>Bases habituales en Informática</em></p>
 
 ### Valor Posicional (Polinomio Equivalente)
 El concepto fundamental de los sistemas numéricos modernos es el **valor posicional**. A diferencia de los números romanos, aquí el valor de cada dígito no es absoluto, sino que depende de la posición que ocupe respecto a la coma (o punto) decimal.
@@ -178,9 +264,18 @@ En la parte fraccionaria, la conversión a menudo no es exacta, resultando en n�
 !!! example "Ejemplo con error de truncamiento"
     Por ejemplo, el simple valor $0.1_{10}$ en binario es una fracción periódica: $0.0001100110011...$
     
-    Dado que el ordenador tiene un número finito de bits para guardar el número, está obligado a **cortar (truncar)** la secuencia en algún punto. Esto implica que el ordenador casi nunca guarda *exactamente* el número real que escribimos, sino una aproximación muy cercana.
+    Dado que el ordenador tiene un número finito de bits para guardar el número, está obligado a **cortar (truncar)** la secuencia en algún punto.
 
-### Uso de Hexadecimal y Octal (Sistemas Compactos)
+    **Cálculo del error con 4 bits fraccionarios:**
+    Si solo guardamos los primeros 4 bits fraccionarios, almacenamos $0.0001_2$.
+    
+    *   Valor Real: $0.1$
+    *   Valor Almacenado: $0.0001_2 = 1 \cdot 2^{-4} = 0.0625_{10}$
+    *   **Error:** $|0.1 - 0.0625| = 0.0375$ (¡Un error del 37.5%!)
+
+Esto implica que el ordenador casi nunca guarda *exactamente* el número real que escribimos, sino una aproximación muy cercana. El aumento del número de bits dedicado a almacenar la parte fraccionaria de un número palía el error, pero nunca desaparece en fracciones periódicas o valores irracionales.
+
+### Uso de Hexadecimal y Octal
 
 Aunque el ordenador trabaja estrictamente en binario, para los humanos leer secuencias largas como `101101011110` es lento, tedioso y muy propenso a errores visuales. 
 
@@ -240,7 +335,9 @@ La representación interna coincide exactamente con el sistema numérico posicio
 
 *   **Rango Representable:** $[0, \quad 2^n - 1]$
 
-#### Tabla de Valores (Ejemplo $n=8$ bits)
+
+<div class="center-table" markdown>
+
 | Decimal | Patrón Binario ($b_7 \dots b_0$) | Lógica |
 | :---: | :---: | :--- |
 | **0** | `00000000` | Todos apagados |
@@ -248,8 +345,12 @@ La representación interna coincide exactamente con el sistema numérico posicio
 | **2** | `00000010` | $2^1$ |
 | **3** | `00000011` | $2^1 + 2^0$ |
 | ... | ... | ... |
-| **254** | `11111110` | Todo $1$ menos el bit 0 |
+| **254** | `11111110` | $2^7 + 2^6 + ... + 2^0$ |
 | **255** | `11111111` | **Máximo** ($2^8 - 1$) |
+
+</div>
+
+<p style="text-align: center;" markdown="1"><em>Tabla de Valores para $n=8$ bits</em></p>
 
 #### Desbordamiento
 Si a 255 (`11111111`) le sumamos 1, el resultado matemático sería 256 (`100000000`), pero como solo tenemos 8 bits, el bit superior se pierde y el resultado almacenado vuelve a ser **0** (`00000000`). Esto es el **desbordamiento** (*overflow*).
@@ -365,7 +466,172 @@ $$ N = \mathbf{-d_{n-1}2^{n-1}} + d_{n-2}2^{n-2} + \dots + d_1 2^1 + d_0 2^0 $$
     $$ 5 + 255 \equiv 4 \pmod{256} $$
     ¡Hemos conseguido el resultado correcto ($5-1=4$) usando solo la suma!
 
-### Representación en Lenguajes de Programación
+### La suma Binaria
+
+Aunque las CPUs modernas son capaces de realizar operaciones aritméticas complejas (multiplicación, división...), la base fundamental del diseño hardware es la **suma**. De hecho, operaciones como la multiplicación se implementan a menudo mediante secuencias rápidas de sumas y desplazamientos (*shifts*). Por este motivo, nos centraremos en analizar en detalle el circuito sumador como bloque constructivo esencial de la ALU.
+
+La genialidad del uso del **Complemento a 2** radica en que elimina la distinción entre suma y resta. Matemáticamente y eléctricamente, **restar es simplemente sumar un número negativo**:
+$$ A - B \iff A + (-B) $$
+Esta propiedad permite que un único circuito físico resuelva ambas operaciones, simplificando drásticamente el diseño del procesador.
+
+#### Reglas básicas
+Las reglas básicas para sumar 2 bits son:
+
+* $0+0=0$
+* $0+1=1$       
+* $1+0=1$        
+* $1+1=10$
+
+Al igual que ocurre en la aritmética decimal (ej. $7+8=15$), se produce **acarreo** en el caso $1+1=10$.
+La suma aislada de dos bits, conocida como **semisumador binario**, podemos describirla con una **tabla de verdad** con dos bits de entrada, $p$ y $q$, y dos bits de salida, suma $S$ y acarreo $C$.
+
+<div class="center-table" markdown>
+
+| $p$ | $q$ | $C$ (Acarreo) | $S$ (Suma) |
+| :---: | :---: | :---: | :---: |
+| 0 | 0 | 0 | 0 |
+| 0 | 1 | 0 | 1 |
+| 1 | 0 | 0 | 1 |
+| 1 | 1 | 1 | 0 |
+
+</div>
+
+<p style="text-align: center;"><em>Tabla de Verdad del semisumador binario</em></p>
+
+![Semisumador](img/semisumador.jpg){: style="display: block; margin: 0 auto" }
+<center><em>Semisumador binario</em></center>
+<br>
+
+El problema del semisumador es que no puede gestionar el acarreo procedente de una suma anterior. Si queremos sumar números de varios bits (como hacemos en papel), necesitamos un circuito que sume **tres** cosas: el bit del primer número, el bit del segundo, y el **acarreo de entrada** ($C_{e}$) que arrastramos de la posición previa.
+
+!!! example "Propagación del acarreo"
+    Supongamos que queremos sumar $6_{10} + 7_{10}$ en binario ($00110 + 00111$).
+    Al igual que ocurre en la aritmética decimal (ej. $87+78$), se generan acarreos que deben sumarse en la siguiente posición:
+
+    ```text
+        1 1        <-- Acarreos
+      0 0 1 1 0      (6)
+    + 0 0 1 1 1      (7)
+    -----------
+      0 1 1 0 1      (13)
+    ```
+
+Por esta razón necesitamos el **Sumador Completo**, que es capaz de procesar ese tercer bit de entrada.
+
+
+El sumador completo binario podemos describirlo con una tabla de verdad con tres bits de entrada, $p$, $q$ y $C_e$ y dos bits de salida $S$ y $C_s$. $C_e$ es el valor de acarreo procedente de la suma de los bits anteriores y $C_s$ es el acarreo que se inyecta a la siguiente suma de bits.
+
+<div class="center-table" markdown>
+
+| $p$ | $q$ | $C_e$ (Entrada) | $C_s$ (Salida) | $S$ (Suma) |
+| :---: | :---: | :---: | :---: | :---: |
+| 0 | 0 | 0 | 0 | 0 |
+| 0 | 0 | 1 | 0 | 1 |
+| 0 | 1 | 0 | 0 | 1 |
+| 0 | 1 | 1 | 1 | 0 |
+| 1 | 0 | 0 | 0 | 1 |
+| 1 | 0 | 1 | 1 | 0 |
+| 1 | 1 | 0 | 1 | 0 |
+| 1 | 1 | 1 | 1 | 1 |
+
+</div>
+
+<p style="text-align: center;"><em>Tabla de Verdad del sumador binario completo</em></p>
+
+<br>
+
+![Sumador completo](img/sumador_completo.jpg){: style="display: block; margin: 0 auto" }
+<center><em>Sumador completo binario</em></center>
+<br>
+
+Supongamos que necesitamos sumar dos números binarios $x_3x_2x_1x_0$ e $y_3y_2y_1y_0$ de 4 bits. Bastaría disponer de 4 sumadores completos colocados en serie para realizar la operación en paralelo.
+
+![Sumadores en serie](img/sumadores_encadenados.jpg){: style="display: block; margin: 0 auto" }
+<center><em>Sumadores en serie</em></center>
+<br>
+
+Combinando sumadores completos podemos sumar números con el número de bits deseado. 
+
+
+### Justificación del uso de C2 en la CPU
+
+Veamos la razón fundamental por la que los ordenadores utilizan Complemento a 2 analizando la operación $6 + (-7)$ (cuyo resultado debe ser $-1$) con un sumador binario estándar de 4 bits.
+
+**1. Usando Signo-Magnitud:**
+En Signo-Magnitud, el bit más significativo es el signo.
+* $6_{10} \rightarrow 0110_{SM}$
+* $-7_{10} \rightarrow 1111_{SM}$
+
+Si sumamos estos patrones de bits directamente:
+
+```text
+   1 1 1          <-- Acarreos
+     0 1 1 0      (6)
+  +  1 1 1 1      (-7)
+  ----------
+   1 0 1 0 1      (+5) --> ¡ERROR! ¡El último bit de acarreo se pierde!
+```
+
+El resultado obtenido $0101_{SM}$ corresponde a $+5_{10}$.
+**¡El resultado es ERRÓNEO!** Un sumador estándar no funciona para números mixtos en Signo-Magnitud.
+
+**2. Usando Complemento a 2 (C2):**
+* $6_{10} \rightarrow 0110_{C2}$
+* $-7_{10} \rightarrow 1001_{C2}$ ( Invertir $0111 \rightarrow 1000$; Sumar $1 \rightarrow 1001$)
+
+Operando con el mismo circuito sumador:
+
+```text
+                 <-- Acarreos
+    0 1 1 0      (6)
+  + 1 0 0 1      (-7)
+  ---------
+    1 1 1 1      (-1) --> ¡CORRECTO!
+```
+
+El resultado $1111_{C2}$ corresponde al valor $-1_{10}$ (pues $-8 + 4 + 2 + 1 = -1$).
+**¡El resultado es CORRECTO!**
+
+!!! success "Eficiencia del C2"
+    Esta propiedad es la justificación real del uso universal del Complemento a 2 en las CPUs modernas: permite utilizar **el mismo circuito sumador** para operaciones con y sin signo, simplificando enormemente el diseño del hardware (ALU).
+
+!!! note "Desbordamiento (Overflow) vs Acarreo"
+    Es crucial diferenciar entre el **acarreo** (carry out), que es normal y se ignora en aritmética con signo, y el **desbordamiento** (overflow), que es un error crítico.
+
+    **Regla de Detección:** El desbordamiento ocurre cuando se suman dos números del **mismo signo** y el resultado tiene el **signo opuesto**. Nunca ocurre si los signos son distintos.
+
+    Imaginemos un sistema de **4 bits** (Rango: $[-8, +7]$).
+
+    **1. Acarreo NO Problemático (Se ignora):**
+    Sumamos $(-3) + (-2) = -5$. (Dentro de rango).
+    
+    ```text
+      1 1       <-- Acarreos
+        1 1 0 1  (-3)
+      + 1 1 1 0  (-2)
+      ---------
+      1 1 0 1 1  --> Nos quedamos con 4 bits: 1011 (-5) ¡CORRECTO!
+    ```
+    El bit sobrante (5º bit) se descarta y el resultado es matemáticamente correcto.
+
+    **2. Desbordamiento Problemático (Error):**
+    Sumamos $5 + 4 = 9$. (Fuera de rango, máximo es 7).
+    
+    ```text
+        1        <-- Acarreo entra en bit signo pero NO sale
+        0 1 0 1  (5)
+      + 0 1 0 0  (4)
+      ---------
+        1 0 0 1  (-7) ¡ERROR GRAVE!
+    ```
+    Dos números positivos han generado un negativo. **Esto es Overflow.**
+
+    **¿Quién detecta el error?**
+    *   **Hardware (ALU):** **SIEMPRE** detecta el desbordamiento (activa un *flag* de estado interno).
+    *   **Software (C++):** Por defecto **IGNORA** esta señal para ganar velocidad. El programa continúa ejecutándose con el valor erróneo sin avisar (comportamiento indefinido o *wrap-around*).
+
+
+### Representación de Enteros en Lenguajes de Programación
 
 
 La representación interna de los números enteros depende drásticamente del lenguaje. Mientras que C++ ofrece control sobre el hardware (tamaños fijos), Python ofrece abstracción matemática (tamaños dinámicos).
@@ -386,7 +652,11 @@ int x = -23; // Memoria: 11111111 ... 11101001 (Complemento a 2)
 Eliminan el bit de signo para duplicar el rango positivo ($[0, 2^{32}-1]$ en 32 bits).
 
 !!! warning "Riesgo de Desbordamiento"
-    En C++, si sumas 1 al máximo entero representable, el valor *da la vuelta* y pasa a ser el mínimo negativo (en `signed`) o cero (en `unsigned`). **!El ejecutable no genera una excepción!**
+    Haciendo honor a su filosofía de eficiencia, C++ **ignora el flag de overflow** de la ALU y no realiza comprobaciones adicionales.
+    
+    Si se supera el rango máximo, la variable simplemente *da la vuelta* (wrap-around) y continúa con un valor incorrecto sin avisar. **¡El programa no se detiene ni genera una excepción!**
+
+    Por ejemplo, si sumamos 1 al máximo valor entero con signo de 32 bits ($2.147.483.647$), obtendremos el mínimo negativo ($-2.147.483.648$). 
 
 #### Python
 **Filosofía:** Comodidad y Abstracción.
@@ -523,11 +793,3 @@ La resta se realiza sumando el complemento a 2 del sustraendo:
 $$ A - B = A + (\text{C2}(B)) = A + (\sim B + 1) $$
 Esto permite usar el mismo circuito sumador para restar.
 
----
-
-## Bibliografía Recomendada
-
-1.  **S. B. Lippman, J. Lajoie, B. E. Moo.** *C++ Primer*. Addison-Wesley.
-2.  **R. E. Bryant, D. R. O’Hallaron.** *Computer Systems. A Programmer’s Perspective*. Pearson.
-3.  [Estándar IEEE 754 (Wikipedia)](https://es.wikipedia.org/wiki/IEEE_754)
-4.  [The Absolute Minimum Every Software Developer Must Know About Unicode](https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/)
