@@ -642,6 +642,8 @@ La representación interna de los números enteros depende drásticamente del le
 *   **Tamaños fijos:** C++ permite trabajar con enteros de 8, 16, 32 o 64 bits.
 *   **Tipos:** Soporta `signed` (Complemento a 2) y `unsigned` (Binario Puro).
 
+Este diseño obedece al concepto de **POD (Plain Old Data)**: los tipos básicos de C++ son datos *crudos*, secuencias de bits en memoria sin metadatos ni cabeceras ocultas. Un `int` de 32 bits ocupa exactamente 32 bits en RAM, nada más.
+
 **Ejemplo: Representación en Memoria (32 bits)**
 ```cpp
 int x = 23;  // Memoria: 00000000 ... 00010111
@@ -686,38 +688,138 @@ $$N = \sum_{i=0} d_i \cdot (2^{30})^i = d_0 + d_1 \cdot 2^{30} + d_2 \cdot 2^{60
     Mientras que en C++ sumar dos números es **una sola instrucción** eléctrica (nanosegundos), en Python implica ejecutar un pequeño programa que recorre estas listas, gestiona los acarreos y asigna memoria. Es mucho más cómodo, pero mucho más lento.
 
 
-## 4. Representación de Números Reales (Coma Flotante)
+## 4. Representación de Números Reales
 
-La representación de números reales ($\mathbb{R}$) supone un reto mayúsculo para una máquina digital. Mientras que los enteros son discretos, los reales son continuos: entre $1.0$ y $1.1$ existen infinitos valores. Dado que tenemos una memoria finita, es **imposible** representar el conjunto de los números reales con total exactitud. 
+Un número real consta de una parte entera y otra fraccionaria, más el signo.
+Existen dos opciones de representación: **coma fija** o **coma flotante**.
 
-La solución adoptada universalmente es la **Coma Flotante**, que permite cubrir un rango de valores gigantesco (desde lo subatómico hasta lo astronómico) sacrificando precisión absoluta en los decimales menos significativos.
+### La Coma Fija (Fixed Point)
 
-!!! note Realidad Hardware: Todo son Enteros
-    Estrictamente hablando, **un ordenador NO puede almacenar números reales**.
+Se asigna una cantidad fija de dígitos para la parte entera y una cantidad fija para la parte fraccionaria.
+
+Obviando por el momento el signo, si disponemos de 8 bits y reservamos 5 bits para la parte entera y 3 para la fraccionaria, el número $21.75_{10}$ ($10101_2$ entero y $0.11_2$ fraccionario) se almacenaría como **`10101110`**.
+
+Al usar la notación en coma fija, queda muy limitado el rango de cantidades a representar, aunque todas ellas tienen la misma resolución (distancia entre valores).
+
+**Ejemplo: 8 bits (5 bits parte entera y 3 bits parte fraccionaria)**. Sin tener en cuenta el signo:
+
+*   No podremos representar números enteros mayores o iguales que $32$ ($2^5$).
+*   Ni números más pequeños que $0.125$ ($2^{-3}$).
+*   La resolución fija entre dos valores consecutivos es $0.125$ ($2^{-3}$).
+
+!!! tip "Uso actual e Implementación Real: Enteros Escalados"
+    Aunque simple, las limitaciones conceptuales de rango hacen que la coma fija rara vez se use para cálculos científicos generales. Sin embargo, sigue siendo el estándar en dos áreas críticas:
+
+    1.  **Sistemas Financieros:** La coma flotante comete errores minúsculos de redondeo (ej. `0.1 + 0.2` a menudo da `0.30000000000000004`). En banca, un céntimo perdido es inaceptable.
+    2.  **Microcontroladores y DSP:** Muchos procesadores pequeños (como los de una lavadora o un juguete) no tienen circuitería compleja para decimales (FPU) por ser cara y lenta.
+
+    **¿El secreto? Trabajar solo con ENTEROS (Scaled Integers)**.
+    En la práctica, estas máquinas no *saben* que existen decimales. El programador **decide de antemano** (en tiempo de diseño) cuántos bits dedicará a la parte fraccionaria y mantiene esa decisión fija para todas las operaciones. Simplemente escala los valores:
+
+    *   *Objetivo:* Guardar $19.95$.
+    *   *Factor de escala:* $\times 100$ (para tener 2 decimales de precisión).
+    *   *Microcontrolador:* Calcula $1995$ y lo guarda en un entero normal (`int`).
     
-    A nivel de hardware, la memoria solo guarda patrones de bits (enteros). Lo que nosotros llamamos `float` o `double` no es más que una **apariencia**: tomamos un entero largo y acordamos dividir sus bits en *campos* (signo, exponente, mantisa) para aplicarles una fórmula matemática. Es una simulación numérica sobre un hardware discreto.
+    Si luego quiere sumar $5.00$, el micro suma $500$.
+    $$ 1995 + 500 = 2495 $$
+    Finalmente, para mostrarlo al usuario, el programador escribe el código para *pintar* una coma dos posiciones a la izquierda: $24.95$. ¡El procesador solo sumó enteros!
 
-### Estándar IEEE 754
+### La Coma Flotante (Floating Point)
+Esta es la solución adoptada universalmente en la informática moderna para uso general. Permite cubrir un rango de valores gigantesco sacrificando precisión absoluta en los decimales menos significativos. El nombre proviene de que la coma *flota* (se mueve), permitiendo representar con la misma cantidad de bits números muy grandes (con poca precisión decimal) o números muy pequeños (con mucha precisión).
+
+!!! failure "Contexto Histórico: El Caos Previo a 1985"
+    Hasta finales del siglo XX (concretamente antes de 1985), **no existía un estándar unificado**. Cada fabricante de hardware (IBM, DEC, Cray, VAX...) diseñaba su propio formato de coma flotante, con sus propias reglas de redondeo y tamaños de exponente.
+    
+    Esto provocaba graves problemas de **portabilidad**: un mismo programa científico en C o Fortran podía arrojar resultados numéricos distintos dependiendo de si se ejecutaba en un mainframe IBM o en un ordenador personal. Esta *Torre de Babel* numérica impedía el intercambio fiable de datos y obligó a la industria a consensuar una norma común.
+#### Fundamentos: Notación Científica
+Antes de entrar en el estándar, recordemos que un número real $r$ en coma flotante se representa conceptualmente usando **notación científica**:
+
+$$ r = \pm m \cdot b^e $$
+
+donde:
+
+*   $m$ es el **significando** o **mantisa**: un coeficiente formado por un número real con **una sola cifra entera** (distinta de cero) seguida por una coma y varias cifras fraccionarias.
+*   $b$ es la **base** del sistema de numeración ($10$ en decimal, $2$ en binario).
+*   $e$ es el **exponente** entero al que se eleva la base.
+
+!!! example "Comparativa: Base 10 vs Base 2"
+    **En Decimal (Base 10):**
+    Supongamos el número $-0.00345$.
+    *   Normalizado: $-3.45 \times 10^{-3}$
+    *   Mantisa: $3.45$
+    *   Exponente: $-3$
+
+    **En Binario (Base 2):**
+    Supongamos el número $0.001101_2$ ($0.203125_{10}$).
+    *   Desplazamos la coma hasta dejar un solo '1' a la izquierda: $1.101 \times 2^{-3}$.
+    *   Mantisa: $1.101$ (Nota: En binario, la única cifra entera posible no nula es **1**).
+    *   Exponente: $-3$.
+
+El estándar IEEE 754 simplemente define cómo empaquetar estos tres valores (signo, exponente y mantisa) dentro de una palabra de 32 o 64 bits.
+#### Estándar IEEE 754
 Prácticamente todos los computadores modernos siguen este estándar. Se basa en adaptar la **notación científica** al mundo binario:
 
 $$ V = (-1)^s \cdot (1 + m) \cdot 2^{e - Bias} $$
 
 *   **$s$ (Signo):** 1 bit ($0 \to +$, $1 \to -$).
 *   **$m$ (Mantisa):** Parte fraccionaria normalizada ($1.xxxxx...$).
-*   **$e$ (Exponente):** Entero representado en **exceso**.
+*   **$e$ (Exponente):** Entero representado en **exceso** (Bias).
 
-### Estructura IEEE 754
+<div class="center-table" markdown>
 
-| Precisión | Bits Totales | Signo | Exponente ($k$ bits) | Mantisa ($p$ bits) | Exceso (Bias) |
-| :--- | :---: | :---: | :---: | :---: | :---: |
-| **Simple (`float`)** | 32 | 1 | 8 | 23 | 127 |
-| **Doble (`double`)** | 64 | 1 | 11 | 52 | 1023 |
+| Precisión | Bits Totales | Signo | Exponente ($k$) | Mantisa ($p$) | Exceso (Bias) | Cifras Decimales |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Simple (`float`)** | 32 | 1 | 8 | 23 | 127 | ~7 |
+| **Doble (`double`)** | 64 | 1 | 11 | 52 | 1023 | ~16 |
+
+</div>
+
+<p style="text-align: center;"><em>Estructura del estándar IEEE 754</em></p>
 
 ### Características Clave
-1.  **Exponente en Exceso:** Se suma un sesgo ($Bias$) al exponente real.
+1.  **Exponente en Exceso:** Se almacena sumando un sesgo ($Bias$) al exponente real.
+    *   **Cálculo del Bias:** Depende del número de bits del exponente ($k$):
+        $$ Bias = 2^{k-1} - 1 $$
+        *   *Simple precisión* ($k=8$): $2^{7} - 1 = 128 - 1 = 127$.
+        *   *Doble precisión* ($k=11$): $2^{10} - 1 = 1024 - 1 = 1023$.
     *   $E_{guardado} = E_{real} + Bias$.
-    *   Permite comparar números reales como si fueran enteros (ordenación rápida).
-2.  **Bit Implícito:** En la notación normalizada binaria, el número siempre empieza por `1.` (ej. `1.011...`). Para ahorrar espacio, ese `1` **no se guarda**.
+    *   Permite comparar los exponentes como enteros sin signo, facilitando la ordenación rápida de números.
+2.  **Bit Implícito:** En la notación normalizada binaria, el número siempre empieza por `1.` (ej. `1.011...`). Para ahorrar espacio, ese `1` **no se guarda**, se asume implícitamente.
+
+#### Orden de Almacenamiento y Comparación
+El orden físico de los bits en la memoria es estricto: primero el **Signo**, seguido del **Exponente**, seguido de la **Mantisa**.
+
+`[Signo]` | `[Exponente]` | `[Mantisa]`
+
+El orden no es baladí: permite que los **algoritmos de comparación** (y por tanto los chips que los implementan) diseñados para números enteros sean también válidos (en su mayoría) para esta representación de números reales.
+
+!!! info "Terminología Técnica"
+    En alguna bibliografía clásica se utiliza la palabra **característica** para distinguir el *valor almacenado* (con el sesgo sumado) del *exponente real* matemático.
+
+Al colocar el exponente en los bits más significativos (a la izquierda de la mantisa), logramos que un número con mayor orden de magnitud parezca *visual y numéricamente* mayor que uno con menor orden de magnitud, independientemente de sus decimales.
+
+Pero para que este truco funcione, es **crítico que el exponente use representación en EXCESO** (que siempre es positivo) y **NO en Complemento a 2**.
+
+**Ejemplo Simplificado: La importancia del Exceso vs C2**
+Comparemos un número grande positivo (Exponente $+1$) con un número pequeño (Exponente $-1$).
+*   $A$: $1.0 \times 2^{+1}$ (Grande)
+*   $B$: $1.0 \times 2^{-1}$ (Pequeño)
+
+**Caso 1: Usando Exponente en Complemento a 2 (Falso)**
+*   $+1$ en C2 (3 bits) $\to$ `001`
+*   $-1$ en C2 (3 bits) $\to$ `111`
+*   Al comparar los bits como enteros sin signo: `111` ($7$) > `001` ($1$).
+*   **Resultado:** ¡El hardware pensaría erróneamente que el número pequeño ($B$) es mayor que el grande ($A$)!
+
+**Caso 2: Usando Exponente en Exceso (Real - IEEE 754)**
+Supongamos un Bias de 3 ($2^{3-1}-1$).
+*   Exponente real $+1$ $\to$ Guardado: $1 + 3 = 4$ (`100`)
+*   Exponente real $-1$ $\to$ Guardado: $-1 + 3 = 2$ (`010`)
+*   Comparación de bits: `100` ($4$) > `010` ($2$).
+*   **Resultado:** `A > B`. **CORRECTO**.
+
+!!! success "Diseño Inteligente"
+    Gracias al uso del **Exceso**, los exponentes negativos se representan con códigos binarios *pequeños* (ej. 00...) y los positivos con códigos *grandes* (ej. 11...), preservando el orden natural de los números enteros. Esto permite usar comparadores rápidos de enteros en la ALU.
 
 !!! example "Ejemplo: Convertir 13.125 a IEEE 754 (Simple)"
     1.  **Binario:** $13.125_{10} = 1101.001_2$
@@ -725,27 +827,198 @@ $$ V = (-1)^s \cdot (1 + m) \cdot 2^{e - Bias} $$
     3.  **Componentes:**
         *   Signo: $0$ (+)
         *   Exponente Real: $3$. Exponente guardado: $3 + 127 = 130 \to 10000010_2$.
-        *   Mantisa: $101001...$ (rellenar con ceros hasta 23 bits).
-    4.  **Resultado Hex:** `0 10000010 1010010000...` $\to$ `41520000`
+        *   Mantisa: $101001...$ (rellenar con ceros a la derecha hasta 23 bits).
+    4.  **Resultado Hex:** 
+        *   Binario: `0 10000010 1010010000...`
+        *   Agrupando: `0100 0001 0101 0010 0000...` $\to$ `4 1 5 2 0 ...` 
+        *   Hexadecimal: **`0x41520000`**
 
-### Casos Especiales
+!!! example "Ejemplo Inverso: Decodificar 0xC1480000 a Decimal"
+    1.  **Binario:** `0xC1480000` $\to$ `1100 0001 0100 1000 0000...`
+    2.  **Separar campos:**
+        *   **Signo (1 bit):** `1` $\to$ Negativo ($-$).
+        *   **Exponente (8 bits):** `10000010` $\to$ $130_{10}$.
+        *   **Mantisa (23 bits):** `1001000...`
+    3.  **Cálculos:**
+        *   **Exponente Real:** $E = 130 - 127 (\text{Bias}) = 3$.
+        *   **Mantisa con implícito:** $1.1001000...$
+    4.  **Valor:**
+        *   $(-1) \times 1.1001_2 \times 2^3$
+        *   Desplazar la coma 3 sitios a la derecha: $-1100.1_2$
+        *   Convertir a decimal: $-(8 + 4 + 0.5) = $ **$-12.5$**
+
+#### Casos Especiales
+El estándar reserva los valores de exponente mínimo (todos 0s) y máximo (todos 1s) para casos excepcionales. Permite representar el **Cero** (que mantiene signo), indicar desbordamientos mediante **Infinito** ($\pm \infty$) y señalar errores matemáticos (como divisiones imposibles o raíces de negativos) con el valor **NaN** (*Not a Number*).
 
 | Exponente | Mantisa | Significado |
 | :--- | :--- | :--- |
-| Todo 0s | Todo 0s | Cero ($\pm 0$) |
-| Todo 0s | $\neq 0$ | Números desnormalizados (muy pequeños) |
-| Todo 1s | Todo 0s | Infinito ($\pm \infty$) |
-| Todo 1s | $\neq 0$ | NaN (Not a Number) |
+| Todos 0 | Todos 0 | Cero ($\pm 0$) |
+| Todos 0 | $\neq 0$ | Números desnormalizados (muy pequeños) |
+| Todos 1 | Todos 0 | Infinito ($\pm \infty$) |
+| Todos 1 | $\neq 0$ | NaN (Not a Number) |
 
-### Precisión y Problemas
+!!! example "¿Qué operación provoca qué?"
+    Es común confundir qué genera un Infinito y qué genera un NaN. La ALU sigue reglas matemáticas de límites:
+    
+    *   **Infinito ($\pm \infty$):** Aparece cuando el resultado *crece* sin límite o supera la capacidad de almacenamiento.
+        *   $8.0 / 0.0 \to +\infty$ (Cualquier número distinto de cero dividido entre cero).
+        *   $10^{308} \times 10 \to +\infty$ (Desbordamiento hacia arriba).
+    *   **NaN (No es un Número):** Aparece ante **indeterminaciones** matemáticas donde no existe una respuesta lógica única.
+        *   $0.0 / 0.0 \to \text{NaN}$ (Indeterminación)
+        *   $\infty - \infty \to \text{NaN}$ (Indeterminación)
+        *   $\sqrt{-5} \to \text{NaN}$ (Imposible en reales)
+
+    La colocación de los patrones de bits la realiza el **hardware** (la Unidad de Coma Flotante o FPU) en tiempo real mediante circuitos que monitorizan las excepciones *antes* o *durante* la operación. Por ejemplo, para $\sqrt{-5}$ se activa la excepción *Invalid Operation* y la FPU fuerza el exponente a unos (`1...1`) y pone *basura* en la mantisa (cualquier valor $\neq 0$). 
+
+#### Precisión
 Los números reales en el ordenador son un subconjunto discreto de los reales matemáticos.
-*   **Densidad variable:** Hay más números representables cerca del cero que lejos de él.
-*   **Errores de redondeo:** Números simples como $0.1_{10}$ tienen representación periódica infinita en binario, provocando errores de precisión.
 
-!!! warning "Programación"
-    Nunca compares números en coma flotante con igualdad estricta (`if x == y`). Usa un margen de tolerancia (épsilon): `if abs(x - y) < 0.00001`.
+##### Número de bits de la mantisa
+La influencia de disponer de un bit a mayores en la mantisa supone que la distancia entre 2 números consecutivos representables se divide por 2. Por tanto, el término *doble precisión* no es riguroso: la precisión que ofrece el formato de 64 bits es inmensamente mayor. Pasa de 23 a 52 bits de mantisa, mejorando la resolución en un factor de $2^{29}$, no solo el doble.
 
-    *Ejemplo catastrófico:* Fallo del misil Patriot (error acumulado en el reloj del sistema).
+##### Distribución en la recta real
+Los números **no están uniformemente distribuidos** sobre la recta real, sino que están más próximos cerca del origen (exponentes más pequeños) y más separados a medida que nos alejamos de él (exponentes más grandes).
+
+![Floats en la recta real](img/recta_real.jpg){: style="display: block; margin: 0 auto" }
+<center><em>Distribución de los float's en la recta real</em></center>
+<br>
+
+!!! example "Ejemplo: Densidad constante, Precisión variable"
+    En cada intervalo definido por una potencia de 2 (ej. entre $2^0$ y $2^1$, o entre $2^1$ y $2^2$), el exponente se mantiene fijo. Por tanto, los únicos valores distintos que podemos representar dependen de las combinaciones de la **Mantisa**.
+    
+    Como en IEEE 754 de 32 bits tenemos **23 bits** de mantisa, existen exactamente **$2^{23}$ (unos 8.3 millones)** de combinaciones (pasos) dentro de cada intervalo de potencias.
+
+    *   **Intervalo $[1, 2)$:** La distancia total es $1$.
+        Al dividir este espacio de 1 unidad en $2^{23}$ pasos, el *salto* o resolución entre un número y el siguiente es:
+        $$ \text{Salto} = \frac{1}{2^{23}} = 2^{-23} \approx 0.000000119 $$
+    
+    *   **Intervalo $[2, 4)$:** La distancia total es $2$ ($4-2$).
+        Sigue habiendo los mismos $2^{23}$ escalones disponibles. Al repartirlos en un espacio el doble de grande, el salto es el doble:
+        $$ \text{Salto} = \frac{2}{2^{23}} = 2^{1-23} = 2^{-22} \approx 0.000000238 $$
+
+    *   **Intervalo $[1024, 2048)$:** La distancia es $1024$ ($2^{10}$).
+        $$ \text{Salto} = \frac{2^{10}}{2^{23}} = 2^{10-23} = 2^{-13} \approx 0.000122 $$
+    
+    **Conclusión:** Cuanto más grande es el número, mayores son los saltos (peor precisión absoluta), manteniendo el error relativo constante.
+
+!!! tip "La concentración en $[0, 1]$ y $[-1, 0]$"
+    Una consecuencia fascinante de esta distribución logarítmica es la inmensa cantidad de valores concentrados cerca del cero.
+    Dado que el exponente varía aproximadamente entre $-126$ y $+127$, casi la mitad de los valores posibles del exponente son negativos. Esto implica que **aproximadamente el 50% de todos los números positivos que un ordenador puede representar residen en el intervalo $(0, 1)$**.
+    
+    Por simetría, ocurre exactamente lo mismo con los números negativos: **el 50% de ellos se concentra en el intervalo $(-1, 0)$**.
+
+    Por esta razón, muchos algoritmos numéricos (como en el entrenamiento de modelos de **Inteligencia Artificial** o procesamiento de imagen) **normalizan** los datos para trabajar dentro del rango $[0, 1]$ o $[-1, 1]$. Al mantener los cálculos en esta *zona densa*, se aprovecha la máxima resolución disponible y se minimizan los errores de redondeo.
+
+#### Redondeo
+Números simples como $0.1_{10}$ tienen representación periódica infinita en binario (como $1/3$ en decimal), provocando errores de precisión acumulativos.
+
+!!! example "Ejemplo: El error de representación de 0.1"
+    Veamos qué pasa representando el valor $0.1_{10}$ en simple precisión (32 bits).
+
+    **1. Transformación a Binario:**
+    La parte fraccionaria $0.1$ en binario es una fracción periódica:
+    $$ 0.1_{10} = 0.0\,\overline{0011}\,_2 = 0.0001100110011..._2 $$
+    
+    **2. Signo y Normalización:**
+    *   **Signo:** Positivo $\to \mathbf{0}$.
+    *   **Notación Científica:** Desplazamos la coma 4 posiciones a la derecha:
+        $$ 1.100110011..._2 \times 2^{-4} $$
+    
+    **3. Mantisa (Redondeo):**
+    Necesitamos quedarnos con 23 bits después de la coma.
+    
+    *   Secuencia: `10011001100110011001100` `1`... (el bit 24 es un 1).
+    *   Aplicamos **redondeo al par más cercano** (o simplemente redondeo hacia arriba en este caso simple): sumamos 1 al bit 23 ($0 \to 1$).
+    *   Mantisa Guardada ($M$): $\mathbf{10011001100110011001101}$
+
+    **4. Exponente:**
+    *   $E_{real} = -4$.
+    *   $E_{guardado} = -4 + 127 = 123_{10} = \mathbf{01111011}_2$.
+
+    **5. Resultado final en memoria (Hex `0x3DCCCCCD`):**
+    `0` `01111011` `10011001100110011001101`
+
+    ---
+
+    **Comprobación: ¿Qué número hemos guardado REALMENTE?**
+    Hagamos el proceso inverso para ver el error cometido.
+    
+    *   Mantisa $= 1 + \left( \frac{5033165}{2^{23}} \right) \approx 1.6000000238...$
+    *   Exponente $= 2^{-4} = \frac{1}{16} = 0.0625$
+    *   Valor $= 1.6000000238... \times 0.0625$
+    
+    Resultado Real: **$0.100000001490116119384765625$**
+    
+    El ordenador no ha guardado $0.1$, sino un número ligeramente mayor. Aunque el error es minúsculo (aprox. $1.49 \cdot 10^{-9}$), si sumamos $0.1$ millones de veces, este error se acumula y se hace visible.
+
+### Representación de Reales en Lenguajes de Programación
+
+Al igual que ocurre con los enteros, la gestión de los números reales varía según la filosofía del lenguaje, aunque en este caso las diferencias son menores debido a la omnipresencia del estándar IEEE 754.
+
+#### C++
+**Filosofía:** Eficiencia y acceso directo al hardware.
+
+C++ expone directamente los tipos de datos que soporta la FPU del procesador. El programador debe elegir el compromiso entre memoria/velocidad y precisión.
+
+Al ser tipos **POD**, su representación en memoria es exactamente el patrón de bits del estándar IEEE 754, sin sobrecarga adicional.
+
+*   **`float` (Simple Precisión):** 32 bits (IEEE 754). Útil para gráficos en 3D (juegos) o arrays gigantes donde el ahorro de memoria es crucial. Precisión de ~7 dígitos decimales.
+*   **`double` (Doble Precisión):** 64 bits (IEEE 754). Es el estándar para cálculos científicos y la opción por defecto. Precisión de ~15-16 dígitos decimales.
+*   **`long double`:** Extensión (a menudo 80 bits o 128 bits) para mayor precisión, aunque más lenta y dependiente de la arquitectura.
+
+Como ya hemos apuntado anteriormente, el término **"Doble Precisión"** es en realidad una herencia del hardware: se llama así porque ocupa **el doble de memoria** (64 bits frente a 32) y ofrece aproximadamente el doble de *cifras significativas decimales* (pasamos de ~7 a ~16).
+
+Sin embargo, matemáticamente el nombre se queda muy corto y puede inducir a error. Al pasar de 23 a 52 bits de mantisa, ganamos 29 bits extra de información. Esto significa que la **resolución** (la cantidad de escalones que podemos distinguir) no se multiplica por 2, sino por **$2^{29}$**. Es decir, es **más de 500 millones de veces más preciso** en términos de densidad de valores.
+
+**Ejemplo:**
+```cpp
+float  a = 0.1f; // Se guarda como 0.10000000149... (Error en 8º decimal)
+double b = 0.1;  // Se guarda con mucha más precisión (Error en 17º decimal)
+```
+
+#### Python
+**Filosofía:** Simplicidad y Unificación.
+
+A diferencia de los enteros (que eran *mágicos* y crecían *infinitamente* hasta los límites de la memoria), **los reales en Python NO tienen precisión arbitraria por defecto**. 
+
+*   **Tipo único `float`:** En Python estandar, un `float` corresponde siempre a un **`double`** de C (64 bits IEEE 754). No existe tipo de 32 bits nativo para ahorrar memoria (salvo usando librerías externas como *NumPy*).
+*   **Limitaciones:** Sufren los mismos problemas de redondeo y desbordamiento que el `double` de C++.
+
+!!! example "Comparativa Int vs Float en Python"
+    *   `2 ** 1000` $\to$ Calcula el número exacto (un entero de cientos de dígitos).
+    *   `2.0 ** 1000` $\to$ Genera `OverflowError` (o devuelve `inf`), porque el resultado supera el valor máximo de IEEE 754 ($\approx 1.8 \times 10^{308}$).
+
+!!! tip "Soluciones Standard para Alta Precisión"
+    Para software financiero o científico que requiera más precisión que la que ofrece el hardware, Python incluye módulos específicos:
+    
+    1.  **`decimal`:** Aritmética decimal exacta (base 10). Permite configurar la precisión arbitraria (ej. "quiero 50 decimales"). Es lento pero exacto (ideal para dinero).
+    2.  **`fractions`:** Almacena números racionales como fracción exacta $N/D$ ($1/3$ es 1 y 3, no $0.333...$).
+
+!!! warning "Consejo de Programación (Válido para todos los lenguajes)"
+    Debido a los errores de redondeo (como el del 0.1), **NUNCA** compares números en coma flotante con igualdad estricta.
+
+    *   **Mal:** `if (resultado == 0.0)`
+    *   **Bien:** `if (abs(resultado) < 0.00001)` (Usar un margen de tolerancia o *épsilon*).
+
+!!! danger "*Ejemplo catastrófico:* **Fallo del misil Patriot (1991)**"
+    Durante la Guerra del Golfo, una batería de misiles Patriot en Dhahran (Arabia Saudí) falló al interceptar un Scud iraquí y murieron 28 soldados. El fallo no se debió al tiempo de vuelo del misil, sino al **tiempo que la batería llevaba encendida**.
+    
+    *   **El Error de Base:** El sistema medía el tiempo en décimas de segundo y lo multiplicaba por $0.1$ para obtener segundos. Como $0.1$ tiene infinitos decimales en binario, el registro de 24 bits truncaba el valor, cometiendo un error de $0.000000095$ s.
+    *   **La Acumulación (Reloj Global):** El sistema **no reseteaba el reloj** al detectar un misil, sino que usaba el **tiempo absoluto** desde el arranque (100 horas) para todos sus cálculos de seguimiento.
+        Aunque el misil Scud acababa de aparecer, el ordenador calculaba su posición usando este tiempo absoluto corrupto. Al multiplicar el error base por cada décima de segundo de las 100 horas, el desfase era enorme:
+        $$ 100 \text{ h} \times 3600 \frac{\text{s}}{\text{h}} \times 10 \frac{\text{décimas}}{\text{s}} \times 0.000000095 \text{ s} \approx \mathbf{0.34 \text{ segundos}} $$
+    *   **El Fallo de Software (Bug de Precisión Mixta)**: si todo el sistema hubiera tenido el mismo error, NO habría pasado nada, porque los errores se habrían cancelado al restar tiempos ($t_2 - t_1$).
+        El desastre ocurrió porque se instaló una actualización de software que corregía el problema de precisión en una subrutina, pero **se olvidaron de corregirlo en otra**.
+        
+        *   Para predecir dónde **debería** estar el misil, se usó la subrutina antigua que convertía el tiempo absoluto (100h) truncando los datos (con el error acumulado de 0.34s).
+        *   Para procesar el dato fresco del radar, se convertiría **ese mismo tiempo absoluto de 100h** usando el nuevo algoritmo de alta precisión (sin apenas error).
+        
+        Al comparar una posición calculada con el *reloj malo* contra una posición real con el *reloj bueno*, los errores **no se cancelaron**. El ordenador calculó una zona de búsqueda errónea y no encontró nada.
+        
+        **La Distancia Fatal:**
+        En ese breve lapso de desfase ($0.34 \text{ s}$), un misil Scud viajando a Match 5 ($1676 \text{ m/s}$) recorre una distancia enorme:
+        $$ \Delta x = 0.34 \text{ s} \times 1676 \text{ m/s} \approx \mathbf{570 \text{ metros}} $$
+        Al buscar el misil a más de medio kilómetro de su posición real, el radar lo perdió, lo clasificó como falsa alarma y no disparó.
 
 ---
 
@@ -771,25 +1044,5 @@ Estándar para representar todos los sistemas de escritura del mundo.
 
 ---
 
-## 6. Aritmética Binaria (Ampliación)
 
-### Álgebra de Boole
-Operaciones a nivel de bit fundamentales para el hardware:
-*   **NOT (`~`):** Inversión.
-*   **AND (`&`):** Multiplicación lógica ($1$ si ambos son $1$).
-*   **OR (`|`):** Suma lógica ($1$ si alguno es $1$).
-*   **XOR (`^`):** O exclusival ($1$ si son diferentes).
-
-### Suma Binaria
-Se implementa mediante circuitos lógicos:
-1.  **Semisumador:** Suma 2 bits. Produce *Suma* y *Acarreo*.
-2.  **Sumador Completo:** Suma 2 bits más un acarreo de entrada.
-
-!!! note "Desbordamiento (Overflow)"
-    Al sumar enteros en C2, si sumamos dos números del mismo signo y el resultado tiene el signo opuesto, ha ocurrido un desbordamiento. El resultado no cabe en los bits disponibles.
-
-### Resta Binaria
-La resta se realiza sumando el complemento a 2 del sustraendo:
-$$ A - B = A + (\text{C2}(B)) = A + (\sim B + 1) $$
-Esto permite usar el mismo circuito sumador para restar.
 
