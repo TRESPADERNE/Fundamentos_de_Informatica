@@ -4,7 +4,7 @@
 1. [Fundamentos de la Información Digital](#1-fundamentos-de-la-información-digital)
 2. [Sistemas de Numeración](#2-sistemas-de-numeración)
 3. [Representación de Números Enteros](#3-representación-de-números-enteros)
-4. [Representación de Números Reales (Coma Flotante)](#4-representación-de-números-reales-coma-flotante)
+4. [Representación de Números Reales](#4-representación-de-números-reales)
 5. [Representación de Caracteres](#5-representación-de-caracteres)
 
 ---
@@ -27,7 +27,7 @@ En la arquitectura moderna de computadores (modelo **Von Neumann**), es fundamen
 
 A bajo nivel, no existe diferencia física entre instrucciones y datos; ambos se representan universalmente mediante **patrones de bits** ($0$ y $1$), que en última instancia corresponden a estados físicos del hardware (niveles de voltaje, cargas eléctricas, magnetización...). Es el contexto de ejecución (cómo y cuándo accede el procesador a ellos) lo que determina su interpretación.
 
-Esta naturaleza binaria se mantiene porque es la solución tecnológica más robusta: es más sencillo y seguro para un circuito distinguir entre dos estados extremos (On/Off) que intentar diferenciar 10 niveles de voltaje precisos para una supuesta aplicación de codificación adaptada al sistema decimal.
+Esta naturaleza binaria se mantiene porque es la solución tecnológica más robusta: es más sencillo y seguro para un circuito distinguir entre dos estados extremos (On/Off) que intentar diferenciar 10 niveles de voltaje precisos, como requeriría una codificación adaptada al sistema decimal.
 
 ### Almacenamiento en el Ordenador: La Memoria
 La memoria principal del ordenador se estructura como una **gran tabla lineal de celdas**. Cada celda es un espacio de almacenamiento direccionable individualmente.
@@ -152,6 +152,7 @@ Es un error común pensar que los bits suman capacidad linealmente. En realidad,
 </div>
 
 <p style="text-align: center;"><em>Número de bits frente a capacidad de representación</em></p>
+
 **Problema inverso:** Si necesito codificar $m$ valores, ¿cuál es el número mínimo $n$ de bits necesarios?
 
 $$ n = \lceil \log_2 m \rceil \quad \longrightarrow \quad \text{Tomamos el entero más próximo por exceso} $$
@@ -186,7 +187,7 @@ La **base ($b$)** es el número total de símbolos permitidos en el sistema. En 
 
 </div>
 
-<p style="text-align: center;"><em>Bases habituales en Informática</em></p>
+<p style="text-align: center;"><em>Bases habituales en Informática: A=10, B=11, ..., F=15</em></p>
 
 ### Valor Posicional (Polinomio Equivalente)
 El concepto fundamental de los sistemas numéricos modernos es el **valor posicional**. A diferencia de los números romanos, aquí el valor de cada dígito no es absoluto, sino que depende de la posición que ocupe respecto a la coma (o punto) decimal.
@@ -850,12 +851,18 @@ Supongamos un Bias de 3 ($2^{3-1}-1$).
 #### Casos Especiales
 El estándar reserva los valores de exponente mínimo (todos 0s) y máximo (todos 1s) para casos excepcionales. Permite representar el **Cero** (que mantiene signo), indicar desbordamientos mediante **Infinito** ($\pm \infty$) y señalar errores matemáticos (como divisiones imposibles o raíces de negativos) con el valor **NaN** (*Not a Number*).
 
+<div class="center-table" markdown>
+
 | Exponente | Mantisa | Significado |
 | :--- | :--- | :--- |
 | Todos 0 | Todos 0 | Cero ($\pm 0$) |
 | Todos 0 | $\neq 0$ | Números desnormalizados (muy pequeños) |
 | Todos 1 | Todos 0 | Infinito ($\pm \infty$) |
 | Todos 1 | $\neq 0$ | NaN (Not a Number) |
+
+</div>
+
+<p style="text-align: center;"><em>Casos especiales de la norma IEEE 754</em></p>
 
 !!! example "¿Qué operación provoca qué?"
     Es común confundir qué genera un Infinito y qué genera un NaN. La ALU sigue reglas matemáticas de límites:
@@ -951,6 +958,26 @@ Números simples como $0.1_{10}$ tienen representación periódica infinita en b
     
     El ordenador no ha guardado $0.1$, sino un número ligeramente mayor. Aunque el error es minúsculo (aprox. $1.49 \cdot 10^{-9}$), si sumamos $0.1$ millones de veces, este error se acumula y se hace visible.
 
+!!! danger "*Ejemplo catastrófico:* **Fallo del misil Patriot (1991)**"
+    Durante la Guerra del Golfo, una batería de misiles Patriot en Dhahran (Arabia Saudí) falló al interceptar un Scud iraquí y murieron 28 soldados. El fallo no se debió al tiempo de vuelo del misil, sino al **tiempo que la batería llevaba encendida**.
+    
+    *   **El Error de Base:** El sistema medía el tiempo en décimas de segundo y lo multiplicaba por $0.1$ para obtener segundos. Como $0.1$ tiene infinitos decimales en binario, el registro de 24 bits truncaba el valor, cometiendo un error de $0.000000095$ s.
+    *   **La Acumulación (Reloj Global):** El sistema **no reseteaba el reloj** al detectar un misil, sino que usaba el **tiempo absoluto** desde el arranque (100 horas) para todos sus cálculos de seguimiento.
+        Aunque el misil Scud acababa de aparecer, el ordenador calculaba su posición usando este tiempo absoluto corrupto. Al multiplicar el error base por cada décima de segundo de las 100 horas, el desfase era enorme:
+        $$ 100 \text{ h} \times 3600 \frac{\text{s}}{\text{h}} \times 10 \frac{\text{décimas}}{\text{s}} \times 0.000000095 \text{ s} \approx \mathbf{0.34 \text{ segundos}} $$
+    *   **El Fallo de Software (Bug de Precisión Mixta)**: si todo el sistema hubiera tenido el mismo error, NO habría pasado nada, porque los errores se habrían cancelado al restar tiempos ($t_2 - t_1$).
+        El desastre ocurrió porque se instaló una actualización de software que corregía el problema de precisión en una subrutina, pero **se olvidaron de corregirlo en otra**.
+        
+        *   Para predecir dónde **debería** estar el misil, se usó la subrutina antigua que convertía el tiempo absoluto (100h) truncando los datos (con el error acumulado de 0.34s).
+        *   Para procesar el dato fresco del radar, se convertiría **ese mismo tiempo absoluto de 100h** usando el nuevo algoritmo de alta precisión (sin apenas error).
+        
+        Al comparar una posición calculada con el *reloj malo* contra una posición real con el *reloj bueno*, los errores **no se cancelaron**. El ordenador calculó una zona de búsqueda errónea y no encontró nada.
+        
+        **La Distancia Fatal:**
+        En ese breve lapso de desfase ($0.34 \text{ s}$), un misil Scud viajando a Match 5 ($1676 \text{ m/s}$) recorre una distancia enorme:
+        $$ \Delta x = 0.34 \text{ s} \times 1676 \text{ m/s} \approx \mathbf{570 \text{ metros}} $$
+        Al buscar el misil a más de medio kilómetro de su posición real, el radar lo perdió, lo clasificó como falsa alarma y no disparó.
+
 ### Representación de Reales en Lenguajes de Programación
 
 Al igual que ocurre con los enteros, la gestión de los números reales varía según la filosofía del lenguaje, aunque en este caso las diferencias son menores debido a la omnipresencia del estándar IEEE 754.
@@ -1000,47 +1027,177 @@ A diferencia de los enteros (que eran *mágicos* y crecían *infinitamente* hast
     *   **Mal:** `if (resultado == 0.0)`
     *   **Bien:** `if (abs(resultado) < 0.00001)` (Usar un margen de tolerancia o *épsilon*).
 
-!!! danger "*Ejemplo catastrófico:* **Fallo del misil Patriot (1991)**"
-    Durante la Guerra del Golfo, una batería de misiles Patriot en Dhahran (Arabia Saudí) falló al interceptar un Scud iraquí y murieron 28 soldados. El fallo no se debió al tiempo de vuelo del misil, sino al **tiempo que la batería llevaba encendida**.
-    
-    *   **El Error de Base:** El sistema medía el tiempo en décimas de segundo y lo multiplicaba por $0.1$ para obtener segundos. Como $0.1$ tiene infinitos decimales en binario, el registro de 24 bits truncaba el valor, cometiendo un error de $0.000000095$ s.
-    *   **La Acumulación (Reloj Global):** El sistema **no reseteaba el reloj** al detectar un misil, sino que usaba el **tiempo absoluto** desde el arranque (100 horas) para todos sus cálculos de seguimiento.
-        Aunque el misil Scud acababa de aparecer, el ordenador calculaba su posición usando este tiempo absoluto corrupto. Al multiplicar el error base por cada décima de segundo de las 100 horas, el desfase era enorme:
-        $$ 100 \text{ h} \times 3600 \frac{\text{s}}{\text{h}} \times 10 \frac{\text{décimas}}{\text{s}} \times 0.000000095 \text{ s} \approx \mathbf{0.34 \text{ segundos}} $$
-    *   **El Fallo de Software (Bug de Precisión Mixta)**: si todo el sistema hubiera tenido el mismo error, NO habría pasado nada, porque los errores se habrían cancelado al restar tiempos ($t_2 - t_1$).
-        El desastre ocurrió porque se instaló una actualización de software que corregía el problema de precisión en una subrutina, pero **se olvidaron de corregirlo en otra**.
-        
-        *   Para predecir dónde **debería** estar el misil, se usó la subrutina antigua que convertía el tiempo absoluto (100h) truncando los datos (con el error acumulado de 0.34s).
-        *   Para procesar el dato fresco del radar, se convertiría **ese mismo tiempo absoluto de 100h** usando el nuevo algoritmo de alta precisión (sin apenas error).
-        
-        Al comparar una posición calculada con el *reloj malo* contra una posición real con el *reloj bueno*, los errores **no se cancelaron**. El ordenador calculó una zona de búsqueda errónea y no encontró nada.
-        
-        **La Distancia Fatal:**
-        En ese breve lapso de desfase ($0.34 \text{ s}$), un misil Scud viajando a Match 5 ($1676 \text{ m/s}$) recorre una distancia enorme:
-        $$ \Delta x = 0.34 \text{ s} \times 1676 \text{ m/s} \approx \mathbf{570 \text{ metros}} $$
-        Al buscar el misil a más de medio kilómetro de su posición real, el radar lo perdió, lo clasificó como falsa alarma y no disparó.
-
 ---
 
 ## 5. Representación de Caracteres
 
-### ASCII
-*   Estándar original de 7 bits (128 caracteres).
-*   Incluye letras inglesas, dígitos y control.
-*   Las letras y números están ordenados consecutivamente (facilita la ordenación).
-    *   `'0'` = 48, `'A'` = 65, `'a'` = 97.
-    *   Diferencia entre mayúscula/minúscula es un solo bit.
+Un ordenador, en su nivel más bajo, no entiende de letras, palabras o frases; solo procesa números binarios. Para que podamos leer y escribir texto en una pantalla, es necesario establecer un **puente** entre el mundo humano (símbolos gráficos) y el mundo digital (números).
+
+Esta traducción se basa en tablas de **codificación de caracteres** (*Character Sets*): acuerdos globales que asignan un número único a cada letra, dígito o signo de puntuación.
+
+### El estándar ASCII
+El código ASCII (*American Standard Code for Information Interchange*) fue el primer estándar universal. Utiliza **7 bits**, lo que permite representar $2^7 = 128$ caracteres distintos.
+
+*   **0-31:** Caracteres de control (no imprimibles). Ej: Retorno de carro (`\r`), salto de línea (`\n`), tabulador (`\t`).
+*   **32-127:** Caracteres imprimibles (letras inglesas, números y signos de puntuación). El espacio es el 32 y el último es el carácter `DEL` (127).
+
+**Características de diseño ingeniosas:**
+Los diseñadores de ASCII ordenaron los caracteres estratégicamente para facilitar el procesamiento por hardware o algoritmos simples:
+
+1.  **Dígitos consecutivos y coincidencia binaria:** `'0'` es el 48 (`0011 0000`), `'1'` es el 49 (`0011 0001`)...
+    *   Si observas los **4 bits inferiores** (el nibble bajo), coinciden *exactamente* con el valor numérico del dígito ($0000_2=0$, $0001_2=1$...).
+    *   Esto permitía a los antiguos programadores convertir de texto a número instantáneamente sin hacer restas: bastaba con tomar los últimos 4 bits (operación `AND 00001111` o `AND 0x0F`).
+2.  **Mayúsculas y Minúsculas:** 
+    *   `'A'` = 65 (`0100 0001`)
+    *   `'a'` = 97 (`0110 0001`)
+    *   La única diferencia es el **bit 5** ($32$). Para pasar de mayúscula a minúscula basta con *activar* ese bit (operación `OR 32`). Para pasar a mayúscula, basta con *desactivarlo* (operación `AND ~32`).
+
+
+![Tabla ASCII](img/ascii.jpg){: style="display: block; margin: 0 auto" }
+<center><em>Tabla del código ASCII extendido Latin-1</em></center>
+<br>
+
+
+!!! failure "Limitaciones y el Caos del 'ASCII Extendido'"
+    ASCII solo cubre el idioma inglés (7 bits). Para dar cabida a otros idiomas (tildes, eñes, etc.), se utilizó el 8º bit disponible en el byte, permitiendo 128 caracteres extra (del 128 al 255).
+    
+    El problema es que **no existía un único 'ASCII Extendido'**, sino docenas de variantes incompatibles llamadas **Páginas de Códigos** (*Code Pages*). Dependiendo de la ubicación geográfica, el sistema operativo usaba una tabla diferente para interpretar esos caracteres extra:
+
+    *   **ISO-8859-1 (conocido como Latin-1):** El estándar para **Europa Occidental**. Es el que incluye la **'ñ'**, las vocales con tilde y símbolos como '¿' o 'ç'.
+    *   **ISO-8859-5:** Para el alfabeto **Cirílico** (Ruso).
+    *   **ISO-8859-7:** Para el alfabeto **Griego**.
+
+
+    Esto provocaba que el intercambio de archivos fuera una pesadilla: si abrías un texto español (Latin-1) en un ordenador configurado en Rusia, el código binario de la 'ñ' ($241$) se visualizaba como el carácter cirílico que ocupaba esa misma posición ("ё"), haciendo el texto ilegible. Este fenómeno de texto distorsionado por mala interpretación de la codificación se conoce como **mojibake**.
 
 ### UNICODE
-Estándar para representar todos los sistemas de escritura del mundo.
-*   **UTF-8:** Codificación de longitud variable (1 a 4 bytes). Compatible con ASCII (los caracteres ASCII ocupan 1 byte en UTF-8). Es el estándar de la web y de **Python 3**.
+Unicode surge para poner fin al caos de las páginas de códigos estableciendo un catálogo universal de caracteres. Para entenderlo, es fundamental distinguir dos conceptos que a menudo se confunden:
 
-### Cadenas (Strings)
-*   **C++:**
-    *   `char`: 1 byte (ASCII).
-    *   Cadenas terminadas en `\0` o clase `std::string`.
-*   **Python:**
-    *   `str`: Unicode por defecto (UTF-8).
+1.  **Code Point (Punto de Código):** Es el identificador numérico único que Unicode asigna a cada concepto (letra, símbolo, emoji). Es una *abstracción*.
+    *   Se escribe `U+XX...XX` (hexadecimal), donde las X son dígitos.
+    *   El espacio de códigos va actualmente desde `U+0000` hasta `U+10FFFF`. Esto permite definir **1.114.112** caracteres diferentes.
+        *   **¿Están todos usados?** ¡Ni mucho menos! Actualmente solo hay asignados unos **150.000** caracteres (aprox. el 13%). La inmensa mayoría del espacio está vacío y reservado para el futuro (nuevos idiomas, símbolos o emojis).
+2.  **Codificación (Encoding):** Es la regla o algoritmo para convertir ese número abstracto (Code Point) en bits reales (0s y 1s) para guardarlos en el disco duro o memoria.
+
+#### El Estándar UTF-8
+Aunque Unicode define el *número*, **UTF-8** es la forma más inteligente y popular de guardarlo, usada en más del 98% de la Web.
+
+*   Permite representar **TODOS** los Code Points de Unicode (del `U+0000` al `U+10FFFF`).
+*   Su genialidad radica en ser de **longitud variable**: en lugar de dar el mismo espacio a todos los caracteres, asigna menos bits a los más comunes y más bits a los más raros.
+
+<div class="center-table" markdown>
+
+| Rango Unicode (Hex) | Tamaño UTF-8 | Estructura de los bits (Plantilla) | Uso típico |
+| :--- | :---: | :--- | :--- |
+| `0000` - `007F` | **1 Byte** | `0xxxxxxx` | Inglés (ASCII original) |
+| `0080` - `07FF` | **2 Bytes** | `110xxxxx 10xxxxxx` | Latín con tildes (ñ, ó), Griego, Cirílico |
+| `0800` - `FFFF` | **3 Bytes** | `1110xxxx 10xxxxxx ...` | Chino, Japonés, Símbolos comunes (Euro €) |
+| `10000` - `10FFFF`| **4 Bytes** | `11110xxx 10xxxxxx ...` | Emojis históricamente recientes, Símbolos raros |
+
+</div>
+
+<p style="text-align: center;"><em>Tabla UTF-8</em></p>
+
+**Ejemplo Práctico: De Code Point a Bytes**
+
+1.  **La letra 'a' `U+0061`** ($97_{10}$):
+    *   Cae en el primer rango (0-127). Se guarda tal cual: `01100001` (`0x61`).
+    *   *Nota:* Exactamente igual que en ASCII.
+
+2.  **La letra 'ñ' `U+00F1`** ($241_{10}$):
+    *   Valor binario: `1111 0001` (8 bits).
+    *   No cabe en el primer rango (necesita 1 byte que empiece por 0). Pasamos al rango de **2 bytes**.
+    *   Plantilla: `110xxxxx 10xxxxxx`. Tenemos 11 huecos ('x') para rellenar con nuestros bits.
+    *   **Relleno (con ceros a la izquierda):**
+        *   Nuestros bits: `11110001` (son 8, faltan 3 para llegar a 11).
+        *   Rellenamos con ceros por la izquierda: **`000`**`11110001`.
+        *   Distribuimos en los huecos: `110`**`00011`** `10`**`110001`**.
+    *   Resultado Hex: `0xC3 0xB1`.
+    *   *Curiosidad:* Por eso si abres un archivo UTF-8 como si fuera Latin-1, la ñ se ve como dos caracteres extraños ("Ã±"): el ordenador interpreta `0xC3` ("Ã") y `0xB1` ("±") por separado.
+
+3.  **El Euro '€' `U+20AC`**:
+    *   Necesita **3 bytes**: `0xE2 0x82 0xAC`.
+
+4.  **El Emoji '😂' `U+1F602`** ($128514_{10}$):
+    *   5 cifras hexadecimales equivalen a **20 bits** ($5 \times 4$). La plantilla de 4 bytes de UTF-8 tiene huecos para **21 bits** ($3+6+6+6$). ¡Cabe perfectamente!
+    *   **Paso a paso:**
+        1.  Hex `1F602` a Binario $\to$ `0001 1111 0110 0000 0010`.
+        2.  Rellenamos con ceros hasta 21 bits: **`0000`**`1111101100000010`.
+        3.  Agrupamos para "rellenar huecos": `000` `011111` `011000` `000010`.
+        4.  Aplicamos la plantilla `11110xxx 10xxxxxx ...`:
+            *   `11110`**`000`** $\to$ `0xF0`
+            *   `10`**`011111`** $\to$ `0x9F`
+            *   `10`**`011000`** $\to$ `0x98`
+            *   `10`**`000010`** $\to$ `0x82`
+    *   Resultado final: `0xF0 0x9F 0x98 0x82`.
+
+!!! success "Por qué ganó UTF-8"
+    *   **Ahorro de espacio:**
+        *   **Inglés:** Los textos clásicos (novelas, ensayos) y el código fuente (HTML, Python, C++) contienen solo caracteres ASCII. En UTF-8 ocupan exactamente **1 byte por carácter**, igual que en los años 70.
+        *   **Español:** La sobrecarga es mínima. En un texto normal (como *El Quijote*), solo las vocales acentuadas y la 'ñ' ocupan 2 bytes. El 98% del texto (letras normales, espacios, puntuación) sigue ocupando 1 byte. El aumento total de tamaño suele rondar apenas el **2%**.
+        *   *Comparativa:* Si usáramos UTF-16, el archivo ocuparía **el doble** de tamaño, ya que *cada letra* (incluida la 'a' o el espacio) gastaría 2 bytes obligatoriamente.
+    *   **Robustez:** Es auto-sincronizado. Si se pierde un byte en la transmisión, es fácil saber dónde empieza el siguiente carácter (todos los bytes de continuación empiezan por `10...`).
+
+#### Otras Codificaciones (La paradoja del uso)
+Aunque UTF-8 domina internet y el almacenamiento en disco (lo que lo hace *el más usado* en volumen de datos), el concepto es relativo. Existen otras codificaciones que, por decisiones históricas, dominan la memoria RAM de miles de millones de dispositivos:
+
+*   **UTF-32:** Usa siempre 4 bytes por carácter. Es muy rápido de procesar (acceso directo al carácter N: salto $4 \times N$ bytes), pero desperdicia muchísima memoria (un archivo de texto plano ocupa 4 veces más). Se usa internamente en Linux o Python para procesar `str` (cadenas de texto).
+*   **UTF-16:** El gigante silencioso. Usa 2 o 4 bytes.
+    *   **¿Dónde domina?** En las entrañas de **Windows, Java, JavaScript, .NET** y, por herencia de Java, **Android** (aunque Android nació en los 2000).
+    *   *El problema:* Windows y JavaScript se diseñaron en los años 90 creyendo que 2 bytes bastarían para todo. Android, aunque es posterior, hereda el uso de UTF-16 de Java. Hoy todos estos sistemas *hablan* UTF-16 internamente (en RAM) pero deben intercambiar datos en UTF-8 con el mundo exterior (Web/Red), pagando un precio en rendimiento por esa conversión continua.
+    *   **¿Y Apple/iPhone?** Apple apostó por UTF-8 en la mayoría de sus frameworks modernos (Core Foundation, Swift, etc.), así que iOS y macOS no sufren la penalización de conversión constante: internamente y externamente usan UTF-8 casi siempre.
+
+### Cadenas (Strings) en Programación
+
+#### C++
+Siguiendo su filosofía de *control sobre el hardware*, C++ diferencia entre la unidad de almacenamiento y la codificación.
+
+*   **`char`**: Ocupa **1 byte**. Literalmente almacena un entero de 8 bits.
+    *   Perfecto para ASCII.
+    *   **Peligro con UTF-8:** Si almacenas `"España"` en un `std::string` (que es una secuencia de `char`), la `ñ` ocupará 2 bytes. La función `.length()` devolverá 6 bytes en lugar de 6 letras, y al acceder a `str[4]` obtendrás solo la mitad de la `ñ`.
+*   C++ moderno (C++11/20) introduce tipos como `char8_t`, `char16_t`, `char32_t` y literales `u8"texto"` para manejar Unicode explícitamente, aunque es más complejo de usar que en lenguajes de alto nivel.
+
+#### Python
+El lenguaje se encarga de la complejidad.
+
+*   **Python 3:** El tipo `str` es **Unicode** por defecto: cada elemento de la cadena representa un símbolo Unicode (un code point), pero **la codificación interna en memoria no es UTF-8, UTF-16 ni UTF-32 estándar**. Desde Python 3.3, el lenguaje asocia cada símbolo Unicode a una codificación propia optimizada para ahorrar memoria, eligiendo 1, 2 o 4 bytes por carácter según el contenido de la cadena.
+    *   Si todos los caracteres caben en Latin-1 (ASCII + tildes básicas), usa 1 byte por carácter.
+    *   Si hay algún carácter que necesita más, pero todos caben en el *plano básico multilingüe* (BMP), usa 2 bytes por carácter (como UTF-16). El *plano básico multilingüe* (BMP) es el rango de Unicode de `U+0000` a `U+FFFF` (los primeros 65.536 símbolos), donde están la mayoría de los alfabetos y símbolos comunes del mundo.
+
+    *   Si hay algún carácter *raro* (emojis, símbolos históricos, etc.), usa 4 bytes por carácter (UTF-32).
+
+
+!!! example "Diferencia Clave"
+    *   **C++:** Ve memoria. Una cadena es un array de bytes terminada en `\0`.
+    *   **Python:** Ve texto. Una cadena es una secuencia abstracta de símbolos Unicode.
+
+
+<!--
+#### Bytes vs. str y archivos de texto/binario en Python
+
+En Python, es fundamental distinguir entre **texto** (tipo `str`) y **datos binarios** (tipo `bytes`).
+
+*   Un objeto `str` representa **texto Unicode**: cada elemento es un símbolo abstracto, no un byte concreto. Ejemplo: `s = "España"`.
+*   Un objeto `bytes` representa **datos binarios puros**: una secuencia de valores entre 0 y 255. Ejemplo: una contraseña segura generada aleatoriamente: `clave = bytes([137, 44, 255, ...])` (32 valores para 256 bits).
+
+**¿Por qué es importante?**
+
+Si intentamos tratar una secuencia de bytes arbitrarios como si fuera texto, pueden aparecer símbolos extraños, errores o incluso pérdida de información. Por ejemplo:
+
+```python
+# Contraseña binaria de 256 bits (32 bytes aleatorios)
+clave = bytes([137, 44, 255, 0, 18, 77, 201, 123, 88, 34, 190, 5, 222, 1, 99, 42,
+               17, 200, 33, 77, 250, 111, 0, 201, 100, 3, 77, 222, 11, 99, 42])
+print(clave)  # Muestra: b'\\x89,\\xff\\x00\\x12M\\xc9{X\"\\xbe\\x05...'
+
+# Si intentamos convertirla a texto directamente:
+try:
+    texto = clave.decode("utf-8")
+except UnicodeDecodeError as e:
+    print("¡Error al interpretar como texto!", e)
+
+
+
 
 ---
 
