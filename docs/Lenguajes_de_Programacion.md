@@ -329,6 +329,7 @@ Programar en un simple editor de texto (como el Bloc de Notas) es posible, pero 
 3.  **Depurador (Debugger):** Herramienta vital que permite detener la ejecución paso a paso para inspeccionar variables y encontrar errores lógicos.
 4.  **Gestión de proyectos:** Organización de ficheros y control de versiones (Git).
 
+
 *Ejemplos populares:* Visual Studio Code (ligero y multipropósito), Eclipse/IntelliJ (Java), Visual Studio (C++/C#), PyCharm (Python), Spyder (Python)
 
 
