@@ -14,7 +14,7 @@
 ### Naturaleza de la Información Digital
 Desde una perspectiva técnica, la **información** se define como todo aquello capaz de reducir la incertidumbre o aportar conocimiento.
 
-![Informacion](img/informacion.jpg){: style="display: block; margin: 0 auto" }
+![Informacion](img/RI/informacion.jpg){: style="display: block; margin: 0 auto" }
 <center><em>Atributos y descriptores para la reducción de la incertidumbre</em></center>
 <br>
 
@@ -499,7 +499,7 @@ La suma aislada de dos bits, conocida como **semisumador binario**, podemos desc
 
 <p style="text-align: center;"><em>Tabla de Verdad del semisumador binario</em></p>
 
-![Semisumador](img/semisumador.jpg){: style="display: block; margin: 0 auto" }
+![Semisumador](img/RI/semisumador.jpg){: style="display: block; margin: 0 auto" }
 <center><em>Semisumador binario</em></center>
 <br>
 
@@ -541,13 +541,13 @@ El sumador completo binario podemos describirlo con una tabla de verdad con tres
 
 <br>
 
-![Sumador completo](img/sumador_completo.jpg){: style="display: block; margin: 0 auto" }
+![Sumador completo](img/RI/sumador_completo.jpg){: style="display: block; margin: 0 auto" }
 <center><em>Sumador completo binario</em></center>
 <br>
 
 Supongamos que necesitamos sumar dos números binarios $x_3x_2x_1x_0$ e $y_3y_2y_1y_0$ de 4 bits. Bastaría disponer de 4 sumadores completos colocados en serie para realizar la operación en paralelo.
 
-![Sumadores en serie](img/sumadores_encadenados.jpg){: style="display: block; margin: 0 auto" }
+![Sumadores en serie](img/RI/sumadores_encadenados.jpg){: style="display: block; margin: 0 auto" }
 <center><em>Sumadores en serie</em></center>
 <br>
 
@@ -681,12 +681,12 @@ $$N = \sum_{i=0} d_i \cdot (2^{30})^i = d_0 + d_1 \cdot 2^{30} + d_2 \cdot 2^{60
     2.  Calcula sus *dígitos* en base $2^{30}$ y obtiene tres bloques: `437976919`, `87719511` y `107`.
     3.  Guarda internamente una lista con la **magnitud**: `[437976919, 87719511, 107]`.
     
-    Utiliza un campo extra para indicar la longitud y el signo: almacenará **3** si es positivo o **-3** si es negativo. Este valor se almacena en **Complemento a 2**. El signo de este campo es el signo del número original y su valor absoluto determina cuantos bloques (dígitos) tiene la lista.
+    Utiliza un campo extra para indicar la longitud de esa lista y el signo: almacenará **3** si es positivo o **-3** si es negativo. Este valor se almacena en **Complemento a 2**. El signo de este campo es el signo del número original y su valor absoluto determina cuantos bloques (dígitos) tiene la lista.
 
     Si multiplicas este número por 1000 y el resultado necesita más espacio, Python simplemente añade un cuarto dígito a la lista.
 
 !!! note "El precio de la magia"
-    Mientras que en C++ sumar dos números es **una sola instrucción** eléctrica (nanosegundos), en Python implica ejecutar un pequeño programa que recorre estas listas, gestiona los acarreos y asigna memoria. Es mucho más cómodo, pero mucho más lento.
+    Mientras que en C++ sumar dos números es **una sola instrucción** (nanosegundos), en Python implica ejecutar un pequeño programa que recorre estas listas, gestiona los acarreos y asigna memoria. Es mucho más cómodo, pero mucho más lento.
 
 
 ## 4. Representación de Números Reales
@@ -875,7 +875,7 @@ El estándar reserva los valores de exponente mínimo (todos 0s) y máximo (todo
         *   $\infty - \infty \to \text{NaN}$ (Indeterminación)
         *   $\sqrt{-5} \to \text{NaN}$ (Imposible en reales)
 
-    La colocación de los patrones de bits la realiza el **hardware** (la Unidad de Coma Flotante o FPU) en tiempo real mediante circuitos que monitorizan las excepciones *antes* o *durante* la operación. Por ejemplo, para $\sqrt{-5}$ se activa la excepción *Invalid Operation* y la FPU fuerza el exponente a unos (`1...1`) y pone *basura* en la mantisa (cualquier valor $\neq 0$). 
+    La colocación de los patrones de bits en el exponente la realiza el **hardware** (la Unidad de Coma Flotante o FPU) en tiempo real mediante circuitos que monitorizan las excepciones *antes* o *durante* la operación. Por ejemplo, para $\sqrt{-5}$ se activa la excepción *Invalid Operation* y la FPU fuerza el exponente a unos (`1...1`) y pone *basura* en la mantisa (cualquier valor $\neq 0$). 
 
 #### Precisión
 Los números reales en el ordenador son un subconjunto discreto de los reales matemáticos.
@@ -886,7 +886,7 @@ La influencia de disponer de un bit a mayores en la mantisa supone que la distan
 ##### Distribución en la recta real
 Los números **no están uniformemente distribuidos** sobre la recta real, sino que están más próximos cerca del origen (exponentes más pequeños) y más separados a medida que nos alejamos de él (exponentes más grandes).
 
-![Floats en la recta real](img/recta_real.jpg){: style="display: block; margin: 0 auto" }
+![Floats en la recta real](img/RI/recta_real.jpg){: style="display: block; margin: 0 auto" }
 <center><em>Distribución de los float's en la recta real</em></center>
 <br>
 
@@ -910,7 +910,7 @@ Los números **no están uniformemente distribuidos** sobre la recta real, sino 
 
 !!! tip "La concentración en $[0, 1]$ y $[-1, 0]$"
     Una consecuencia fascinante de esta distribución logarítmica es la inmensa cantidad de valores concentrados cerca del cero.
-    Dado que el exponente varía aproximadamente entre $-126$ y $+127$, casi la mitad de los valores posibles del exponente son negativos. Esto implica que **aproximadamente el 50% de todos los números positivos que un ordenador puede representar residen en el intervalo $(0, 1)$**.
+    Dado que el exponente en IEEE 754 de 32 bits varía aproximadamente entre $-126$ y $+127$, casi la mitad de los valores posibles del exponente son negativos. Esto implica que **aproximadamente el 50% de todos los números positivos que un ordenador puede representar residen en el intervalo $(0, 1)$**.
     
     Por simetría, ocurre exactamente lo mismo con los números negativos: **el 50% de ellos se concentra en el intervalo $(-1, 0)$**.
 
@@ -1053,7 +1053,7 @@ Los diseñadores de ASCII ordenaron los caracteres estratégicamente para facili
     *   La única diferencia es el **bit 5** ($32$). Para pasar de mayúscula a minúscula basta con *activar* ese bit (operación `OR 32`). Para pasar a mayúscula, basta con *desactivarlo* (operación `AND ~32`).
 
 
-![Tabla ASCII](img/ascii.jpg){: style="display: block; margin: 0 auto" }
+![Tabla ASCII](img/RI/ascii.jpg){: style="display: block; margin: 0 auto" }
 <center><em>Tabla del código ASCII extendido Latin-1</em></center>
 <br>
 
@@ -1063,12 +1063,12 @@ Los diseñadores de ASCII ordenaron los caracteres estratégicamente para facili
     
     El problema es que **no existía un único 'ASCII Extendido'**, sino docenas de variantes incompatibles llamadas **Páginas de Códigos** (*Code Pages*). Dependiendo de la ubicación geográfica, el sistema operativo usaba una tabla diferente para interpretar esos caracteres extra:
 
-    *   **ISO-8859-1 (conocido como Latin-1):** El estándar para **Europa Occidental**. Es el que incluye la **'ñ'**, las vocales con tilde y símbolos como '¿' o 'ç'.
+    *   **ISO-8859-1 (conocido como Latin-1):** El estándar para **Europa Occidental**. Es el que incluye la **'ñ'**, las vocales con tilde y símbolos como **'¿'** o **'ç'**.
     *   **ISO-8859-5:** Para el alfabeto **Cirílico** (Ruso).
     *   **ISO-8859-7:** Para el alfabeto **Griego**.
 
 
-    Esto provocaba que el intercambio de archivos fuera una pesadilla: si abrías un texto español (Latin-1) en un ordenador configurado en Rusia, el código binario de la 'ñ' ($241$) se visualizaba como el carácter cirílico que ocupaba esa misma posición ("ё"), haciendo el texto ilegible. Este fenómeno de texto distorsionado por mala interpretación de la codificación se conoce como **mojibake**.
+    Esto provocaba que el intercambio de archivos fuera una pesadilla: si abrías un texto español (Latin-1) en un ordenador configurado en Rusia, el código binario de la 'ñ' ($241$) se visualizaba como el carácter cirílico que ocupaba esa misma posición ('ё'), haciendo el texto ilegible. Este fenómeno de texto distorsionado por mala interpretación de la codificación se conoce como **mojibake**.
 
 ### UNICODE
 Unicode surge para poner fin al caos de las páginas de códigos estableciendo un catálogo universal de caracteres. Para entenderlo, es fundamental distinguir dos conceptos que a menudo se confunden:
@@ -1141,7 +1141,7 @@ Aunque Unicode define el *número*, **UTF-8** es la forma más inteligente y pop
 #### Otras Codificaciones (La paradoja del uso)
 Aunque UTF-8 domina internet y el almacenamiento en disco (lo que lo hace *el más usado* en volumen de datos), el concepto es relativo. Existen otras codificaciones que, por decisiones históricas, dominan la memoria RAM de miles de millones de dispositivos:
 
-*   **UTF-32:** Usa siempre 4 bytes por carácter. Es muy rápido de procesar (acceso directo al carácter N: salto $4 \times N$ bytes), pero desperdicia muchísima memoria (un archivo de texto plano ocupa 4 veces más). Se usa internamente en Linux o Python para procesar `str` (cadenas de texto).
+*   **UTF-32:** Usa siempre 4 bytes por carácter. Es muy rápido de procesar (acceso directo al carácter en la posición N: salto $4 \times N$ bytes), pero desperdicia muchísima memoria (un archivo de texto plano ocupa 4 veces más).
 *   **UTF-16:** El gigante silencioso. Usa 2 o 4 bytes.
     *   **¿Dónde domina?** En las entrañas de **Windows, Java, JavaScript, .NET** y, por herencia de Java, **Android** (aunque Android nació en los 2000).
     *   *El problema:* Windows y JavaScript se diseñaron en los años 90 creyendo que 2 bytes bastarían para todo. Android, aunque es posterior, hereda el uso de UTF-16 de Java. Hoy todos estos sistemas *hablan* UTF-16 internamente (en RAM) pero deben intercambiar datos en UTF-8 con el mundo exterior (Web/Red), pagando un precio en rendimiento por esa conversión continua.
@@ -1154,7 +1154,7 @@ Siguiendo su filosofía de *control sobre el hardware*, C++ diferencia entre la 
 
 *   **`char`**: Ocupa **1 byte**. Literalmente almacena un entero de 8 bits.
     *   Perfecto para ASCII.
-    *   **Peligro con UTF-8:** Si almacenas `"España"` en un `std::string` (que es una secuencia de `char`), la `ñ` ocupará 2 bytes. La función `.length()` devolverá 6 bytes en lugar de 6 letras, y al acceder a `str[4]` obtendrás solo la mitad de la `ñ`.
+    *   **Peligro con UTF-8:** Si almacenas `"España"` en un `std::string` (que es una secuencia de `char`), la `ñ` ocupará 2 bytes. La función `.length()` devolverá **7** bytes en lugar de 6 letras, y al acceder a `str[4]` obtendrás solo la mitad de la `ñ`.
 *   C++ moderno (C++11/20) introduce tipos como `char8_t`, `char16_t`, `char32_t` y literales `u8"texto"` para manejar Unicode explícitamente, aunque es más complejo de usar que en lenguajes de alto nivel.
 
 #### Python

@@ -134,7 +134,7 @@ Un paradigma de programación describe una forma de realizar los cálculos y la 
 !!! note "Nota"
     La mejor forma de entender un paradigma es aprender un lenguaje de programación que lo implemente, por lo que no entraremos en más detalles.
 
-![Paradigmas de Programación](img/paradigmas.jpg){: style="display: block; margin: 0 auto" }
+![Paradigmas de Programación](img/LP/paradigmas.jpg){: style="display: block; margin: 0 auto" }
 <center><em>Clasificación de los paradigmas de programación.</em></center>
 
 ---
@@ -152,7 +152,7 @@ En esa jungla encontraréis herramientas para todo. Python es una navaja suiza (
 
 
 
-![Nube de lenguajes](img/nube_lenguajes.jpg){: style="display: block; margin: 0 auto" }
+![Nube de lenguajes](img/LP/nube_lenguajes.jpg){: style="display: block; margin: 0 auto" }
 <center><em>La jungla de lenguajes de programación.</em></center>
 
 
@@ -169,10 +169,10 @@ Dado el enorme número de lenguajes existentes, la industria se guía por índic
 
     Al obtener respuestas inmediatas y código generado a medida por la IA, muchos desarrolladores ya no acuden a publicar sus dudas en la comunidad. Esto plantea la incógnita de si rankings como RedMonk, que dependen de estos datos, seguirán siendo fiables en el futuro cercano.
 
-![Ranking TIOBE](img/tiobe.jpg){: style="display: block; margin: 0 auto" }
+![Ranking TIOBE](img/LP/tiobe.jpg){: style="display: block; margin: 0 auto" }
 <center><em>Ranking TIOBE: Evolución histórica de la popularidad.</em></center>
 
-![Ranking Redmonk](img/redmonk.png){: style="display: block; margin: 0 auto" }
+![Ranking Redmonk](img/LP/redmonk.png){: style="display: block; margin: 0 auto" }
 <center><em>Ranking Redmonk: Eje vertical (Popularidad en StackOverflow), Eje horizontal (Proyectos en GitHub).</em></center>
 
 
@@ -192,7 +192,7 @@ Dado que nuestra asignatura se orienta a titulaciones de ingeniería (Biomédica
 
 4.  **Multiparadigma:** Permite empezar programando de forma imperativa (sencilla) y avanzar hacia la orientación a objetos o funcional progresivamente, sin imponer una estructura rígida desde la línea 1.
 
-![¿Qué lenguaje aprender primero?](img/startcoding.jpg){: style="display: block; margin: 0 auto" }
+![¿Qué lenguaje aprender primero?](img/LP/startcoding.jpg){: style="display: block; margin: 0 auto" }
 <center><em>¿Qué lenguaje aprender en primer lugar?</em></center>
 
 
@@ -215,7 +215,7 @@ El compilador detecta errores en tiempo de compilación (sintaxis), pero no erro
 **¿Qué ocurre al ejecutarlo? (El Loader)**
 Cuando un usuario ejecuta ese archivo `.exe`, un componente del sistema operativo llamado **cargador (loader)** transfiere el código y los datos del fichero binario a la memoria *RAM*, y la CPU comienza a procesar las instrucciones en código máquina que contiene.
 
-![Proceso de compilación en C++](img/compilacion.jpg){: style="display: block; margin: 0 auto" }
+![Proceso de compilación en C++](img/LP/compilacion.jpg){: style="display: block; margin: 0 auto" }
 <center><em>Proceso de compilación en C++</em></center>
 
 ### Fases de la Traducción (Interior del Compilador)
@@ -232,7 +232,7 @@ El compilador realiza la traducción típicamente en 2 grandes fases:
 
 **Tabla de Símbolos:** Durante todo este proceso, el compilador mantiene una estructura de datos llamada **Tabla de Símbolos**. Esta actúa como una base de datos centralizada donde se registra información sobre cada identificador encontrado (variables, funciones, tipos), permitiendo verificar, por ejemplo, que no usemos una variable que no ha sido declarada previamente.
 
-![Fases de la traducción de un compilador](img/traduccion_compilador.jpg){: style="display: block; margin: 0 auto" }
+![Fases de la traducción de un compilador](img/LP/traduccion_compilador.jpg){: style="display: block; margin: 0 auto" }
 <center><em>Fases de la traducción de un compilador</em></center>
 
 #### Importancia de la Arquitectura y Retrocompatibilidad
@@ -291,7 +291,7 @@ Para mejorar el rendimiento, las VMs modernas (como la JVM de Java o V8 de JS) c
 *   **Java vs Android:** Mientras que en ordenadores se usa la JVM estándar, Android utiliza su propia máquina virtual llamada **ART (Android Run Time)**. Aunque se programa en Java, el bytecode es diferente debido a temas de licencias y para optimizar el consumo de batería en móviles.
 *   **.NET (C#):** El entorno de Microsoft destaca por ser **multilenguaje**: compila alrededor de 35 lenguajes diferentes a un mismo bytecode llamado **CIL** (*Common Intermediate Language*). El lenguaje **C#** (*C Sharp*) es el más utilizado de este ecosistema y guarda muchas similitudes con Java y C++. Finalmente, un compilador JIT llamado **CLR** (*Common Language Runtime*) traduce y ejecuta ese código en la plataforma hardware definitiva.
 
-![clr](img/clr.jpg){: style="display: block; margin: 0 auto" }
+![clr](img/LP/clr.jpg){: style="display: block; margin: 0 auto" }
 <center><em>La Máquina Virtual multilenguaje de Microsoft</em></center>
 
 ## 6. Compiladores frente a Intérpretes
@@ -315,7 +315,7 @@ A continuación, comparamos los enfoques principales: **Compilación Pura** (C++
 
 <br>
 
-![Compilación vs Máquina Virtual](img/compilador_mv.jpg){: style="display: block; margin: 0 auto" }
+![Compilación vs Máquina Virtual](img/LP/compilador_mv.jpg){: style="display: block; margin: 0 auto" }
 <center><em>Compilación vs Máquina Virtual</em></center>
 
 
