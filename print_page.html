@@ -1645,7 +1645,7 @@ Al igual que ocurre en la aritmética decimal (ej. <span class="arithmatex">\(87
 <p><strong>2. Usando Complemento a 2 (C2):</strong></p>
 <ul>
 <li><span class="arithmatex">\(6_{10} \rightarrow 0110_{C2}\)</span></li>
-<li><span class="arithmatex">\(-7_{10} \rightarrow 1001_{C2}\)</span> ( Invertir <span class="arithmatex">\(0111 \rightarrow 1000\)</span>; Sumar <span class="arithmatex">\(1 \rightarrow 1001\)</span>)</li>
+<li><span class="arithmatex">\(-7_{10} \rightarrow 1001_{C2}\)</span></li>
 </ul>
 <p>Operando con el mismo circuito sumador:</p>
 <div class="highlight"><pre><span></span><code>                 &lt;-- Acarreos
@@ -1683,9 +1683,11 @@ Sumamos <span class="arithmatex">\(5 + 4 = 9\)</span>. (Fuera de rango, máximo 
     1 0 0 1  (-7) ¡ERROR GRAVE!
 </code></pre></div>
 Dos números positivos han generado un negativo. <strong>Esto es Overflow.</strong></p>
-<p><strong>¿Quién detecta el error?</strong>
-*   <strong>Hardware (ALU):</strong> <strong>SIEMPRE</strong> detecta el desbordamiento (activa un <em>flag</em> de estado interno).
-*   <strong>Software (C++):</strong> Por defecto <strong>IGNORA</strong> esta señal para ganar velocidad. El programa continúa ejecutándose con el valor erróneo sin avisar (comportamiento indefinido o <em>wrap-around</em>).</p>
+<p><strong>¿Quién detecta el error?</strong></p>
+<ul>
+<li><strong>Hardware (ALU):</strong> <strong>SIEMPRE</strong> detecta el desbordamiento (activa un <em>flag</em> de estado interno).</li>
+<li><strong>Software (C++):</strong> Por defecto <strong>IGNORA</strong> esta señal para ganar velocidad. El programa continúa ejecutándose con el valor erróneo sin avisar (comportamiento indefinido o <em>wrap-around</em>).</li>
+</ul>
 </div>
 <h3 id="representacion_de_la_informacion-representación-de-enteros-en-lenguajes-de-programación">Representación de Enteros en Lenguajes de Programación</h3>
 <p>La representación interna de los números enteros depende drásticamente del lenguaje. Mientras que C++ ofrece control sobre el hardware (tamaños fijos), Python ofrece abstracción matemática (tamaños dinámicos).</p>
