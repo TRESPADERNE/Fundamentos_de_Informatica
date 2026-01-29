@@ -830,9 +830,11 @@ Imaginemos un programa con un error de sintaxis.
 <li><strong>Comportamiento compilado:</strong> El proceso de traducción falla antes de empezar (Compilation Error). No se genera ningún archivo ejecutable y el usuario <strong>no ve nada</strong> en pantalla.</li>
 <li><strong>Comportamiento interpretado:</strong> El programa arranca inmediatamente. El usuario ve por la consola los valores de <code>a</code> y <code>b</code> y, justo después, el programa <strong>se estrella (crash)</strong> al intentar ejecutar la cuarta línea.</li>
 </ul>
-<p>Al igual que con un compilador, se necesita tener el intérprete instalado en la máquina para correr el código, pero un intérprete no genera un ejecutable independiente (como un <code>.exe</code>). 
-*   <strong>Ventaja:</strong> Flexibilidad, depuración rápida, y capacidad de ejecutar código generado dinámicamente.
-*   <strong>Desventaja:</strong> Menor velocidad de ejecución: la CPU pierde tiempo traduciendo lo mismo una y otra vez.</p>
+<p>Al igual que con un compilador, se necesita tener el intérprete instalado en la máquina para correr el código, pero un intérprete no genera un ejecutable independiente (como un <code>.exe</code>). </p>
+<ul>
+<li><strong>Ventaja:</strong> Flexibilidad, depuración rápida, y capacidad de ejecutar código generado dinámicamente.</li>
+<li><strong>Desventaja:</strong> Menor velocidad de ejecución: la CPU pierde tiempo traduciendo lo mismo una y otra vez.</li>
+</ul>
 <div class="admonition info">
 <p class="admonition-title">El intérprete de comandos de Windows (<code>cmd.exe</code>)</p>
 <p>En los sistemas Windows existe un programa especial llamado <strong>intérprete de comandos</strong> (<code>cmd.exe</code>). Este programa es el encargado de leer e interpretar, línea a línea, las órdenes que escribimos en la consola o que guardamos en un archivo de texto con extensión <code>.bat</code> o <code>.cmd</code> (conocidos como <strong>ficheros por lotes</strong> o <em>batch files</em>).
