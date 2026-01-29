@@ -1725,11 +1725,10 @@ Eliminan el bit de signo para duplicar el rango positivo (<span class="arithmate
 <p class="admonition-title">Ejemplo Práctico</p>
 <p>Imagina un número enorme como <code>123456789101112131415</code> (requiere unos 70 bits).</p>
 <ol>
-<li>Como no cabe en un registro de CPU de 64 bits, Python lo descompone.</li>
 <li>Calcula sus <em>dígitos</em> en base <span class="arithmatex">\(2^{30}\)</span> y obtiene tres bloques: <code>437976919</code>, <code>87719511</code> y <code>107</code>.</li>
 <li>Guarda internamente una lista con la <strong>magnitud</strong>: <code>[437976919, 87719511, 107]</code>.</li>
+<li>Utiliza un campo extra para indicar la longitud de esa lista y el signo: almacenará <strong>3</strong> si es positivo o <strong>-3</strong> si es negativo. Este valor se almacena en <strong>Complemento a 2</strong>. El signo de este campo es el signo del número original y su valor absoluto determina cuantos bloques (dígitos) tiene la lista.</li>
 </ol>
-<p>Utiliza un campo extra para indicar la longitud de esa lista y el signo: almacenará <strong>3</strong> si es positivo o <strong>-3</strong> si es negativo. Este valor se almacena en <strong>Complemento a 2</strong>. El signo de este campo es el signo del número original y su valor absoluto determina cuantos bloques (dígitos) tiene la lista.</p>
 <p>Si multiplicas este número por 1000 y el resultado necesita más espacio, Python simplemente añade un cuarto dígito a la lista.</p>
 </div>
 <div class="admonition note">
