@@ -1114,9 +1114,10 @@ Este Bytecode no es más que la <strong>ISA (Instruction Set Architecture)</stro
 <p><strong>Fase de Ejecución (La Máquina Virtual):</strong></p>
 <p>La <strong>Máquina Virtual (VM)</strong> no es hardware, sino un <strong>programa</strong> (software) instalado en el ordenador del usuario que actúa como ese procesador ficticio.
 De facto, la VM funciona como un <strong>intérprete puro</strong> (pero sobre el bytecode, no sobre el código fuente): lee las instrucciones del archivo intermedio y las traduce a la <strong>ISA nativa</strong> de la máquina real (Inglés, Francés, Chino...) en tiempo real.</p>
-<pre><code>!!! info "Eficiencia de la Máquina Virtual"
-    Como ocurre con cualquier intérprete, si una instrucción de bytecode está dentro de un **bucle** (un fragmento de código que se repetirá una serie de veces), la VM la traducirá una y otra vez en cada iteración, lo que implica una sobrecarga de rendimiento respecto al código nativo.
-</code></pre>
+<div class="admonition info">
+<p class="admonition-title">Eficiencia de la Máquina Virtual</p>
+<p>Como ocurre con cualquier intérprete, si una instrucción de bytecode está dentro de un <strong>bucle</strong> (un fragmento de código que se repetirá una serie de veces), la VM la traducirá una y otra vez en cada iteración, lo que implica una sobrecarga de rendimiento respecto al código nativo.</p>
+</div>
 </li>
 </ol>
 <p><strong>Ventajas de la Máquina Virtual:</strong></p>
