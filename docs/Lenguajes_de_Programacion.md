@@ -61,10 +61,16 @@ Básicamente se pueden establecer tres niveles de abstracción:
 Es el lenguaje directamente comprensible por el procesador (CPU). En el tema de **Arquitectura** estudiaremos cómo la CPU procesa estas órdenes; por ahora basta entender que es el componente hardware encargado de leer secuencialmente *unos y ceros* y actuar en consecuencia (sumar, guardar datos, etc.).
 
 *   Utiliza un sistema de codificación binaria (secuencias de 1's y 0's) para definir un **conjunto predefinido de instrucciones**, (**ISA**, *Instruction Set Architecture*).
-    > Una **instrucción** es la operación más elemental que el hardware puede realizar indivisiblemente, como *sumar dos valores*, *mover un dato de memoria al procesador*, etc.
+
+    !!! tip "Definición de instrucción"
+        Una instrucción es la operación más elemental que el hardware puede realizar indivisiblemente, como sumar dos valores, mover un dato de memoria al procesador, etc.
+
 *   Depende totalmente de la arquitectura: un código máquina para una CPU ARM (móvil) es incomprensible para una CPU Intel Core i7 (PC).
+
 *   **Gestión:** A este nivel, el control de la **memoria** es manual y absoluto.
-    > La memoria es el *casillero* gigante de celdas numeradas donde se almacenan los datos y el programa en ejecución. En código máquina no existen las *variables* con nombres (como `edad`), sino que el programador debe referirse a los datos por su **dirección física** (el número exacto de la celda, ej: `0x0045A`).
+
+    !!! tip "¿Qué es la memoria?"
+        La memoria es el *casillero* gigante de celdas numeradas donde se almacenan los datos y el programa en ejecución. En código máquina no existen las *variables* con nombres (como `edad`), sino que el programador a este nivel debe referirse a los datos por su **dirección física** (el número exacto de la celda, ej: `0x0045A`).
 
 
 #### Lenguaje Ensamblador
@@ -80,8 +86,11 @@ Emplea palabras nemotécnicas (abreviaturas) para hacer referencia a las instruc
 
 En este ejemplo, la instrucción binaria se compone de 3 partes que el hardware decodifica:
 
-1.  **Código de operación (5 primeros bits):** La secuencia `10110` ordena **mover** (*MOV*) un dato a un registro.
-    > *Nota:* Un **registro** es una posición de memoria ultrarrápida situada *dentro* de la propia CPU.
+1.  **Código de operación (5 primeros bits):** La secuencia `10110` ordena **mover** (*MOV*) un dato a un **registro**.
+
+    !!! tip "¿Qué es un registro?"
+        Un **registro** es una celda de memoria ultrarrápida situada *dentro* de la propia CPU.
+
 2.  **Registro destino (3 siguientes bits):** El código `000` corresponde al registro interno denominado **AL**.
 3.  **Dato (8 bits finales):** La secuencia `01100001` es el valor del dato (97 en decimal, 61 en hexadecimal).
 
@@ -109,9 +118,14 @@ Estos lenguajes buscan acercarse a la forma de pensar humana y alejarse del deta
 *   **Necesidad de Traducción:** Para poder ejecutarse, necesitan ser traducidos al lenguaje del procesador mediante **Compiladores** o **Intérpretes**.
 *   **Tipado:**
     *   **Estático** (C++, Java): El tipo de dato debe definirse explícitamente antes de compilar.
-        > Ejemplo: `int x = 3;` (El programador obliga a que `x` sea un número entero).
+        
+        !!! example "`int x = 3;`"
+            El programador obliga a que `x` sea un número entero.
+
     *   **Dinámico** (Python, JS): El tipo se deduce automáticamente durante la ejecución.
-        > Ejemplo: `x = 3` (Python infiere que `x` es un entero por el valor asignado, sin necesidad de declararlo).
+        
+        !!! example "`x = 3`"
+            Python infiere que `x` es un entero por el literal (`3`) utilizado, sin necesidad de declararlo.
 
 **Ejemplo Comparativo: `"Hola Mundo"`**
 
@@ -145,7 +159,7 @@ Un paradigma de programación describe una forma de realizar los cálculos y la 
 A menudo, el panorama actual se percibe como una ***jungla* de lenguajes**.
 
 *   Existen miles de lenguajes (se estima que hay más de 9.000 creados históricamente).
-*   Para un alumno novel, enfrentarse a esta imagen provoca la parálisis de la elección: *¿Por cuál empiezo? ¿Cuál es el *mejor*?*
+*   Para un alumno novel, enfrentarse a esta imagen provoca la parálisis de la elección: *¿Por cuál empiezo? ¿Cuál es el mejor?*
 *   **La realidad:** No todos tienen la misma importancia. Muchos son académicos, otros están obsoletos (como el latín) y otros son de nicho muy específico.
 
 En esa jungla encontraréis herramientas para todo. Python es una navaja suiza (sirve para casi todo, fácil de llevar), C++ es un bisturí láser industrial (muy potente, pero si no sabes usarlo te cortas un brazo), y otros son simplemente juguetes.
@@ -161,7 +175,7 @@ En esa jungla encontraréis herramientas para todo. Python es una navaja suiza (
 
 Dado el enorme número de lenguajes existentes, la industria se guía por índices de popularidad para decidir qué tecnologías adoptar. No existe un *mejor* lenguaje absoluto, pero sí tendencias de mercado claras. Dos de los indicadores más fiables son:
 
-1.  **Índice TIOBE:** Se basa en el número de resultados en motores de búsqueda. Es un buen indicador de *de qué se está hablando* o *qué se está buscando aprender*.
+1.  **Índice TIOBE:** Se basa en el número de resultados en motores de búsqueda. Es un buen indicador sobre *qué se está hablando* o *qué se está buscando aprender*.
 2.  **Ranking RedMonk:** Cruza datos de **GitHub** (cantidad de código escrito) y **Stack Overflow** (cantidad de preguntas técnicas). Es un indicador más preciso de *qué se está usando realmente en proyectos*.
 
 !!! warning "El declive de Stack Overflow y la era de la IA"
@@ -209,10 +223,14 @@ El compilador detecta errores en tiempo de compilación (sintaxis), pero no erro
 1.  **Edición:** Se escribe el código fuente: las extensiones habituales de los archivos son `.cpp` y `.h`.
 2.  **Preprocesamiento:** Es una fase previa de *preparación* del texto. El **preprocesador** limpia el código eliminando las notas del autor (comentarios) e incrusta el contenido de ficheros externos necesarios (como si hiciera un *copiar y pegar* automático de las bibliotecas), dejando el código listo para traducir.
 3.  **Compilación:** Traduce el código preprocesado a **código objeto** (`.o` o `.obj`). Este código es binario pero aún no es ejecutable por sí mismo porque le faltan las conexiones con el resto del proyecto.
-    > Un programa suele dividirse en **muchos archivos fuente**. En esta fase, cada archivo se traduce por separado, pero si uno necesita usar una función que está escrita en *otro* archivo, todavía no *sabe* dónde encontrarla. Esas *referencias* cruzadas están pendientes de resolver.
+    
+    !!! info "Las referencias cruzadas entre unidades de compilación"
+        Un programa suele dividirse en **muchos archivos fuente**. En esta fase, cada archivo se traduce por separado. Pero si una unidad necesita usar una función que está escrita en *otra* unidad de compilación, todavía no *sabe* dónde encontrarla. Esas *referencias* cruzadas están pendientes de resolver.
+    
 4.  **Enlazado (Linker):** Une todos los archivos objeto del programador con las **bibliotecas externas** (ej. funciones matemáticas) para crear un único fichero **ejecutable** binario (`.exe`).
 
-**¿Qué ocurre al ejecutarlo? (El Loader)**
+### El Cargador (Loader)
+
 Cuando un usuario ejecuta ese archivo `.exe`, un componente del sistema operativo llamado **cargador (loader)** transfiere el código y los datos del fichero binario a la memoria *RAM*, y la CPU comienza a procesar las instrucciones en código máquina que contiene.
 
 ![Proceso de compilación en C++](img/LP/compilacion.jpg){: style="display: block; margin: 0 auto" }
@@ -230,7 +248,8 @@ El compilador realiza la traducción típicamente en 2 grandes fases:
     *   **Optimización:** Fase crítica donde el compilador mejora el código (elimina código muerto, desenrolla bucles) para reducir tamaño o aumentar velocidad.
     *   Generación de código máquina específico para la arquitectura.
 
-**Tabla de Símbolos:** Durante todo este proceso, el compilador mantiene una estructura de datos llamada **Tabla de Símbolos**. Esta actúa como una base de datos centralizada donde se registra información sobre cada identificador encontrado (variables, funciones, tipos), permitiendo verificar, por ejemplo, que no usemos una variable que no ha sido declarada previamente.
+#### Tabla de Símbolos
+Durante todo este proceso, el compilador mantiene una estructura de datos llamada **Tabla de Símbolos**. Esta actúa como una base de datos centralizada donde se registra información sobre cada identificador encontrado (variables, funciones, tipos), permitiendo verificar, por ejemplo, que no usemos una variable que no ha sido declarada previamente.
 
 ![Fases de la traducción de un compilador](img/LP/traduccion_compilador.jpg){: style="display: block; margin: 0 auto" }
 <center><em>Fases de la traducción de un compilador</em></center>
@@ -256,36 +275,66 @@ c = a + / b   # <--- ¡¡ERROR DE SINTAXIS!! (Sobran operadores)
 print(c)
 ```
 
-*   **Comportamiento Compilado:** El proceso de traducción falla antes de empezar (Compilation Error). No se genera ningún archivo ejecutable y el usuario **no ve nada** en pantalla.
-*   **Comportamiento Interpretado:** El programa arranca inmediatamente. El usuario ve por la consola los valores de `a` y `b ` y, justo después, el programa **se estrella (crash)** al intentar ejecutar la cuarta línea.
+*   **Comportamiento compilado:** El proceso de traducción falla antes de empezar (Compilation Error). No se genera ningún archivo ejecutable y el usuario **no ve nada** en pantalla.
+*   **Comportamiento interpretado:** El programa arranca inmediatamente. El usuario ve por la consola los valores de `a` y `b ` y, justo después, el programa **se estrella (crash)** al intentar ejecutar la cuarta línea.
 
-*   No genera un ejecutable independiente (como un `.exe`). Necesitas tener el intérprete instalado en la máquina para correr el código.
+Al igual que con un compilador, se necesita tener el intérprete instalado en la máquina para correr el código, pero un intérprete no genera un ejecutable independiente (como un `.exe`). 
+
 *   **Ventaja:** Flexibilidad, depuración rápida, y capacidad de ejecutar código generado dinámicamente.
 *   **Desventaja:** Menor velocidad de ejecución: la CPU pierde tiempo traduciendo lo mismo una y otra vez.
+
+
+!!! info "El intérprete de comandos de Windows (`cmd.exe`)"
+    En los sistemas Windows existe un programa especial llamado **intérprete de comandos** (`cmd.exe`). Este programa es el encargado de leer e interpretar, línea a línea, las órdenes que escribimos en la consola o que guardamos en un archivo de texto con extensión `.bat` o `.cmd` (conocidos como **ficheros por lotes** o *batch files*).
+    Cuando ejecutamos un archivo `.bat`, **no se compila** ni se traduce previamente a código máquina. En su lugar, el propio sistema operativo (a través de `cmd.exe`) lee cada línea del archivo y la interpreta al vuelo, ejecutando las órdenes una tras otra. Por eso, decimos que estos scripts son **interpretados** por el S.O. Linux tiene intérpretes similares, como *bash*.
+
+    **Ejemplo sencillo de un fichero `.bat` en Windows:**
+    ```bat
+    @echo off
+    echo ¡Hola, mundo!
+    pause
+    ```
+    Al ejecutar este archivo, se abrirá una ventana de consola que mostrará el mensaje "¡Hola, mundo!" y esperará a que el usuario pulse una tecla para cerrarse.
+
 
 ### Modelo Híbrido: Máquinas Virtuales
 Muchos lenguajes actuales (Java, Python, C#) buscan un punto intermedio utilizando una estrategia de *CPU Imaginaria*.
 
 1.  **Fase de Compilación a Bytecode:**
+
     El código fuente no se traduce a la ISA de la CPU real (Intel, ARM, etc.), sino que se genera un **fichero intermedio** conteniendo **Bytecode** (ej. `.class` en Java, `.pyc` en Python).
     Este Bytecode no es más que la **ISA (Instruction Set Architecture)** de una *máquina ideal* que no existe físicamente. Es como traducir un libro de español a **Esperanto** en lugar de a 50 idiomas distintos.
 
 2.  **Fase de Ejecución (La Máquina Virtual):**
+
     La **Máquina Virtual (VM)** no es hardware, sino un **programa** (software) instalado en el ordenador del usuario que actúa como ese procesador ficticio.
     De facto, la VM funciona como un **intérprete puro** (pero sobre el bytecode, no sobre el código fuente): lee las instrucciones del archivo intermedio y las traduce a la **ISA nativa** de la máquina real (Inglés, Francés, Chino...) en tiempo real.
-    > Como ocurre con cualquier intérprete, si una instrucción de bytecode está dentro de un bucle, la VM la traducirá una y otra vez en cada iteración (salvo optimizaciones JIT), lo que implica una sobrecarga de rendimiento respecto al código nativo.
+
+    !!! info "Eficiencia de la Máquina Virtual"
+        Como ocurre con cualquier intérprete, si una instrucción de bytecode está dentro de un **bucle** (un fragmento de código que se repetirá una serie de veces), la VM la traducirá una y otra vez en cada iteración, lo que implica una sobrecarga de rendimiento respecto al código nativo.
 
 
-**Ventajas de la Máquina Virtual:**
+#### Ventajas de la Máquina Virtual
 
 *   **Portabilidad (WORA):** *Write Once, Run Anywhere*. El mismo bytecode corre en Windows, Linux o Mac, siempre que exista la VM correspondiente. Nótese que, aunque el bytecode es universal, **el software de la VM sí es específico para cada plataforma** (por eso debes descargar una versión distinta de Java o Python si usas Windows, Mac o Linux), ya que es la pieza que lidia con el hardware real.
 *   **Seguridad:** La VM actúa como un entorno aislado (*sandbox*), protegiendo el hardware real.
-*   **Gestión de Memoria (Limpieza automática):** En lenguajes de bajo nivel (como C), la gestión de la **memoria dinámica** es manual. Si un programador solicita espacio extra durante la ejecución, es responsable de liberarlo explícitamente. Un simple olvido en este paso provoca fallos graves (*fugas de memoria*). Para evitarlo, la VM incluye un **Recolector de Basura (*Garbage Collector*)**: un "servicio de limpieza" automático que detecta qué datos ya no sirven y los borra por ti.
+*   **Gestión de Memoria (Limpieza automática):** En lenguajes de bajo nivel (como C), la gestión de la **memoria dinámica** es manual. Si un programador solicita espacio extra durante la ejecución, es responsable de liberarlo explícitamente. Un simple olvido en este paso provoca fallos graves (*fugas de memoria*). Para evitarlo, la VM incluye un **Recolector de Basura (*Garbage Collector*)**: un *servicio de limpieza* automático que detecta qué datos ya no sirven y los borra por ti.
 
-**Compilación JIT (Just-In-Time):**
+#### Compilación JIT (Just-In-Time)
+
 Para mejorar el rendimiento, las VMs modernas (como la JVM de Java o V8 de JS) compilan trozos de bytecode a código nativo *mientras* el programa se ejecuta, combinando la velocidad de un compilado con la flexibilidad de un interpretado.
 
-**Ejemplos del Mundo Real:**
+
+#### Optimización mediante Extensiones Nativas
+
+A veces, ni siquiera el JIT es suficiente para tareas de cálculo masivo (como IA o simulaciones científicas). En estos casos, lenguajes como Python utilizan un *atajo*: las **extensiones nativas**.
+
+*   **¿Cómo funciona?** Bibliotecas como **NumPy** están escritas en lenguajes de bajo nivel (C o Fortran) y ya están **precompiladas** para la ISA específica de tu procesador.
+*   **El salto de niveles:** Cuando usas NumPy en Python, el programa *sale* de la Máquina Virtual y le entrega el control directamente al hardware. El procesador ejecuta código binario puro a máxima velocidad y, al terminar, devuelve el resultado a Python.
+*   **Resultado:** Tienes la facilidad de programar en un lenguaje sencillo pero con el rendimiento de un lenguaje de bajo nivel, ya que las operaciones pesadas no son *interpretadas* por la VM.
+
+
+#### Ejemplos del Mundo Real
 
 *   **El Navegador Web:** Es la *máquina virtual* que más usamos. Chrome o Firefox interpretan el código de las páginas web (JavaScript/WebAssembly) para que funcionen igual en tu PC, en un Mac o en tu móvil.
 *   **Java vs Android:** Mientras que en ordenadores se usa la JVM estándar, Android utiliza su propia máquina virtual llamada **ART (Android Run Time)**. Aunque se programa en Java, el bytecode es diferente debido a temas de licencias y para optimizar el consumo de batería en móviles.
@@ -340,7 +389,7 @@ La forma en que programamos está en constante evolución:
 
 
 ## 8. Ética y Responsabilidad en la Era de la IA
-El uso masivo de asistentes como ChatGPT o Copilot plantea importantes **desafíos éticos y académicos**:
+El uso masivo de asistentes como ChatGPT o Copilot plantea importantes **desafíos éticos** y **académicos**:
 
 1.  **Integridad Académica (*Cheating*):** En la universidad, presentar código generado por IA como propio sin comprenderlo se considera **plagio** y anula el proceso de aprendizaje. Una calculadora resuelve operaciones, pero no te enseña matemáticas; la IA escribe código, pero no te enseña a razonar la lógica (*Vibecoding*).
 2.  **Responsabilidad Profesional:** Las IAs sufren **alucinaciones** (inventan código plausible pero incorrecto). En ingeniería (sanidad, automoción...), un fallo de software puede costar vidas. El ingeniero humano siempre será el **responsable legal y moral** de validar línea por línea lo que la máquina escribe.

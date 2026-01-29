@@ -33,14 +33,17 @@ Estos bloques funcionales se interconectan a través del **bus del sistema**, co
 * las **señales de control**.
 
 ![Bus del Sistema](img/AC/bus_sistema.jpg){: style="display: block; margin: 0 auto" }
-<center><em>Figura 1.1 - Bloques funcionales de la arquitectura Von Neumann.<br><small>(Fuente: <a href="https://es.wikipedia.org/wiki/Arquitectura_de_Von_Neumann">https://es.wikipedia.org/wiki/Arquitectura_de_Von_Neumann</a></small>)</em></center>
+<center><em>Figura 1.1 - Bloques funcionales de la arquitectura Von Neumann.<br><small>(Fuente: <a href="https://es.wikipedia.org/wiki/Arquitectura_de_Von_Neumann">https://es.wikipedia.org/wiki/Arquitectura_de_Von_Neumann</a>)</small></em></center>
 
+<br>
 
 Las características fundamentales de la **arquitectura Von Neumann** son:
-1.	Valores e instrucciones se almacenan en la misma memoria (**programa almacenado**). Esto implica que ambos comparten el **bus de datos** para ser transferidos a la CPU. Como consecuencia, el procesador no puede acceder simultáneamente a las instrucciones y a los datos, lo que genera una restricción en el rendimiento conocida como el **cuello de botella de Von Neumann**. En la práctica, esto significa que la velocidad del sistema está limitada por el ancho de banda del bus de memoria, que suele ser mucho más lento que la velocidad de procesamiento de la CPU.
+1.	Valores e instrucciones se almacenan en la misma memoria (**programa almacenado**). 
 2.	El contenido de la memoria se organiza en **celdas**, que son accesibles (lectura y escritura) proporcionando una **dirección**.
 3.	La **ejecución** de los programas se realiza por defecto de forma **secuencial**, una lista consecutiva de **instrucciones** que se ejecutan una tras otra.
 
+!!! note "El *cuello de botella* de Von Neumann"
+    Valores e instrucciones comparten el **bus de datos** para ser transferidos a la CPU. Como consecuencia, el procesador no puede acceder simultáneamente a las instrucciones y a los datos, lo que genera una restricción en el rendimiento conocida como el **cuello de botella de Von Neumann**. En la práctica, esto significa que la velocidad del sistema está limitada por el ancho de banda del bus de memoria, que suele ser mucho más lento que la velocidad de procesamiento de la CPU.
 ### 1.1 Programación cableada frente a programación software
 *   **Programa cableado**
 Mediante la combinación de componentes lógicos es factible recrear funciones que, a partir de unos datos de entrada, permitan obtener las salidas correspondientes. El proceso de diseño y posterior interconexión de estos componentes para lograr efectuar un cálculo **determinado** es de hecho una forma de programación, es un **programa cableado**.
@@ -50,7 +53,7 @@ Se asocia a cada operación básica un **código** y se añade un hardware que, 
 
 
 ![Programa Hardware vs Software](img/AC/programa_hard_vs_soft.jpg){: style="display: block; margin: 0 auto" }
-<center><em>Figura 1.2 - Programación cableada frente a programación software.<br><small>(Fuente: W. Stallings. Organización y arquitectura de computadores, pág. 59</small>)</em></center>
+<center><em>Figura 1.2 - Programación cableada frente a programación software.<br><small>(Fuente: W. Stallings. Organización y arquitectura de computadores, pág. 59)</small></em></center>
 <br>
 
 Las dos cajas mostradas en la figura 1.2.b se corresponden con la **CPU**: bloque funcional formado por el intérprete de instrucciones, la **Unidad de Control** (**CU**), y el módulo de uso general que implementa las funciones aritméticas y lógicas, la **Unidad Aritmético Lógica** (**ALU**).
@@ -64,44 +67,61 @@ Faltan dos elementos esenciales para que el sistema software pueda funcionar:
 ---
 
 ## 2. Estructura de un computador: enfoque multinivel
-El enfoque multinivel considera al computador estructurado en niveles:
 
-*   **Nivel 5:** Lenguajes de alto nivel (Traducción: compilador/intérprete).
-*   **Nivel 4:** Lenguaje ensamblador (Traducción: ensamblador).
-*   **Nivel 3:** Sistema operativo (Interpretación: S.O.).
-*   **Nivel 2:** Conjunto de Instrucciones - ISA (Interpretación: microprograma o ejecución directa).
-*   **Nivel 1:** Microarquitectura (Hardware).
-*   **Nivel 0:** Lógica digital.
 
-> **[Figura 2.1 – Enfoque multinivel de un computador]**
+![Enfoque multinivel](img/AC/enfoque_multinivel.jpg){: style="display: block; margin: 0 auto" }
+<center><em>Figura 2.1 – Enfoque multinivel de un computador<br><small>(Fuente: A. Tanembaum. Organización de computadoras. Un enfoque estructurado, pág. 5)</small></em></center>
+<br>
+
+El enfoque multinivel considera al computador estructurado en niveles.
 
 ### 2.1 Nivel 0: Lógica digital
-Hardware básico (transistores y compuertas lógicas). Se modela mediante **tablas de verdad**.
+Es el hardware de la máquina, donde encontramos **compuertas lógicas** formadas por transistores y las líneas eléctricas que las conectan. Las compuertas lógicas son circuitos digitales que implementan funciones booleanas, es decir, funciones con entradas y salidas en el conjunto de valores {0, 1}. Ejemplos básicos son las compuertas que implementan las operaciones AND y OR.
 
-| Entrada | Entrada | Salida |
-| :---: | :---: | :---: |
-| 0 | 0 | 0 |
-| 0 | 1 | 0 |
-| 1 | 0 | 0 |
-| 1 | 1 | 1 |
+**Tablas de verdad**
+El funcionamiento de un tipo de compuerta se modela por su **tabla de verdad**: nos muestra la salida de la compuerta para cada combinación de entradas posible. En general, para una función booleana de $n$ entradas tenemos una tabla de $2^n$ filas.
 
-> **[Figura 2.2 – Compuerta lógica AND formada por transistores]**
+
+![Compuerta lógica](img/AC/compuerta_logica.jpg){: style="display: block; margin: 0 auto" }
+<center><em>Figura 2.2 – Compuerta lógica AND formada por transistores<br><small>(Fuente: <a>https://es.wikipedia.org/wiki/Puerta_lógica)</a></small></em></center>
+<br>
 
 ### 2.2 Nivel 1: Microarquitectura
-Detalla la organización y conexión de los dispositivos del nivel 0. No es visible para el programador.
+Detalla cómo están conectados e interactúan entre sí los dispositivos del nivel 0 y como se organizan formando unidades funcionales. Aquí se decide qué señales de control se utilizarán, las interfaces con los dispositivos de E/S, las tecnologías de memoria utilizadas, etc.
 
-> **[Figura 2.3 - Microarquitectura del Intel 80286]**
+Desde el punto de vista de un programador, la organización **no es visible**.
+> Una instrucción de multiplicar puede llevarse a cabo en el nivel de microarquitectura con un circuito integrado (chip) especializado o con un microprograma interno que realiza de forma iterada sumas.
+
+
+![Microarquitectura](img/AC/microarquitectura.jpg){: style="display: block; margin: 0 auto" }
+<center><em>Figura 2.3 - Microarquitectura del Intel 80286<br><small>(Fuente: <a>hhttps://en.wikipedia.org/wiki/Microarchitecture)</a></small></em></center>
+<br>
 
 ### 2.3 Nivel 2: Arquitectura del Conjunto de instrucciones (ISA)
-Especificación que define el repertorio de instrucciones disponibles para una familia de diseños compatibles.
+El acrónimo **ISA**: **I**nstruction **S**et **A**rchitecture es una **especificación** que define el **conjunto** o **repertorio** de todas las **instrucciones** disponibles para una familia de diseños de microarquitecturas compatibles.
+
+Aunque depende de la bibliografía, el conjunto formado por la ISA y la microarquitectura se conoce como la **arquitectura de un computador**. Como es lógico, el diseño del repertorio de instrucciones y la microarquitectura asociada están íntimamente ligados.
 
 ### 2.4 Nivel 3: Sistema Operativo
-Interfaz entre usuario y hardware. Gestiona recursos y controla programas.
+Un **Sistema Operativo** actúa como interfaz entre el usuario y el hardware del computador.
+El sistema operativo es un **conjunto de programas** que **interpretan** complejas **instrucciones** que:
+* **asignan** y **gestionan** los recursos del computador
+* **controlan** los programas de los usuarios y las operaciones de E/S. 
 
-> **[Figura 2.4 – Logos de algunos Sistemas Operativos actuales]**
+Las instrucciones ISA también son accesibles desde este nivel.
+
+El S.O. **extiende** el repertorio de instrucciones de la ISA con **llamadas al sistema** (**System Calls**). Para un programador de nivel 3, una instrucción para escribir en un archivo es tan *básica* como una suma, aunque por debajo implique miles de operaciones.
+
+
+![Logos S.O.](img/AC/logos_so.jpg){: style="display: block; margin: 0 auto" }
+<center><em>Figura 2.4 – Logos de algunos Sistemas Operativos actuales</em></center>
+<br>
 
 ### 2.5 Niveles 4 y 5: Lenguajes ensamblador y alto nivel
-Niveles utilizados por programadores de sistemas (nivel 4) y de aplicaciones (nivel 5).
+Ya hemos hablado de ellos en temas anteriores. Los niveles 1 al 3 son utilizados por los **programadores de sistemas**, es decir, los encargados de **diseñar** y/o **implementar** programas tales como **Sistemas Operativos**, **Compiladores**, **Controladores de Dispositivos**, etc.
+
+Los niveles 4 y particularmente el 5 son utilizados por los **programadores de aplicaciones**, tales como procesadores de texto, aplicaciones de contabilidad, páginas web, etc.
+
 
 ---
 
