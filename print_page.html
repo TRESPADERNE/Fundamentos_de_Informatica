@@ -665,7 +665,7 @@ El programa escrito en lenguaje ensamblador (<strong>Programa Fuente</strong>) d
 <p><strong>Dinámico</strong> (Python, JS): El tipo se deduce automáticamente durante la ejecución.</p>
 <div class="admonition example">
 <p class="admonition-title"><code>x = 3</code></p>
-<p>Python infiere que <code>x</code> es un entero por el valor asignado, sin necesidad de declararlo.</p>
+<p>Python infiere que <code>x</code> es un entero por el literal (<code>3</code>) utilizado, sin necesidad de declararlo.</p>
 </div>
 </li>
 </ul>
@@ -718,7 +718,7 @@ El programa escrito en lenguaje ensamblador (<strong>Programa Fuente</strong>) d
 <p>A menudo, el panorama actual se percibe como una <strong><em>jungla</em> de lenguajes</strong>.</p>
 <ul>
 <li>Existen miles de lenguajes (se estima que hay más de 9.000 creados históricamente).</li>
-<li>Para un alumno novel, enfrentarse a esta imagen provoca la parálisis de la elección: <em>¿Por cuál empiezo? ¿Cuál es el *mejor</em>?*</li>
+<li>Para un alumno novel, enfrentarse a esta imagen provoca la parálisis de la elección: <em>¿Por cuál empiezo? ¿Cuál es el mejor?</em></li>
 <li><strong>La realidad:</strong> No todos tienen la misma importancia. Muchos son académicos, otros están obsoletos (como el latín) y otros son de nicho muy específico.</li>
 </ul>
 <p>En esa jungla encontraréis herramientas para todo. Python es una navaja suiza (sirve para casi todo, fácil de llevar), C++ es un bisturí láser industrial (muy potente, pero si no sabes usarlo te cortas un brazo), y otros son simplemente juguetes.</p>
@@ -728,7 +728,7 @@ El programa escrito en lenguaje ensamblador (<strong>Programa Fuente</strong>) d
 <h3 id="lenguajes_de_programacion-popularidad-y-demanda-rankings">Popularidad y Demanda (Rankings)</h3>
 <p>Dado el enorme número de lenguajes existentes, la industria se guía por índices de popularidad para decidir qué tecnologías adoptar. No existe un <em>mejor</em> lenguaje absoluto, pero sí tendencias de mercado claras. Dos de los indicadores más fiables son:</p>
 <ol>
-<li><strong>Índice TIOBE:</strong> Se basa en el número de resultados en motores de búsqueda. Es un buen indicador de <em>de qué se está hablando</em> o <em>qué se está buscando aprender</em>.</li>
+<li><strong>Índice TIOBE:</strong> Se basa en el número de resultados en motores de búsqueda. Es un buen indicador sobre <em>qué se está hablando</em> o <em>qué se está buscando aprender</em>.</li>
 <li><strong>Ranking RedMonk:</strong> Cruza datos de <strong>GitHub</strong> (cantidad de código escrito) y <strong>Stack Overflow</strong> (cantidad de preguntas técnicas). Es un indicador más preciso de <em>qué se está usando realmente en proyectos</em>.</li>
 </ol>
 <div class="admonition warning">
@@ -774,9 +774,16 @@ El programa escrito en lenguaje ensamblador (<strong>Programa Fuente</strong>) d
 <ol>
 <li><strong>Edición:</strong> Se escribe el código fuente: las extensiones habituales de los archivos son <code>.cpp</code> y <code>.h</code>.</li>
 <li><strong>Preprocesamiento:</strong> Es una fase previa de <em>preparación</em> del texto. El <strong>preprocesador</strong> limpia el código eliminando las notas del autor (comentarios) e incrusta el contenido de ficheros externos necesarios (como si hiciera un <em>copiar y pegar</em> automático de las bibliotecas), dejando el código listo para traducir.</li>
-<li><strong>Compilación:</strong> Traduce el código preprocesado a <strong>código objeto</strong> (<code>.o</code> o <code>.obj</code>). Este código es binario pero aún no es ejecutable por sí mismo porque le faltan las conexiones con el resto del proyecto.
-    &gt; Un programa suele dividirse en <strong>muchos archivos fuente</strong>. En esta fase, cada archivo se traduce por separado, pero si uno necesita usar una función que está escrita en <em>otro</em> archivo, todavía no <em>sabe</em> dónde encontrarla. Esas <em>referencias</em> cruzadas están pendientes de resolver.</li>
-<li><strong>Enlazado (Linker):</strong> Une todos los archivos objeto del programador con las <strong>bibliotecas externas</strong> (ej. funciones matemáticas) para crear un único fichero <strong>ejecutable</strong> binario (<code>.exe</code>).</li>
+<li>
+<p><strong>Compilación:</strong> Traduce el código preprocesado a <strong>código objeto</strong> (<code>.o</code> o <code>.obj</code>). Este código es binario pero aún no es ejecutable por sí mismo porque le faltan las conexiones con el resto del proyecto.</p>
+<div class="admonition info">
+<p class="admonition-title">Las referencias cruzadas entre unidades de compilación</p>
+<p>Un programa suele dividirse en <strong>muchos archivos fuente</strong>. En esta fase, cada archivo se traduce por separado, creando unidades de compilación. Pero si uno necesita usar una función que está escrita en <em>otra</em> unidad de compilación, todavía no <em>sabe</em> dónde encontrarla. Esas <em>referencias</em> cruzadas están pendientes de resolver.</p>
+</div>
+</li>
+<li>
+<p><strong>Enlazado (Linker):</strong> Une todos los archivos objeto del programador con las <strong>bibliotecas externas</strong> (ej. funciones matemáticas) para crear un único fichero <strong>ejecutable</strong> binario (<code>.exe</code>).</p>
+</li>
 </ol>
 <p><strong>¿Qué ocurre al ejecutarlo? (El Loader)</strong>
 Cuando un usuario ejecuta ese archivo <code>.exe</code>, un componente del sistema operativo llamado <strong>cargador (loader)</strong> transfiere el código y los datos del fichero binario a la memoria <em>RAM</em>, y la CPU comienza a procesar las instrucciones en código máquina que contiene.</p>
