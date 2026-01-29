@@ -1,0 +1,760 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Apuntes y material de clase">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="img/logo_eii.jpg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Introducción a la Arquitectura de Computadores - Fundamentos de Informática</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="css/print-site.css">
+    
+      <link rel="stylesheet" href="css/print-site-material.css">
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introducción-a-la-arquitectura-de-computadores" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="index.html" title="Fundamentos de Informática" class="md-header__button md-logo" aria-label="Fundamentos de Informática" data-md-component="logo">
+      
+  <img src="img/logo_eii.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Fundamentos de Informática
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introducción a la Arquitectura de Computadores
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="index.html" class="md-tabs__link">
+        
+  
+  
+    
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="Lenguajes_de_programacion.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lenguajes de Programación
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="Representacion_de_la_informacion.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Representación de la Información
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="print_page.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Print Site
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Fundamentos de Informática" class="md-nav__button md-logo" aria-label="Fundamentos de Informática" data-md-component="logo">
+      
+  <img src="img/logo_eii.jpg" alt="logo">
+
+    </a>
+    Fundamentos de Informática
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Lenguajes_de_programacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenguajes de Programación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Representacion_de_la_informacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Representación de la Información
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="print_page.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print Site
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="introducción-a-la-arquitectura-de-computadores">Introducción a la Arquitectura de Computadores</h1>
+<h2 id="índice">Índice</h2>
+<ol>
+<li><a href="#1-fundamentos-de-la-información-digital">Fundamentos de la Información Digital</a></li>
+<li><a href="#2-sistemas-de-numeración">Sistemas de Numeración</a></li>
+<li><a href="#3-representación-de-números-enteros">Representación de Números Enteros</a></li>
+<li><a href="#4-representación-de-números-reales">Representación de Números Reales</a></li>
+<li><a href="#5-representación-de-caracteres">Representación de Caracteres</a></li>
+</ol>
+<h2 id="1-introducción">1. Introducción</h2>
+<p>En 1945 John von Neumann publicó un modelo de arquitectura de computador que sigue hoy en día siendo la base de la mayor parte de las arquitecturas de computador actuales.</p>
+<p>La <strong>arquitectura von Neumann</strong> distingue tres bloques funcionales fundamentales:
+*   <strong>El procesador o CPU (Central Processing Unit):</strong> Ejecuta los programas.
+*   <strong>La memoria:</strong> Contiene datos e instrucciones, que pueden ser leídos y escritos.
+    *   Valores (peso, volumen, sueldo, etc.) y direcciones de memoria.
+    *   Instrucciones para procesar esos valores.
+*   <strong>Dispositivos de entrada/salida:</strong> Suministran al computador los datos que debe procesar y reciben los resultados.</p>
+<p>Estos bloques se interconectan a través del <strong>bus del sistema</strong>, un conjunto de conductores eléctricos que transmiten direcciones, datos y señales de control.</p>
+<blockquote>
+<p><strong>[Figura 1.1 - Bloques funcionales de la arquitectura von Neuman]</strong></p>
+</blockquote>
+<h3 id="11-programación-cableada-frente-a-programación-software">1.1 Programación cableada frente a programación software</h3>
+<ul>
+<li><strong>Programa cableado:</strong> Se basa en la interconexión de componentes lógicos para efectuar un cálculo determinado. Es un proceso de diseño físico de hardware.</li>
+<li><strong>Programa software:</strong> Utiliza componentes de propósito general que implementan operaciones básicas. Se asocia un código a cada operación y una secuencia de estos códigos (instrucciones) forma el programa.</li>
+</ul>
+<blockquote>
+<p><strong>[Figura 1.2 - Programación cableada frente a programación software]</strong></p>
+</blockquote>
+<hr />
+<h2 id="2-estructura-de-un-computador-enfoque-multinivel">2. Estructura de un computador: enfoque multinivel</h2>
+<p>El enfoque multinivel considera al computador estructurado en niveles:</p>
+<ul>
+<li><strong>Nivel 5:</strong> Lenguajes de alto nivel (Traducción: compilador/intérprete).</li>
+<li><strong>Nivel 4:</strong> Lenguaje ensamblador (Traducción: ensamblador).</li>
+<li><strong>Nivel 3:</strong> Sistema operativo (Interpretación: S.O.).</li>
+<li><strong>Nivel 2:</strong> Conjunto de Instrucciones - ISA (Interpretación: microprograma o ejecución directa).</li>
+<li><strong>Nivel 1:</strong> Microarquitectura (Hardware).</li>
+<li><strong>Nivel 0:</strong> Lógica digital.</li>
+</ul>
+<blockquote>
+<p><strong>[Figura 2.1 – Enfoque multinivel de un computador]</strong></p>
+</blockquote>
+<h3 id="21-nivel-0-lógica-digital">2.1 Nivel 0: Lógica digital</h3>
+<p>Hardware básico (transistores y compuertas lógicas). Se modela mediante <strong>tablas de verdad</strong>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Entrada</th>
+<th style="text-align: center;">Entrada</th>
+<th style="text-align: center;">Salida</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>[Figura 2.2 – Compuerta lógica AND formada por transistores]</strong></p>
+</blockquote>
+<h3 id="22-nivel-1-microarquitectura">2.2 Nivel 1: Microarquitectura</h3>
+<p>Detalla la organización y conexión de los dispositivos del nivel 0. No es visible para el programador.</p>
+<blockquote>
+<p><strong>[Figura 2.3 - Microarquitectura del Intel 80286]</strong></p>
+</blockquote>
+<h3 id="23-nivel-2-arquitectura-del-conjunto-de-instrucciones-isa">2.3 Nivel 2: Arquitectura del Conjunto de instrucciones (ISA)</h3>
+<p>Especificación que define el repertorio de instrucciones disponibles para una familia de diseños compatibles.</p>
+<h3 id="24-nivel-3-sistema-operativo">2.4 Nivel 3: Sistema Operativo</h3>
+<p>Interfaz entre usuario y hardware. Gestiona recursos y controla programas.</p>
+<blockquote>
+<p><strong>[Figura 2.4 – Logos de algunos Sistemas Operativos actuales]</strong></p>
+</blockquote>
+<h3 id="25-niveles-4-y-5-lenguajes-ensamblador-y-alto-nivel">2.5 Niveles 4 y 5: Lenguajes ensamblador y alto nivel</h3>
+<p>Niveles utilizados por programadores de sistemas (nivel 4) y de aplicaciones (nivel 5).</p>
+<hr />
+<h2 id="3-organización-y-funcionamiento-de-la-cpu">3. Organización y funcionamiento de la CPU</h2>
+<h3 id="31-introducción">3.1 Introducción</h3>
+<p>Un procesador debe realizar 5 tareas: captar instrucciones, interpretarlas, captar datos, procesar datos y escribir datos.</p>
+<blockquote>
+<p><strong>[Figura 3.1 - El procesador (Esquema interno)]</strong></p>
+</blockquote>
+<p>Componentes básicos:
+1.  <strong>Unidad de Control (CU):</strong> Decodifica, secuencia transferencias y controla la ALU.
+2.  <strong>Unidad Aritmético Lógica (ALU):</strong> Realiza operaciones aritmético-lógicas.
+3.  <strong>Registros:</strong> Almacenamiento temporal interno.
+4.  <strong>Buses:</strong> Canales de comunicación interna.</p>
+<blockquote>
+<p><strong>[Figura 3.2 – Representación esquemática de la ALU]</strong></p>
+</blockquote>
+<h4 id="los-registros">Los Registros</h4>
+<ul>
+<li><strong>Visibles por el usuario:</strong> Permiten minimizar accesos a memoria (generalmente 32 o 64 bits).</li>
+<li><strong>De control y de estado:</strong><ul>
+<li><strong>PC (Program Counter):</strong> Dirección de la siguiente instrucción.</li>
+<li><strong>IR (Instruction Register):</strong> Instrucción captada más recientemente.</li>
+<li><strong>PSW (Program Status Word):</strong> Bits indicadores (Signo, Cero, Acarreo, etc.).</li>
+</ul>
+</li>
+</ul>
+<h4 id="los-buses">Los Buses</h4>
+<p>Agrupación de conductores para intercambio de información. El bus del sistema incluye: bus de direcciones, bus de datos y bus de control.</p>
+<h3 id="32-el-ciclo-de-instrucción">3.2 El ciclo de instrucción</h3>
+<p>Pasos básicos:
+1.  <strong>Captación (fetch):</strong> Se obtiene la instrucción de memoria (usando el PC) y se guarda en el IR. Se incrementa el PC.
+2.  <strong>Decodificación (decode):</strong> La UC interpreta el código binario.
+3.  <strong>Ejecución (execute):</strong> Se leen operandos, se opera y se almacenan resultados.</p>
+<blockquote>
+<p><strong>[Figura 3.3 – El ciclo de instrucción (Diagrama)]</strong></p>
+</blockquote>
+<hr />
+<h2 id="4-el-repertorio-de-instrucciones-isa">4. El repertorio de instrucciones (ISA)</h2>
+<p>Describe los aspectos del procesador visibles para el programador de sistemas: tipos de formatos, tipos de datos y número de registros.</p>
+<h3 id="41-tipos-de-instrucciones">4.1 Tipos de instrucciones</h3>
+<ul>
+<li><strong>Transformación:</strong> Operaciones sobre datos.</li>
+<li><strong>Transferencia:</strong> Copia de datos (Memoria <span class="arithmatex">\(\leftrightarrow\)</span> Registros, etc.).</li>
+<li><strong>Control del flujo:</strong> Saltos en la ejecución.</li>
+<li><strong>Control del procesador:</strong> Cambio de modo de funcionamiento.</li>
+</ul>
+<h3 id="42-codificación-y-formatos">4.2 Codificación y formatos</h3>
+<p>Un formato de instrucción incluye el <strong>opcode</strong> (operación) y los campos de <strong>direccionamiento</strong> (operandos).</p>
+<blockquote>
+<p><strong>[Figura 4.1 – Formato de una instrucción]</strong></p>
+</blockquote>
+<h3 id="43-clasificación-de-arquitecturas">4.3 Clasificación de arquitecturas</h3>
+<p>Según el almacenamiento de operandos:
+1.  <strong>Pila:</strong> Operandos implícitos.
+2.  <strong>Acumulador:</strong> Un operando es siempre el registro acumulador.
+3.  <strong>GPR (Registros de propósito general):</strong>
+    *   <strong>Memoria-Registro:</strong> Un operando puede estar en memoria.
+    *   <strong>Registro-Registro (RISC):</strong> Operandos solo en registros. Solo <code>LOAD</code> y <code>STORE</code> acceden a memoria.</p>
+<blockquote>
+<p><strong>[Figura 4.2 – Situación de los operandos para cuatro tipos de arquitecturas]</strong></p>
+</blockquote>
+<hr />
+<h2 id="5-el-rendimiento-de-un-computador">5. El rendimiento de un computador</h2>
+<p>Se define como la capacidad para ejecutar programas en el menor tiempo posible.</p>
+<h3 id="51-el-reloj">5.1 El reloj</h3>
+<p>Sincroniza las operaciones. La frecuencia (Hz) es la referencia de rendimiento.</p>
+<blockquote>
+<p><strong>[Figura 5.1 – Oscilador de cristal y generador de reloj]</strong>
+<strong>[Figura 5.2 – Señal de onda rectangular]</strong></p>
+</blockquote>
+<p><strong>Fórmula de tiempo de CPU:</strong>
+$<span class="arithmatex">\(\text{Tiempo de CPU} = \text{Número de instrucciones} \times \text{CPI} \times \text{Tiempo de ciclo}\)</span>$</p>
+<h3 id="52-paralelismo-procesadores-multinucleo">5.2 Paralelismo: procesadores multinucleo</h3>
+<p>Varios núcleos en un mismo chip para ejecutar procesos o hilos (threads) concurrentemente.</p>
+<blockquote>
+<p><strong>[Figura 5.3 – Frecuencia y Potencia de procesadores Intel x86 (30 años)]</strong>
+<strong>[Figura 5.4 – Sistema de refrigeración de una CPU]</strong></p>
+</blockquote>
+<h3 id="53-segmentación-de-instrucciones-pipelining">5.3 Segmentación de instrucciones (Pipelining)</h3>
+<p>Divide la ejecución en etapas (ej. IF, ID, EX, MEM, WB) para procesar varias instrucciones a la vez.</p>
+<blockquote>
+<p><strong>[Figura 5.5 – Tiempos de ejecución de las etapas para diferentes tipos de instrucción]</strong>
+<strong>[Figura 5.6 – Comparación de ciclo simple frente a segmentación]</strong></p>
+</blockquote>
+<hr />
+<h2 id="6-la-memoria">6. La memoria</h2>
+<p>Organizada jerárquicamente para equilibrar coste, capacidad y velocidad.</p>
+<h3 id="61-tipos-de-memorias">6.1 Tipos de memorias</h3>
+<ul>
+<li><strong>Volátiles:</strong> SRAM (caché, rápida) y DRAM (memoria principal, lenta pero densa).</li>
+<li><strong>No volátiles:</strong> ROM, PROM, EPROM, EEPROM y Memoria Flash.</li>
+<li><strong>Secundaria:</strong> Discos duros, SSD, etc.</li>
+</ul>
+<blockquote>
+<p><strong>[Figura 6.1 – Tecnología de almacenamiento secundario obsoleta]</strong></p>
+</blockquote>
+<h3 id="62-la-jerarquía-de-memoria">6.2 La jerarquía de memoria</h3>
+<p>Basada en los principios de <strong>localidad temporal</strong> (reuso de datos) y <strong>localidad espacial</strong> (datos cercanos en memoria).</p>
+<blockquote>
+<p><strong>[Figura 6.2 – Fragmentos de código con buena/mala localidad espacial]</strong>
+<strong>[Figura 6.3 – La pirámide de la jerarquía de memoria]</strong>
+<strong>[Figura 6.4 – Intercambios de datos entre niveles (palabras, bloques, páginas)]</strong></p>
+</blockquote>
+<h3 id="63-la-memoria-caché">6.3 La memoria caché</h3>
+<p>Memoria pequeña y rápida entre la CPU y la RAM.
+*   <strong>Conceptos:</strong> Hit (acierto), Miss (fallo), Ancho de banda y Latencia.
+*   <strong>Políticas de ubicación:</strong> Directa, Asociativa y Asociativa por conjuntos.</p>
+<blockquote>
+<p><strong>[Figura 6.5 – Principio de funcionamiento de una caché]</strong>
+<strong>[Figura 6.6 – Jerarquía caché en un Intel Core i7]</strong></p>
+</blockquote>
+<h3 id="64-la-arquitectura-harvard">6.4 La arquitectura Harvard</h3>
+<p>Usa memorias y buses físicamente separados para instrucciones y datos. Ventaja: acceso simultáneo.</p>
+<blockquote>
+<p><strong>[Figura 6.7 – Comparativa Von Neumann vs Harvard]</strong>
+<strong>[Figura 6.8 – Arquitectura Harvard en microcontrolador Arduino]</strong></p>
+</blockquote>
+<hr />
+<h2 id="7-interrupciones">7. Interrupciones</h2>
+<p>Alteración forzada del flujo de ejecución ante un evento. Incluye un número de interrupción (IRQ) y una rutina de servicio (ISR).</p>
+<blockquote>
+<p><strong>[Figura 7.1 – Ciclo de instrucción con interrupciones]</strong></p>
+</blockquote>
+<ul>
+<li><strong>Tipos:</strong> Hardware (asíncronas), Llamadas al sistema (traps) y Excepciones (errores).</li>
+</ul>
+<hr />
+<h2 id="8-dispositivos-de-entradasalida">8. Dispositivos de Entrada/Salida</h2>
+<h3 id="81-módulos-de-es">8.1 Módulos de E/S</h3>
+<p>Actúan como interfaz para gestionar la diversidad de periféricos y velocidades.</p>
+<blockquote>
+<p><strong>[Figura 8.1 – Diagrama de bloques de un módulo de E/S]</strong></p>
+</blockquote>
+<h3 id="82-buses-de-es">8.2 Buses de E/S</h3>
+<p>Estándares actuales: <strong>USB</strong> (propósito general), <strong>PCIe</strong> (alta velocidad/tarjetas), <strong>SPI</strong> (baja velocidad/sensores) y <strong>SATA</strong> (almacenamiento).</p>
+<blockquote>
+<p><strong>[Figura 8.2 – Componentes de una placa base]</strong>
+<strong>[Figura 8.3 – Diagrama de bloques del chipset Intel Z690]</strong></p>
+</blockquote>
+<h3 id="84-técnicas-de-sincronización">8.4 Técnicas de sincronización</h3>
+<ol>
+<li><strong>Sondeo (Polling):</strong> La CPU consulta periódicamente el estado.</li>
+<li><strong>Interrupción:</strong> El dispositivo avisa a la CPU cuando está listo.</li>
+</ol>
+<blockquote>
+<p><strong>[Figura 8.4 – Diagramas de flujo de sondeo continuo y periódico]</strong>
+<strong>[Figura 8.5 – Sincronización mediante interrupciones]</strong></p>
+</blockquote>
+<h3 id="85-transferencia-de-datos">8.5 Transferencia de datos</h3>
+<ul>
+<li><strong>Por programa:</strong> La CPU mueve los datos uno a uno.</li>
+<li><strong>DMA (Direct Memory Access):</strong> Un controlador especializado mueve bloques de datos entre periférico y memoria sin usar la CPU.</li>
+</ul>
+<blockquote>
+<p><strong>[Figura 8.6 – Transferencias de datos entre disco y memoria: PIO vs DMA]</strong></p>
+</blockquote>
+<hr />
+<h2 id="bibliografía">Bibliografía</h2>
+<p><em>(Listado de referencias del documento original)</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Departamento de Ingeniería de Sistemas y Automática. EII. Universidad de Valladolid
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://www.uva.es" target="_blank" rel="noopener" title="Universidad de Valladolid" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M271.9 20.2c-9.8-5.6-21.9-5.6-31.8 0l-224 128c-12.6 7.2-18.8 22-15.1 36S17.5 208 32 208h32v208l-51.2 38.4C4.7 460.4 0 469.9 0 480c0 17.7 14.3 32 32 32h448c17.7 0 32-14.3 32-32 0-10.1-4.7-19.6-12.8-25.6L448 416V208h32c14.5 0 27.2-9.8 30.9-23.8s-2.5-28.8-15.1-36l-224-128zM400 208v208h-64V208zm-112 0v208h-64V208zm-112 0v208h-64V208zm80-112a32 32 0 1 1 0 64 32 32 0 1 1 0-64"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="http://www.isa.uva.es" target="_blank" rel="noopener" title="Departamento ISA" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64zm112 352h32c17.7 0 32 14.3 32 32v80h-96v-80c0-17.7 14.3-32 32-32M96 112c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16zm144-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16M96 240c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16zm144-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "search.suggest", "content.code.copy"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="js/print-site.js"></script>
+      
+        <script src="javascripts/mathjax.js"></script>
+      
+        <script src="javascripts/print_button.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
