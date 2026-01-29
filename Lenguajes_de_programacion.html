@@ -576,6 +576,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#el-cargador-loader" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        El Cargador (Loader)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#fases-de-la-traducción-interior-del-compilador" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -586,6 +597,17 @@
   
     <nav class="md-nav" aria-label="Fases de la Traducción (Interior del Compilador)">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tabla-de-símbolos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tabla de Símbolos
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#importancia-de-la-arquitectura-y-retrocompatibilidad" class="md-nav__link">
@@ -1032,7 +1054,7 @@ El programa escrito en lenguaje ensamblador (<strong>Programa Fuente</strong>) d
 <p><strong>Enlazado (Linker):</strong> Une todos los archivos objeto del programador con las <strong>bibliotecas externas</strong> (ej. funciones matemáticas) para crear un único fichero <strong>ejecutable</strong> binario (<code>.exe</code>).</p>
 </li>
 </ol>
-<p><strong>El Cargador (Loader)</strong></p>
+<h3 id="el-cargador-loader">El Cargador (Loader)</h3>
 <p>Cuando un usuario ejecuta ese archivo <code>.exe</code>, un componente del sistema operativo llamado <strong>cargador (loader)</strong> transfiere el código y los datos del fichero binario a la memoria <em>RAM</em>, y la CPU comienza a procesar las instrucciones en código máquina que contiene.</p>
 <p><img alt="Proceso de compilación en C++" src="img/LP/compilacion.jpg" style="display: block; margin: 0 auto" /></p>
 <center><em>Proceso de compilación en C++</em></center>
@@ -1053,7 +1075,8 @@ El programa escrito en lenguaje ensamblador (<strong>Programa Fuente</strong>) d
 </ul>
 </li>
 </ol>
-<p><strong>Tabla de Símbolos:</strong> Durante todo este proceso, el compilador mantiene una estructura de datos llamada <strong>Tabla de Símbolos</strong>. Esta actúa como una base de datos centralizada donde se registra información sobre cada identificador encontrado (variables, funciones, tipos), permitiendo verificar, por ejemplo, que no usemos una variable que no ha sido declarada previamente.</p>
+<h4 id="tabla-de-símbolos">Tabla de Símbolos</h4>
+<p>Durante todo este proceso, el compilador mantiene una estructura de datos llamada <strong>Tabla de Símbolos</strong>. Esta actúa como una base de datos centralizada donde se registra información sobre cada identificador encontrado (variables, funciones, tipos), permitiendo verificar, por ejemplo, que no usemos una variable que no ha sido declarada previamente.</p>
 <p><img alt="Fases de la traducción de un compilador" src="img/LP/traduccion_compilador.jpg" style="display: block; margin: 0 auto" /></p>
 <center><em>Fases de la traducción de un compilador</em></center>
 
@@ -1073,9 +1096,9 @@ Imaginemos un programa con un error de sintaxis.
 <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 </code></pre></div></p>
 <ul>
-<li><strong>Comportamiento Compilado:</strong> El proceso de traducción falla antes de empezar (Compilation Error). No se genera ningún archivo ejecutable y el usuario <strong>no ve nada</strong> en pantalla.</li>
+<li><strong>Comportamiento compilado:</strong> El proceso de traducción falla antes de empezar (Compilation Error). No se genera ningún archivo ejecutable y el usuario <strong>no ve nada</strong> en pantalla.</li>
 <li>
-<p><strong>Comportamiento Interpretado:</strong> El programa arranca inmediatamente. El usuario ve por la consola los valores de <code>a</code> y <code>b</code> y, justo después, el programa <strong>se estrella (crash)</strong> al intentar ejecutar la cuarta línea.</p>
+<p><strong>Comportamiento interpretado:</strong> El programa arranca inmediatamente. El usuario ve por la consola los valores de <code>a</code> y <code>b</code> y, justo después, el programa <strong>se estrella (crash)</strong> al intentar ejecutar la cuarta línea.</p>
 </li>
 <li>
 <p>No genera un ejecutable independiente (como un <code>.exe</code>). Necesitas tener el intérprete instalado en la máquina para correr el código.</p>
