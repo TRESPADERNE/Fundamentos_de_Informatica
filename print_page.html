@@ -1,0 +1,2398 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Apuntes y material de clase">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="img/logo_eii.jpg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Print Site - Fundamentos de Informática</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="css/print-site.css">
+    
+      <link rel="stylesheet" href="css/print-site-material.css">
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+        <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
+        })
+        </script>
+        </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#index" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="index.html" title="Fundamentos de Informática" class="md-header__button md-logo" aria-label="Fundamentos de Informática" data-md-component="logo">
+      
+  <img src="img/logo_eii.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Fundamentos de Informática
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Print Site
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="index.html" class="md-tabs__link">
+        
+  
+  
+    
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="Lenguajes_de_programacion.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lenguajes de Programación
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="Representacion_de_la_informacion.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Representación de la Información
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="print_page.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Print Site
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Fundamentos de Informática" class="md-nav__button md-logo" aria-label="Fundamentos de Informática" data-md-component="logo">
+      
+  <img src="img/logo_eii.jpg" alt="logo">
+
+    </a>
+    Fundamentos de Informática
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Lenguajes_de_programacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenguajes de Programación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Representacion_de_la_informacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Representación de la Información
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print Site
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="print_page.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print Site
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 Inicio
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lenguajes_de_programacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 Lenguajes de Programación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#representacion_de_la_informacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 Representación de la Información
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div id="print-site-page" class="print-site-enumerate-headings print-site-enumerate-figures">
+        <section class="print-page">
+            <div id="print-page-toc" data-toc-depth="3">
+                <nav role='navigation' class='print-page-toc-nav'>
+                <h1 class='print-page-toc-title'>Table of Contents</h1>
+                </nav>
+            </div>
+        </section>
+        <section class="print-page" id="index" heading-number="1"><h1 id="index-grado-en-ingeniería-biomédica">Grado en Ingeniería Biomédica</h1>
+<h2 id="index-departamento-de-ingeniería-de-sistemas-y-automática-eii-universidad-de-valladolid">Departamento de Ingeniería de Sistemas y Automática. EII. Universidad de Valladolid</h2>
+<hr />
+<h3 id="index-fundamentos-de-informática">Fundamentos de Informática</h3>
+<ul>
+<li><a href="#lenguajes_de_programacion"><strong>Tema 1: Lenguajes de Programación</strong></a></li>
+<li><a href="#representacion_de_la_informacion"><strong>Tema 2: Representación de la Información</strong></a></li>
+</ul></section><section class="print-page" id="lenguajes_de_programacion" heading-number="2"><h1 id="lenguajes_de_programacion-lenguajes-de-programación">Lenguajes de Programación</h1>
+<h2 id="lenguajes_de_programacion-índice">Índice</h2>
+<ol>
+<li><a href="#lenguajes_de_programacion-1-introducción-a-los-lenguajes-de-programación">Introducción a los lenguajes de programación</a></li>
+<li><a href="#lenguajes_de_programacion-2-niveles-de-abstracción">Niveles de Abstracción</a></li>
+<li><a href="#lenguajes_de_programacion-3-paradigmas-y-panorama-actual">Paradigmas y Panorama Actual</a></li>
+<li><a href="#lenguajes_de_programacion-4-compiladores-el-modelo-cc">Compiladores (El modelo C/C++)</a></li>
+<li><a href="#lenguajes_de_programacion-5-intérpretes-y-máquinas-virtuales">Intérpretes y Máquinas Virtuales</a></li>
+<li><a href="#lenguajes_de_programacion-6-compiladores-frente-a-intérpretes">Compiladores frente a Intérpretes</a></li>
+<li><a href="#lenguajes_de_programacion-7-ecosistema-de-desarrollo-ides">Ecosistema de Desarrollo (IDEs)</a></li>
+<li><a href="#lenguajes_de_programacion-8-ética-y-responsabilidad-en-la-era-de-la-ia">Ética y Responsabilidad en la Era de la IA</a></li>
+</ol>
+<hr />
+<h2 id="lenguajes_de_programacion-1-introducción-a-los-lenguajes-de-programación">1. Introducción a los lenguajes de programación</h2>
+<h3 id="lenguajes_de_programacion-concepto-básico">Concepto Básico</h3>
+<p>Los programadores escriben programas utilizando <strong>lenguajes de programación</strong> para que el ordenador ejecute una serie de instrucciones. Estos programas legibles por humanos se denominan <strong>código fuente</strong>.</p>
+<p>Por otro lado, el ordenador (el hardware) trabaja internamente usando exclusivamente <strong>código binario</strong> (secuencias de 0s y 1s que representan estados físicos de voltaje), un formato que resulta ininteligible a primera vista para las personas. El código binario ejecutable de un programa se denomina <strong>código objeto</strong> o <strong>código máquina</strong>.</p>
+<p>Por tanto, se deduce la necesidad de utilizar programas <em>traductores</em> que conviertan el código fuente (alto nivel de abstracción) a código máquina (bajo nivel de abstracción).</p>
+<h3 id="lenguajes_de_programacion-definición-y-componentes">Definición y Componentes</h3>
+<p>Un Lenguaje de Programación es un conjunto de <strong>símbolos y reglas</strong> con los que expresar órdenes a un ordenador.</p>
+<ol>
+<li><strong>Léxico:</strong> El conjunto de símbolos (palabras, signos de puntuación) que acepta el lenguaje.</li>
+<li><strong>Sintaxis:</strong> Reglas que establecen qué construcciones son aceptables como instrucciones válidas (la <em>gramática</em>).</li>
+<li><strong>Semántica:</strong> Reglas que establecen el significado o comportamiento de dichas instrucciones.</li>
+</ol>
+<p><strong>Diferencia clave entre Sintaxis y Semántica:</strong></p>
+<ul>
+<li><em>Ejemplo en lenguaje natural:</em> La frase <em>"La silla come manzanas"</em> es <strong>sintácticamente correcta</strong> (Sujeto + Verbo + Predicado), pero <strong>semánticamente incorrecta</strong> (carece de sentido lógico).</li>
+<li><em>Ejemplo en programación (Python):</em> La instrucción <code>resultado = "Hola" / 2</code> es <strong>sintácticamente correcta</strong> (estructura válida: variable = valor / valor), pero <strong>semánticamente errónea</strong> (no tiene sentido lógico ni matemático dividir un texto (<code>"Hola"</code>) entre un número (<code>2</code>).</li>
+</ul>
+<h3 id="lenguajes_de_programacion-comparativa-lenguaje-natural-vs-programación">Comparativa: Lenguaje Natural vs. Programación</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Característica</th>
+<th style="text-align: left;">Lenguaje Natural (Humano)</th>
+<th style="text-align: left;">Lenguaje de Programación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Léxico</strong></td>
+<td style="text-align: left;">Palabras y signos de puntuación.</td>
+<td style="text-align: left;">Símbolos reservados del lenguaje (palabras clave, operadores).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sintaxis</strong></td>
+<td style="text-align: left;">Oraciones gramaticalmente correctas.</td>
+<td style="text-align: left;">Instrucciones bien formadas y válidas.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Semántica</strong></td>
+<td style="text-align: left;">Información o mensaje que transmite quien habla.</td>
+<td style="text-align: left;">Qué acciones exactas debe ejecutar el hardware.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ambigüedad</strong></td>
+<td style="text-align: left;">Alta (depende del contexto).</td>
+<td style="text-align: left;">Nula (una instrucción debe tener una única interpretación).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="lenguajes_de_programacion-2-niveles-de-abstracción">2. Niveles de Abstracción</h2>
+<p>El concepto de <strong>abstracción</strong> en informática se refiere a la capacidad de ocultar la complejidad interna del hardware para facilitar la programación. Cuanto mayor es el nivel de abstracción de un lenguaje, más nos alejamos de los detalles físicos de la máquina (transistores, registros, direcciones de memoria) para centrarnos en la lógica del problema a resolver (fórmulas, objetos, datos).</p>
+<p>Básicamente se pueden establecer tres niveles de abstracción:</p>
+<ol>
+<li><strong>Lenguaje máquina</strong> (Bajo nivel)</li>
+<li><strong>Lenguaje ensamblador</strong> (Bajo nivel)</li>
+<li><strong>Lenguajes de Alto nivel</strong></li>
+</ol>
+<h4 id="lenguajes_de_programacion-lenguaje-máquina">Lenguaje Máquina</h4>
+<p>Es el lenguaje directamente comprensible por el procesador (CPU). En el tema de <strong>Arquitectura</strong> estudiaremos cómo la CPU procesa estas órdenes; por ahora basta entender que es el componente hardware encargado de leer secuencialmente <em>unos y ceros</em> y actuar en consecuencia (sumar, guardar datos, etc.).</p>
+<ul>
+<li>Utiliza un sistema de codificación binaria (secuencias de 1's y 0's) para definir un <strong>conjunto predefinido de instrucciones</strong>, (<strong>ISA</strong>, <em>Instruction Set Architecture</em>).
+    &gt; Una <strong>instrucción</strong> es la operación más elemental que el hardware puede realizar indivisiblemente, como <em>sumar dos valores</em>, <em>mover un dato de memoria al procesador</em>, etc.</li>
+<li>Depende totalmente de la arquitectura: un código máquina para una CPU ARM (móvil) es incomprensible para una CPU Intel Core i7 (PC).</li>
+<li><strong>Gestión:</strong> A este nivel, el control de la <strong>memoria</strong> es manual y absoluto.
+    &gt; La memoria es el <em>casillero</em> gigante de celdas numeradas donde se almacenan los datos y el programa en ejecución. En código máquina no existen las <em>variables</em> con nombres (como <code>edad</code>), sino que el programador debe referirse a los datos por su <strong>dirección física</strong> (el número exacto de la celda, ej: <code>0x0045A</code>).</li>
+</ul>
+<h4 id="lenguajes_de_programacion-lenguaje-ensamblador">Lenguaje Ensamblador</h4>
+<p>Emplea palabras nemotécnicas (abreviaturas) para hacer referencia a las instrucciones del lenguaje de máquina, haciéndolo ligeramente más legible para el humano.</p>
+<p><strong>Ejemplo de traducción y estructura (Familia x86/IA-32):</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Lenguaje de máquina</th>
+<th style="text-align: left;">Ensamblador</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>10110000 01100001</code></td>
+<td style="text-align: left;"><code>MOV AL, 61h</code></td>
+</tr>
+</tbody>
+</table>
+<p>En este ejemplo, la instrucción binaria se compone de 3 partes que el hardware decodifica:</p>
+<ol>
+<li><strong>Código de operación (5 primeros bits):</strong> La secuencia <code>10110</code> ordena <strong>mover</strong> (<em>MOV</em>) un dato a un registro.
+    &gt; <em>Nota:</em> Un <strong>registro</strong> es una posición de memoria ultrarrápida situada <em>dentro</em> de la propia CPU.</li>
+<li><strong>Registro destino (3 siguientes bits):</strong> El código <code>000</code> corresponde al registro interno denominado <strong>AL</strong>.</li>
+<li><strong>Dato (8 bits finales):</strong> La secuencia <code>01100001</code> es el valor del dato (97 en decimal, 61 en hexadecimal).</li>
+</ol>
+<p>El lenguaje ensamblador permite escribir <code>MOV AL, 61h</code> en lugar de la cadena de bits, resultando mucho más inteligible.</p>
+<p><strong>Proceso de Traducción:</strong>
+El programa escrito en lenguaje ensamblador (<strong>Programa Fuente</strong>) debe ser traducido a lenguaje de máquina (<strong>Programa Objeto</strong>), ya que el procesador solo entiende 0s y 1s. Esta tarea la realiza una herramienta llamada <strong>Ensamblador</strong>.</p>
+<p><code>[Programa Fuente] --&gt; [Ensamblador] --&gt; [Programa Objeto]</code></p>
+<p><strong>Características clave:</strong></p>
+<ul>
+<li><strong>Traducción directa:</strong> Generalmente existe una correspondencia 1 a 1 entre instrucción ensamblador y máquina.</li>
+<li><strong>Dependencia:</strong> ¡Cada familia de CPU's tiene su propio lenguaje ensamblador!</li>
+</ul>
+<h4 id="lenguajes_de_programacion-lenguajes-de-alto-nivel">Lenguajes de Alto Nivel</h4>
+<p>Estos lenguajes buscan acercarse a la forma de pensar humana y alejarse del detalle del hardware.</p>
+<ul>
+<li><strong>Independencia y Portabilidad:</strong> Definen su sintaxis y sus estructuras al margen del procesador que se utilice. Un mismo código fuente puede ejecutarse en diferentes máquinas (es <strong>portable</strong>), siempre que se traduzca adecuadamente.</li>
+<li><strong>Correspondencia Compleja (1 a N):</strong> A diferencia del ensamblador (1 a 1), una sola sentencia de alto nivel genera múltiples instrucciones de código máquina.</li>
+<li><strong>Legibilidad y Edición:</strong> Se escriben como <strong>texto plano</strong> (usando palabras en inglés como <code>if</code>, <code>while</code>) y permiten el uso de <strong>comentarios</strong> para explicar el código a otros humanos.</li>
+<li><strong>Necesidad de Traducción:</strong> Para poder ejecutarse, necesitan ser traducidos al lenguaje del procesador mediante <strong>Compiladores</strong> o <strong>Intérpretes</strong>.</li>
+<li><strong>Tipado:</strong><ul>
+<li><strong>Estático</strong> (C++, Java): El tipo de dato debe definirse explícitamente antes de compilar.
+    &gt; Ejemplo: <code>int x = 3;</code> (El programador obliga a que <code>x</code> sea un número entero).</li>
+<li><strong>Dinámico</strong> (Python, JS): El tipo se deduce automáticamente durante la ejecución.
+    &gt; Ejemplo: <code>x = 3</code> (Python infiere que <code>x</code> es un entero por el valor asignado, sin necesidad de declararlo).</li>
+</ul>
+</li>
+</ul>
+<p><strong>Ejemplo Comparativo: <code>"Hola Mundo"</code></strong></p>
+<p>Para visualizar la diferencia de abstracción, veamos cómo se imprime un mensaje en pantalla en distintos niveles:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nivel</th>
+<th style="text-align: left;">Código Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Lenguaje Máquina</strong></td>
+<td style="text-align: left;"><code>B8 21 0A 00 00 ...</code> (Secuencia binaria/hexadecimal ininteligible)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ensamblador (x86)</strong></td>
+<td style="text-align: left;"><code>MOV EDX, len</code><br><code>MOV ECX, msg</code><br><code>MOV EBX, 1</code><br><code>MOV EAX, 4</code><br><code>INT 0x80</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>C++ (Alto Nivel)</strong></td>
+<td style="text-align: left;"><code>std::cout &lt;&lt; "Hola Mundo";</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Python (Muy Alto Nivel)</strong></td>
+<td style="text-align: left;"><code>print("Hola Mundo")</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="lenguajes_de_programacion-3-paradigmas-y-panorama-actual">3. Paradigmas y Panorama Actual</h2>
+<p>Un paradigma de programación describe una forma de realizar los cálculos y la manera en que se deben estructurar y organizar las tareas que debe llevar a cabo un programa.</p>
+<ul>
+<li>Los lenguajes de programación suelen implementar, a menudo de forma parcial, <strong>varios paradigmas</strong>.</li>
+<li>Entre los diferentes tipos de paradigmas, una división básica es dividirlos en <strong>imperativos</strong> (se detalla <em>cómo</em> se realizan los cálculos) y <strong>declarativos</strong> (se indica <em>qué</em> cálculos deben realizarse).</li>
+<li>Otros paradigmas se centran en la estructura y organización: programación <strong>estructurada</strong>, <strong>modular</strong>, <strong>orientada a objetos</strong>, genérica, orientada a eventos, concurrente...</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>La mejor forma de entender un paradigma es aprender un lenguaje de programación que lo implemente, por lo que no entraremos en más detalles.</p>
+</div>
+<p><img alt="Paradigmas de Programación" src="img/paradigmas.jpg" style="display: block; margin: 0 auto" /></p>
+<center><em>Clasificación de los paradigmas de programación.</em></center>
+
+<hr />
+<h3 id="lenguajes_de_programacion-la-jungla-de-los-lenguajes">La <em>jungla</em> de los lenguajes</h3>
+<p>A menudo, el panorama actual se percibe como una <strong><em>jungla</em> de lenguajes</strong>.</p>
+<ul>
+<li>Existen miles de lenguajes (se estima que hay más de 9.000 creados históricamente).</li>
+<li>Para un alumno novel, enfrentarse a esta imagen provoca la parálisis de la elección: <em>¿Por cuál empiezo? ¿Cuál es el *mejor</em>?*</li>
+<li><strong>La realidad:</strong> No todos tienen la misma importancia. Muchos son académicos, otros están obsoletos (como el latín) y otros son de nicho muy específico.</li>
+</ul>
+<p>En esa jungla encontraréis herramientas para todo. Python es una navaja suiza (sirve para casi todo, fácil de llevar), C++ es un bisturí láser industrial (muy potente, pero si no sabes usarlo te cortas un brazo), y otros son simplemente juguetes.</p>
+<p><img alt="Nube de lenguajes" src="img/nube_lenguajes.jpg" style="display: block; margin: 0 auto" /></p>
+<center><em>La jungla de lenguajes de programación.</em></center>
+
+<h3 id="lenguajes_de_programacion-popularidad-y-demanda-rankings">Popularidad y Demanda (Rankings)</h3>
+<p>Dado el enorme número de lenguajes existentes, la industria se guía por índices de popularidad para decidir qué tecnologías adoptar. No existe un <em>mejor</em> lenguaje absoluto, pero sí tendencias de mercado claras. Dos de los indicadores más fiables son:</p>
+<ol>
+<li><strong>Índice TIOBE:</strong> Se basa en el número de resultados en motores de búsqueda. Es un buen indicador de <em>de qué se está hablando</em> o <em>qué se está buscando aprender</em>.</li>
+<li><strong>Ranking RedMonk:</strong> Cruza datos de <strong>GitHub</strong> (cantidad de código escrito) y <strong>Stack Overflow</strong> (cantidad de preguntas técnicas). Es un indicador más preciso de <em>qué se está usando realmente en proyectos</em>.</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">El declive de Stack Overflow y la era de la IA</p>
+<p><strong>Stack Overflow</strong> ha sido la página web de referencia absoluta para resolver dudas de programación durante más de una década. Sin embargo, su tráfico e interacción han sufrido una caída significativa con el advenimiento de asistentes de IA generativa (como <strong>ChatGPT</strong> o <strong>GitHub Copilot</strong>).</p>
+<p>Al obtener respuestas inmediatas y código generado a medida por la IA, muchos desarrolladores ya no acuden a publicar sus dudas en la comunidad. Esto plantea la incógnita de si rankings como RedMonk, que dependen de estos datos, seguirán siendo fiables en el futuro cercano.</p>
+</div>
+<p><img alt="Ranking TIOBE" src="img/tiobe.jpg" style="display: block; margin: 0 auto" /></p>
+<center><em>Ranking TIOBE: Evolución histórica de la popularidad.</em></center>
+
+<p><img alt="Ranking Redmonk" src="img/redmonk.png" style="display: block; margin: 0 auto" /></p>
+<center><em>Ranking Redmonk: Eje vertical (Popularidad en StackOverflow), Eje horizontal (Proyectos en GitHub).</em></center>
+
+<h3 id="lenguajes_de_programacion-por-qué-python-como-primer-lenguaje-en-ingeniería">¿Por qué Python como primer lenguaje en Ingeniería?</h3>
+<p>Dado que nuestra asignatura se orienta a titulaciones de ingeniería (Biomédica, Electrónica, Mecánica, Química, etc.), la elección de Python como primer lenguaje no es arbitraria y se justifica por varios motivos técnicos y prácticos frente a opciones clásicas como C o C++:</p>
+<ol>
+<li>
+<p><strong>Foco en la resolución del problema:</strong> En ingeniería, la programación es una herramienta para resolver problemas (filtrar una señal fisiológica, simular una estructura mecánica, analizar datos químicos), no un fin en sí mismo. La sintaxis de Python es limpia y legible (cercana al pseudocódigo), lo que reduce la <strong>carga cognitiva</strong>: el alumno dedica su esfuerzo mental a entender el algoritmo, no a pelear con llaves, puntos y comas o gestión de memoria manual.</p>
+</li>
+<li>
+<p><strong>El estándar en Ciencia de Datos e IA:</strong> Python posee el ecosistema de librerías científicas más robusto del mundo.</p>
+<ul>
+<li><strong>Biomédica:</strong> Procesamiento de imágenes (<em>OpenCV</em>), señales médicas (<em>SciPy, MNE</em>).</li>
+<li><strong>Mecánica/Química:</strong> Análisis de datos experimentales (<em>Pandas</em>), simulación numérica (<em>NumPy</em>).</li>
+<li><strong>Electrónica:</strong> Control de instrumentos y automatización.</li>
+</ul>
+</li>
+<li>
+<p><strong>Productividad:</strong> Un programa en Python suele requerir entre 3 y 5 veces menos líneas de código que su equivalente en C++ o Java. Esto permite prototipar soluciones funcionales en mucho menos tiempo.</p>
+</li>
+<li>
+<p><strong>Multiparadigma:</strong> Permite empezar programando de forma imperativa (sencilla) y avanzar hacia la orientación a objetos o funcional progresivamente, sin imponer una estructura rígida desde la línea 1.</p>
+</li>
+</ol>
+<p><img alt="¿Qué lenguaje aprender primero?" src="img/startcoding.jpg" style="display: block; margin: 0 auto" /></p>
+<center><em>¿Qué lenguaje aprender en primer lugar?</em></center>
+
+<h2 id="lenguajes_de_programacion-4-compiladores-el-modelo-cc">4. Compiladores (El modelo C/C++)</h2>
+<p>Un <strong>compilador</strong> es un programa que traduce todo el código fuente de una sola vez a un programa equivalente en otro lenguaje (normalmente código máquina) para su posterior ejecución.</p>
+<p>Es importante destacar que los compiladores son <strong>algunas de las piezas de software más complejas y fascinantes</strong> de la informática. Su construcción requiere una <strong>altísima capacitación</strong>, ya que actúan como puente entre dos mundos: deben comprender la teoría matemática del lenguaje formal y, a la vez, explotar al máximo los recursos físicos del hardware.</p>
+<p>El compilador detecta errores en tiempo de compilación (sintaxis), pero no errores en tiempo de ejecución (lógica).</p>
+<h3 id="lenguajes_de_programacion-generación-del-ejecutable-el-proceso-de-build">Generación del Ejecutable (El proceso de Build)</h3>
+<ol>
+<li><strong>Edición:</strong> Se escribe el código fuente: las extensiones habituales de los archivos son <code>.cpp</code> y <code>.h</code>.</li>
+<li><strong>Preprocesamiento:</strong> Es una fase previa de <em>preparación</em> del texto. El <strong>preprocesador</strong> limpia el código eliminando las notas del autor (comentarios) e incrusta el contenido de ficheros externos necesarios (como si hiciera un <em>copiar y pegar</em> automático de las bibliotecas), dejando el código listo para traducir.</li>
+<li><strong>Compilación:</strong> Traduce el código preprocesado a <strong>código objeto</strong> (<code>.o</code> o <code>.obj</code>). Este código es binario pero aún no es ejecutable por sí mismo porque le faltan las conexiones con el resto del proyecto.
+    &gt; Un programa suele dividirse en <strong>muchos archivos fuente</strong>. En esta fase, cada archivo se traduce por separado, pero si uno necesita usar una función que está escrita en <em>otro</em> archivo, todavía no <em>sabe</em> dónde encontrarla. Esas <em>referencias</em> cruzadas están pendientes de resolver.</li>
+<li><strong>Enlazado (Linker):</strong> Une todos los archivos objeto del programador con las <strong>bibliotecas externas</strong> (ej. funciones matemáticas) para crear un único fichero <strong>ejecutable</strong> binario (<code>.exe</code>).</li>
+</ol>
+<p><strong>¿Qué ocurre al ejecutarlo? (El Loader)</strong>
+Cuando un usuario ejecuta ese archivo <code>.exe</code>, un componente del sistema operativo llamado <strong>cargador (loader)</strong> transfiere el código y los datos del fichero binario a la memoria <em>RAM</em>, y la CPU comienza a procesar las instrucciones en código máquina que contiene.</p>
+<p><img alt="Proceso de compilación en C++" src="img/compilacion.jpg" style="display: block; margin: 0 auto" /></p>
+<center><em>Proceso de compilación en C++</em></center>
+
+<h3 id="lenguajes_de_programacion-fases-de-la-traducción-interior-del-compilador">Fases de la Traducción (Interior del Compilador)</h3>
+<p>El compilador realiza la traducción típicamente en 2 grandes fases:</p>
+<ol>
+<li><strong>Fase de Análisis (Front-end):</strong><ul>
+<li><strong>Léxico:</strong> Verifica símbolos válidos.</li>
+<li><strong>Sintáctico:</strong> Verifica la estructura gramatical.</li>
+<li><strong>Semántico:</strong> Verifica la coherencia de tipos y significado.</li>
+</ul>
+</li>
+<li><strong>Fase de Síntesis (Back-end):</strong><ul>
+<li>Generación de código intermedio.</li>
+<li><strong>Optimización:</strong> Fase crítica donde el compilador mejora el código (elimina código muerto, desenrolla bucles) para reducir tamaño o aumentar velocidad.</li>
+<li>Generación de código máquina específico para la arquitectura.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Tabla de Símbolos:</strong> Durante todo este proceso, el compilador mantiene una estructura de datos llamada <strong>Tabla de Símbolos</strong>. Esta actúa como una base de datos centralizada donde se registra información sobre cada identificador encontrado (variables, funciones, tipos), permitiendo verificar, por ejemplo, que no usemos una variable que no ha sido declarada previamente.</p>
+<p><img alt="Fases de la traducción de un compilador" src="img/traduccion_compilador.jpg" style="display: block; margin: 0 auto" /></p>
+<center><em>Fases de la traducción de un compilador</em></center>
+
+<h4 id="lenguajes_de_programacion-importancia-de-la-arquitectura-y-retrocompatibilidad">Importancia de la Arquitectura y Retrocompatibilidad</h4>
+<p>Dado que cada familia de CPU tiene un conjunto de instrucciones diferente (ISA), es necesario utilizar un compilador adaptado a esa arquitectura específica.
+Muchas firmas, como Intel, garantizan <strong>retrocompatibilidad</strong>: código escrito para sus CPU más antiguas (como la 8086 de los años 70) puede ejecutarse en sus chips modernos (arquitectura x86). Sin embargo, lo opuesto no es cierto: un ejecutable generado aprovechando las características de un chip moderno de 64 bits no funcionará en uno antiguo de 16 bits.</p>
+<hr />
+<h2 id="lenguajes_de_programacion-5-intérpretes-y-máquinas-virtuales">5. Intérpretes y Máquinas Virtuales</h2>
+<h3 id="lenguajes_de_programacion-intérprete-puro">Intérprete Puro</h3>
+<p>A diferencia del compilador, que actúa como un traductor de libros (traduce la obra entera antes de entregarla), el <strong>intérprete</strong> actúa como un <strong>traductor simultáneo</strong>: lee una instrucción, la traduce y la ejecuta al vuelo.</p>
+<p><strong>Ejemplo ilustrativo (Pseudocódigo / Python):</strong>
+Imaginemos un programa con un error de sintaxis.
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="o">/</span> <span class="n">b</span>   <span class="c1"># &lt;--- ¡¡ERROR DE SINTAXIS!! (Sobran operadores)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</code></pre></div></p>
+<ul>
+<li><strong>Comportamiento Compilado:</strong> El proceso de traducción falla antes de empezar (Compilation Error). No se genera ningún archivo ejecutable y el usuario <strong>no ve nada</strong> en pantalla.</li>
+<li>
+<p><strong>Comportamiento Interpretado:</strong> El programa arranca inmediatamente. El usuario ve por la consola los valores de <code>a</code> y <code>b</code> y, justo después, el programa <strong>se estrella (crash)</strong> al intentar ejecutar la cuarta línea.</p>
+</li>
+<li>
+<p>No genera un ejecutable independiente (como un <code>.exe</code>). Necesitas tener el intérprete instalado en la máquina para correr el código.</p>
+</li>
+<li><strong>Ventaja:</strong> Flexibilidad, depuración rápida, y capacidad de ejecutar código generado dinámicamente.</li>
+<li><strong>Desventaja:</strong> Menor velocidad de ejecución: la CPU pierde tiempo traduciendo lo mismo una y otra vez.</li>
+</ul>
+<h3 id="lenguajes_de_programacion-modelo-híbrido-máquinas-virtuales">Modelo Híbrido: Máquinas Virtuales</h3>
+<p>Muchos lenguajes actuales (Java, Python, C#) buscan un punto intermedio utilizando una estrategia de <em>CPU Imaginaria</em>.</p>
+<ol>
+<li>
+<p><strong>Fase de Compilación a Bytecode:</strong>
+    El código fuente no se traduce a la ISA de la CPU real (Intel, ARM, etc.), sino que se genera un <strong>fichero intermedio</strong> conteniendo <strong>Bytecode</strong> (ej. <code>.class</code> en Java, <code>.pyc</code> en Python).
+    Este Bytecode no es más que la <strong>ISA (Instruction Set Architecture)</strong> de una <em>máquina ideal</em> que no existe físicamente. Es como traducir un libro de español a <strong>Esperanto</strong> en lugar de a 50 idiomas distintos.</p>
+</li>
+<li>
+<p><strong>Fase de Ejecución (La Máquina Virtual):</strong>
+    La <strong>Máquina Virtual (VM)</strong> no es hardware, sino un <strong>programa</strong> (software) instalado en el ordenador del usuario que actúa como ese procesador ficticio.
+    De facto, la VM funciona como un <strong>intérprete puro</strong> (pero sobre el bytecode, no sobre el código fuente): lee las instrucciones del archivo intermedio y las traduce a la <strong>ISA nativa</strong> de la máquina real (Inglés, Francés, Chino...) en tiempo real.
+    &gt; Como ocurre con cualquier intérprete, si una instrucción de bytecode está dentro de un bucle, la VM la traducirá una y otra vez en cada iteración (salvo optimizaciones JIT), lo que implica una sobrecarga de rendimiento respecto al código nativo.</p>
+</li>
+</ol>
+<p><strong>Ventajas de la Máquina Virtual:</strong></p>
+<ul>
+<li><strong>Portabilidad (WORA):</strong> <em>Write Once, Run Anywhere</em>. El mismo bytecode corre en Windows, Linux o Mac, siempre que exista la VM correspondiente. Nótese que, aunque el bytecode es universal, <strong>el software de la VM sí es específico para cada plataforma</strong> (por eso debes descargar una versión distinta de Java o Python si usas Windows, Mac o Linux), ya que es la pieza que lidia con el hardware real.</li>
+<li><strong>Seguridad:</strong> La VM actúa como un entorno aislado (<em>sandbox</em>), protegiendo el hardware real.</li>
+<li><strong>Gestión de Memoria (Limpieza automática):</strong> En lenguajes de bajo nivel (como C), la gestión de la <strong>memoria dinámica</strong> es manual. Si un programador solicita espacio extra durante la ejecución, es responsable de liberarlo explícitamente. Un simple olvido en este paso provoca fallos graves (<em>fugas de memoria</em>). Para evitarlo, la VM incluye un <strong>Recolector de Basura (<em>Garbage Collector</em>)</strong>: un "servicio de limpieza" automático que detecta qué datos ya no sirven y los borra por ti.</li>
+</ul>
+<p><strong>Compilación JIT (Just-In-Time):</strong>
+Para mejorar el rendimiento, las VMs modernas (como la JVM de Java o V8 de JS) compilan trozos de bytecode a código nativo <em>mientras</em> el programa se ejecuta, combinando la velocidad de un compilado con la flexibilidad de un interpretado.</p>
+<p><strong>Ejemplos del Mundo Real:</strong></p>
+<ul>
+<li><strong>El Navegador Web:</strong> Es la <em>máquina virtual</em> que más usamos. Chrome o Firefox interpretan el código de las páginas web (JavaScript/WebAssembly) para que funcionen igual en tu PC, en un Mac o en tu móvil.</li>
+<li><strong>Java vs Android:</strong> Mientras que en ordenadores se usa la JVM estándar, Android utiliza su propia máquina virtual llamada <strong>ART (Android Run Time)</strong>. Aunque se programa en Java, el bytecode es diferente debido a temas de licencias y para optimizar el consumo de batería en móviles.</li>
+<li><strong>.NET (C#):</strong> El entorno de Microsoft destaca por ser <strong>multilenguaje</strong>: compila alrededor de 35 lenguajes diferentes a un mismo bytecode llamado <strong>CIL</strong> (<em>Common Intermediate Language</em>). El lenguaje <strong>C#</strong> (<em>C Sharp</em>) es el más utilizado de este ecosistema y guarda muchas similitudes con Java y C++. Finalmente, un compilador JIT llamado <strong>CLR</strong> (<em>Common Language Runtime</em>) traduce y ejecuta ese código en la plataforma hardware definitiva.</li>
+</ul>
+<p><img alt="clr" src="img/clr.jpg" style="display: block; margin: 0 auto" /></p>
+<center><em>La Máquina Virtual multilenguaje de Microsoft</em></center>
+
+<h2 id="lenguajes_de_programacion-6-compiladores-frente-a-intérpretes">6. Compiladores frente a Intérpretes</h2>
+<p>A continuación, comparamos los enfoques principales: <strong>Compilación Pura</strong> (C++), <strong>Interpretación Pura</strong> (versiones antiguas de BASIC, Scripts de Shell) y <strong>Enfoque Híbrido/VM</strong> (Java, Python).</p>
+<div class="center-table">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Característica</th>
+<th style="text-align: left;">Compilador Nativo (C++)</th>
+<th style="text-align: left;">Intérprete Puro</th>
+<th style="text-align: left;">Máquina Virtual (Java/Python)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Proceso</strong></td>
+<td style="text-align: left;">Fuente <span class="arithmatex">\(\to\)</span> Máquina (Ejecutable)</td>
+<td style="text-align: left;">Fuente <span class="arithmatex">\(\to\)</span> Ejecución directa</td>
+<td style="text-align: left;">Fuente <span class="arithmatex">\(\to\)</span> Bytecode <span class="arithmatex">\(\to\)</span> VM</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cuándo se traduce</strong></td>
+<td style="text-align: left;">Antes de ejecutar (tiempo de compilación).</td>
+<td style="text-align: left;">Durante la ejecución (tiempo real).</td>
+<td style="text-align: left;">Mixto (pre-compilación a bytecode + JIT).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rendimiento</strong></td>
+<td style="text-align: left;"><strong>Muy Alto.</strong> Optimizado para el hardware específico.</td>
+<td style="text-align: left;"><strong>Bajo.</strong> Sobrecarga por traducción constante.</td>
+<td style="text-align: left;"><strong>Medio/Alto.</strong> Gracias a tecnologías JIT.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Privacidad Código</strong></td>
+<td style="text-align: left;">Alta (se entrega binario difícil de leer).</td>
+<td style="text-align: left;">Nula (se entrega código fuente visible).</td>
+<td style="text-align: left;">Media (se entrega bytecode, que es reversible).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Portabilidad</strong></td>
+<td style="text-align: left;">Baja. Requiere recompilar para cada SO.</td>
+<td style="text-align: left;">Alta. Solo requiere el intérprete instalado.</td>
+<td style="text-align: left;"><strong>Muy Alta (WORA).</strong> Bytecode universal.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Detección Errores</strong></td>
+<td style="text-align: left;">Todos los de sintaxis reportados antes de correr.</td>
+<td style="text-align: left;">El programa se detiene al encontrar el primer error.</td>
+<td style="text-align: left;">Errores de sintaxis al generar bytecode; lógica en ejecución.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p style="text-align: center;"><em>Compiladores vs. Intérpretes vs. Máquinas Virtuales</em></p>
+
+<p><br></p>
+<p><img alt="Compilación vs Máquina Virtual" src="img/compilador_mv.jpg" style="display: block; margin: 0 auto" /></p>
+<center><em>Compilación vs Máquina Virtual</em></center>
+
+<h2 id="lenguajes_de_programacion-7-ecosistema-de-desarrollo-ides">7. Ecosistema de Desarrollo (IDEs)</h2>
+<p>Programar en un simple editor de texto (como el Bloc de Notas) es posible, pero ineficiente. Los profesionales usan <strong>IDEs (Integrated Development Environment)</strong>, que combinan múltiples herramientas en una sola interfaz:</p>
+<ol>
+<li><strong>Editor de código:</strong> Con resaltado de sintaxis y autocompletado automatizado.</li>
+<li><strong>Compilador/Intérprete integrado:</strong> Para ejecutar el programa con un solo clic.</li>
+<li><strong>Depurador (Debugger):</strong> Herramienta vital que permite detener la ejecución paso a paso para inspeccionar variables y encontrar errores lógicos.</li>
+<li><strong>Gestión de proyectos:</strong> Organización de ficheros y control de versiones (Git).</li>
+</ol>
+<p><em>Ejemplos populares:</em> Visual Studio Code (ligero y multipropósito), Eclipse/IntelliJ (Java), Visual Studio (C++/C#), PyCharm (Python), Spyder (Python)</p>
+<p>La forma en que programamos está en constante evolución:</p>
+<ul>
+<li><strong>Asistentes de IA:</strong> Herramientas como GitHub Copilot generan código automáticamente a partir de descripciones en lenguaje natural, cambiando el rol del programador de <em>escritor</em> a <em>supervisor</em>.</li>
+<li><strong>Low-Code / No-Code:</strong> Plataformas visuales para crear aplicaciones sin escribir código manual, democratizando el desarrollo.</li>
+<li><strong>Computación Cuántica:</strong> Nuevos paradigmas y lenguajes (como Q# de Microsoft) diseñados para operar con <strong>qubits</strong> (bits cuánticos). Aunque su funcionamiento queda fuera del alcance de esta asignatura, esta tecnología promete resolver problemas hoy inabordables para la informática clásica.</li>
+</ul>
+<h2 id="lenguajes_de_programacion-8-ética-y-responsabilidad-en-la-era-de-la-ia">8. Ética y Responsabilidad en la Era de la IA</h2>
+<p>El uso masivo de asistentes como ChatGPT o Copilot plantea importantes <strong>desafíos éticos y académicos</strong>:</p>
+<ol>
+<li><strong>Integridad Académica (<em>Cheating</em>):</strong> En la universidad, presentar código generado por IA como propio sin comprenderlo se considera <strong>plagio</strong> y anula el proceso de aprendizaje. Una calculadora resuelve operaciones, pero no te enseña matemáticas; la IA escribe código, pero no te enseña a razonar la lógica (<em>Vibecoding</em>).</li>
+<li><strong>Responsabilidad Profesional:</strong> Las IAs sufren <strong>alucinaciones</strong> (inventan código plausible pero incorrecto). En ingeniería (sanidad, automoción...), un fallo de software puede costar vidas. El ingeniero humano siempre será el <strong>responsable legal y moral</strong> de validar línea por línea lo que la máquina escribe.</li>
+<li><strong>Dependencia:</strong> Para supervisar eficazmente a una IA, primero hay que ser un experto. Si delegas el aprendizaje básico, nunca tendrás criterio para corregir a tu asistente.</li>
+</ol></section><section class="print-page" id="representacion_de_la_informacion" heading-number="3"><h1 id="representacion_de_la_informacion-representación-de-la-información">Representación de la Información</h1>
+<h2 id="representacion_de_la_informacion-índice">Índice</h2>
+<ol>
+<li><a href="#representacion_de_la_informacion-1-fundamentos-de-la-información-digital">Fundamentos de la Información Digital</a></li>
+<li><a href="#representacion_de_la_informacion-2-sistemas-de-numeración">Sistemas de Numeración</a></li>
+<li><a href="#representacion_de_la_informacion-3-representación-de-números-enteros">Representación de Números Enteros</a></li>
+<li><a href="#representacion_de_la_informacion-4-representación-de-números-reales">Representación de Números Reales</a></li>
+<li><a href="#representacion_de_la_informacion-5-representación-de-caracteres">Representación de Caracteres</a></li>
+</ol>
+<hr />
+<h2 id="representacion_de_la_informacion-1-fundamentos-de-la-información-digital">1. Fundamentos de la Información Digital</h2>
+<h3 id="representacion_de_la_informacion-naturaleza-de-la-información-digital">Naturaleza de la Información Digital</h3>
+<p>Desde una perspectiva técnica, la <strong>información</strong> se define como todo aquello capaz de reducir la incertidumbre o aportar conocimiento.</p>
+<p><img alt="Informacion" src="img/informacion.jpg" style="display: block; margin: 0 auto" /></p>
+<center><em>Atributos y descriptores para la reducción de la incertidumbre</em></center>
+<p><br></p>
+<p>En un sistema informático, esta información se materializa en forma de datos procesables.</p>
+<p>En la arquitectura moderna de computadores (modelo <strong>Von Neumann</strong>), es fundamental comprender que la memoria principal almacena indistintamente dos categorías de entidades:</p>
+<ol>
+<li><strong>Instrucciones (Código):</strong> La secuencia lógica de órdenes que dictan el comportamiento del procesador.</li>
+<li><strong>Datos:</strong> La materia prima (números, caracteres, señales) sobre la que operan dichas instrucciones.</li>
+</ol>
+<p>A bajo nivel, no existe diferencia física entre instrucciones y datos; ambos se representan universalmente mediante <strong>patrones de bits</strong> (<span class="arithmatex">\(0\)</span> y <span class="arithmatex">\(1\)</span>), que en última instancia corresponden a estados físicos del hardware (niveles de voltaje, cargas eléctricas, magnetización...). Es el contexto de ejecución (cómo y cuándo accede el procesador a ellos) lo que determina su interpretación.</p>
+<p>Esta naturaleza binaria se mantiene porque es la solución tecnológica más robusta: es más sencillo y seguro para un circuito distinguir entre dos estados extremos (On/Off) que intentar diferenciar 10 niveles de voltaje precisos, como requeriría una codificación adaptada al sistema decimal.</p>
+<h3 id="representacion_de_la_informacion-almacenamiento-en-el-ordenador-la-memoria">Almacenamiento en el Ordenador: La Memoria</h3>
+<p>La memoria principal del ordenador se estructura como una <strong>gran tabla lineal de celdas</strong>. Cada celda es un espacio de almacenamiento direccionable individualmente.</p>
+<p>En este esquema distinguimos dos conceptos clave:</p>
+<ol>
+<li><strong>Dirección (Address):</strong> El número único que identifica la ubicación de la celda (como el número de un buzón).</li>
+<li><strong>Contenido:</strong> El patrón de bits guardado en dicha celda.</li>
+</ol>
+<h4 id="representacion_de_la_informacion-unidades-de-medida">Unidades de Medida</h4>
+<ul>
+<li><strong>Bit</strong> (<strong>Binary digit</strong>): Unidad mínima de información (<span class="arithmatex">\(0\)</span> o <span class="arithmatex">\(1\)</span>).</li>
+<li><strong>Byte</strong> (<strong>Octeto</strong>): Agrupación de <strong>8 bits</strong>. Es la <strong>unidad mínima direccionable</strong> de la memoria; el procesador lee o escribe bytes completos.</li>
+</ul>
+<h4 id="representacion_de_la_informacion-visualización-de-la-memoria">Visualización de la Memoria</h4>
+<p>Podemos imaginar la memoria como una tabla donde cada fila representa una celda con su propia <strong>dirección</strong>. En las arquitecturas actuales lo habitual es el <strong>direccionamiento por Byte</strong>, donde cada dirección de memoria apunta a 8 bits.</p>
+<p>Dado que muchos datos requieren más capacidad, es común que un solo dato ocupe <strong>varias celdas (direcciones) consecutivas</strong>:</p>
+<div align="center">
+<table style="margin: 0 auto;">
+<thead>
+<tr>
+<th style="text-align:center">Dirección</th>
+<th style="text-align:center">Contenido (Binario)</th>
+<th style="text-align:left">Interpretación del Dato</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>...</code></td>
+<td style="text-align:center"><code>...</code></td>
+<td style="text-align:left">...</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>1010</code></td>
+<td style="text-align:center"><code>01000001</code></td>
+<td style="text-align:left">Letra 'A' (1 Byte)</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>...</code></td>
+<td style="text-align:center"><code>...</code></td>
+<td style="text-align:left">...</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>2000</code></td>
+<td style="text-align:center"><code>00000000</code></td>
+<td rowspan="4" style="text-align:center; vertical-align:middle; background-color: #f8f8f8"><strong>Entero de 32 bits (4 Bytes)</strong><br>Valor: 484</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>2001</code></td>
+<td style="text-align:center"><code>00000000</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>2002</code></td>
+<td style="text-align:center"><code>00000001</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>2003</code></td>
+<td style="text-align:center"><code>11100100</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>...</code></td>
+<td style="text-align:center"><code>...</code></td>
+<td style="text-align:left">...</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>3008</code></td>
+<td style="text-align:center"><code>11100011</code></td>
+<td rowspan="3" style="text-align:center; vertical-align:middle; background-color: #f0f0f0"><strong>Instrucción CPU (64 bits)</strong><br>8 Bytes</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>...</code></td>
+<td style="text-align:center"><code>...</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>3015</code></td>
+<td style="text-align:center"><code>10101100</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>...</code></td>
+<td style="text-align:center"><code>...</code></td>
+<td style="text-align:left">...</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p style="text-align: center;"><em>Modelo de la memoria como una tabla de celdas</em></p>
+
+<h3 id="representacion_de_la_informacion-necesidad-de-la-codificación">Necesidad de la Codificación</h3>
+<p>Los humanos interactuamos con información simbólica (letras, números) o analógica (imágenes, sonido), mientras que el procesador trabaja internamente con estados binarios. Para salvar esta brecha es necesaria una transformación rigurosa:</p>
+<div class="arithmatex">\[ \text{Mundo Real} \xrightarrow{\text{Codificación}} \text{Mundo Digital} \]</div>
+<p>En la vida real usamos habitualmente codificaciones: el NIA de un alumno de la UVa, el DNI, el código postal, etc.</p>
+<p>Matemáticamente, la codificación debe ser una <strong>transformación inyectiva</strong>. En el caso informático esto significa que a cada elemento del conjunto original (ej. la letra 'A') le debe corresponder una secuencia de bits <strong>única y exclusiva</strong>. Si dos elementos distintos compartieran el mismo código, el proceso inverso (<strong>decodificación</strong>) sería ambiguo y no podríamos recuperar la información original sin errores.</p>
+<h4 id="representacion_de_la_informacion-capacidad-de-representación-combinatoria">Capacidad de Representación (Combinatoria)</h4>
+<p>Es un error común pensar que los bits suman capacidad linealmente. En realidad, la capacidad de diferenciar valores crece de forma <strong>exponencial</strong>: cada bit añadido <strong>duplica</strong> las posibilidades del anterior.</p>
+<p><strong>Regla General:</strong> Con <span class="arithmatex">\(n\)</span> bits podemos representar <span class="arithmatex">\(m = 2^n\)</span> valores diferentes.</p>
+<div class="center-table">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Nº Bits</th>
+<th style="text-align: center;">Cálculo (<span class="arithmatex">\(2^n\)</span>)</th>
+<th style="text-align: center;">Cantidad de Valores</th>
+<th style="text-align: left;">Ejemplo de uso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(2^1\)</span></td>
+<td style="text-align: center;"><strong>2</strong></td>
+<td style="text-align: left;">Bombilla (Encendida/Apagada)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>2</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(2^2\)</span></td>
+<td style="text-align: center;"><strong>4</strong></td>
+<td style="text-align: left;">Los 4 palos de la baraja</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>3</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(2^3\)</span></td>
+<td style="text-align: center;"><strong>8</strong></td>
+<td style="text-align: left;">Rosa de los Vientos (N, S, E, O ,NO, NE, SO, etc.)</td>
+</tr>
+<tr>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">...</td>
+<td style="text-align: left;">...</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>8</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(2^8\)</span></td>
+<td style="text-align: center;"><strong>256</strong></td>
+<td style="text-align: left;"><strong>1 Byte</strong> (Podemos representar caracteres)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>10</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(2^{10}\)</span></td>
+<td style="text-align: center;"><strong>1.024</strong></td>
+<td style="text-align: left;">Aprox. 1000 (<span class="arithmatex">\(1K\)</span> en Binario)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>32</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(2^{32}\)</span></td>
+<td style="text-align: center;"><strong>~4.000 Millones</strong></td>
+<td style="text-align: left;">Direcciones IP (Internet)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p style="text-align: center;"><em>Número de bits frente a capacidad de representación</em></p>
+
+<p><strong>Problema inverso:</strong> Si necesito codificar <span class="arithmatex">\(m\)</span> valores, ¿cuál es el número mínimo <span class="arithmatex">\(n\)</span> de bits necesarios?</p>
+<div class="arithmatex">\[ n = \lceil \log_2 m \rceil \quad \longrightarrow \quad \text{Tomamos el entero más próximo por exceso} \]</div>
+<div class="admonition example">
+<p class="admonition-title">Ejemplo de cálculo de bits necesarios</p>
+<p>Tenemos un almacén con <strong>17524</strong> contenedores y queremos identificarlos con una etiqueta binaria única.</p>
+<div class="arithmatex">\[ \log_2 17524 \approx 14.097 \]</div>
+<p><strong>Solución:</strong> Necesitamos <strong>15 bits</strong> (con 14 bits solo llegaríamos a 16.384 etiquetas).</p>
+</div>
+<h2 id="representacion_de_la_informacion-2-sistemas-de-numeración">2. Sistemas de Numeración</h2>
+<p>Antes de abordar cómo se almacenan en un sistema informático tipos de datos específicos (enteros, reales, texto), es imprescindible revisar la base matemática que lo sustenta. Aunque en la vida cotidiana operamos en <strong>base</strong> 10, el hardware impone el uso de bases potencias de 2.</p>
+<p>El objetivo de este apartado no es convertirse en calculadoras humanas, sino entender la <strong>lógica de traducción</strong> entre el mundo humano y el de la máquina. Este conocimiento es vital para interpretar direcciones de memoria, entender los límites de capacidad de las variables o comprender cómo se representa internamente cualquier tipo de dato.</p>
+<h3 id="representacion_de_la_informacion-definición">Definición</h3>
+<p>Un sistema de numeración es una colección de símbolos y reglas para construir números válidos. Los sistemas usados en informática son <strong>posicionales</strong>: el valor de una cifra depende de su símbolo y de la posición que ocupa.</p>
+<p>La <strong>base (<span class="arithmatex">\(b\)</span>)</strong> es el número total de símbolos permitidos en el sistema. En un sistema posicional, la base también determina cuántas unidades de un orden inferior son necesarias para formar una unidad del orden inmediato superior (ej. 10 unidades forman 1 decena). Además, la base coincide con el valor por el cual se multiplican las posiciones sucesivas.</p>
+<div class="center-table">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Sistema</th>
+<th style="text-align: left;">Base (<span class="arithmatex">\(b\)</span>)</th>
+<th style="text-align: left;">Símbolos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Decimal</strong></td>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;"><span class="arithmatex">\(\{0, 1, 2, 3, 4, 5, 6, 7, 8, 9\}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Binario</strong></td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;"><span class="arithmatex">\(\{0, 1\}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Octal</strong></td>
+<td style="text-align: left;">8 (<span class="arithmatex">\(2^3\)</span>)</td>
+<td style="text-align: left;"><span class="arithmatex">\(\{0, 1, 2, 3, 4, 5, 6, 7\}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Hexadecimal</strong></td>
+<td style="text-align: left;">16 (<span class="arithmatex">\(2^4\)</span>)</td>
+<td style="text-align: left;"><span class="arithmatex">\(\{0, ..., 9, A, B, C, D, E, F\}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p style="text-align: center;"><em>Bases habituales en Informática: A=10, B=11, ..., F=15</em></p>
+
+<h3 id="representacion_de_la_informacion-valor-posicional-polinomio-equivalente">Valor Posicional (Polinomio Equivalente)</h3>
+<p>El concepto fundamental de los sistemas numéricos modernos es el <strong>valor posicional</strong>. A diferencia de los números romanos, aquí el valor de cada dígito no es absoluto, sino que depende de la posición que ocupe respecto a la coma (o punto) decimal.</p>
+<p>Cada posición <span class="arithmatex">\(i\)</span> tiene un <strong>peso</strong> asignado que es una potencia de la base (<span class="arithmatex">\(b^i\)</span>):</p>
+<ul>
+<li>Hacia la <strong>izquierda</strong> (parte entera), los pesos son potencias no negativas: <span class="arithmatex">\(b^0\)</span> (unidades), <span class="arithmatex">\(b^1\)</span>, <span class="arithmatex">\(b^2\)</span>...</li>
+<li>Hacia la <strong>derecha</strong> (parte fraccionaria), los pesos son potencias negativas: <span class="arithmatex">\(b^{-1}\)</span>, <span class="arithmatex">\(b^{-2}\)</span>...</li>
+</ul>
+<p>Para traducir cualquier número a nuestro sistema decimal, simplemente sumamos cada dígito multiplicado por su peso. Esto se formaliza mediante el <strong>polinomio equivalente</strong>:</p>
+<div class="arithmatex">\[ N = \sum_{i=-k}^{n-1} d_i \cdot b^i \]</div>
+<div class="arithmatex">\[ N = d_{n-1}b^{n-1} + \dots + d_1 b^1 + d_0 b^0 + d_{-1} b^{-1} + \dots + d_{-k} b^{-k} \]</div>
+<p>donde:</p>
+<ul>
+<li><span class="arithmatex">\(d_i\)</span>: Es el dígito en la posición <span class="arithmatex">\(i\)</span>.</li>
+<li><span class="arithmatex">\(b\)</span>: Es la base del sistema (2, 8, 16...).</li>
+<li><span class="arithmatex">\(i\)</span>: Es el índice de la posición (<span class="arithmatex">\(i=0\)</span> es la primera posición entera).</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Ejemplo: Hexadecimal a Decimal</p>
+<p>Valor del número <span class="arithmatex">\(3F.D_{16}\)</span>:</p>
+<div class="arithmatex">\[ 3 \cdot 16^1 + 15 \cdot 16^0 + 13 \cdot 16^{-1} = 48 + 15 + 0.8125 = 63.8125_{10} \]</div>
+<p><em>(Nota: F=15, D=13)</em></p>
+</div>
+<h3 id="representacion_de_la_informacion-conversión-de-decimal-a-base-b">Conversión de Decimal a Base <span class="arithmatex">\(b\)</span></h3>
+<p>Para convertir un número de nuestro sistema decimal a cualquier otra base (binario, octal, hexadecimal...), debemos procesar por separado la parte entera y la fraccionaria, ya que responden a lógicas matemáticas inversas.</p>
+<p>El método general consiste en dividir la parte entera y multiplicar la parte fraccionaria.</p>
+<h4 id="representacion_de_la_informacion-1-parte-entera-divisiones-sucesivas">1. Parte Entera: Divisiones Sucesivas</h4>
+<p>El algoritmo consiste en <strong>dividir sucesivamente</strong> el número decimal entre la base destino (<span class="arithmatex">\(b\)</span>) hasta que el cociente sea 0.</p>
+<ul>
+<li>En cada paso, el <strong>resto</strong> de la división se convierte en un dígito del número convertido.</li>
+<li><strong>Importante:</strong> El primer resto obtenido corresponde al bit menos significativo (LSD o posición <span class="arithmatex">\(b^0\)</span>). Por tanto, el número final se construye leyendo los restos en <strong>orden inverso</strong> (del último obtenido al primero).</li>
+</ul>
+<h4 id="representacion_de_la_informacion-2-parte-fraccionaria-multiplicaciones-sucesivas">2. Parte Fraccionaria: Multiplicaciones Sucesivas</h4>
+<p>Tomamos la parte decimal pura (0.xxxx) y la <strong>multiplicamos</strong> por la base destino (<span class="arithmatex">\(b\)</span>).</p>
+<ul>
+<li>La <strong>parte entera</strong> del resultado será el siguiente dígito fraccionario (empezando por <span class="arithmatex">\(b^{-1}\)</span>).</li>
+<li>El proceso se repite tomando solo la parte decimal restante del resultado anterior.</li>
+<li>En este caso, los dígitos se leen en <strong>orden directo</strong> (en el orden en que aparecen).</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Ejemplo Completo: 35.625 a Binario</p>
+<p><strong>Paso 1: Parte Entera (35)</strong></p>
+<ul>
+<li><span class="arithmatex">\(35 / 2 = 17\)</span>, Resto <strong>1</strong> (Este es el último bit, LSB)</li>
+<li><span class="arithmatex">\(17 / 2 = 8\)</span>, Resto <strong>1</strong></li>
+<li><span class="arithmatex">\(8 / 2 = 4\)</span>, Resto <strong>0</strong></li>
+<li><span class="arithmatex">\(4 / 2 = 2\)</span>, Resto <strong>0</strong></li>
+<li><span class="arithmatex">\(2 / 2 = 1\)</span>, Resto <strong>0</strong></li>
+<li><span class="arithmatex">\(1 / 2 = 0\)</span>, Resto <strong>1</strong> (Este es el primer bit, MSB)</li>
+</ul>
+<p><span class="arithmatex">\(\rightarrow\)</span> Leemos de abajo hacia arriba: <strong><span class="arithmatex">\(100011_2\)</span></strong></p>
+<p><strong>Paso 2: Parte Fraccionaria (0.625)</strong></p>
+<ul>
+<li><span class="arithmatex">\(0.625 \times 2 = \mathbf{1}.25 \rightarrow\)</span> Guardo el <strong>1</strong>, me quedo con <span class="arithmatex">\(0.25\)</span></li>
+<li><span class="arithmatex">\(0.25 \times 2 = \mathbf{0}.5 \rightarrow\)</span> Guardo el <strong>0</strong>, me quedo con <span class="arithmatex">\(0.5\)</span></li>
+<li><span class="arithmatex">\(0.5 \times 2 = \mathbf{1}.0 \rightarrow\)</span> Guardo el <strong>1</strong>, me queda <span class="arithmatex">\(0.0\)</span> (Fin)</li>
+</ul>
+<p><span class="arithmatex">\(\rightarrow\)</span> Leemos de arriba hacia abajo: <strong><span class="arithmatex">\(.101_2\)</span></strong></p>
+<p><strong>Resultado Final:</strong> <span class="arithmatex">\(35.625_{10} = 100011.101_2\)</span></p>
+</div>
+<h4 id="representacion_de_la_informacion-error-de-truncamiento-y-precisión-finita">Error de Truncamiento y Precisión Finita</h4>
+<p>En la parte fraccionaria, la conversión a menudo no es exacta, resultando en números periódicos infinitos (al igual que <span class="arithmatex">\(1/3\)</span> es <span class="arithmatex">\(0.333...\)</span> en decimal).</p>
+<div class="admonition example">
+<p class="admonition-title">Ejemplo con error de truncamiento</p>
+<p>Por ejemplo, el simple valor <span class="arithmatex">\(0.1_{10}\)</span> en binario es una fracción periódica: <span class="arithmatex">\(0.0001100110011...\)</span></p>
+<p>Dado que el ordenador tiene un número finito de bits para guardar el número, está obligado a <strong>cortar (truncar)</strong> la secuencia en algún punto.</p>
+<p><strong>Cálculo del error con 4 bits fraccionarios:</strong>
+Si solo guardamos los primeros 4 bits fraccionarios, almacenamos <span class="arithmatex">\(0.0001_2\)</span>.</p>
+<ul>
+<li>Valor Real: <span class="arithmatex">\(0.1\)</span></li>
+<li>Valor Almacenado: <span class="arithmatex">\(0.0001_2 = 1 \cdot 2^{-4} = 0.0625_{10}\)</span></li>
+<li><strong>Error:</strong> <span class="arithmatex">\(|0.1 - 0.0625| = 0.0375\)</span> (¡Un error del 37.5%!)</li>
+</ul>
+</div>
+<p>Esto implica que el ordenador casi nunca guarda <em>exactamente</em> el número real que escribimos, sino una aproximación muy cercana. El aumento del número de bits dedicado a almacenar la parte fraccionaria de un número palía el error, pero nunca desaparece en fracciones periódicas o valores irracionales.</p>
+<h3 id="representacion_de_la_informacion-uso-de-hexadecimal-y-octal">Uso de Hexadecimal y Octal</h3>
+<p>Aunque el ordenador trabaja estrictamente en binario, para los humanos leer secuencias largas como <code>101101011110</code> es lento, tedioso y muy propenso a errores visuales. </p>
+<p>Por esta razón, en informática se utilizan sistemas cuya base es una potencia exacta de 2 (<span class="arithmatex">\(8=2^3\)</span> y <span class="arithmatex">\(16=2^4\)</span>). Estos sistemas funcionan como una <strong>taquigrafía del binario</strong>, permitiéndonos escribir la misma información de forma mucho más compacta sin tener que hacer divisiones o multiplicaciones complejas para la traducción.</p>
+<ul>
+<li><strong>Hexadecimal (Base 16):</strong> Es el estándar absoluto hoy en día. Se utiliza universalmente para representar <strong>direcciones de memoria</strong>, códigos de colores web (<strong>#FFFFFF</strong>), direcciones MAC o cualquier volcado de datos crudos (<em>raw data</em>). Un solo dígito hexadecimal representa <strong>4 bits</strong> (un <em>nibble</em>), por lo que dos dígitos hexadecimales representan exactamente <strong>1 Byte</strong>.</li>
+<li><strong>Octal (Base 8):</strong> Agrupa los bits de <strong>3 en 3</strong>. Fue muy popular en las primeras décadas de la informática (para palabras de 12, 24 o 36 bits), pero hoy su uso ha quedado relegado casi exclusivamente a la gestión de <strong>permisos de ficheros en sistemas UNIX/Linux</strong> (ej. <code>chmod 755</code>).</li>
+</ul>
+<h4 id="representacion_de_la_informacion-método-de-conversión-por-agrupación">Método de Conversión por Agrupación</h4>
+<p>La conversión es directa y visual, ya que cada dígito en estas bases corresponde a un bloque fijo de bits.</p>
+<ol>
+<li><strong>Binario <span class="arithmatex">\(\to\)</span> Hexadecimal:</strong> Agrupamos los bits de <strong>4 en 4</strong> partiendo desde la coma decimal hacia los extremos (izquierda para enteros, derecha para fracción). Si el último grupo queda incompleto, se rellena con ceros.</li>
+<li><strong>Binario <span class="arithmatex">\(\to\)</span> Octal:</strong> El mismo proceso, pero haciendo grupos de <strong>3 bits</strong>.</li>
+</ol>
+<div class="admonition example">
+<p class="admonition-title">Ejemplo Completo con Decimales y Relleno</p>
+<p>Convertir a Hexadecimal el binario: <code>111010.11011</code></p>
+<p>El proceso exige agrupar de 4 en 4 <strong>desde la coma hacia afuera</strong>.</p>
+<p><strong>1. Parte Entera (<code>111010</code>):</strong>
+*   Desde la coma a la izquierda: <code>1010</code> (grupo completo) <span class="arithmatex">\(\to\)</span> Quedan <code>11</code> sueltos.
+*   Rellenamos con ceros a la <strong>izquierda</strong>: <code>0011</code>.
+*   Grupos resultantes: <code>0011</code> | <code>1010</code> <span class="arithmatex">\(\to\)</span> <strong>3</strong> | <strong>A</strong></p>
+<p><strong>2. Parte Fraccionaria (<code>.11011</code>):</strong>
+*   Desde la coma a la derecha: <code>1101</code> (grupo completo) <span class="arithmatex">\(\to\)</span> Queda <code>1</code> suelto.
+*   Rellenamos con ceros a la <strong>derecha</strong>: <code>1000</code>.
+*   Grupos resultantes: <code>1101</code> | <code>1000</code> <span class="arithmatex">\(\to\)</span> <strong>D</strong> | <strong>8</strong></p>
+<p>Resultado: <strong><span class="arithmatex">\(3A.D8_{16}\)</span></strong></p>
+<p><em>(Nota: Los ceros de relleno son cruciales. Si en la parte fraccionaria hubiéramos tomado <code>1</code> como <code>0001</code> (1) en vez de <code>1000</code> (8), el error sería enorme)</em></p>
+</div>
+<p>Convertir directamente de Octal a Hexadecimal o viceversa es simple si se usa como estrategia el <strong>Binario como puente</strong>:</p>
+<div class="arithmatex">\[ \text{Octal} \xrightarrow{\text{expandir a 3 bits}} \text{Binario} \xrightarrow{\text{agrupar de 4 bits}} \text{Hexadecimal} \]</div>
+<div class="arithmatex">\[ \text{Hexadecimal} \xrightarrow{\text{expandir a 4 bits}} \text{Binario} \xrightarrow{\text{agrupar de 3 bits}} \text{Octal} \]</div>
+<h2 id="representacion_de_la_informacion-3-representación-de-números-enteros">3. Representación de Números Enteros</h2>
+<p>Los números enteros son la piedra angular de la aritmética computacional. No solo representan cantidades matemáticas, sino que constituyen el <em>lenguaje interno</em> del procesador: las direcciones de memoria, los punteros, los índices de arrays y los contadores de bucles son, estructuralmente, números enteros.</p>
+<p>A diferencia de los números reales, la aritmética entera es <strong>exacta</strong>; no sufre de errores de precisión por redondeo. Sin embargo, se enfrenta a una limitación física ineludible: el <strong>rango finito</strong>. Al tener un número fijo de bits (ancho de palabra), existe un límite máximo y mínimo estricto que podemos representar, y superar ese límite tiene consecuencias drásticas.</p>
+<h3 id="representacion_de_la_informacion-enteros-sin-signo-binario-puro">Enteros Sin Signo (Binario Puro)</h3>
+<p>Este formato se emplea para modelar problemas reales donde las magnitudes son siempre no negativas (el conjunto de los Naturales <span class="arithmatex">\(\mathbb{N}\)</span> más el cero).</p>
+<p><strong>Usos típicos:</strong></p>
+<ul>
+<li>Contadores de elementos (ej. número de alumnos).</li>
+<li>Índices para acceder a listas o vectores.</li>
+<li>Direcciones de memoria.</li>
+</ul>
+<p>La representación interna coincide exactamente con el sistema numérico posicional base 2 visto anteriormente. Al no necesitar guardar información sobre el <strong>signo</strong>, utilizamos los <span class="arithmatex">\(n\)</span> bits completos para la magnitud.</p>
+<ul>
+<li><strong>Rango Representable:</strong> <span class="arithmatex">\([0, \quad 2^n - 1]\)</span></li>
+</ul>
+<div class="center-table">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Decimal</th>
+<th style="text-align: center;">Patrón Binario (<span class="arithmatex">\(b_7 \dots b_0\)</span>)</th>
+<th style="text-align: left;">Lógica</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><code>00000000</code></td>
+<td style="text-align: left;">Todos apagados</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><code>00000001</code></td>
+<td style="text-align: left;"><span class="arithmatex">\(2^0\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>2</strong></td>
+<td style="text-align: center;"><code>00000010</code></td>
+<td style="text-align: left;"><span class="arithmatex">\(2^1\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>3</strong></td>
+<td style="text-align: center;"><code>00000011</code></td>
+<td style="text-align: left;"><span class="arithmatex">\(2^1 + 2^0\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">...</td>
+<td style="text-align: left;">...</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>254</strong></td>
+<td style="text-align: center;"><code>11111110</code></td>
+<td style="text-align: left;"><span class="arithmatex">\(2^7 + 2^6 + ... + 2^0\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>255</strong></td>
+<td style="text-align: center;"><code>11111111</code></td>
+<td style="text-align: left;"><strong>Máximo</strong> (<span class="arithmatex">\(2^8 - 1\)</span>)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p style="text-align: center;"><em>Tabla de Valores para <span class="arithmatex">\(n=8\)</span> bits</em></p>
+<h4 id="representacion_de_la_informacion-desbordamiento">Desbordamiento</h4>
+<p>Si a 255 (<code>11111111</code>) le sumamos 1, el resultado matemático sería 256 (<code>100000000</code>), pero como solo tenemos 8 bits, el bit superior se pierde y el resultado almacenado vuelve a ser <strong>0</strong> (<code>00000000</code>). Esto es el <strong>desbordamiento</strong> (<em>overflow</em>).</p>
+<h3 id="representacion_de_la_informacion-enteros-con-signo">Enteros Con Signo</h3>
+<h4 id="representacion_de_la_informacion-1-signo-y-magnitud">1. Signo y Magnitud</h4>
+<p>Es la forma más intuitiva para los humanos de representar números negativos. Consiste en utilizar el <strong>bit más significativo (MSB)</strong> exclusivamente para codificar el signo:</p>
+<ul>
+<li><strong>Bit de Signo:</strong> <code>0</code> para positivos, <code>1</code> para negativos.</li>
+<li><strong>Magnitud:</strong> Los <span class="arithmatex">\(n-1\)</span> bits restantes codifican el valor absoluto del número en binario puro.</li>
+</ul>
+<p><strong>Rango de Representación:</strong> <span class="arithmatex">\([-(2^{n-1} - 1), \quad +(2^{n-1} - 1)]\)</span></p>
+<div class="admonition example">
+<p class="admonition-title">Representar en <em>Signo y Magnitud</em> -47 con 8 bits</p>
+<p>Queremos codificar el número decimal <strong><span class="arithmatex">\(-47_{10}\)</span></strong>.</p>
+<ol>
+<li><strong>Bit de Signo:</strong> Como es negativo, el bit más a la izquierda (MSB) es <strong><code>1</code></strong>.</li>
+<li><strong>Magnitud (7 bits restantes):</strong><ul>
+<li>Calculamos el valor absoluto: <span class="arithmatex">\(|-47| = 47\)</span>.</li>
+<li>Descomponemos en potencias de 2: <span class="arithmatex">\(47 = 32 + 8 + 4 + 2 + 1\)</span>.</li>
+<li>En binario puro es <code>101111</code> (6 bits).</li>
+<li>Rellenamos con ceros a la izquierda hasta completar los 7 bits reservados para la magnitud: <strong><code>0101111</code></strong>.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Resultado Final:</strong> <code>1</code> (Signo) + <code>0101111</code> (Magnitud) = <strong><code>10101111</code></strong></p>
+</div>
+<p><strong>Problemas y Desuso:</strong>
+Aunque conceptualmente sencilla, esta representación tiene graves defectos para el diseño de hardware:</p>
+<ol>
+<li><strong>Doble Cero:</strong> Existen el <span class="arithmatex">\(+0\)</span> (<code>00000000</code>) y el <span class="arithmatex">\(-0\)</span> (<code>10000000</code>). Esto complica las comparaciones (<code>if x == 0</code>).</li>
+<li><strong>Aritmética Compleja:</strong> La CPU necesitaría evaluar los signos antes de operar (como hacemos los humanos: <em>"si los signos son distintos, restamos"</em>). Esto es ineficiente; se prefiere un sistema donde la electrónica asociada a la suma funcione igual para positivos y negativos.</li>
+</ol>
+<h4 id="representacion_de_la_informacion-2-complemento-a-2-c2">2. Complemento a 2 (C2)</h4>
+<p>Es el sistema estándar utilizado por la aritmética de enteros en casi todos los procesadores modernos y el formato detrás del tipo entero en muchos de los lenguajes de programación.</p>
+<p><strong>Definición Matemática:</strong>
+El complemento a la base <span class="arithmatex">\(b\)</span> de un número positivo <span class="arithmatex">\(X\)</span> codificado con <span class="arithmatex">\(n\)</span> cifras se define como <span class="arithmatex">\(b^n - X\)</span>. En binario (<span class="arithmatex">\(b=2\)</span>), esto es lo que llamamos Complemento a 2.</p>
+<p><strong>Reglas de Representación:</strong></p>
+<ul>
+<li><strong>Positivos y el 0:</strong> Se representan idéntico a Signo-Magnitud (el MSB es <code>0</code>).</li>
+<li><strong>Negativos:</strong> Se representan calculando el complemento a 2 de su valor absoluto (el MSB es <code>1</code>).</li>
+</ul>
+<p><strong>Interpretación del Peso Negativo (Polinomio Equivalente):</strong>
+Lo más interesante del C2 es que el bit de signo (MSB, posición <span class="arithmatex">\(n-1\)</span>) no es solo una etiqueta, sino que tiene <strong>valor matemático</strong>. Su peso es igual a la potencia correspondiente pero con <strong>signo negativo</strong>.</p>
+<div class="arithmatex">\[ N = -d_{n-1} \cdot 2^{n-1} + \sum_{i=0}^{n-2} d_i \cdot 2^i \]</div>
+<div class="arithmatex">\[ N = \mathbf{-d_{n-1}2^{n-1}} + d_{n-2}2^{n-2} + \dots + d_1 2^1 + d_0 2^0 \]</div>
+<ul>
+<li><strong>Rango:</strong> <span class="arithmatex">\([-2^{n-1}, \quad 2^{n-1} - 1]\)</span>. (Es asimétrico: hay un valor negativo extra porque el 0 "gasta" una combinación de los positivos).</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Ejemplo: Obtener el número negativo <span class="arithmatex">\(-13\)</span> en C2 con 6 bits</p>
+<p>Escribir el positivo: <span class="arithmatex">\(13_{10} = 001101_2\)</span> (Rellenamos con ceros hasta 6 bits)</p>
+<p><strong>Método 1: Inversión + 1 (Estándar)</strong></p>
+<ul>
+<li>Invertir todos los bits (cambiar 0s por 1s): <code>110010</code></li>
+<li>Sumar 1 al resultado final: <code>110010</code> + <code>1</code> = <strong><code>110011</code></strong></li>
+</ul>
+<p><strong>Método 2: Regla rápida (Visual)</strong></p>
+<ul>
+<li>Recorrer de derecha a izquierda hasta el primer '1' (inclusive), dejar esos bits igual e invertir el resto.</li>
+<li><code>00110</code><strong><code>1</code></strong> <span class="arithmatex">\(\to\)</span> Invertir parte izquierda <span class="arithmatex">\(\to\)</span> <strong><code>11001</code></strong><code>1</code></li>
+</ul>
+<p><strong>Método 3: Definición Matemática (<span class="arithmatex">\(2^n - X\)</span>)</strong></p>
+<ul>
+<li>Aplicamos la fórmula estricta con <span class="arithmatex">\(n=6\)</span> y <span class="arithmatex">\(X=13\)</span>.</li>
+<li><span class="arithmatex">\(2^6 - 13 = 64 - 13 = 51\)</span></li>
+<li>Convertimos 51 a binario puro <span class="arithmatex">\(\to\)</span> <strong><code>110011</code></strong></li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Ejemplo: Obtener el número negativo <span class="arithmatex">\(-13\)</span> en C2 con 10 bits</p>
+<p>Escribir el positivo: <span class="arithmatex">\(13_{10} = 0000001101_2\)</span> (Rellenamos con ceros hasta 10 bits)</p>
+<p><strong>Método 1: Inversión + 1 (Estándar)</strong></p>
+<ul>
+<li>Invertir todos los bits: <code>1111110010</code></li>
+<li>Sumar 1: <code>1111110010</code> + <code>1</code> = <strong><code>1111110011</code></strong></li>
+</ul>
+<p><strong>Método 2: Regla rápida (Visual)</strong></p>
+<ul>
+<li><code>000000110</code><strong><code>1</code></strong> <span class="arithmatex">\(\to\)</span> Invertir parte izquierda <span class="arithmatex">\(\to\)</span> <strong><code>111111001</code></strong><code>1</code></li>
+</ul>
+<p><strong>Método 3: Definición Matemática</strong></p>
+<ul>
+<li><span class="arithmatex">\(2^{10} - 13 = 1024 - 13 = 1011\)</span></li>
+<li><span class="arithmatex">\(1011_{10}\)</span> en binario es <strong><code>1111110011</code></strong></li>
+</ul>
+<p>Resultado: <strong><span class="arithmatex">\(1111110011_{C2}\)</span></strong></p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Curiosidad Histórica: El Complemento a 1</p>
+<p>Existe otra representación llamada <strong>Complemento a la base menos 1</strong> (Complemento a 1 en binario), que se obtiene simplemente intercambiando 0s y 1s.</p>
+<p>Esta técnica fue utilizada en algunas series de computadoras pioneras descendientes de la <strong>ENIAC</strong>, como la serie <strong>UNIVAC</strong>. Actualmente está en desuso frente al Complemento a 2 porque, al igual que el Signo-Magnitud, sufre del problema del <em>doble cero</em>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">La Analogía del Reloj</p>
+<p>El Complemento a 2 funciona exactamente igual que los minutos en un reloj analógico (aritmética modular).</p>
+<p>Si el reloj marca las <code>:00</code> y queremos restar 10 minutos:</p>
+<ul>
+<li><strong>Opción A (Resta):</strong> Mover la aguja 10 minutos hacia atrás <span class="arithmatex">\(\to\)</span> Posición <code>:50</code>.</li>
+<li><strong>Opción B (Suma del Complemento):</strong> Mover la aguja 50 minutos hacia adelante <span class="arithmatex">\(\to\)</span> Posición <code>:50</code>.</li>
+</ul>
+<p>En un sistema cíclico (limitado), <strong>avanzar 50</strong> pasos te deja en el mismo sitio que <strong>retroceder 10</strong>.</p>
+<p>El ordenador usa este truco para <strong>no tener que implementar la resta</strong> en hardware (que es costosa).
+Por ejemplo, en un sistema de 8 bits (donde la vuelta completa son 256 pasos), restar 1 es equivalente a sumar 255.</p>
+<p>Si calculamos <span class="arithmatex">\(5 + 255\)</span>, la suma aritmética es <span class="arithmatex">\(260\)</span>. Pero como solo tenemos 8 bits, se produce un <strong>desbordamiento</strong> (se pierde el bit que sobra al dar la vuelta) y el contador se queda en <span class="arithmatex">\(4\)</span>.
+$$ 5 + 255 \equiv 4 \pmod{256} $$
+¡Hemos conseguido el resultado correcto (<span class="arithmatex">\(5-1=4\)</span>) usando solo la suma!</p>
+</div>
+<h3 id="representacion_de_la_informacion-la-suma-binaria">La suma Binaria</h3>
+<p>Aunque las CPUs modernas son capaces de realizar operaciones aritméticas complejas (multiplicación, división...), la base fundamental del diseño hardware es la <strong>suma</strong>. De hecho, operaciones como la multiplicación se implementan a menudo mediante secuencias rápidas de sumas y desplazamientos (<em>shifts</em>). Por este motivo, nos centraremos en analizar en detalle el circuito sumador como bloque constructivo esencial de la ALU.</p>
+<p>La genialidad del uso del <strong>Complemento a 2</strong> radica en que elimina la distinción entre suma y resta. Matemáticamente y eléctricamente, <strong>restar es simplemente sumar un número negativo</strong>:
+$$ A - B \iff A + (-B) $$
+Esta propiedad permite que un único circuito físico resuelva ambas operaciones, simplificando drásticamente el diseño del procesador.</p>
+<h4 id="representacion_de_la_informacion-reglas-básicas">Reglas básicas</h4>
+<p>Las reglas básicas para sumar 2 bits son:</p>
+<ul>
+<li><span class="arithmatex">\(0+0=0\)</span></li>
+<li><span class="arithmatex">\(0+1=1\)</span>       </li>
+<li><span class="arithmatex">\(1+0=1\)</span>        </li>
+<li><span class="arithmatex">\(1+1=10\)</span></li>
+</ul>
+<p>Al igual que ocurre en la aritmética decimal (ej. <span class="arithmatex">\(7+8=15\)</span>), se produce <strong>acarreo</strong> en el caso <span class="arithmatex">\(1+1=10\)</span>.
+La suma aislada de dos bits, conocida como <strong>semisumador binario</strong>, podemos describirla con una <strong>tabla de verdad</strong> con dos bits de entrada, <span class="arithmatex">\(p\)</span> y <span class="arithmatex">\(q\)</span>, y dos bits de salida, suma <span class="arithmatex">\(S\)</span> y acarreo <span class="arithmatex">\(C\)</span>.</p>
+<div class="center-table">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span class="arithmatex">\(p\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(q\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(C\)</span> (Acarreo)</th>
+<th style="text-align: center;"><span class="arithmatex">\(S\)</span> (Suma)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p style="text-align: center;"><em>Tabla de Verdad del semisumador binario</em></p>
+
+<p><img alt="Semisumador" src="img/semisumador.jpg" style="display: block; margin: 0 auto" /></p>
+<center><em>Semisumador binario</em></center>
+<p><br></p>
+<p>El problema del semisumador es que no puede gestionar el acarreo procedente de una suma anterior. Si queremos sumar números de varios bits (como hacemos en papel), necesitamos un circuito que sume <strong>tres</strong> cosas: el bit del primer número, el bit del segundo, y el <strong>acarreo de entrada</strong> (<span class="arithmatex">\(C_{e}\)</span>) que arrastramos de la posición previa.</p>
+<div class="admonition example">
+<p class="admonition-title">Propagación del acarreo</p>
+<p>Supongamos que queremos sumar <span class="arithmatex">\(6_{10} + 7_{10}\)</span> en binario (<span class="arithmatex">\(00110 + 00111\)</span>).
+Al igual que ocurre en la aritmética decimal (ej. <span class="arithmatex">\(87+78\)</span>), se generan acarreos que deben sumarse en la siguiente posición:</p>
+<div class="highlight"><pre><span></span><code>    1 1        &lt;-- Acarreos
+  0 0 1 1 0      (6)
++ 0 0 1 1 1      (7)
+-----------
+  0 1 1 0 1      (13)
+</code></pre></div>
+</div>
+<p>Por esta razón necesitamos el <strong>Sumador Completo</strong>, que es capaz de procesar ese tercer bit de entrada.</p>
+<p>El sumador completo binario podemos describirlo con una tabla de verdad con tres bits de entrada, <span class="arithmatex">\(p\)</span>, <span class="arithmatex">\(q\)</span> y <span class="arithmatex">\(C_e\)</span> y dos bits de salida <span class="arithmatex">\(S\)</span> y <span class="arithmatex">\(C_s\)</span>. <span class="arithmatex">\(C_e\)</span> es el valor de acarreo procedente de la suma de los bits anteriores y <span class="arithmatex">\(C_s\)</span> es el acarreo que se inyecta a la siguiente suma de bits.</p>
+<div class="center-table">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span class="arithmatex">\(p\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(q\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(C_e\)</span> (Entrada)</th>
+<th style="text-align: center;"><span class="arithmatex">\(C_s\)</span> (Salida)</th>
+<th style="text-align: center;"><span class="arithmatex">\(S\)</span> (Suma)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p style="text-align: center;"><em>Tabla de Verdad del sumador binario completo</em></p>
+
+<p><br></p>
+<p><img alt="Sumador completo" src="img/sumador_completo.jpg" style="display: block; margin: 0 auto" /></p>
+<center><em>Sumador completo binario</em></center>
+<p><br></p>
+<p>Supongamos que necesitamos sumar dos números binarios <span class="arithmatex">\(x_3x_2x_1x_0\)</span> e <span class="arithmatex">\(y_3y_2y_1y_0\)</span> de 4 bits. Bastaría disponer de 4 sumadores completos colocados en serie para realizar la operación en paralelo.</p>
+<p><img alt="Sumadores en serie" src="img/sumadores_encadenados.jpg" style="display: block; margin: 0 auto" /></p>
+<center><em>Sumadores en serie</em></center>
+<p><br></p>
+<p>Combinando sumadores completos podemos sumar números con el número de bits deseado. </p>
+<h3 id="representacion_de_la_informacion-justificación-del-uso-de-c2-en-la-cpu">Justificación del uso de C2 en la CPU</h3>
+<p>Veamos la razón fundamental por la que los ordenadores utilizan Complemento a 2 analizando la operación <span class="arithmatex">\(6 + (-7)\)</span> (cuyo resultado debe ser <span class="arithmatex">\(-1\)</span>) con un sumador binario estándar de 4 bits.</p>
+<p><strong>1. Usando Signo-Magnitud:</strong>
+En Signo-Magnitud, el bit más significativo es el signo.
+* <span class="arithmatex">\(6_{10} \rightarrow 0110_{SM}\)</span>
+* <span class="arithmatex">\(-7_{10} \rightarrow 1111_{SM}\)</span></p>
+<p>Si sumamos estos patrones de bits directamente:</p>
+<div class="highlight"><pre><span></span><code>   1 1 1          &lt;-- Acarreos
+     0 1 1 0      (6)
+  +  1 1 1 1      (-7)
+  ----------
+   1 0 1 0 1      (+5) --&gt; ¡ERROR! ¡El último bit de acarreo se pierde!
+</code></pre></div>
+<p>El resultado obtenido <span class="arithmatex">\(0101_{SM}\)</span> corresponde a <span class="arithmatex">\(+5_{10}\)</span>.
+<strong>¡El resultado es ERRÓNEO!</strong> Un sumador estándar no funciona para números mixtos en Signo-Magnitud.</p>
+<p><strong>2. Usando Complemento a 2 (C2):</strong>
+* <span class="arithmatex">\(6_{10} \rightarrow 0110_{C2}\)</span>
+* <span class="arithmatex">\(-7_{10} \rightarrow 1001_{C2}\)</span> ( Invertir <span class="arithmatex">\(0111 \rightarrow 1000\)</span>; Sumar <span class="arithmatex">\(1 \rightarrow 1001\)</span>)</p>
+<p>Operando con el mismo circuito sumador:</p>
+<div class="highlight"><pre><span></span><code>                 &lt;-- Acarreos
+    0 1 1 0      (6)
+  + 1 0 0 1      (-7)
+  ---------
+    1 1 1 1      (-1) --&gt; ¡CORRECTO!
+</code></pre></div>
+<p>El resultado <span class="arithmatex">\(1111_{C2}\)</span> corresponde al valor <span class="arithmatex">\(-1_{10}\)</span> (pues <span class="arithmatex">\(-8 + 4 + 2 + 1 = -1\)</span>).
+<strong>¡El resultado es CORRECTO!</strong></p>
+<div class="admonition success">
+<p class="admonition-title">Eficiencia del C2</p>
+<p>Esta propiedad es la justificación real del uso universal del Complemento a 2 en las CPUs modernas: permite utilizar <strong>el mismo circuito sumador</strong> para operaciones con y sin signo, simplificando enormemente el diseño del hardware (ALU).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Desbordamiento (Overflow) vs Acarreo</p>
+<p>Es crucial diferenciar entre el <strong>acarreo</strong> (carry out), que es normal y se ignora en aritmética con signo, y el <strong>desbordamiento</strong> (overflow), que es un error crítico.</p>
+<p><strong>Regla de Detección:</strong> El desbordamiento ocurre cuando se suman dos números del <strong>mismo signo</strong> y el resultado tiene el <strong>signo opuesto</strong>. Nunca ocurre si los signos son distintos.</p>
+<p>Imaginemos un sistema de <strong>4 bits</strong> (Rango: <span class="arithmatex">\([-8, +7]\)</span>).</p>
+<p><strong>1. Acarreo NO Problemático (Se ignora):</strong>
+Sumamos <span class="arithmatex">\((-3) + (-2) = -5\)</span>. (Dentro de rango).</p>
+<p><div class="highlight"><pre><span></span><code>  1 1       &lt;-- Acarreos
+    1 1 0 1  (-3)
+  + 1 1 1 0  (-2)
+  ---------
+  1 1 0 1 1  --&gt; Nos quedamos con 4 bits: 1011 (-5) ¡CORRECTO!
+</code></pre></div>
+El bit sobrante (5º bit) se descarta y el resultado es matemáticamente correcto.</p>
+<p><strong>2. Desbordamiento Problemático (Error):</strong>
+Sumamos <span class="arithmatex">\(5 + 4 = 9\)</span>. (Fuera de rango, máximo es 7).</p>
+<p><div class="highlight"><pre><span></span><code>    1        &lt;-- Acarreo entra en bit signo pero NO sale
+    0 1 0 1  (5)
+  + 0 1 0 0  (4)
+  ---------
+    1 0 0 1  (-7) ¡ERROR GRAVE!
+</code></pre></div>
+Dos números positivos han generado un negativo. <strong>Esto es Overflow.</strong></p>
+<p><strong>¿Quién detecta el error?</strong>
+*   <strong>Hardware (ALU):</strong> <strong>SIEMPRE</strong> detecta el desbordamiento (activa un <em>flag</em> de estado interno).
+*   <strong>Software (C++):</strong> Por defecto <strong>IGNORA</strong> esta señal para ganar velocidad. El programa continúa ejecutándose con el valor erróneo sin avisar (comportamiento indefinido o <em>wrap-around</em>).</p>
+</div>
+<h3 id="representacion_de_la_informacion-representación-de-enteros-en-lenguajes-de-programación">Representación de Enteros en Lenguajes de Programación</h3>
+<p>La representación interna de los números enteros depende drásticamente del lenguaje. Mientras que C++ ofrece control sobre el hardware (tamaños fijos), Python ofrece abstracción matemática (tamaños dinámicos).</p>
+<h4 id="representacion_de_la_informacion-c">C++</h4>
+<p><strong>Filosofía:</strong> Eficiencia y cercanía al Hardware.</p>
+<ul>
+<li><strong>Tamaños fijos:</strong> C++ permite trabajar con enteros de 8, 16, 32 o 64 bits.</li>
+<li><strong>Tipos:</strong> Soporta <code>signed</code> (Complemento a 2) y <code>unsigned</code> (Binario Puro).</li>
+</ul>
+<p>Este diseño obedece al concepto de <strong>POD (Plain Old Data)</strong>: los tipos básicos de C++ son datos <em>crudos</em>, secuencias de bits en memoria sin metadatos ni cabeceras ocultas. Un <code>int</code> de 32 bits ocupa exactamente 32 bits en RAM, nada más.</p>
+<p><strong>Ejemplo: Representación en Memoria (32 bits)</strong>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">23</span><span class="p">;</span><span class="w">  </span><span class="c1">// Memoria: 00000000 ... 00010111</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-23</span><span class="p">;</span><span class="w"> </span><span class="c1">// Memoria: 11111111 ... 11101001 (Complemento a 2)</span>
+</code></pre></div></p>
+<p><strong>Enteros sin Signo (<code>unsigned</code>)</strong>
+Eliminan el bit de signo para duplicar el rango positivo (<span class="arithmatex">\([0, 2^{32}-1]\)</span> en 32 bits).</p>
+<div class="admonition warning">
+<p class="admonition-title">Riesgo de Desbordamiento</p>
+<p>Haciendo honor a su filosofía de eficiencia, C++ <strong>ignora el flag de overflow</strong> de la ALU y no realiza comprobaciones adicionales.</p>
+<p>Si se supera el rango máximo, la variable simplemente <em>da la vuelta</em> (wrap-around) y continúa con un valor incorrecto sin avisar. <strong>¡El programa no se detiene ni genera una excepción!</strong></p>
+<p>Por ejemplo, si sumamos 1 al máximo valor entero con signo de 32 bits (<span class="arithmatex">\(2.147.483.647\)</span>), obtendremos el mínimo negativo (<span class="arithmatex">\(-2.147.483.648\)</span>). </p>
+</div>
+<h4 id="representacion_de_la_informacion-python">Python</h4>
+<p><strong>Filosofía:</strong> Comodidad y Abstracción.</p>
+<ul>
+<li><strong>Precisión Arbitraria:</strong> En Python 3, los enteros (<code>int</code>) crecen dinámicamente tanto como la RAM permita. ¡No existe <em>overflow</em> aritmético!</li>
+<li><strong>Sin tipos <code>unsigned</code>:</strong> Todos los enteros tienen signo.</li>
+</ul>
+<p><strong>Estructura Interna (Precisión Arbitraria o <em>BigNum</em>)</strong>
+A diferencia de C++, donde un entero es una caja de tamaño fijo (si metes algo más grande, se rompe), en Python un entero es como un <em>acordeón</em> que se estira según se necesite.</p>
+<p>Para lograr esto, Python no guarda el número tal cual lo hace el procesador. En su lugar, trocea el número grande en pequeños bloques de 30 bits y los trata como si fueran <em>dígitos</em> de una base numérica gigante (<strong>Base <span class="arithmatex">\(2^{30}\)</span></strong>).</p>
+<p>Matemáticamente, funciona igual que nuestro sistema decimal (donde sumamos unidades, decenas, centenas...), pero usando potencias de <span class="arithmatex">\(2^{30}\)</span>:
+$<span class="arithmatex">\(N = \sum_{i=0} d_i \cdot (2^{30})^i = d_0 + d_1 \cdot 2^{30} + d_2 \cdot 2^{60} + \dots\)</span>$</p>
+<div class="admonition example">
+<p class="admonition-title">Ejemplo Práctico</p>
+<p>Imagina un número enorme como <code>123456789101112131415</code> (requiere unos 70 bits).
+1.  Como no cabe en un registro de CPU de 64 bits, Python lo descompone.
+2.  Calcula sus <em>dígitos</em> en base <span class="arithmatex">\(2^{30}\)</span> y obtiene tres bloques: <code>437976919</code>, <code>87719511</code> y <code>107</code>.
+3.  Guarda internamente una lista con la <strong>magnitud</strong>: <code>[437976919, 87719511, 107]</code>.</p>
+<p>Utiliza un campo extra para indicar la longitud y el signo: almacenará <strong>3</strong> si es positivo o <strong>-3</strong> si es negativo. Este valor se almacena en <strong>Complemento a 2</strong>. El signo de este campo es el signo del número original y su valor absoluto determina cuantos bloques (dígitos) tiene la lista.</p>
+<p>Si multiplicas este número por 1000 y el resultado necesita más espacio, Python simplemente añade un cuarto dígito a la lista.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">El precio de la magia</p>
+<p>Mientras que en C++ sumar dos números es <strong>una sola instrucción</strong> eléctrica (nanosegundos), en Python implica ejecutar un pequeño programa que recorre estas listas, gestiona los acarreos y asigna memoria. Es mucho más cómodo, pero mucho más lento.</p>
+</div>
+<h2 id="representacion_de_la_informacion-4-representación-de-números-reales">4. Representación de Números Reales</h2>
+<p>Un número real consta de una parte entera y otra fraccionaria, más el signo.
+Existen dos opciones de representación: <strong>coma fija</strong> o <strong>coma flotante</strong>.</p>
+<h3 id="representacion_de_la_informacion-la-coma-fija-fixed-point">La Coma Fija (Fixed Point)</h3>
+<p>Se asigna una cantidad fija de dígitos para la parte entera y una cantidad fija para la parte fraccionaria.</p>
+<p>Obviando por el momento el signo, si disponemos de 8 bits y reservamos 5 bits para la parte entera y 3 para la fraccionaria, el número <span class="arithmatex">\(21.75_{10}\)</span> (<span class="arithmatex">\(10101_2\)</span> entero y <span class="arithmatex">\(0.11_2\)</span> fraccionario) se almacenaría como <strong><code>10101110</code></strong>.</p>
+<p>Al usar la notación en coma fija, queda muy limitado el rango de cantidades a representar, aunque todas ellas tienen la misma resolución (distancia entre valores).</p>
+<p><strong>Ejemplo: 8 bits (5 bits parte entera y 3 bits parte fraccionaria)</strong>. Sin tener en cuenta el signo:</p>
+<ul>
+<li>No podremos representar números enteros mayores o iguales que <span class="arithmatex">\(32\)</span> (<span class="arithmatex">\(2^5\)</span>).</li>
+<li>Ni números más pequeños que <span class="arithmatex">\(0.125\)</span> (<span class="arithmatex">\(2^{-3}\)</span>).</li>
+<li>La resolución fija entre dos valores consecutivos es <span class="arithmatex">\(0.125\)</span> (<span class="arithmatex">\(2^{-3}\)</span>).</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Uso actual e Implementación Real: Enteros Escalados</p>
+<p>Aunque simple, las limitaciones conceptuales de rango hacen que la coma fija rara vez se use para cálculos científicos generales. Sin embargo, sigue siendo el estándar en dos áreas críticas:</p>
+<ol>
+<li><strong>Sistemas Financieros:</strong> La coma flotante comete errores minúsculos de redondeo (ej. <code>0.1 + 0.2</code> a menudo da <code>0.30000000000000004</code>). En banca, un céntimo perdido es inaceptable.</li>
+<li><strong>Microcontroladores y DSP:</strong> Muchos procesadores pequeños (como los de una lavadora o un juguete) no tienen circuitería compleja para decimales (FPU) por ser cara y lenta.</li>
+</ol>
+<p><strong>¿El secreto? Trabajar solo con ENTEROS (Scaled Integers)</strong>.
+En la práctica, estas máquinas no <em>saben</em> que existen decimales. El programador <strong>decide de antemano</strong> (en tiempo de diseño) cuántos bits dedicará a la parte fraccionaria y mantiene esa decisión fija para todas las operaciones. Simplemente escala los valores:</p>
+<ul>
+<li><em>Objetivo:</em> Guardar <span class="arithmatex">\(19.95\)</span>.</li>
+<li><em>Factor de escala:</em> <span class="arithmatex">\(\times 100\)</span> (para tener 2 decimales de precisión).</li>
+<li><em>Microcontrolador:</em> Calcula <span class="arithmatex">\(1995\)</span> y lo guarda en un entero normal (<code>int</code>).</li>
+</ul>
+<p>Si luego quiere sumar <span class="arithmatex">\(5.00\)</span>, el micro suma <span class="arithmatex">\(500\)</span>.
+$$ 1995 + 500 = 2495 $$
+Finalmente, para mostrarlo al usuario, el programador escribe el código para <em>pintar</em> una coma dos posiciones a la izquierda: <span class="arithmatex">\(24.95\)</span>. ¡El procesador solo sumó enteros!</p>
+</div>
+<h3 id="representacion_de_la_informacion-la-coma-flotante-floating-point">La Coma Flotante (Floating Point)</h3>
+<p>Esta es la solución adoptada universalmente en la informática moderna para uso general. Permite cubrir un rango de valores gigantesco sacrificando precisión absoluta en los decimales menos significativos. El nombre proviene de que la coma <em>flota</em> (se mueve), permitiendo representar con la misma cantidad de bits números muy grandes (con poca precisión decimal) o números muy pequeños (con mucha precisión).</p>
+<div class="admonition failure">
+<p class="admonition-title">Contexto Histórico: El Caos Previo a 1985</p>
+<p>Hasta finales del siglo XX (concretamente antes de 1985), <strong>no existía un estándar unificado</strong>. Cada fabricante de hardware (IBM, DEC, Cray, VAX...) diseñaba su propio formato de coma flotante, con sus propias reglas de redondeo y tamaños de exponente.</p>
+<p>Esto provocaba graves problemas de <strong>portabilidad</strong>: un mismo programa científico en C o Fortran podía arrojar resultados numéricos distintos dependiendo de si se ejecutaba en un mainframe IBM o en un ordenador personal. Esta <em>Torre de Babel</em> numérica impedía el intercambio fiable de datos y obligó a la industria a consensuar una norma común.</p>
+</div>
+<h4 id="representacion_de_la_informacion-fundamentos-notación-científica">Fundamentos: Notación Científica</h4>
+<p>Antes de entrar en el estándar, recordemos que un número real <span class="arithmatex">\(r\)</span> en coma flotante se representa conceptualmente usando <strong>notación científica</strong>:</p>
+<div class="arithmatex">\[ r = \pm m \cdot b^e \]</div>
+<p>donde:</p>
+<ul>
+<li><span class="arithmatex">\(m\)</span> es el <strong>significando</strong> o <strong>mantisa</strong>: un coeficiente formado por un número real con <strong>una sola cifra entera</strong> (distinta de cero) seguida por una coma y varias cifras fraccionarias.</li>
+<li><span class="arithmatex">\(b\)</span> es la <strong>base</strong> del sistema de numeración (<span class="arithmatex">\(10\)</span> en decimal, <span class="arithmatex">\(2\)</span> en binario).</li>
+<li><span class="arithmatex">\(e\)</span> es el <strong>exponente</strong> entero al que se eleva la base.</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Comparativa: Base 10 vs Base 2</p>
+<p><strong>En Decimal (Base 10):</strong>
+Supongamos el número <span class="arithmatex">\(-0.00345\)</span>.
+*   Normalizado: <span class="arithmatex">\(-3.45 \times 10^{-3}\)</span>
+*   Mantisa: <span class="arithmatex">\(3.45\)</span>
+*   Exponente: <span class="arithmatex">\(-3\)</span></p>
+<p><strong>En Binario (Base 2):</strong>
+Supongamos el número <span class="arithmatex">\(0.001101_2\)</span> (<span class="arithmatex">\(0.203125_{10}\)</span>).
+*   Desplazamos la coma hasta dejar un solo '1' a la izquierda: <span class="arithmatex">\(1.101 \times 2^{-3}\)</span>.
+*   Mantisa: <span class="arithmatex">\(1.101\)</span> (Nota: En binario, la única cifra entera posible no nula es <strong>1</strong>).
+*   Exponente: <span class="arithmatex">\(-3\)</span>.</p>
+</div>
+<p>El estándar IEEE 754 simplemente define cómo empaquetar estos tres valores (signo, exponente y mantisa) dentro de una palabra de 32 o 64 bits.</p>
+<h4 id="representacion_de_la_informacion-estándar-ieee-754">Estándar IEEE 754</h4>
+<p>Prácticamente todos los computadores modernos siguen este estándar. Se basa en adaptar la <strong>notación científica</strong> al mundo binario:</p>
+<div class="arithmatex">\[ V = (-1)^s \cdot (1 + m) \cdot 2^{e - Bias} \]</div>
+<ul>
+<li><strong><span class="arithmatex">\(s\)</span> (Signo):</strong> 1 bit (<span class="arithmatex">\(0 \to +\)</span>, <span class="arithmatex">\(1 \to -\)</span>).</li>
+<li><strong><span class="arithmatex">\(m\)</span> (Mantisa):</strong> Parte fraccionaria normalizada (<span class="arithmatex">\(1.xxxxx...\)</span>).</li>
+<li><strong><span class="arithmatex">\(e\)</span> (Exponente):</strong> Entero representado en <strong>exceso</strong> (Bias).</li>
+</ul>
+<div class="center-table">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Precisión</th>
+<th style="text-align: center;">Bits Totales</th>
+<th style="text-align: center;">Signo</th>
+<th style="text-align: center;">Exponente (<span class="arithmatex">\(k\)</span>)</th>
+<th style="text-align: center;">Mantisa (<span class="arithmatex">\(p\)</span>)</th>
+<th style="text-align: center;">Exceso (Bias)</th>
+<th style="text-align: center;">Cifras Decimales</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Simple (<code>float</code>)</strong></td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">23</td>
+<td style="text-align: center;">127</td>
+<td style="text-align: center;">~7</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Doble (<code>double</code>)</strong></td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">52</td>
+<td style="text-align: center;">1023</td>
+<td style="text-align: center;">~16</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p style="text-align: center;"><em>Estructura del estándar IEEE 754</em></p>
+
+<h3 id="representacion_de_la_informacion-características-clave">Características Clave</h3>
+<ol>
+<li><strong>Exponente en Exceso:</strong> Se almacena sumando un sesgo (<span class="arithmatex">\(Bias\)</span>) al exponente real.<ul>
+<li><strong>Cálculo del Bias:</strong> Depende del número de bits del exponente (<span class="arithmatex">\(k\)</span>):
+    $$ Bias = 2^{k-1} - 1 $$<ul>
+<li><em>Simple precisión</em> (<span class="arithmatex">\(k=8\)</span>): <span class="arithmatex">\(2^{7} - 1 = 128 - 1 = 127\)</span>.</li>
+<li><em>Doble precisión</em> (<span class="arithmatex">\(k=11\)</span>): <span class="arithmatex">\(2^{10} - 1 = 1024 - 1 = 1023\)</span>.</li>
+</ul>
+</li>
+<li><span class="arithmatex">\(E_{guardado} = E_{real} + Bias\)</span>.</li>
+<li>Permite comparar los exponentes como enteros sin signo, facilitando la ordenación rápida de números.</li>
+</ul>
+</li>
+<li><strong>Bit Implícito:</strong> En la notación normalizada binaria, el número siempre empieza por <code>1.</code> (ej. <code>1.011...</code>). Para ahorrar espacio, ese <code>1</code> <strong>no se guarda</strong>, se asume implícitamente.</li>
+</ol>
+<h4 id="representacion_de_la_informacion-orden-de-almacenamiento-y-comparación">Orden de Almacenamiento y Comparación</h4>
+<p>El orden físico de los bits en la memoria es estricto: primero el <strong>Signo</strong>, seguido del <strong>Exponente</strong>, seguido de la <strong>Mantisa</strong>.</p>
+<p><code>[Signo]</code> | <code>[Exponente]</code> | <code>[Mantisa]</code></p>
+<p>El orden no es baladí: permite que los <strong>algoritmos de comparación</strong> (y por tanto los chips que los implementan) diseñados para números enteros sean también válidos (en su mayoría) para esta representación de números reales.</p>
+<div class="admonition info">
+<p class="admonition-title">Terminología Técnica</p>
+<p>En alguna bibliografía clásica se utiliza la palabra <strong>característica</strong> para distinguir el <em>valor almacenado</em> (con el sesgo sumado) del <em>exponente real</em> matemático.</p>
+</div>
+<p>Al colocar el exponente en los bits más significativos (a la izquierda de la mantisa), logramos que un número con mayor orden de magnitud parezca <em>visual y numéricamente</em> mayor que uno con menor orden de magnitud, independientemente de sus decimales.</p>
+<p>Pero para que este truco funcione, es <strong>crítico que el exponente use representación en EXCESO</strong> (que siempre es positivo) y <strong>NO en Complemento a 2</strong>.</p>
+<p><strong>Ejemplo Simplificado: La importancia del Exceso vs C2</strong>
+Comparemos un número grande positivo (Exponente <span class="arithmatex">\(+1\)</span>) con un número pequeño (Exponente <span class="arithmatex">\(-1\)</span>).
+*   <span class="arithmatex">\(A\)</span>: <span class="arithmatex">\(1.0 \times 2^{+1}\)</span> (Grande)
+*   <span class="arithmatex">\(B\)</span>: <span class="arithmatex">\(1.0 \times 2^{-1}\)</span> (Pequeño)</p>
+<p><strong>Caso 1: Usando Exponente en Complemento a 2 (Falso)</strong>
+*   <span class="arithmatex">\(+1\)</span> en C2 (3 bits) <span class="arithmatex">\(\to\)</span> <code>001</code>
+*   <span class="arithmatex">\(-1\)</span> en C2 (3 bits) <span class="arithmatex">\(\to\)</span> <code>111</code>
+*   Al comparar los bits como enteros sin signo: <code>111</code> (<span class="arithmatex">\(7\)</span>) &gt; <code>001</code> (<span class="arithmatex">\(1\)</span>).
+*   <strong>Resultado:</strong> ¡El hardware pensaría erróneamente que el número pequeño (<span class="arithmatex">\(B\)</span>) es mayor que el grande (<span class="arithmatex">\(A\)</span>)!</p>
+<p><strong>Caso 2: Usando Exponente en Exceso (Real - IEEE 754)</strong>
+Supongamos un Bias de 3 (<span class="arithmatex">\(2^{3-1}-1\)</span>).
+*   Exponente real <span class="arithmatex">\(+1\)</span> <span class="arithmatex">\(\to\)</span> Guardado: <span class="arithmatex">\(1 + 3 = 4\)</span> (<code>100</code>)
+*   Exponente real <span class="arithmatex">\(-1\)</span> <span class="arithmatex">\(\to\)</span> Guardado: <span class="arithmatex">\(-1 + 3 = 2\)</span> (<code>010</code>)
+*   Comparación de bits: <code>100</code> (<span class="arithmatex">\(4\)</span>) &gt; <code>010</code> (<span class="arithmatex">\(2\)</span>).
+*   <strong>Resultado:</strong> <code>A &gt; B</code>. <strong>CORRECTO</strong>.</p>
+<div class="admonition success">
+<p class="admonition-title">Diseño Inteligente</p>
+<p>Gracias al uso del <strong>Exceso</strong>, los exponentes negativos se representan con códigos binarios <em>pequeños</em> (ej. 00...) y los positivos con códigos <em>grandes</em> (ej. 11...), preservando el orden natural de los números enteros. Esto permite usar comparadores rápidos de enteros en la ALU.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Ejemplo: Convertir 13.125 a IEEE 754 (Simple)</p>
+<ol>
+<li><strong>Binario:</strong> <span class="arithmatex">\(13.125_{10} = 1101.001_2\)</span></li>
+<li><strong>Normalizar:</strong> <span class="arithmatex">\(1.101001 \times 2^3\)</span></li>
+<li><strong>Componentes:</strong><ul>
+<li>Signo: <span class="arithmatex">\(0\)</span> (+)</li>
+<li>Exponente Real: <span class="arithmatex">\(3\)</span>. Exponente guardado: <span class="arithmatex">\(3 + 127 = 130 \to 10000010_2\)</span>.</li>
+<li>Mantisa: <span class="arithmatex">\(101001...\)</span> (rellenar con ceros a la derecha hasta 23 bits).</li>
+</ul>
+</li>
+<li><strong>Resultado Hex:</strong> <ul>
+<li>Binario: <code>0 10000010 1010010000...</code></li>
+<li>Agrupando: <code>0100 0001 0101 0010 0000...</code> <span class="arithmatex">\(\to\)</span> <code>4 1 5 2 0 ...</code> </li>
+<li>Hexadecimal: <strong><code>0x41520000</code></strong></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Ejemplo Inverso: Decodificar 0xC1480000 a Decimal</p>
+<ol>
+<li><strong>Binario:</strong> <code>0xC1480000</code> <span class="arithmatex">\(\to\)</span> <code>1100 0001 0100 1000 0000...</code></li>
+<li><strong>Separar campos:</strong><ul>
+<li><strong>Signo (1 bit):</strong> <code>1</code> <span class="arithmatex">\(\to\)</span> Negativo (<span class="arithmatex">\(-\)</span>).</li>
+<li><strong>Exponente (8 bits):</strong> <code>10000010</code> <span class="arithmatex">\(\to\)</span> <span class="arithmatex">\(130_{10}\)</span>.</li>
+<li><strong>Mantisa (23 bits):</strong> <code>1001000...</code></li>
+</ul>
+</li>
+<li><strong>Cálculos:</strong><ul>
+<li><strong>Exponente Real:</strong> <span class="arithmatex">\(E = 130 - 127 (\text{Bias}) = 3\)</span>.</li>
+<li><strong>Mantisa con implícito:</strong> <span class="arithmatex">\(1.1001000...\)</span></li>
+</ul>
+</li>
+<li><strong>Valor:</strong><ul>
+<li><span class="arithmatex">\((-1) \times 1.1001_2 \times 2^3\)</span></li>
+<li>Desplazar la coma 3 sitios a la derecha: <span class="arithmatex">\(-1100.1_2\)</span></li>
+<li>Convertir a decimal: $-(8 + 4 + 0.5) = $ <strong><span class="arithmatex">\(-12.5\)</span></strong></li>
+</ul>
+</li>
+</ol>
+</div>
+<h4 id="representacion_de_la_informacion-casos-especiales">Casos Especiales</h4>
+<p>El estándar reserva los valores de exponente mínimo (todos 0s) y máximo (todos 1s) para casos excepcionales. Permite representar el <strong>Cero</strong> (que mantiene signo), indicar desbordamientos mediante <strong>Infinito</strong> (<span class="arithmatex">\(\pm \infty\)</span>) y señalar errores matemáticos (como divisiones imposibles o raíces de negativos) con el valor <strong>NaN</strong> (<em>Not a Number</em>).</p>
+<div class="center-table">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Exponente</th>
+<th style="text-align: left;">Mantisa</th>
+<th style="text-align: left;">Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Todos 0</td>
+<td style="text-align: left;">Todos 0</td>
+<td style="text-align: left;">Cero (<span class="arithmatex">\(\pm 0\)</span>)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Todos 0</td>
+<td style="text-align: left;"><span class="arithmatex">\(\neq 0\)</span></td>
+<td style="text-align: left;">Números desnormalizados (muy pequeños)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Todos 1</td>
+<td style="text-align: left;">Todos 0</td>
+<td style="text-align: left;">Infinito (<span class="arithmatex">\(\pm \infty\)</span>)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Todos 1</td>
+<td style="text-align: left;"><span class="arithmatex">\(\neq 0\)</span></td>
+<td style="text-align: left;">NaN (Not a Number)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p style="text-align: center;"><em>Casos especiales de la norma IEEE 754</em></p>
+
+<div class="admonition example">
+<p class="admonition-title">¿Qué operación provoca qué?</p>
+<p>Es común confundir qué genera un Infinito y qué genera un NaN. La ALU sigue reglas matemáticas de límites:</p>
+<ul>
+<li><strong>Infinito (<span class="arithmatex">\(\pm \infty\)</span>):</strong> Aparece cuando el resultado <em>crece</em> sin límite o supera la capacidad de almacenamiento.<ul>
+<li><span class="arithmatex">\(8.0 / 0.0 \to +\infty\)</span> (Cualquier número distinto de cero dividido entre cero).</li>
+<li><span class="arithmatex">\(10^{308} \times 10 \to +\infty\)</span> (Desbordamiento hacia arriba).</li>
+</ul>
+</li>
+<li><strong>NaN (No es un Número):</strong> Aparece ante <strong>indeterminaciones</strong> matemáticas donde no existe una respuesta lógica única.<ul>
+<li><span class="arithmatex">\(0.0 / 0.0 \to \text{NaN}\)</span> (Indeterminación)</li>
+<li><span class="arithmatex">\(\infty - \infty \to \text{NaN}\)</span> (Indeterminación)</li>
+<li><span class="arithmatex">\(\sqrt{-5} \to \text{NaN}\)</span> (Imposible en reales)</li>
+</ul>
+</li>
+</ul>
+<p>La colocación de los patrones de bits la realiza el <strong>hardware</strong> (la Unidad de Coma Flotante o FPU) en tiempo real mediante circuitos que monitorizan las excepciones <em>antes</em> o <em>durante</em> la operación. Por ejemplo, para <span class="arithmatex">\(\sqrt{-5}\)</span> se activa la excepción <em>Invalid Operation</em> y la FPU fuerza el exponente a unos (<code>1...1</code>) y pone <em>basura</em> en la mantisa (cualquier valor <span class="arithmatex">\(\neq 0\)</span>). </p>
+</div>
+<h4 id="representacion_de_la_informacion-precisión">Precisión</h4>
+<p>Los números reales en el ordenador son un subconjunto discreto de los reales matemáticos.</p>
+<h5 id="representacion_de_la_informacion-número-de-bits-de-la-mantisa">Número de bits de la mantisa</h5>
+<p>La influencia de disponer de un bit a mayores en la mantisa supone que la distancia entre 2 números consecutivos representables se divide por 2. Por tanto, el término <em>doble precisión</em> no es riguroso: la precisión que ofrece el formato de 64 bits es inmensamente mayor. Pasa de 23 a 52 bits de mantisa, mejorando la resolución en un factor de <span class="arithmatex">\(2^{29}\)</span>, no solo el doble.</p>
+<h5 id="representacion_de_la_informacion-distribución-en-la-recta-real">Distribución en la recta real</h5>
+<p>Los números <strong>no están uniformemente distribuidos</strong> sobre la recta real, sino que están más próximos cerca del origen (exponentes más pequeños) y más separados a medida que nos alejamos de él (exponentes más grandes).</p>
+<p><img alt="Floats en la recta real" src="img/recta_real.jpg" style="display: block; margin: 0 auto" /></p>
+<center><em>Distribución de los float's en la recta real</em></center>
+<p><br></p>
+<div class="admonition example">
+<p class="admonition-title">Ejemplo: Densidad constante, Precisión variable</p>
+<p>En cada intervalo definido por una potencia de 2 (ej. entre <span class="arithmatex">\(2^0\)</span> y <span class="arithmatex">\(2^1\)</span>, o entre <span class="arithmatex">\(2^1\)</span> y <span class="arithmatex">\(2^2\)</span>), el exponente se mantiene fijo. Por tanto, los únicos valores distintos que podemos representar dependen de las combinaciones de la <strong>Mantisa</strong>.</p>
+<p>Como en IEEE 754 de 32 bits tenemos <strong>23 bits</strong> de mantisa, existen exactamente <strong><span class="arithmatex">\(2^{23}\)</span> (unos 8.3 millones)</strong> de combinaciones (pasos) dentro de cada intervalo de potencias.</p>
+<ul>
+<li>
+<p><strong>Intervalo <span class="arithmatex">\([1, 2)\)</span>:</strong> La distancia total es <span class="arithmatex">\(1\)</span>.
+    Al dividir este espacio de 1 unidad en <span class="arithmatex">\(2^{23}\)</span> pasos, el <em>salto</em> o resolución entre un número y el siguiente es:
+    $$ \text{Salto} = \frac{1}{2^{23}} = 2^{-23} \approx 0.000000119 $$</p>
+</li>
+<li>
+<p><strong>Intervalo <span class="arithmatex">\([2, 4)\)</span>:</strong> La distancia total es <span class="arithmatex">\(2\)</span> (<span class="arithmatex">\(4-2\)</span>).
+    Sigue habiendo los mismos <span class="arithmatex">\(2^{23}\)</span> escalones disponibles. Al repartirlos en un espacio el doble de grande, el salto es el doble:
+    $$ \text{Salto} = \frac{2}{2^{23}} = 2^{1-23} = 2^{-22} \approx 0.000000238 $$</p>
+</li>
+<li>
+<p><strong>Intervalo <span class="arithmatex">\([1024, 2048)\)</span>:</strong> La distancia es <span class="arithmatex">\(1024\)</span> (<span class="arithmatex">\(2^{10}\)</span>).
+    $$ \text{Salto} = \frac{2^{10}}{2^{23}} = 2^{10-23} = 2^{-13} \approx 0.000122 $$</p>
+</li>
+</ul>
+<p><strong>Conclusión:</strong> Cuanto más grande es el número, mayores son los saltos (peor precisión absoluta), manteniendo el error relativo constante.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">La concentración en <span class="arithmatex">\([0, 1]\)</span> y <span class="arithmatex">\([-1, 0]\)</span></p>
+<p>Una consecuencia fascinante de esta distribución logarítmica es la inmensa cantidad de valores concentrados cerca del cero.
+Dado que el exponente varía aproximadamente entre <span class="arithmatex">\(-126\)</span> y <span class="arithmatex">\(+127\)</span>, casi la mitad de los valores posibles del exponente son negativos. Esto implica que <strong>aproximadamente el 50% de todos los números positivos que un ordenador puede representar residen en el intervalo <span class="arithmatex">\((0, 1)\)</span></strong>.</p>
+<p>Por simetría, ocurre exactamente lo mismo con los números negativos: <strong>el 50% de ellos se concentra en el intervalo <span class="arithmatex">\((-1, 0)\)</span></strong>.</p>
+<p>Por esta razón, muchos algoritmos numéricos (como en el entrenamiento de modelos de <strong>Inteligencia Artificial</strong> o procesamiento de imagen) <strong>normalizan</strong> los datos para trabajar dentro del rango <span class="arithmatex">\([0, 1]\)</span> o <span class="arithmatex">\([-1, 1]\)</span>. Al mantener los cálculos en esta <em>zona densa</em>, se aprovecha la máxima resolución disponible y se minimizan los errores de redondeo.</p>
+</div>
+<h4 id="representacion_de_la_informacion-redondeo">Redondeo</h4>
+<p>Números simples como <span class="arithmatex">\(0.1_{10}\)</span> tienen representación periódica infinita en binario (como <span class="arithmatex">\(1/3\)</span> en decimal), provocando errores de precisión acumulativos.</p>
+<div class="admonition example">
+<p class="admonition-title">Ejemplo: El error de representación de 0.1</p>
+<p>Veamos qué pasa representando el valor <span class="arithmatex">\(0.1_{10}\)</span> en simple precisión (32 bits).</p>
+<p><strong>1. Transformación a Binario:</strong>
+La parte fraccionaria <span class="arithmatex">\(0.1\)</span> en binario es una fracción periódica:
+$$ 0.1_{10} = 0.0\,\overline{0011}\,_2 = 0.0001100110011..._2 $$</p>
+<p><strong>2. Signo y Normalización:</strong>
+*   <strong>Signo:</strong> Positivo <span class="arithmatex">\(\to \mathbf{0}\)</span>.
+*   <strong>Notación Científica:</strong> Desplazamos la coma 4 posiciones a la derecha:
+    $$ 1.100110011..._2 \times 2^{-4} $$</p>
+<p><strong>3. Mantisa (Redondeo):</strong>
+Necesitamos quedarnos con 23 bits después de la coma.</p>
+<ul>
+<li>Secuencia: <code>10011001100110011001100</code> <code>1</code>... (el bit 24 es un 1).</li>
+<li>Aplicamos <strong>redondeo al par más cercano</strong> (o simplemente redondeo hacia arriba en este caso simple): sumamos 1 al bit 23 (<span class="arithmatex">\(0 \to 1\)</span>).</li>
+<li>Mantisa Guardada (<span class="arithmatex">\(M\)</span>): <span class="arithmatex">\(\mathbf{10011001100110011001101}\)</span></li>
+</ul>
+<p><strong>4. Exponente:</strong>
+*   <span class="arithmatex">\(E_{real} = -4\)</span>.
+*   <span class="arithmatex">\(E_{guardado} = -4 + 127 = 123_{10} = \mathbf{01111011}_2\)</span>.</p>
+<p><strong>5. Resultado final en memoria (Hex <code>0x3DCCCCCD</code>):</strong>
+<code>0</code> <code>01111011</code> <code>10011001100110011001101</code></p>
+<hr />
+<p><strong>Comprobación: ¿Qué número hemos guardado REALMENTE?</strong>
+Hagamos el proceso inverso para ver el error cometido.</p>
+<ul>
+<li>Mantisa <span class="arithmatex">\(= 1 + \left( \frac{5033165}{2^{23}} \right) \approx 1.6000000238...\)</span></li>
+<li>Exponente <span class="arithmatex">\(= 2^{-4} = \frac{1}{16} = 0.0625\)</span></li>
+<li>Valor <span class="arithmatex">\(= 1.6000000238... \times 0.0625\)</span></li>
+</ul>
+<p>Resultado Real: <strong><span class="arithmatex">\(0.100000001490116119384765625\)</span></strong></p>
+<p>El ordenador no ha guardado <span class="arithmatex">\(0.1\)</span>, sino un número ligeramente mayor. Aunque el error es minúsculo (aprox. <span class="arithmatex">\(1.49 \cdot 10^{-9}\)</span>), si sumamos <span class="arithmatex">\(0.1\)</span> millones de veces, este error se acumula y se hace visible.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title"><em>Ejemplo catastrófico:</em> <strong>Fallo del misil Patriot (1991)</strong></p>
+<p>Durante la Guerra del Golfo, una batería de misiles Patriot en Dhahran (Arabia Saudí) falló al interceptar un Scud iraquí y murieron 28 soldados. El fallo no se debió al tiempo de vuelo del misil, sino al <strong>tiempo que la batería llevaba encendida</strong>.</p>
+<ul>
+<li><strong>El Error de Base:</strong> El sistema medía el tiempo en décimas de segundo y lo multiplicaba por <span class="arithmatex">\(0.1\)</span> para obtener segundos. Como <span class="arithmatex">\(0.1\)</span> tiene infinitos decimales en binario, el registro de 24 bits truncaba el valor, cometiendo un error de <span class="arithmatex">\(0.000000095\)</span> s.</li>
+<li><strong>La Acumulación (Reloj Global):</strong> El sistema <strong>no reseteaba el reloj</strong> al detectar un misil, sino que usaba el <strong>tiempo absoluto</strong> desde el arranque (100 horas) para todos sus cálculos de seguimiento.
+    Aunque el misil Scud acababa de aparecer, el ordenador calculaba su posición usando este tiempo absoluto corrupto. Al multiplicar el error base por cada décima de segundo de las 100 horas, el desfase era enorme:
+    $$ 100 \text{ h} \times 3600 \frac{\text{s}}{\text{h}} \times 10 \frac{\text{décimas}}{\text{s}} \times 0.000000095 \text{ s} \approx \mathbf{0.34 \text{ segundos}} $$</li>
+<li>
+<p><strong>El Fallo de Software (Bug de Precisión Mixta)</strong>: si todo el sistema hubiera tenido el mismo error, NO habría pasado nada, porque los errores se habrían cancelado al restar tiempos (<span class="arithmatex">\(t_2 - t_1\)</span>).
+    El desastre ocurrió porque se instaló una actualización de software que corregía el problema de precisión en una subrutina, pero <strong>se olvidaron de corregirlo en otra</strong>.</p>
+<ul>
+<li>Para predecir dónde <strong>debería</strong> estar el misil, se usó la subrutina antigua que convertía el tiempo absoluto (100h) truncando los datos (con el error acumulado de 0.34s).</li>
+<li>Para procesar el dato fresco del radar, se convertiría <strong>ese mismo tiempo absoluto de 100h</strong> usando el nuevo algoritmo de alta precisión (sin apenas error).</li>
+</ul>
+<p>Al comparar una posición calculada con el <em>reloj malo</em> contra una posición real con el <em>reloj bueno</em>, los errores <strong>no se cancelaron</strong>. El ordenador calculó una zona de búsqueda errónea y no encontró nada.</p>
+<p><strong>La Distancia Fatal:</strong>
+En ese breve lapso de desfase (<span class="arithmatex">\(0.34 \text{ s}\)</span>), un misil Scud viajando a Match 5 (<span class="arithmatex">\(1676 \text{ m/s}\)</span>) recorre una distancia enorme:
+$$ \Delta x = 0.34 \text{ s} \times 1676 \text{ m/s} \approx \mathbf{570 \text{ metros}} $$
+Al buscar el misil a más de medio kilómetro de su posición real, el radar lo perdió, lo clasificó como falsa alarma y no disparó.</p>
+</li>
+</ul>
+</div>
+<h3 id="representacion_de_la_informacion-representación-de-reales-en-lenguajes-de-programación">Representación de Reales en Lenguajes de Programación</h3>
+<p>Al igual que ocurre con los enteros, la gestión de los números reales varía según la filosofía del lenguaje, aunque en este caso las diferencias son menores debido a la omnipresencia del estándar IEEE 754.</p>
+<h4 id="representacion_de_la_informacion-c_1">C++</h4>
+<p><strong>Filosofía:</strong> Eficiencia y acceso directo al hardware.</p>
+<p>C++ expone directamente los tipos de datos que soporta la FPU del procesador. El programador debe elegir el compromiso entre memoria/velocidad y precisión.</p>
+<p>Al ser tipos <strong>POD</strong>, su representación en memoria es exactamente el patrón de bits del estándar IEEE 754, sin sobrecarga adicional.</p>
+<ul>
+<li><strong><code>float</code> (Simple Precisión):</strong> 32 bits (IEEE 754). Útil para gráficos en 3D (juegos) o arrays gigantes donde el ahorro de memoria es crucial. Precisión de ~7 dígitos decimales.</li>
+<li><strong><code>double</code> (Doble Precisión):</strong> 64 bits (IEEE 754). Es el estándar para cálculos científicos y la opción por defecto. Precisión de ~15-16 dígitos decimales.</li>
+<li><strong><code>long double</code>:</strong> Extensión (a menudo 80 bits o 128 bits) para mayor precisión, aunque más lenta y dependiente de la arquitectura.</li>
+</ul>
+<p>Como ya hemos apuntado anteriormente, el término <strong>"Doble Precisión"</strong> es en realidad una herencia del hardware: se llama así porque ocupa <strong>el doble de memoria</strong> (64 bits frente a 32) y ofrece aproximadamente el doble de <em>cifras significativas decimales</em> (pasamos de ~7 a ~16).</p>
+<p>Sin embargo, matemáticamente el nombre se queda muy corto y puede inducir a error. Al pasar de 23 a 52 bits de mantisa, ganamos 29 bits extra de información. Esto significa que la <strong>resolución</strong> (la cantidad de escalones que podemos distinguir) no se multiplica por 2, sino por <strong><span class="arithmatex">\(2^{29}\)</span></strong>. Es decir, es <strong>más de 500 millones de veces más preciso</strong> en términos de densidad de valores.</p>
+<p><strong>Ejemplo:</strong>
+<div class="highlight"><pre><span></span><code><span class="kt">float</span><span class="w">  </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.1f</span><span class="p">;</span><span class="w"> </span><span class="c1">// Se guarda como 0.10000000149... (Error en 8º decimal)</span>
+<span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.1</span><span class="p">;</span><span class="w">  </span><span class="c1">// Se guarda con mucha más precisión (Error en 17º decimal)</span>
+</code></pre></div></p>
+<h4 id="representacion_de_la_informacion-python_1">Python</h4>
+<p><strong>Filosofía:</strong> Simplicidad y Unificación.</p>
+<p>A diferencia de los enteros (que eran <em>mágicos</em> y crecían <em>infinitamente</em> hasta los límites de la memoria), <strong>los reales en Python NO tienen precisión arbitraria por defecto</strong>. </p>
+<ul>
+<li><strong>Tipo único <code>float</code>:</strong> En Python estandar, un <code>float</code> corresponde siempre a un <strong><code>double</code></strong> de C (64 bits IEEE 754). No existe tipo de 32 bits nativo para ahorrar memoria (salvo usando librerías externas como <em>NumPy</em>).</li>
+<li><strong>Limitaciones:</strong> Sufren los mismos problemas de redondeo y desbordamiento que el <code>double</code> de C++.</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Comparativa Int vs Float en Python</p>
+<ul>
+<li><code>2 ** 1000</code> <span class="arithmatex">\(\to\)</span> Calcula el número exacto (un entero de cientos de dígitos).</li>
+<li><code>2.0 ** 1000</code> <span class="arithmatex">\(\to\)</span> Genera <code>OverflowError</code> (o devuelve <code>inf</code>), porque el resultado supera el valor máximo de IEEE 754 (<span class="arithmatex">\(\approx 1.8 \times 10^{308}\)</span>).</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Soluciones Standard para Alta Precisión</p>
+<p>Para software financiero o científico que requiera más precisión que la que ofrece el hardware, Python incluye módulos específicos:</p>
+<ol>
+<li><strong><code>decimal</code>:</strong> Aritmética decimal exacta (base 10). Permite configurar la precisión arbitraria (ej. "quiero 50 decimales"). Es lento pero exacto (ideal para dinero).</li>
+<li><strong><code>fractions</code>:</strong> Almacena números racionales como fracción exacta <span class="arithmatex">\(N/D\)</span> (<span class="arithmatex">\(1/3\)</span> es 1 y 3, no <span class="arithmatex">\(0.333...\)</span>).</li>
+</ol>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Consejo de Programación (Válido para todos los lenguajes)</p>
+<p>Debido a los errores de redondeo (como el del 0.1), <strong>NUNCA</strong> compares números en coma flotante con igualdad estricta.</p>
+<ul>
+<li><strong>Mal:</strong> <code>if (resultado == 0.0)</code></li>
+<li><strong>Bien:</strong> <code>if (abs(resultado) &lt; 0.00001)</code> (Usar un margen de tolerancia o <em>épsilon</em>).</li>
+</ul>
+</div>
+<hr />
+<h2 id="representacion_de_la_informacion-5-representación-de-caracteres">5. Representación de Caracteres</h2>
+<p>Un ordenador, en su nivel más bajo, no entiende de letras, palabras o frases; solo procesa números binarios. Para que podamos leer y escribir texto en una pantalla, es necesario establecer un <strong>puente</strong> entre el mundo humano (símbolos gráficos) y el mundo digital (números).</p>
+<p>Esta traducción se basa en tablas de <strong>codificación de caracteres</strong> (<em>Character Sets</em>): acuerdos globales que asignan un número único a cada letra, dígito o signo de puntuación.</p>
+<h3 id="representacion_de_la_informacion-el-estándar-ascii">El estándar ASCII</h3>
+<p>El código ASCII (<em>American Standard Code for Information Interchange</em>) fue el primer estándar universal. Utiliza <strong>7 bits</strong>, lo que permite representar <span class="arithmatex">\(2^7 = 128\)</span> caracteres distintos.</p>
+<ul>
+<li><strong>0-31:</strong> Caracteres de control (no imprimibles). Ej: Retorno de carro (<code>\r</code>), salto de línea (<code>\n</code>), tabulador (<code>\t</code>).</li>
+<li><strong>32-127:</strong> Caracteres imprimibles (letras inglesas, números y signos de puntuación). El espacio es el 32 y el último es el carácter <code>DEL</code> (127).</li>
+</ul>
+<p><strong>Características de diseño ingeniosas:</strong>
+Los diseñadores de ASCII ordenaron los caracteres estratégicamente para facilitar el procesamiento por hardware o algoritmos simples:</p>
+<ol>
+<li><strong>Dígitos consecutivos y coincidencia binaria:</strong> <code>'0'</code> es el 48 (<code>0011 0000</code>), <code>'1'</code> es el 49 (<code>0011 0001</code>)...<ul>
+<li>Si observas los <strong>4 bits inferiores</strong> (el nibble bajo), coinciden <em>exactamente</em> con el valor numérico del dígito (<span class="arithmatex">\(0000_2=0\)</span>, <span class="arithmatex">\(0001_2=1\)</span>...).</li>
+<li>Esto permitía a los antiguos programadores convertir de texto a número instantáneamente sin hacer restas: bastaba con tomar los últimos 4 bits (operación <code>AND 00001111</code> o <code>AND 0x0F</code>).</li>
+</ul>
+</li>
+<li><strong>Mayúsculas y Minúsculas:</strong> <ul>
+<li><code>'A'</code> = 65 (<code>0100 0001</code>)</li>
+<li><code>'a'</code> = 97 (<code>0110 0001</code>)</li>
+<li>La única diferencia es el <strong>bit 5</strong> (<span class="arithmatex">\(32\)</span>). Para pasar de mayúscula a minúscula basta con <em>activar</em> ese bit (operación <code>OR 32</code>). Para pasar a mayúscula, basta con <em>desactivarlo</em> (operación <code>AND ~32</code>).</li>
+</ul>
+</li>
+</ol>
+<p><img alt="Tabla ASCII" src="img/ascii.jpg" style="display: block; margin: 0 auto" /></p>
+<center><em>Tabla del código ASCII extendido Latin-1</em></center>
+<p><br></p>
+<div class="admonition failure">
+<p class="admonition-title">Limitaciones y el Caos del 'ASCII Extendido'</p>
+<p>ASCII solo cubre el idioma inglés (7 bits). Para dar cabida a otros idiomas (tildes, eñes, etc.), se utilizó el 8º bit disponible en el byte, permitiendo 128 caracteres extra (del 128 al 255).</p>
+<p>El problema es que <strong>no existía un único 'ASCII Extendido'</strong>, sino docenas de variantes incompatibles llamadas <strong>Páginas de Códigos</strong> (<em>Code Pages</em>). Dependiendo de la ubicación geográfica, el sistema operativo usaba una tabla diferente para interpretar esos caracteres extra:</p>
+<ul>
+<li><strong>ISO-8859-1 (conocido como Latin-1):</strong> El estándar para <strong>Europa Occidental</strong>. Es el que incluye la <strong>'ñ'</strong>, las vocales con tilde y símbolos como '¿' o 'ç'.</li>
+<li><strong>ISO-8859-5:</strong> Para el alfabeto <strong>Cirílico</strong> (Ruso).</li>
+<li><strong>ISO-8859-7:</strong> Para el alfabeto <strong>Griego</strong>.</li>
+</ul>
+<p>Esto provocaba que el intercambio de archivos fuera una pesadilla: si abrías un texto español (Latin-1) en un ordenador configurado en Rusia, el código binario de la 'ñ' (<span class="arithmatex">\(241\)</span>) se visualizaba como el carácter cirílico que ocupaba esa misma posición ("ё"), haciendo el texto ilegible. Este fenómeno de texto distorsionado por mala interpretación de la codificación se conoce como <strong>mojibake</strong>.</p>
+</div>
+<h3 id="representacion_de_la_informacion-unicode">UNICODE</h3>
+<p>Unicode surge para poner fin al caos de las páginas de códigos estableciendo un catálogo universal de caracteres. Para entenderlo, es fundamental distinguir dos conceptos que a menudo se confunden:</p>
+<ol>
+<li><strong>Code Point (Punto de Código):</strong> Es el identificador numérico único que Unicode asigna a cada concepto (letra, símbolo, emoji). Es una <em>abstracción</em>.<ul>
+<li>Se escribe <code>U+XX...XX</code> (hexadecimal), donde las X son dígitos.</li>
+<li>El espacio de códigos va actualmente desde <code>U+0000</code> hasta <code>U+10FFFF</code>. Esto permite definir <strong>1.114.112</strong> caracteres diferentes.<ul>
+<li><strong>¿Están todos usados?</strong> ¡Ni mucho menos! Actualmente solo hay asignados unos <strong>150.000</strong> caracteres (aprox. el 13%). La inmensa mayoría del espacio está vacío y reservado para el futuro (nuevos idiomas, símbolos o emojis).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Codificación (Encoding):</strong> Es la regla o algoritmo para convertir ese número abstracto (Code Point) en bits reales (0s y 1s) para guardarlos en el disco duro o memoria.</li>
+</ol>
+<h4 id="representacion_de_la_informacion-el-estándar-utf-8">El Estándar UTF-8</h4>
+<p>Aunque Unicode define el <em>número</em>, <strong>UTF-8</strong> es la forma más inteligente y popular de guardarlo, usada en más del 98% de la Web.</p>
+<ul>
+<li>Permite representar <strong>TODOS</strong> los Code Points de Unicode (del <code>U+0000</code> al <code>U+10FFFF</code>).</li>
+<li>Su genialidad radica en ser de <strong>longitud variable</strong>: en lugar de dar el mismo espacio a todos los caracteres, asigna menos bits a los más comunes y más bits a los más raros.</li>
+</ul>
+<div class="center-table">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Rango Unicode (Hex)</th>
+<th style="text-align: center;">Tamaño UTF-8</th>
+<th style="text-align: left;">Estructura de los bits (Plantilla)</th>
+<th style="text-align: left;">Uso típico</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>0000</code> - <code>007F</code></td>
+<td style="text-align: center;"><strong>1 Byte</strong></td>
+<td style="text-align: left;"><code>0xxxxxxx</code></td>
+<td style="text-align: left;">Inglés (ASCII original)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>0080</code> - <code>07FF</code></td>
+<td style="text-align: center;"><strong>2 Bytes</strong></td>
+<td style="text-align: left;"><code>110xxxxx 10xxxxxx</code></td>
+<td style="text-align: left;">Latín con tildes (ñ, ó), Griego, Cirílico</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>0800</code> - <code>FFFF</code></td>
+<td style="text-align: center;"><strong>3 Bytes</strong></td>
+<td style="text-align: left;"><code>1110xxxx 10xxxxxx ...</code></td>
+<td style="text-align: left;">Chino, Japonés, Símbolos comunes (Euro €)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>10000</code> - <code>10FFFF</code></td>
+<td style="text-align: center;"><strong>4 Bytes</strong></td>
+<td style="text-align: left;"><code>11110xxx 10xxxxxx ...</code></td>
+<td style="text-align: left;">Emojis históricamente recientes, Símbolos raros</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p style="text-align: center;"><em>Tabla UTF-8</em></p>
+
+<p><strong>Ejemplo Práctico: De Code Point a Bytes</strong></p>
+<ol>
+<li>
+<p><strong>La letra 'a' <code>U+0061</code></strong> (<span class="arithmatex">\(97_{10}\)</span>):</p>
+<ul>
+<li>Cae en el primer rango (0-127). Se guarda tal cual: <code>01100001</code> (<code>0x61</code>).</li>
+<li><em>Nota:</em> Exactamente igual que en ASCII.</li>
+</ul>
+</li>
+<li>
+<p><strong>La letra 'ñ' <code>U+00F1</code></strong> (<span class="arithmatex">\(241_{10}\)</span>):</p>
+<ul>
+<li>Valor binario: <code>1111 0001</code> (8 bits).</li>
+<li>No cabe en el primer rango (necesita 1 byte que empiece por 0). Pasamos al rango de <strong>2 bytes</strong>.</li>
+<li>Plantilla: <code>110xxxxx 10xxxxxx</code>. Tenemos 11 huecos ('x') para rellenar con nuestros bits.</li>
+<li><strong>Relleno (con ceros a la izquierda):</strong><ul>
+<li>Nuestros bits: <code>11110001</code> (son 8, faltan 3 para llegar a 11).</li>
+<li>Rellenamos con ceros por la izquierda: <strong><code>000</code></strong><code>11110001</code>.</li>
+<li>Distribuimos en los huecos: <code>110</code><strong><code>00011</code></strong> <code>10</code><strong><code>110001</code></strong>.</li>
+</ul>
+</li>
+<li>Resultado Hex: <code>0xC3 0xB1</code>.</li>
+<li><em>Curiosidad:</em> Por eso si abres un archivo UTF-8 como si fuera Latin-1, la ñ se ve como dos caracteres extraños ("Ã±"): el ordenador interpreta <code>0xC3</code> ("Ã") y <code>0xB1</code> ("±") por separado.</li>
+</ul>
+</li>
+<li>
+<p><strong>El Euro '€' <code>U+20AC</code></strong>:</p>
+<ul>
+<li>Necesita <strong>3 bytes</strong>: <code>0xE2 0x82 0xAC</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>El Emoji '😂' <code>U+1F602</code></strong> (<span class="arithmatex">\(128514_{10}\)</span>):</p>
+<ul>
+<li>5 cifras hexadecimales equivalen a <strong>20 bits</strong> (<span class="arithmatex">\(5 \times 4\)</span>). La plantilla de 4 bytes de UTF-8 tiene huecos para <strong>21 bits</strong> (<span class="arithmatex">\(3+6+6+6\)</span>). ¡Cabe perfectamente!</li>
+<li><strong>Paso a paso:</strong><ol>
+<li>Hex <code>1F602</code> a Binario <span class="arithmatex">\(\to\)</span> <code>0001 1111 0110 0000 0010</code>.</li>
+<li>Rellenamos con ceros hasta 21 bits: <strong><code>0000</code></strong><code>1111101100000010</code>.</li>
+<li>Agrupamos para "rellenar huecos": <code>000</code> <code>011111</code> <code>011000</code> <code>000010</code>.</li>
+<li>Aplicamos la plantilla <code>11110xxx 10xxxxxx ...</code>:<ul>
+<li><code>11110</code><strong><code>000</code></strong> <span class="arithmatex">\(\to\)</span> <code>0xF0</code></li>
+<li><code>10</code><strong><code>011111</code></strong> <span class="arithmatex">\(\to\)</span> <code>0x9F</code></li>
+<li><code>10</code><strong><code>011000</code></strong> <span class="arithmatex">\(\to\)</span> <code>0x98</code></li>
+<li><code>10</code><strong><code>000010</code></strong> <span class="arithmatex">\(\to\)</span> <code>0x82</code></li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Resultado final: <code>0xF0 0x9F 0x98 0x82</code>.</li>
+</ul>
+</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Por qué ganó UTF-8</p>
+<ul>
+<li><strong>Ahorro de espacio:</strong><ul>
+<li><strong>Inglés:</strong> Los textos clásicos (novelas, ensayos) y el código fuente (HTML, Python, C++) contienen solo caracteres ASCII. En UTF-8 ocupan exactamente <strong>1 byte por carácter</strong>, igual que en los años 70.</li>
+<li><strong>Español:</strong> La sobrecarga es mínima. En un texto normal (como <em>El Quijote</em>), solo las vocales acentuadas y la 'ñ' ocupan 2 bytes. El 98% del texto (letras normales, espacios, puntuación) sigue ocupando 1 byte. El aumento total de tamaño suele rondar apenas el <strong>2%</strong>.</li>
+<li><em>Comparativa:</em> Si usáramos UTF-16, el archivo ocuparía <strong>el doble</strong> de tamaño, ya que <em>cada letra</em> (incluida la 'a' o el espacio) gastaría 2 bytes obligatoriamente.</li>
+</ul>
+</li>
+<li><strong>Robustez:</strong> Es auto-sincronizado. Si se pierde un byte en la transmisión, es fácil saber dónde empieza el siguiente carácter (todos los bytes de continuación empiezan por <code>10...</code>).</li>
+</ul>
+</div>
+<h4 id="representacion_de_la_informacion-otras-codificaciones-la-paradoja-del-uso">Otras Codificaciones (La paradoja del uso)</h4>
+<p>Aunque UTF-8 domina internet y el almacenamiento en disco (lo que lo hace <em>el más usado</em> en volumen de datos), el concepto es relativo. Existen otras codificaciones que, por decisiones históricas, dominan la memoria RAM de miles de millones de dispositivos:</p>
+<ul>
+<li><strong>UTF-32:</strong> Usa siempre 4 bytes por carácter. Es muy rápido de procesar (acceso directo al carácter N: salto <span class="arithmatex">\(4 \times N\)</span> bytes), pero desperdicia muchísima memoria (un archivo de texto plano ocupa 4 veces más). Se usa internamente en Linux o Python para procesar <code>str</code> (cadenas de texto).</li>
+<li><strong>UTF-16:</strong> El gigante silencioso. Usa 2 o 4 bytes.<ul>
+<li><strong>¿Dónde domina?</strong> En las entrañas de <strong>Windows, Java, JavaScript, .NET</strong> y, por herencia de Java, <strong>Android</strong> (aunque Android nació en los 2000).</li>
+<li><em>El problema:</em> Windows y JavaScript se diseñaron en los años 90 creyendo que 2 bytes bastarían para todo. Android, aunque es posterior, hereda el uso de UTF-16 de Java. Hoy todos estos sistemas <em>hablan</em> UTF-16 internamente (en RAM) pero deben intercambiar datos en UTF-8 con el mundo exterior (Web/Red), pagando un precio en rendimiento por esa conversión continua.</li>
+<li><strong>¿Y Apple/iPhone?</strong> Apple apostó por UTF-8 en la mayoría de sus frameworks modernos (Core Foundation, Swift, etc.), así que iOS y macOS no sufren la penalización de conversión constante: internamente y externamente usan UTF-8 casi siempre.</li>
+</ul>
+</li>
+</ul>
+<h3 id="representacion_de_la_informacion-cadenas-strings-en-programación">Cadenas (Strings) en Programación</h3>
+<h4 id="representacion_de_la_informacion-c_2">C++</h4>
+<p>Siguiendo su filosofía de <em>control sobre el hardware</em>, C++ diferencia entre la unidad de almacenamiento y la codificación.</p>
+<ul>
+<li><strong><code>char</code></strong>: Ocupa <strong>1 byte</strong>. Literalmente almacena un entero de 8 bits.<ul>
+<li>Perfecto para ASCII.</li>
+<li><strong>Peligro con UTF-8:</strong> Si almacenas <code>"España"</code> en un <code>std::string</code> (que es una secuencia de <code>char</code>), la <code>ñ</code> ocupará 2 bytes. La función <code>.length()</code> devolverá 6 bytes en lugar de 6 letras, y al acceder a <code>str[4]</code> obtendrás solo la mitad de la <code>ñ</code>.</li>
+</ul>
+</li>
+<li>C++ moderno (C++11/20) introduce tipos como <code>char8_t</code>, <code>char16_t</code>, <code>char32_t</code> y literales <code>u8"texto"</code> para manejar Unicode explícitamente, aunque es más complejo de usar que en lenguajes de alto nivel.</li>
+</ul>
+<h4 id="representacion_de_la_informacion-python_2">Python</h4>
+<p>El lenguaje se encarga de la complejidad.</p>
+<ul>
+<li>
+<p><strong>Python 3:</strong> El tipo <code>str</code> es <strong>Unicode</strong> por defecto: cada elemento de la cadena representa un símbolo Unicode (un code point), pero <strong>la codificación interna en memoria no es UTF-8, UTF-16 ni UTF-32 estándar</strong>. Desde Python 3.3, el lenguaje asocia cada símbolo Unicode a una codificación propia optimizada para ahorrar memoria, eligiendo 1, 2 o 4 bytes por carácter según el contenido de la cadena.</p>
+<ul>
+<li>Si todos los caracteres caben en Latin-1 (ASCII + tildes básicas), usa 1 byte por carácter.</li>
+<li>
+<p>Si hay algún carácter que necesita más, pero todos caben en el <em>plano básico multilingüe</em> (BMP), usa 2 bytes por carácter (como UTF-16). El <em>plano básico multilingüe</em> (BMP) es el rango de Unicode de <code>U+0000</code> a <code>U+FFFF</code> (los primeros 65.536 símbolos), donde están la mayoría de los alfabetos y símbolos comunes del mundo.</p>
+</li>
+<li>
+<p>Si hay algún carácter <em>raro</em> (emojis, símbolos históricos, etc.), usa 4 bytes por carácter (UTF-32).</p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Diferencia Clave</p>
+<ul>
+<li><strong>C++:</strong> Ve memoria. Una cadena es un array de bytes terminada en <code>\0</code>.</li>
+<li><strong>Python:</strong> Ve texto. Una cadena es una secuencia abstracta de símbolos Unicode.</li>
+</ul>
+</div>
+<p>&lt;!--</p>
+<h4 id="representacion_de_la_informacion-bytes-vs-str-y-archivos-de-textobinario-en-python">Bytes vs. str y archivos de texto/binario en Python</h4>
+<p>En Python, es fundamental distinguir entre <strong>texto</strong> (tipo <code>str</code>) y <strong>datos binarios</strong> (tipo <code>bytes</code>).</p>
+<ul>
+<li>Un objeto <code>str</code> representa <strong>texto Unicode</strong>: cada elemento es un símbolo abstracto, no un byte concreto. Ejemplo: <code>s = "España"</code>.</li>
+<li>Un objeto <code>bytes</code> representa <strong>datos binarios puros</strong>: una secuencia de valores entre 0 y 255. Ejemplo: una contraseña segura generada aleatoriamente: <code>clave = bytes([137, 44, 255, ...])</code> (32 valores para 256 bits).</li>
+</ul>
+<p><strong>¿Por qué es importante?</strong></p>
+<p>Si intentamos tratar una secuencia de bytes arbitrarios como si fuera texto, pueden aparecer símbolos extraños, errores o incluso pérdida de información. Por ejemplo:</p>
+<p>```python</p>
+<h1 id="representacion_de_la_informacion-contraseña-binaria-de-256-bits-32-bytes-aleatorios">Contraseña binaria de 256 bits (32 bytes aleatorios)</h1>
+<p>clave = bytes([137, 44, 255, 0, 18, 77, 201, 123, 88, 34, 190, 5, 222, 1, 99, 42,
+               17, 200, 33, 77, 250, 111, 0, 201, 100, 3, 77, 222, 11, 99, 42])
+print(clave)  # Muestra: b'\x89,\xff\x00\x12M\xc9{X\"\xbe\x05...'</p>
+<h1 id="representacion_de_la_informacion-si-intentamos-convertirla-a-texto-directamente">Si intentamos convertirla a texto directamente:</h1>
+<p>try:
+    texto = clave.decode("utf-8")
+except UnicodeDecodeError as e:
+    print("¡Error al interpretar como texto!", e)</p>
+<hr /></section></div><style>.print-site-enumerate-headings #index > h1:before { content: '1 ' }
+
+                .print-site-enumerate-headings #index h2:before { content: '1.' counter(counter-index-2) ' ' }
+                .print-site-enumerate-headings #index h2 {  counter-reset: counter-index-3 ;  counter-increment: counter-index-2 }
+            
+                .print-site-enumerate-headings #index h3:before { content: '1.' counter(counter-index-2) '.' counter(counter-index-3) ' ' }
+                .print-site-enumerate-headings #index h3 {  counter-increment: counter-index-3 }
+            
+.print-site-enumerate-headings #lenguajes_de_programacion > h1:before { content: '2 ' }
+
+                .print-site-enumerate-headings #lenguajes_de_programacion h2:before { content: '2.' counter(counter-lenguajes_de_programacion-2) ' ' }
+                .print-site-enumerate-headings #lenguajes_de_programacion h2 {  counter-reset: counter-lenguajes_de_programacion-3 ;  counter-increment: counter-lenguajes_de_programacion-2 }
+            
+                .print-site-enumerate-headings #lenguajes_de_programacion h3:before { content: '2.' counter(counter-lenguajes_de_programacion-2) '.' counter(counter-lenguajes_de_programacion-3) ' ' }
+                .print-site-enumerate-headings #lenguajes_de_programacion h3 {  counter-increment: counter-lenguajes_de_programacion-3 }
+            
+.print-site-enumerate-headings #representacion_de_la_informacion > h1:before { content: '3 ' }
+
+                .print-site-enumerate-headings #representacion_de_la_informacion h2:before { content: '3.' counter(counter-representacion_de_la_informacion-2) ' ' }
+                .print-site-enumerate-headings #representacion_de_la_informacion h2 {  counter-reset: counter-representacion_de_la_informacion-3 ;  counter-increment: counter-representacion_de_la_informacion-2 }
+            
+                .print-site-enumerate-headings #representacion_de_la_informacion h3:before { content: '3.' counter(counter-representacion_de_la_informacion-2) '.' counter(counter-representacion_de_la_informacion-3) ' ' }
+                .print-site-enumerate-headings #representacion_de_la_informacion h3 {  counter-increment: counter-representacion_de_la_informacion-3 }
+            </style>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Departamento de Ingeniería de Sistemas y Automática. EII. Universidad de Valladolid
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://www.uva.es" target="_blank" rel="noopener" title="Universidad de Valladolid" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M271.9 20.2c-9.8-5.6-21.9-5.6-31.8 0l-224 128c-12.6 7.2-18.8 22-15.1 36S17.5 208 32 208h32v208l-51.2 38.4C4.7 460.4 0 469.9 0 480c0 17.7 14.3 32 32 32h448c17.7 0 32-14.3 32-32 0-10.1-4.7-19.6-12.8-25.6L448 416V208h32c14.5 0 27.2-9.8 30.9-23.8s-2.5-28.8-15.1-36l-224-128zM400 208v208h-64V208zm-112 0v208h-64V208zm-112 0v208h-64V208zm80-112a32 32 0 1 1 0 64 32 32 0 1 1 0-64"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="http://www.isa.uva.es" target="_blank" rel="noopener" title="Departamento ISA" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64zm112 352h32c17.7 0 32 14.3 32 32v80h-96v-80c0-17.7 14.3-32 32-32M96 112c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16zm144-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16M96 240c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16zm144-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "/", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "search.suggest", "content.code.copy"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="js/print-site.js"></script>
+      
+        <script src="javascripts/mathjax.js"></script>
+      
+        <script src="javascripts/print_button.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

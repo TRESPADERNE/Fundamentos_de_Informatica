@@ -1,0 +1,133 @@
+/* 1. Quitamos el fondo rojo de prueba */
+body {
+    background-color: transparent !important;
+    border-top: none !important;
+}
+
+/* 2. Ajustamos las notas al tamaño estándar de Material (0.8rem) */
+:root {
+  --md-admonition-font-size: 0.8rem !important;
+}
+
+.center-table {
+    text-align: center;
+}
+
+.md-typeset .center-table :is(td,th):not([align]) {
+    /* Reset alignment for table cells */
+    text-align: initial;
+}
+
+/* En tu extra.css, cambia la clase por esto: */
+.center-text {
+  text-align: center !important;
+  display: block !important;
+  color: #000 !important; /* Fuerza color negro para ver si aparece */
+  margin: 20px 0 !important;
+  border: 2px solid red !important; /* Ponle un borde rojo para localizarlo */
+}
+
+/* Solo centrar la tabla, sin afectar bordes */
+.md-typeset .center-table table {
+    margin: 0 auto; 
+    display: inline-block; /* Truco común para centrar si el contenedor es text-align:center */
+}
+
+.md-typeset .admonition, 
+.md-typeset details.admonition {
+    font-size: 0.8rem !important;
+}
+
+/* El título un pelín más negrita para que destaque, pero al mismo tamaño */
+.md-typeset .admonition-title, 
+.md-typeset summary {
+    font-size: 0.8rem !important;
+    font-weight: 700 !important;
+}
+
+/* Forzamos el texto interno */
+.md-typeset .admonition > .admonition-content,
+.md-typeset .admonition p,
+.md-typeset details.admonition p {
+    font-size: 0.8rem !important;
+    line-height: 1.6 !important; /* Altura de línea estándar */
+}
+
+
+/* ==========================================
+   2. TU CONFIGURACIÓN DE IMPRESIÓN (MANTENIDA)
+   ========================================== */
+@media print {
+  /* Limpieza de interfaz */
+  header, footer, nav, .md-sidebar, .md-header, .md-footer, .md-nav, .md-search, .md-top, .md-content__button {
+    display: none !important;
+  }
+
+  .md-container, .md-main, .md-main__inner, .md-content, .md-content__inner {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block !important;
+  }
+
+  /* Código en bloque */
+  pre, .highlight, .highlight pre {
+    background-color: #f8f8f8 !important;
+    color: #000 !important;
+    font-family: "Courier New", monospace !important;
+    font-size: 9pt !important;
+    white-space: pre-wrap !important;
+    word-break: normal !important;
+    border: 0.5pt solid #ddd !important;
+    display: block !important;
+    padding: 10pt !important;
+    margin: 1em 0 !important;
+  }
+
+  /* Código en línea */
+  p code, li code {
+    display: inline !important;
+    background-color: #f0f0f0 !important;
+    padding: 2px 4px !important;
+    font-family: "Courier New", monospace !important;
+    font-size: 10pt !important;
+    border-radius: 3px !important;
+    white-space: nowrap !important;
+  }
+
+  /* Admonitions en impresión */
+  .admonition {
+    border: 1px solid #999 !important;
+    margin: 1.5em 0 !important;
+    page-break-inside: avoid !important;
+    display: block !important;
+    font-size: 11pt !important; /* Tamaño para el PDF */
+  }
+
+  .admonition-title {
+    font-weight: bold !important;
+    padding: 6pt 10pt !important;
+    display: block !important;
+    border-bottom: 1px solid #999 !important;
+    background-image: none !important;
+  }
+
+  .admonition-title::before, .admonition-title::after {
+    display: none !important;
+  }
+
+  /* Colores nítidos para PDF */
+  .admonition.note { border-left: 6pt solid #0052cc !important; }
+  .admonition.note > .admonition-title { background-color: #f0f6ff !important; }
+  .admonition.warning { border-left: 6pt solid #e67e00 !important; }
+  .admonition.warning > .admonition-title { background-color: #fff8f0 !important; }
+
+  /* Texto general */
+  body, .md-typeset, p, li {
+    font-family: Arial, sans-serif !important;
+    font-size: 11pt !important;
+    color: #000 !important;
+    line-height: 1.5 !important;
+  }
+}
