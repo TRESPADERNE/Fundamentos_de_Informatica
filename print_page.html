@@ -828,15 +828,11 @@ Imaginemos un programa con un error de sintaxis.
 </code></pre></div></p>
 <ul>
 <li><strong>Comportamiento compilado:</strong> El proceso de traducción falla antes de empezar (Compilation Error). No se genera ningún archivo ejecutable y el usuario <strong>no ve nada</strong> en pantalla.</li>
-<li>
-<p><strong>Comportamiento interpretado:</strong> El programa arranca inmediatamente. El usuario ve por la consola los valores de <code>a</code> y <code>b</code> y, justo después, el programa <strong>se estrella (crash)</strong> al intentar ejecutar la cuarta línea.</p>
-</li>
-<li>
-<p>No genera un ejecutable independiente (como un <code>.exe</code>). Necesitas tener el intérprete instalado en la máquina para correr el código.</p>
-</li>
-<li><strong>Ventaja:</strong> Flexibilidad, depuración rápida, y capacidad de ejecutar código generado dinámicamente.</li>
-<li><strong>Desventaja:</strong> Menor velocidad de ejecución: la CPU pierde tiempo traduciendo lo mismo una y otra vez.</li>
+<li><strong>Comportamiento interpretado:</strong> El programa arranca inmediatamente. El usuario ve por la consola los valores de <code>a</code> y <code>b</code> y, justo después, el programa <strong>se estrella (crash)</strong> al intentar ejecutar la cuarta línea.</li>
 </ul>
+<p>Al igual que con un compilador, se necesita tener el intérprete instalado en la máquina para correr el código, pero un intérprete no genera un ejecutable independiente (como un <code>.exe</code>). 
+*   <strong>Ventaja:</strong> Flexibilidad, depuración rápida, y capacidad de ejecutar código generado dinámicamente.
+*   <strong>Desventaja:</strong> Menor velocidad de ejecución: la CPU pierde tiempo traduciendo lo mismo una y otra vez.</p>
 <h3 id="lenguajes_de_programacion-modelo-híbrido-máquinas-virtuales">Modelo Híbrido: Máquinas Virtuales</h3>
 <p>Muchos lenguajes actuales (Java, Python, C#) buscan un punto intermedio utilizando una estrategia de <em>CPU Imaginaria</em>.</p>
 <ol>
