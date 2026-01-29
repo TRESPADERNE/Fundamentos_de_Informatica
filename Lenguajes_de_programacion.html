@@ -664,6 +664,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#por-qué-encaja-bien-aquí" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Por qué encaja bien aquí?
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1126,8 +1137,28 @@ De facto, la VM funciona como un <strong>intérprete puro</strong> (pero sobre e
 <li><strong>Seguridad:</strong> La VM actúa como un entorno aislado (<em>sandbox</em>), protegiendo el hardware real.</li>
 <li><strong>Gestión de Memoria (Limpieza automática):</strong> En lenguajes de bajo nivel (como C), la gestión de la <strong>memoria dinámica</strong> es manual. Si un programador solicita espacio extra durante la ejecución, es responsable de liberarlo explícitamente. Un simple olvido en este paso provoca fallos graves (<em>fugas de memoria</em>). Para evitarlo, la VM incluye un <strong>Recolector de Basura (<em>Garbage Collector</em>)</strong>: un <em>servicio de limpieza</em> automático que detecta qué datos ya no sirven y los borra por ti.</li>
 </ul>
-<p><strong>Compilación JIT (Just-In-Time):</strong>
-Para mejorar el rendimiento, las VMs modernas (como la JVM de Java o V8 de JS) compilan trozos de bytecode a código nativo <em>mientras</em> el programa se ejecuta, combinando la velocidad de un compilado con la flexibilidad de un interpretado.</p>
+<p><strong>Compilación JIT (Just-In-Time):</strong></p>
+<p>Para mejorar el rendimiento, las VMs modernas (como la JVM de Java o V8 de JS) compilan trozos de bytecode a código nativo <em>mientras</em> el programa se ejecuta, combinando la velocidad de un compilado con la flexibilidad de un interpretado.</p>
+<p><strong>Optimización mediante Extensiones Nativas:</strong></p>
+<p>A veces, ni siquiera el JIT es suficiente para tareas de cálculo masivo (como IA o simulaciones científicas). En estos casos, lenguajes como Python utilizan un <em>atajo</em>: las <strong>extensiones nativas</strong>.</p>
+<ul>
+<li><strong>¿Cómo funciona?</strong> Bibliotecas como <strong>NumPy</strong> están escritas en lenguajes de bajo nivel (C o Fortran) y ya están <strong>precompiladas</strong> para la ISA específica de tu procesador.</li>
+<li><strong>El salto de niveles:</strong> Cuando usas NumPy en Python, el programa <em>sale</em> de la Máquina Virtual y le entrega el control directamente al hardware. El procesador ejecuta código binario puro a máxima velocidad y, al terminar, devuelve el resultado a Python.</li>
+<li><strong>Resultado:</strong> Tienes la facilidad de programar en un lenguaje sencillo pero con el rendimiento de un lenguaje de bajo nivel, ya que las operaciones pesadas no son <em>interpretadas</em> por la VM.</li>
+</ul>
+<hr />
+<h3 id="por-qué-encaja-bien-aquí">¿Por qué encaja bien aquí?</h3>
+<ol>
+<li><strong>Refuerza el concepto de ISA:</strong> Explica que el software "nativo" es el que habla el idioma del procesador sin intermediarios.</li>
+<li><strong>Aclara una duda común:</strong> Los alumnos suelen preguntar: <em>"Si Python es interpretado y lento, ¿por qué se usa para Inteligencia Artificial?"</em>. Esta es la respuesta técnica.</li>
+<li><strong>Conecta con el mundo real:</strong> NumPy es el estándar de la industria, lo que hace que el contenido sea muy relevante para su futuro profesional.</li>
+</ol>
+<p><strong>Un pequeño detalle para tu texto:</strong>
+En la sección de <strong>"Fase de Ejecución"</strong>, donde dices que la VM actúa como un <em>intérprete puro</em>, podrías añadir un pequeño matiz: </p>
+<blockquote>
+<p>"...funciona como un intérprete (o compilador en tiempo real)..." </p>
+</blockquote>
+<p>Esto es porque, como bien mencionas después con el JIT, las máquinas virtuales modernas ya no solo "interpretan", sino que también "fabrican" código nativo al vuelo.</p>
 <p><strong>Ejemplos del Mundo Real:</strong></p>
 <ul>
 <li><strong>El Navegador Web:</strong> Es la <em>máquina virtual</em> que más usamos. Chrome o Firefox interpretan el código de las páginas web (JavaScript/WebAssembly) para que funcionen igual en tu PC, en un Mac o en tu móvil.</li>
