@@ -1501,7 +1501,7 @@ Si solo guardamos los primeros 4 bits fraccionarios, almacenamos <span class="ar
 <div class="arithmatex">\[ \text{Hexadecimal} \xrightarrow{\text{expandir a 4 bits}} \text{Binario} \xrightarrow{\text{agrupar de 3 bits}} \text{Octal} \]</div>
 <h2 id="3-representación-de-números-enteros">3. Representación de Números Enteros</h2>
 <p>Los números enteros son la piedra angular de la aritmética computacional. No solo representan cantidades matemáticas, sino que constituyen el <em>lenguaje interno</em> del procesador: las direcciones de memoria, los punteros, los índices de arrays y los contadores de bucles son, estructuralmente, números enteros.</p>
-<p>A diferencia de los números reales, la aritmética entera es <strong>exacta</strong>; no sufre de errores de precisión por redondeo. Sin embargo, se enfrenta a una limitación física ineludible: el <strong>rango finito</strong>. Al tener un número fijo de bits (ancho de palabra), existe un límite máximo y mínimo estricto que podemos representar, y superar ese límite tiene consecuencias drásticas.</p>
+<p>A diferencia de los números reales, la aritmética entera es <strong>exacta</strong>; no sufre de errores de precisión por redondeo. Sin embargo, se enfrenta a una limitación física ineludible: el <strong>rango finito</strong>. Al tener un número fijo de bits (ancho de palabra), existe un límite máximo y mínimo estricto que podemos representar, y superar ese límite de forma incontrolada tiene consecuencias nefastas.</p>
 <h3 id="enteros-sin-signo-binario-puro">Enteros Sin Signo (Binario Puro)</h3>
 <p>Este formato se emplea para modelar problemas reales donde las magnitudes son siempre no negativas (el conjunto de los Naturales <span class="arithmatex">\(\mathbb{N}\)</span> más el cero).</p>
 <p><strong>Usos típicos:</strong></p>
@@ -1608,12 +1608,12 @@ Lo más interesante del C2 es que el bit de signo (MSB, posición <span class="a
 <div class="arithmatex">\[ N = -d_{n-1} \cdot 2^{n-1} + \sum_{i=0}^{n-2} d_i \cdot 2^i \]</div>
 <div class="arithmatex">\[ N = \mathbf{-d_{n-1}2^{n-1}} + d_{n-2}2^{n-2} + \dots + d_1 2^1 + d_0 2^0 \]</div>
 <ul>
-<li><strong>Rango:</strong> <span class="arithmatex">\([-2^{n-1}, \quad 2^{n-1} - 1]\)</span>. (Es asimétrico: hay un valor negativo extra porque el 0 "gasta" una combinación de los positivos).</li>
+<li><strong>Rango:</strong> <span class="arithmatex">\([-2^{n-1}, \quad 2^{n-1} - 1]\)</span>. Es asimétrico: hay un valor negativo extra porque el 0 "gasta" una combinación de los positivos.</li>
 </ul>
 <div class="admonition example">
 <p class="admonition-title">Ejemplo: Obtener el número negativo <span class="arithmatex">\(-13\)</span> en C2 con 6 bits</p>
 <p>Escribir el positivo: <span class="arithmatex">\(13_{10} = 001101_2\)</span> (Rellenamos con ceros hasta 6 bits)</p>
-<p><strong>Método 1: Inversión + 1 (Estándar)</strong></p>
+<p><strong>Método 1: Inversión + 1 (No recomendado para usarlo manualmente por la propensión a cometer errores)</strong></p>
 <ul>
 <li>Invertir todos los bits (cambiar 0s por 1s): <code>110010</code></li>
 <li>Sumar 1 al resultado final: <code>110010</code> + <code>1</code> = <strong><code>110011</code></strong></li>
