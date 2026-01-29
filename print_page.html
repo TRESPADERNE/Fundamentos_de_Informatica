@@ -1686,7 +1686,7 @@ Dos números positivos han generado un negativo. <strong>Esto es Overflow.</stro
 <p><strong>¿Quién detecta el error?</strong></p>
 <ul>
 <li><strong>Hardware (ALU):</strong> <strong>SIEMPRE</strong> detecta el desbordamiento (activa un <em>flag</em> de estado interno).</li>
-<li><strong>Software (C++):</strong> Por defecto <strong>IGNORA</strong> esta señal para ganar velocidad. El programa continúa ejecutándose con el valor erróneo sin avisar (comportamiento indefinido o <em>wrap-around</em>).</li>
+<li><strong>Software (C++):</strong> Por defecto <strong>IGNORA</strong> esta señal para ganar velocidad. El programa continúa ejecutándose con el valor erróneo sin avisar (comportamiento indefinido o <em>wrap-around</em>). En Python, como veremos no existe ese problema para enteros.</li>
 </ul>
 </div>
 <h3 id="representacion_de_la_informacion-representación-de-enteros-en-lenguajes-de-programación">Representación de Enteros en Lenguajes de Programación</h3>
@@ -1716,8 +1716,8 @@ Eliminan el bit de signo para duplicar el rango positivo (<span class="arithmate
 <li><strong>Precisión Arbitraria:</strong> En Python 3, los enteros (<code>int</code>) crecen dinámicamente tanto como la RAM permita. ¡No existe <em>overflow</em> aritmético!</li>
 <li><strong>Sin tipos <code>unsigned</code>:</strong> Todos los enteros tienen signo.</li>
 </ul>
-<p><strong>Estructura Interna (Precisión Arbitraria o <em>BigNum</em>)</strong>
-A diferencia de C++, donde un entero es una caja de tamaño fijo (si metes algo más grande, se rompe), en Python un entero es como un <em>acordeón</em> que se estira según se necesite.</p>
+<p><strong>Estructura Interna (Precisión Arbitraria o <em>BigNum</em>)</strong></p>
+<p>A diferencia de C++, donde un entero es una caja de tamaño fijo (si metes algo más grande, se rompe), en Python un entero es como un <em>acordeón</em> que se estira según se necesite.</p>
 <p>Para lograr esto, Python no guarda el número tal cual lo hace el procesador. En su lugar, trocea el número grande en pequeños bloques de 30 bits y los trata como si fueran <em>dígitos</em> de una base numérica gigante (<strong>Base <span class="arithmatex">\(2^{30}\)</span></strong>).</p>
 <p>Matemáticamente, funciona igual que nuestro sistema decimal (donde sumamos unidades, decenas, centenas...), pero usando potencias de <span class="arithmatex">\(2^{30}\)</span>:
 $<span class="arithmatex">\(N = \sum_{i=0} d_i \cdot (2^{30})^i = d_0 + d_1 \cdot 2^{30} + d_2 \cdot 2^{60} + \dots\)</span>$</p>
