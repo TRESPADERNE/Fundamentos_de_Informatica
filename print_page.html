@@ -1628,9 +1628,11 @@ Al igual que ocurre en la aritmética decimal (ej. <span class="arithmatex">\(87
 <h3 id="representacion_de_la_informacion-justificación-del-uso-de-c2-en-la-cpu">Justificación del uso de C2 en la CPU</h3>
 <p>Veamos la razón fundamental por la que los ordenadores utilizan Complemento a 2 analizando la operación <span class="arithmatex">\(6 + (-7)\)</span> (cuyo resultado debe ser <span class="arithmatex">\(-1\)</span>) con un sumador binario estándar de 4 bits.</p>
 <p><strong>1. Usando Signo-Magnitud:</strong></p>
-<p>En Signo-Magnitud, el bit más significativo es el signo.
-* <span class="arithmatex">\(6_{10} \rightarrow 0110_{SM}\)</span>
-* <span class="arithmatex">\(-7_{10} \rightarrow 1111_{SM}\)</span></p>
+<p>En Signo-Magnitud, el bit más significativo es el signo.</p>
+<ul>
+<li><span class="arithmatex">\(6_{10} \rightarrow 0110_{SM}\)</span></li>
+<li><span class="arithmatex">\(-7_{10} \rightarrow 1111_{SM}\)</span></li>
+</ul>
 <p>Si sumamos estos patrones de bits directamente:</p>
 <div class="highlight"><pre><span></span><code>   1 1 1          &lt;-- Acarreos
      0 1 1 0      (6)
