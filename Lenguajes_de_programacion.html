@@ -870,9 +870,16 @@
 </table>
 <p>En este ejemplo, la instrucción binaria se compone de 3 partes que el hardware decodifica:</p>
 <ol>
-<li><strong>Código de operación (5 primeros bits):</strong> La secuencia <code>10110</code> ordena <strong>mover</strong> (<em>MOV</em>) un dato a un registro.
-    &gt; <em>Nota:</em> Un <strong>registro</strong> es una posición de memoria ultrarrápida situada <em>dentro</em> de la propia CPU.</li>
-<li><strong>Registro destino (3 siguientes bits):</strong> El código <code>000</code> corresponde al registro interno denominado <strong>AL</strong>.</li>
+<li>
+<p><strong>Código de operación (5 primeros bits):</strong> La secuencia <code>10110</code> ordena <strong>mover</strong> (<em>MOV</em>) un dato a un <strong>registro</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">¿Qué es un registro?</p>
+<p>Un <strong>registro</strong> es una celda de memoria ultrarrápida situada <em>dentro</em> de la propia CPU.</p>
+</div>
+</li>
+<li>
+<p><strong>Registro destino (3 siguientes bits):</strong> El código <code>000</code> corresponde al registro interno denominado <strong>AL</strong>.</p>
+</li>
 <li><strong>Dato (8 bits finales):</strong> La secuencia <code>01100001</code> es el valor del dato (97 en decimal, 61 en hexadecimal).</li>
 </ol>
 <p>El lenguaje ensamblador permite escribir <code>MOV AL, 61h</code> en lugar de la cadena de bits, resultando mucho más inteligible.</p>
