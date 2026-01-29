@@ -837,15 +837,17 @@ Imaginemos un programa con un error de sintaxis.
 <p>Muchos lenguajes actuales (Java, Python, C#) buscan un punto intermedio utilizando una estrategia de <em>CPU Imaginaria</em>.</p>
 <ol>
 <li>
-<p><strong>Fase de Compilación a Bytecode:</strong>
-    El código fuente no se traduce a la ISA de la CPU real (Intel, ARM, etc.), sino que se genera un <strong>fichero intermedio</strong> conteniendo <strong>Bytecode</strong> (ej. <code>.class</code> en Java, <code>.pyc</code> en Python).
-    Este Bytecode no es más que la <strong>ISA (Instruction Set Architecture)</strong> de una <em>máquina ideal</em> que no existe físicamente. Es como traducir un libro de español a <strong>Esperanto</strong> en lugar de a 50 idiomas distintos.</p>
+<p><strong>Fase de Compilación a Bytecode:</strong></p>
+<p>El código fuente no se traduce a la ISA de la CPU real (Intel, ARM, etc.), sino que se genera un <strong>fichero intermedio</strong> conteniendo <strong>Bytecode</strong> (ej. <code>.class</code> en Java, <code>.pyc</code> en Python).
+Este Bytecode no es más que la <strong>ISA (Instruction Set Architecture)</strong> de una <em>máquina ideal</em> que no existe físicamente. Es como traducir un libro de español a <strong>Esperanto</strong> en lugar de a 50 idiomas distintos.</p>
 </li>
 <li>
-<p><strong>Fase de Ejecución (La Máquina Virtual):</strong>
-    La <strong>Máquina Virtual (VM)</strong> no es hardware, sino un <strong>programa</strong> (software) instalado en el ordenador del usuario que actúa como ese procesador ficticio.
-    De facto, la VM funciona como un <strong>intérprete puro</strong> (pero sobre el bytecode, no sobre el código fuente): lee las instrucciones del archivo intermedio y las traduce a la <strong>ISA nativa</strong> de la máquina real (Inglés, Francés, Chino...) en tiempo real.
-    &gt; Como ocurre con cualquier intérprete, si una instrucción de bytecode está dentro de un bucle, la VM la traducirá una y otra vez en cada iteración (salvo optimizaciones JIT), lo que implica una sobrecarga de rendimiento respecto al código nativo.</p>
+<p><strong>Fase de Ejecución (La Máquina Virtual):</strong></p>
+<p>La <strong>Máquina Virtual (VM)</strong> no es hardware, sino un <strong>programa</strong> (software) instalado en el ordenador del usuario que actúa como ese procesador ficticio.
+De facto, la VM funciona como un <strong>intérprete puro</strong> (pero sobre el bytecode, no sobre el código fuente): lee las instrucciones del archivo intermedio y las traduce a la <strong>ISA nativa</strong> de la máquina real (Inglés, Francés, Chino...) en tiempo real.</p>
+<blockquote>
+<p>Como ocurre con cualquier intérprete, si una instrucción de bytecode está dentro de un bucle, la VM la traducirá una y otra vez en cada iteración (salvo optimizaciones JIT), lo que implica una sobrecarga de rendimiento respecto al código nativo.</p>
+</blockquote>
 </li>
 </ol>
 <p><strong>Ventajas de la Máquina Virtual:</strong></p>
