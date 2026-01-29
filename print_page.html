@@ -1472,10 +1472,10 @@ Por ejemplo, en un sistema de 8 bits (donde la vuelta completa son 256 pasos), r
 <p>¡Hemos conseguido el resultado correcto (<span class="arithmatex">\(5-1=4\)</span>) usando solo la suma!</p>
 </div>
 <h3 id="representacion_de_la_informacion-la-suma-binaria">La suma Binaria</h3>
-<p>Aunque las CPUs modernas son capaces de realizar operaciones aritméticas complejas (multiplicación, división...), la base fundamental del diseño hardware es la <strong>suma</strong>. De hecho, operaciones como la multiplicación se implementan a menudo mediante secuencias rápidas de sumas y desplazamientos (<em>shifts</em>). Por este motivo, nos centraremos en analizar en detalle el circuito sumador como bloque constructivo esencial de la ALU.</p>
-<p>La genialidad del uso del <strong>Complemento a 2</strong> radica en que elimina la distinción entre suma y resta. Matemáticamente y eléctricamente, <strong>restar es simplemente sumar un número negativo</strong>:
-$$ A - B \iff A + (-B) $$
-Esta propiedad permite que un único circuito físico resuelva ambas operaciones, simplificando drásticamente el diseño del procesador.</p>
+<p>Aunque las CPUs modernas son capaces de realizar operaciones aritméticas complejas (multiplicación, división...), la base fundamental del diseño hardware es la <strong>suma</strong>. De hecho, operaciones como la multiplicación se implementan a menudo mediante secuencias rápidas de sumas y desplazamientos (<em>shifts</em>). Por este motivo, nos centraremos en analizar someramente el circuito sumador como bloque constructivo esencial de la ALU.</p>
+<p>La genialidad del uso del <strong>Complemento a 2</strong> radica en que elimina la distinción entre suma y resta. Matemáticamente y eléctricamente, <strong>restar es simplemente sumar un número negativo</strong>:</p>
+<div class="arithmatex">\[ A - B \iff A + (-B) \]</div>
+<p>Esta propiedad permite que un único circuito físico resuelva ambas operaciones, simplificando drásticamente el diseño del procesador.</p>
 <h4 id="representacion_de_la_informacion-reglas-básicas">Reglas básicas</h4>
 <p>Las reglas básicas para sumar 2 bits son:</p>
 <ul>
