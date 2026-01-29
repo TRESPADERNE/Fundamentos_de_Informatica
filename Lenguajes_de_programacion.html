@@ -1025,15 +1025,15 @@ El programa escrito en lenguaje ensamblador (<strong>Programa Fuente</strong>) d
 <p><strong>Compilación:</strong> Traduce el código preprocesado a <strong>código objeto</strong> (<code>.o</code> o <code>.obj</code>). Este código es binario pero aún no es ejecutable por sí mismo porque le faltan las conexiones con el resto del proyecto.</p>
 <div class="admonition info">
 <p class="admonition-title">Las referencias cruzadas entre unidades de compilación</p>
-<p>Un programa suele dividirse en <strong>muchos archivos fuente</strong>. En esta fase, cada archivo se traduce por separado, creando unidades de compilación. Pero si uno necesita usar una función que está escrita en <em>otra</em> unidad de compilación, todavía no <em>sabe</em> dónde encontrarla. Esas <em>referencias</em> cruzadas están pendientes de resolver.</p>
+<p>Un programa suele dividirse en <strong>muchos archivos fuente</strong>. En esta fase, cada archivo se traduce por separado. Pero si una unidad necesita usar una función que está escrita en <em>otra</em> unidad de compilación, todavía no <em>sabe</em> dónde encontrarla. Esas <em>referencias</em> cruzadas están pendientes de resolver.</p>
 </div>
 </li>
 <li>
 <p><strong>Enlazado (Linker):</strong> Une todos los archivos objeto del programador con las <strong>bibliotecas externas</strong> (ej. funciones matemáticas) para crear un único fichero <strong>ejecutable</strong> binario (<code>.exe</code>).</p>
 </li>
 </ol>
-<p><strong>¿Qué ocurre al ejecutarlo? (El Loader)</strong>
-Cuando un usuario ejecuta ese archivo <code>.exe</code>, un componente del sistema operativo llamado <strong>cargador (loader)</strong> transfiere el código y los datos del fichero binario a la memoria <em>RAM</em>, y la CPU comienza a procesar las instrucciones en código máquina que contiene.</p>
+<p><strong>El Cargador (Loader)</strong></p>
+<p>Cuando un usuario ejecuta ese archivo <code>.exe</code>, un componente del sistema operativo llamado <strong>cargador (loader)</strong> transfiere el código y los datos del fichero binario a la memoria <em>RAM</em>, y la CPU comienza a procesar las instrucciones en código máquina que contiene.</p>
 <p><img alt="Proceso de compilación en C++" src="img/LP/compilacion.jpg" style="display: block; margin: 0 auto" /></p>
 <center><em>Proceso de compilación en C++</em></center>
 
