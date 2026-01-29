@@ -1473,7 +1473,7 @@ Por ejemplo, en un sistema de 8 bits (donde la vuelta completa son 256 pasos), r
 </div>
 <h3 id="representacion_de_la_informacion-la-suma-binaria">La suma Binaria</h3>
 <p>Aunque las CPUs modernas son capaces de realizar operaciones aritméticas complejas (multiplicación, división...), la base fundamental del diseño hardware es la <strong>suma</strong>. De hecho, operaciones como la multiplicación se implementan a menudo mediante secuencias rápidas de sumas y desplazamientos (<em>shifts</em>). Por este motivo, nos centraremos en analizar someramente el circuito sumador como bloque constructivo esencial de la ALU.</p>
-<p>La genialidad del uso del <strong>Complemento a 2</strong> radica en que elimina la distinción entre suma y resta. Matemáticamente y eléctricamente, <strong>restar es simplemente sumar un número negativo</strong>:</p>
+<p>Como ya hemos adelantado, la genialidad del uso del <strong>Complemento a 2</strong> radica en que elimina la distinción entre suma y resta. Matemáticamente y eléctricamente, <strong>restar es simplemente sumar un número negativo</strong>:</p>
 <div class="arithmatex">\[ A - B \iff A + (-B) \]</div>
 <p>Esta propiedad permite que un único circuito físico resuelva ambas operaciones, simplificando drásticamente el diseño del procesador.</p>
 <h4 id="representacion_de_la_informacion-reglas-básicas">Reglas básicas</h4>
@@ -1627,8 +1627,8 @@ Al igual que ocurre en la aritmética decimal (ej. <span class="arithmatex">\(87
 <p>Combinando sumadores completos podemos sumar números con el número de bits deseado. </p>
 <h3 id="representacion_de_la_informacion-justificación-del-uso-de-c2-en-la-cpu">Justificación del uso de C2 en la CPU</h3>
 <p>Veamos la razón fundamental por la que los ordenadores utilizan Complemento a 2 analizando la operación <span class="arithmatex">\(6 + (-7)\)</span> (cuyo resultado debe ser <span class="arithmatex">\(-1\)</span>) con un sumador binario estándar de 4 bits.</p>
-<p><strong>1. Usando Signo-Magnitud:</strong>
-En Signo-Magnitud, el bit más significativo es el signo.
+<p><strong>1. Usando Signo-Magnitud:</strong></p>
+<p>En Signo-Magnitud, el bit más significativo es el signo.
 * <span class="arithmatex">\(6_{10} \rightarrow 0110_{SM}\)</span>
 * <span class="arithmatex">\(-7_{10} \rightarrow 1111_{SM}\)</span></p>
 <p>Si sumamos estos patrones de bits directamente:</p>
@@ -1640,9 +1640,11 @@ En Signo-Magnitud, el bit más significativo es el signo.
 </code></pre></div>
 <p>El resultado obtenido <span class="arithmatex">\(0101_{SM}\)</span> corresponde a <span class="arithmatex">\(+5_{10}\)</span>.
 <strong>¡El resultado es ERRÓNEO!</strong> Un sumador estándar no funciona para números mixtos en Signo-Magnitud.</p>
-<p><strong>2. Usando Complemento a 2 (C2):</strong>
-* <span class="arithmatex">\(6_{10} \rightarrow 0110_{C2}\)</span>
-* <span class="arithmatex">\(-7_{10} \rightarrow 1001_{C2}\)</span> ( Invertir <span class="arithmatex">\(0111 \rightarrow 1000\)</span>; Sumar <span class="arithmatex">\(1 \rightarrow 1001\)</span>)</p>
+<p><strong>2. Usando Complemento a 2 (C2):</strong></p>
+<ul>
+<li><span class="arithmatex">\(6_{10} \rightarrow 0110_{C2}\)</span></li>
+<li><span class="arithmatex">\(-7_{10} \rightarrow 1001_{C2}\)</span> ( Invertir <span class="arithmatex">\(0111 \rightarrow 1000\)</span>; Sumar <span class="arithmatex">\(1 \rightarrow 1001\)</span>)</li>
+</ul>
 <p>Operando con el mismo circuito sumador:</p>
 <div class="highlight"><pre><span></span><code>                 &lt;-- Acarreos
     0 1 1 0      (6)
