@@ -833,11 +833,15 @@
 <h4 id="lenguaje-máquina">Lenguaje Máquina</h4>
 <p>Es el lenguaje directamente comprensible por el procesador (CPU). En el tema de <strong>Arquitectura</strong> estudiaremos cómo la CPU procesa estas órdenes; por ahora basta entender que es el componente hardware encargado de leer secuencialmente <em>unos y ceros</em> y actuar en consecuencia (sumar, guardar datos, etc.).</p>
 <ul>
-<li>Utiliza un sistema de codificación binaria (secuencias de 1's y 0's) para definir un <strong>conjunto predefinido de instrucciones</strong>, (<strong>ISA</strong>, <em>Instruction Set Architecture</em>).
-    &gt; Una <strong>instrucción</strong> es la operación más elemental que el hardware puede realizar indivisiblemente, como <em>sumar dos valores</em>, <em>mover un dato de memoria al procesador</em>, etc.</li>
-<li>Depende totalmente de la arquitectura: un código máquina para una CPU ARM (móvil) es incomprensible para una CPU Intel Core i7 (PC).</li>
-<li><strong>Gestión:</strong> A este nivel, el control de la <strong>memoria</strong> es manual y absoluto.
-    &gt; La memoria es el <em>casillero</em> gigante de celdas numeradas donde se almacenan los datos y el programa en ejecución. En código máquina no existen las <em>variables</em> con nombres (como <code>edad</code>), sino que el programador debe referirse a los datos por su <strong>dirección física</strong> (el número exacto de la celda, ej: <code>0x0045A</code>).</li>
+<li>
+<p>Utiliza un sistema de codificación binaria (secuencias de 1's y 0's) para definir un <strong>conjunto predefinido de instrucciones</strong>, (<strong>ISA</strong>, <em>Instruction Set Architecture</em>).</p>
+<blockquote>
+<p>Una <strong>instrucción</strong> es la operación más elemental que el hardware puede realizar indivisiblemente, como <em>sumar dos valores</em>, <em>mover un dato de memoria al procesador</em>, etc.
+*   Depende totalmente de la arquitectura: un código máquina para una CPU ARM (móvil) es incomprensible para una CPU Intel Core i7 (PC).
+*   <strong>Gestión:</strong> A este nivel, el control de la <strong>memoria</strong> es manual y absoluto.</p>
+<p>La memoria es el <em>casillero</em> gigante de celdas numeradas donde se almacenan los datos y el programa en ejecución. En código máquina no existen las <em>variables</em> con nombres (como <code>edad</code>), sino que el programador debe referirse a los datos por su <strong>dirección física</strong> (el número exacto de la celda, ej: <code>0x0045A</code>).</p>
+</blockquote>
+</li>
 </ul>
 <h4 id="lenguaje-ensamblador">Lenguaje Ensamblador</h4>
 <p>Emplea palabras nemotécnicas (abreviaturas) para hacer referencia a las instrucciones del lenguaje de máquina, haciéndolo ligeramente más legible para el humano.</p>

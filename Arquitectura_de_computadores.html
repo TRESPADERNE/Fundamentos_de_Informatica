@@ -420,96 +420,96 @@
 <h1 id="introducción-a-la-arquitectura-de-computadores">Introducción a la Arquitectura de Computadores</h1>
 <h2 id="índice">Índice</h2>
 <ol>
-<li><a href="#1-fundamentos-de-la-información-digital">Fundamentos de la Información Digital</a></li>
-<li><a href="#2-sistemas-de-numeración">Sistemas de Numeración</a></li>
-<li><a href="#3-representación-de-números-enteros">Representación de Números Enteros</a></li>
-<li><a href="#4-representación-de-números-reales">Representación de Números Reales</a></li>
-<li><a href="#5-representación-de-caracteres">Representación de Caracteres</a></li>
+<li><a href="#1-introducción">Introducción</a></li>
+<li><a href="#2-estructura-de-un-computador-enfoque-multinivel">Estructura de un computador: enfoque multinivel</a></li>
+<li><a href="#3-organización-y-funcionamiento-de-la-cpu">Organización y funcionamiento de la CPU</a></li>
+<li><a href="#4-el-repertorio-de-instrucciones-isa">El repertorio de instrucciones (ISA)</a></li>
+<li><a href="#5-el-rendimiento-de-un-computador">El rendimiento de un computador</a></li>
+<li><a href="#6-la-memoria">La memoria</a></li>
+<li><a href="#7-interrupciones">Interrupciones</a></li>
+<li><a href="#8-dispositivos-de-entradasalida">Dispositivos de Entrada/Salida</a></li>
+<li><a href="#bibliografía">Bibliografía</a></li>
 </ol>
 <h2 id="1-introducción">1. Introducción</h2>
-<p>En 1945 John von Neumann publicó un modelo de arquitectura de computador que sigue hoy en día siendo la base de la mayor parte de las arquitecturas de computador actuales.</p>
-<p>La <strong>arquitectura von Neumann</strong> distingue tres bloques funcionales fundamentales:
-*   <strong>El procesador o CPU (Central Processing Unit):</strong> Ejecuta los programas.
-*   <strong>La memoria:</strong> Contiene datos e instrucciones, que pueden ser leídos y escritos.
-    *   Valores (peso, volumen, sueldo, etc.) y direcciones de memoria.
-    *   Instrucciones para procesar esos valores.
-*   <strong>Dispositivos de entrada/salida:</strong> Suministran al computador los datos que debe procesar y reciben los resultados.</p>
-<p>Estos bloques se interconectan a través del <strong>bus del sistema</strong>, un conjunto de conductores eléctricos que transmiten direcciones, datos y señales de control.</p>
-<blockquote>
-<p><strong>[Figura 1.1 - Bloques funcionales de la arquitectura von Neuman]</strong></p>
-</blockquote>
+<p>En 1945 John Von Neumann publicó un modelo de arquitectura de computador que sigue hoy en día siendo la base de la mayor parte de las arquitecturas de computador actuales.</p>
+<p>La <strong>arquitectura Von Neumann</strong> distingue tres bloques funcionales fundamentales:
+*   <strong>El procesador o CPU (Central Processing Unit)</strong>
+Ejecuta los programas.
+*   <strong>La memoria</strong>
+Contiene <strong>datos</strong> e <strong>instrucciones</strong>, que pueden ser leídos y escritos.
+    *   <strong>valores</strong>, como peso, volumen, sueldo, velocidad, cantidades, nombres, fechas, etc. y <strong>direcciones de memoria</strong>.
+    *  <strong>instrucciones</strong> para procesar esos valores.
+*   <strong>Dispositivos de entrada/salida</strong>
+Suministran al computador los datos que debe procesar y reciben los resultados.</p>
+<p>Estos bloques funcionales se interconectan a través del <strong>bus del sistema</strong>, conjunto de conductores eléctricos que transmiten:
+* las <strong>direcciones</strong> de memoria para acceder a los datos,
+* los propios <strong>datos</strong> (instrucciones y valores) y
+* las <strong>señales de control</strong>.</p>
+<p><img alt="Bus del Sistema" src="img/AC/bus_sistema.jpg" style="display: block; margin: 0 auto" /></p>
+<center><em>Figura 1.1 - Bloques funcionales de la arquitectura Von Neumann.<br><small>(Fuente: <a href="https://es.wikipedia.org/wiki/Arquitectura_de_Von_Neumann">https://es.wikipedia.org/wiki/Arquitectura_de_Von_Neumann</a>)</small></em></center>
+
+<p><br></p>
+<p>Las características fundamentales de la <strong>arquitectura Von Neumann</strong> son:
+1.  Valores e instrucciones se almacenan en la misma memoria (<strong>programa almacenado</strong>). 
+2.  El contenido de la memoria se organiza en <strong>celdas</strong>, que son accesibles (lectura y escritura) proporcionando una <strong>dirección</strong>.
+3.  La <strong>ejecución</strong> de los programas se realiza por defecto de forma <strong>secuencial</strong>, una lista consecutiva de <strong>instrucciones</strong> que se ejecutan una tras otra.</p>
+<div class="admonition note">
+<p class="admonition-title">El <em>cuello de botella</em> de Von Neumann</p>
+<p>Valores e instrucciones comparten el <strong>bus de datos</strong> para ser transferidos a la CPU. Como consecuencia, el procesador no puede acceder simultáneamente a las instrucciones y a los datos, lo que genera una restricción en el rendimiento conocida como el <strong>cuello de botella de Von Neumann</strong>. En la práctica, esto significa que la velocidad del sistema está limitada por el ancho de banda del bus de memoria, que suele ser mucho más lento que la velocidad de procesamiento de la CPU.</p>
+</div>
 <h3 id="11-programación-cableada-frente-a-programación-software">1.1 Programación cableada frente a programación software</h3>
 <ul>
-<li><strong>Programa cableado:</strong> Se basa en la interconexión de componentes lógicos para efectuar un cálculo determinado. Es un proceso de diseño físico de hardware.</li>
-<li><strong>Programa software:</strong> Utiliza componentes de propósito general que implementan operaciones básicas. Se asocia un código a cada operación y una secuencia de estos códigos (instrucciones) forma el programa.</li>
+<li><strong>Programa cableado</strong>
+Mediante la combinación de componentes lógicos es factible recrear funciones que, a partir de unos datos de entrada, permitan obtener las salidas correspondientes. El proceso de diseño y posterior interconexión de estos componentes para lograr efectuar un cálculo <strong>determinado</strong> es de hecho una forma de programación, es un <strong>programa cableado</strong>.</li>
+<li><strong>Programa software</strong>
+Para dotar de un <strong>propósito general</strong> a un dispositivo, la alternativa es utilizar una combinación de componentes que implementen diversas <strong>operaciones básicas</strong> lógico/aritméticas. Esto permite ejecutar diferentes funciones según se apliquen diferentes señales de control sobre los datos de entrada.
+Se asocia a cada operación básica un <strong>código</strong> y se añade un hardware que, en función del código recibido, genera las señales de control asociadas. Para recrear un cálculo o <strong>algoritmo</strong> determinado, basta determinar la <strong>secuencia de códigos</strong> adecuada. Esta secuencia de códigos o <strong>instrucciones</strong> es el <strong>programa software</strong>.</li>
 </ul>
-<blockquote>
-<p><strong>[Figura 1.2 - Programación cableada frente a programación software]</strong></p>
-</blockquote>
+<p><img alt="Programa Hardware vs Software" src="img/AC/programa_hard_vs_soft.jpg" style="display: block; margin: 0 auto" /></p>
+<center><em>Figura 1.2 - Programación cableada frente a programación software.<br><small>(Fuente: W. Stallings. Organización y arquitectura de computadores, pág. 59)</small></em></center>
+<p><br></p>
+<p>Las dos cajas mostradas en la figura 1.2.b se corresponden con la <strong>CPU</strong>: bloque funcional formado por el intérprete de instrucciones, la <strong>Unidad de Control</strong> (<strong>CU</strong>), y el módulo de uso general que implementa las funciones aritméticas y lógicas, la <strong>Unidad Aritmético Lógica</strong> (<strong>ALU</strong>).</p>
+<p>Faltan dos elementos esenciales para que el sistema software pueda funcionar:
+* <strong>Módulo de Entrada/Salida</strong>: los datos e instrucciones deben introducirse en el sistema con algún componente que transforme los formatos de entrada a los formatos que utilice el sistema. Del mismo modo, los resultados deben poder ser accesibles desde el exterior.
+* <strong>La memoria principal</strong>: es un componente que en la arquitectura Von Neumann sirve de almacén tanto de las instrucciones como de los datos durante la ejecución del programa. Aunque, a priori, sería factible para cálculos simples proporcionar secuencialmente las instrucciones y datos según se vayan ejecutando (es lo que se hace formalmente con una calculadora de bolsillo), de forma general, un cálculo complejo no siempre ejecutará las instrucciones siguiendo la secuencia predeterminada, pudiendo hacer <strong>saltos</strong> hacia adelante y hacia atrás. Además, durante el proceso pueden generarse operandos intermedios que se utilizarán más adelante y que, por tanto, necesitan ser almacenados temporalmente. </p>
 <hr />
 <h2 id="2-estructura-de-un-computador-enfoque-multinivel">2. Estructura de un computador: enfoque multinivel</h2>
-<p>El enfoque multinivel considera al computador estructurado en niveles:</p>
-<ul>
-<li><strong>Nivel 5:</strong> Lenguajes de alto nivel (Traducción: compilador/intérprete).</li>
-<li><strong>Nivel 4:</strong> Lenguaje ensamblador (Traducción: ensamblador).</li>
-<li><strong>Nivel 3:</strong> Sistema operativo (Interpretación: S.O.).</li>
-<li><strong>Nivel 2:</strong> Conjunto de Instrucciones - ISA (Interpretación: microprograma o ejecución directa).</li>
-<li><strong>Nivel 1:</strong> Microarquitectura (Hardware).</li>
-<li><strong>Nivel 0:</strong> Lógica digital.</li>
-</ul>
-<blockquote>
-<p><strong>[Figura 2.1 – Enfoque multinivel de un computador]</strong></p>
-</blockquote>
+<p><img alt="Enfoque multinivel" src="img/AC/enfoque_multinivel.jpg" style="display: block; margin: 0 auto" /></p>
+<center><em>Figura 2.1 – Enfoque multinivel de un computador<br><small>(Fuente: A. Tanembaum. Organización de computadoras. Un enfoque estructurado, pág. 5)</small></em></center>
+<p><br></p>
+<p>El enfoque multinivel considera al computador estructurado en niveles.</p>
 <h3 id="21-nivel-0-lógica-digital">2.1 Nivel 0: Lógica digital</h3>
-<p>Hardware básico (transistores y compuertas lógicas). Se modela mediante <strong>tablas de verdad</strong>.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">Entrada</th>
-<th style="text-align: center;">Entrada</th>
-<th style="text-align: center;">Salida</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">0</td>
-</tr>
-<tr>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">0</td>
-</tr>
-<tr>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">0</td>
-</tr>
-<tr>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">1</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><strong>[Figura 2.2 – Compuerta lógica AND formada por transistores]</strong></p>
-</blockquote>
+<p>Es el hardware de la máquina, donde encontramos <strong>compuertas lógicas</strong> formadas por transistores y las líneas eléctricas que las conectan. Las compuertas lógicas son circuitos digitales que implementan funciones booleanas, es decir, funciones con entradas y salidas en el conjunto de valores {0, 1}. Ejemplos básicos son las compuertas que implementan las operaciones AND y OR.</p>
+<p><strong>Tablas de verdad</strong>
+El funcionamiento de un tipo de compuerta se modela por su <strong>tabla de verdad</strong>: nos muestra la salida de la compuerta para cada combinación de entradas posible. En general, para una función booleana de <span class="arithmatex">\(n\)</span> entradas tenemos una tabla de <span class="arithmatex">\(2^n\)</span> filas.</p>
+<p><img alt="Compuerta lógica" src="img/AC/compuerta_logica.jpg" style="display: block; margin: 0 auto" /></p>
+<center><em>Figura 2.2 – Compuerta lógica AND formada por transistores<br><small>(Fuente: <a>https://es.wikipedia.org/wiki/Puerta_lógica)</a></small></em></center>
+<p><br></p>
 <h3 id="22-nivel-1-microarquitectura">2.2 Nivel 1: Microarquitectura</h3>
-<p>Detalla la organización y conexión de los dispositivos del nivel 0. No es visible para el programador.</p>
+<p>Detalla cómo están conectados e interactúan entre sí los dispositivos del nivel 0 y como se organizan formando unidades funcionales. Aquí se decide qué señales de control se utilizarán, las interfaces con los dispositivos de E/S, las tecnologías de memoria utilizadas, etc.</p>
+<p>Desde el punto de vista de un programador, la organización <strong>no es visible</strong>.</p>
 <blockquote>
-<p><strong>[Figura 2.3 - Microarquitectura del Intel 80286]</strong></p>
+<p>Una instrucción de multiplicar puede llevarse a cabo en el nivel de microarquitectura con un circuito integrado (chip) especializado o con un microprograma interno que realiza de forma iterada sumas.</p>
 </blockquote>
+<p><img alt="Microarquitectura" src="img/AC/microarquitectura.jpg" style="display: block; margin: 0 auto" /></p>
+<center><em>Figura 2.3 - Microarquitectura del Intel 80286<br><small>(Fuente: <a>hhttps://en.wikipedia.org/wiki/Microarchitecture)</a></small></em></center>
+<p><br></p>
 <h3 id="23-nivel-2-arquitectura-del-conjunto-de-instrucciones-isa">2.3 Nivel 2: Arquitectura del Conjunto de instrucciones (ISA)</h3>
-<p>Especificación que define el repertorio de instrucciones disponibles para una familia de diseños compatibles.</p>
+<p>El acrónimo <strong>ISA</strong>: <strong>I</strong>nstruction <strong>S</strong>et <strong>A</strong>rchitecture es una <strong>especificación</strong> que define el <strong>conjunto</strong> o <strong>repertorio</strong> de todas las <strong>instrucciones</strong> disponibles para una familia de diseños de microarquitecturas compatibles.</p>
+<p>Aunque depende de la bibliografía, el conjunto formado por la ISA y la microarquitectura se conoce como la <strong>arquitectura de un computador</strong>. Como es lógico, el diseño del repertorio de instrucciones y la microarquitectura asociada están íntimamente ligados.</p>
 <h3 id="24-nivel-3-sistema-operativo">2.4 Nivel 3: Sistema Operativo</h3>
-<p>Interfaz entre usuario y hardware. Gestiona recursos y controla programas.</p>
-<blockquote>
-<p><strong>[Figura 2.4 – Logos de algunos Sistemas Operativos actuales]</strong></p>
-</blockquote>
+<p>Un <strong>Sistema Operativo</strong> actúa como interfaz entre el usuario y el hardware del computador.
+El sistema operativo es un <strong>conjunto de programas</strong> que <strong>interpretan</strong> complejas <strong>instrucciones</strong> que:
+* <strong>asignan</strong> y <strong>gestionan</strong> los recursos del computador
+* <strong>controlan</strong> los programas de los usuarios y las operaciones de E/S. </p>
+<p>Las instrucciones ISA también son accesibles desde este nivel.</p>
+<p>El S.O. <strong>extiende</strong> el repertorio de instrucciones de la ISA con <strong>llamadas al sistema</strong> (<strong>System Calls</strong>). Para un programador de nivel 3, una instrucción para escribir en un archivo es tan <em>básica</em> como una suma, aunque por debajo implique miles de operaciones.</p>
+<p><img alt="Logos S.O." src="img/AC/logos_so.jpg" style="display: block; margin: 0 auto" /></p>
+<center><em>Figura 2.4 – Logos de algunos Sistemas Operativos actuales</em></center>
+<p><br></p>
 <h3 id="25-niveles-4-y-5-lenguajes-ensamblador-y-alto-nivel">2.5 Niveles 4 y 5: Lenguajes ensamblador y alto nivel</h3>
-<p>Niveles utilizados por programadores de sistemas (nivel 4) y de aplicaciones (nivel 5).</p>
+<p>Ya hemos hablado de ellos en temas anteriores. Los niveles 1 al 3 son utilizados por los <strong>programadores de sistemas</strong>, es decir, los encargados de <strong>diseñar</strong> y/o <strong>implementar</strong> programas tales como <strong>Sistemas Operativos</strong>, <strong>Compiladores</strong>, <strong>Controladores de Dispositivos</strong>, etc.</p>
+<p>Los niveles 4 y particularmente el 5 son utilizados por los <strong>programadores de aplicaciones</strong>, tales como procesadores de texto, aplicaciones de contabilidad, páginas web, etc.</p>
 <hr />
 <h2 id="3-organización-y-funcionamiento-de-la-cpu">3. Organización y funcionamiento de la CPU</h2>
 <h3 id="31-introducción">3.1 Introducción</h3>
