@@ -1185,9 +1185,9 @@
 <p>En la arquitectura moderna de computadores (modelo <strong>Von Neumann</strong>), es fundamental comprender que la memoria principal almacena indistintamente dos categorías de entidades:</p>
 <ol>
 <li><strong>Instrucciones (Código):</strong> La secuencia lógica de órdenes que dictan el comportamiento del procesador.</li>
-<li><strong>Datos:</strong> La materia prima (números, caracteres, señales) sobre la que operan dichas instrucciones.</li>
+<li><strong>Valores:</strong> La materia prima (números, caracteres, señales) sobre la que operan dichas instrucciones.</li>
 </ol>
-<p>A bajo nivel, no existe diferencia física entre instrucciones y datos; ambos se representan universalmente mediante <strong>patrones de bits</strong> (<span class="arithmatex">\(0\)</span> y <span class="arithmatex">\(1\)</span>), que en última instancia corresponden a estados físicos del hardware (niveles de voltaje, cargas eléctricas, magnetización...). Es el contexto de ejecución (cómo y cuándo accede el procesador a ellos) lo que determina su interpretación.</p>
+<p>A bajo nivel, no existe diferencia física entre instrucciones y valores; ambos se representan universalmente mediante <strong>patrones de bits</strong> (<span class="arithmatex">\(0\)</span> y <span class="arithmatex">\(1\)</span>), que en última instancia corresponden a estados físicos del hardware (niveles de voltaje, cargas eléctricas, magnetización...). Es el contexto de ejecución (cómo y cuándo accede el procesador a ellos) lo que determina su interpretación.</p>
 <p>Esta naturaleza binaria se mantiene porque es la solución tecnológica más robusta: es más sencillo y seguro para un circuito distinguir entre dos estados extremos (On/Off) que intentar diferenciar 10 niveles de voltaje precisos, como requeriría una codificación adaptada al sistema decimal.</p>
 <h3 id="almacenamiento-en-el-ordenador-la-memoria">Almacenamiento en el Ordenador: La Memoria</h3>
 <p>La memoria principal del ordenador se estructura como una <strong>gran tabla lineal de celdas</strong>. Cada celda es un espacio de almacenamiento direccionable individualmente.</p>
@@ -1202,7 +1202,7 @@
 <li><strong>Byte</strong> (<strong>Octeto</strong>): Agrupación de <strong>8 bits</strong>. Es la <strong>unidad mínima direccionable</strong> de la memoria; el procesador lee o escribe bytes completos.</li>
 </ul>
 <h4 id="visualización-de-la-memoria">Visualización de la Memoria</h4>
-<p>Podemos imaginar la memoria como una tabla donde cada fila representa una celda con su propia <strong>dirección</strong>. En las arquitecturas actuales lo habitual es el <strong>direccionamiento por Byte</strong>, donde cada dirección de memoria apunta a 8 bits.</p>
+<p>Podemos imaginar la memoria como una tabla donde cada fila representa una celda con su propia <strong>dirección</strong>. En las arquitecturas actuales lo habitual es el <strong>direccionamiento por Byte</strong>, donde cada dirección de memoria apunta a una celda que contiene un Byte, 8 bits.</p>
 <p>Dado que muchos datos requieren más capacidad, es común que un solo dato ocupe <strong>varias celdas (direcciones) consecutivas</strong>:</p>
 <div align="center">
 <table style="margin: 0 auto;">
@@ -1354,7 +1354,7 @@
 <p>El objetivo de este apartado no es convertirse en calculadoras humanas, sino entender la <strong>lógica de traducción</strong> entre el mundo humano y el de la máquina. Este conocimiento es vital para interpretar direcciones de memoria, entender los límites de capacidad de las variables o comprender cómo se representa internamente cualquier tipo de dato.</p>
 <h3 id="definición">Definición</h3>
 <p>Un sistema de numeración es una colección de símbolos y reglas para construir números válidos. Los sistemas usados en informática son <strong>posicionales</strong>: el valor de una cifra depende de su símbolo y de la posición que ocupa.</p>
-<p>La <strong>base (<span class="arithmatex">\(b\)</span>)</strong> es el número total de símbolos permitidos en el sistema. En un sistema posicional, la base también determina cuántas unidades de un orden inferior son necesarias para formar una unidad del orden inmediato superior (ej. 10 unidades forman 1 decena). Además, la base coincide con el valor por el cual se multiplican las posiciones sucesivas.</p>
+<p>La <strong>base (<span class="arithmatex">\(b\)</span>)</strong> es el número total de símbolos permitidos en el sistema. En un sistema posicional, la base también determina cuántas unidades de un orden inferior son necesarias para formar una unidad del orden inmediato superior (ej. 10 unidades forman 1 decena). </p>
 <div class="center-table">
 <table>
 <thead>
@@ -1481,14 +1481,18 @@ Si solo guardamos los primeros 4 bits fraccionarios, almacenamos <span class="ar
 <p class="admonition-title">Ejemplo Completo con Decimales y Relleno</p>
 <p>Convertir a Hexadecimal el binario: <code>111010.11011</code></p>
 <p>El proceso exige agrupar de 4 en 4 <strong>desde la coma hacia afuera</strong>.</p>
-<p><strong>1. Parte Entera (<code>111010</code>):</strong>
-*   Desde la coma a la izquierda: <code>1010</code> (grupo completo) <span class="arithmatex">\(\to\)</span> Quedan <code>11</code> sueltos.
-*   Rellenamos con ceros a la <strong>izquierda</strong>: <code>0011</code>.
-*   Grupos resultantes: <code>0011</code> | <code>1010</code> <span class="arithmatex">\(\to\)</span> <strong>3</strong> | <strong>A</strong></p>
-<p><strong>2. Parte Fraccionaria (<code>.11011</code>):</strong>
-*   Desde la coma a la derecha: <code>1101</code> (grupo completo) <span class="arithmatex">\(\to\)</span> Queda <code>1</code> suelto.
-*   Rellenamos con ceros a la <strong>derecha</strong>: <code>1000</code>.
-*   Grupos resultantes: <code>1101</code> | <code>1000</code> <span class="arithmatex">\(\to\)</span> <strong>D</strong> | <strong>8</strong></p>
+<p><strong>1. Parte Entera (<code>111010</code>):</strong></p>
+<ul>
+<li>Desde la coma a la izquierda: <code>1010</code> (grupo completo) <span class="arithmatex">\(\to\)</span> Quedan <code>11</code> sueltos.</li>
+<li>Rellenamos con ceros a la <strong>izquierda</strong>: <code>0011</code>.</li>
+<li>Grupos resultantes: <code>0011</code> | <code>1010</code> <span class="arithmatex">\(\to\)</span> <strong>3</strong> | <strong>A</strong></li>
+</ul>
+<p><strong>2. Parte Fraccionaria (<code>.11011</code>):</strong></p>
+<ul>
+<li>Desde la coma a la derecha: <code>1101</code> (grupo completo) <span class="arithmatex">\(\to\)</span> Queda <code>1</code> suelto.</li>
+<li>Rellenamos con ceros a la <strong>derecha</strong>: <code>1000</code>.</li>
+<li>Grupos resultantes: <code>1101</code> | <code>1000</code> <span class="arithmatex">\(\to\)</span> <strong>D</strong> | <strong>8</strong></li>
+</ul>
 <p>Resultado: <strong><span class="arithmatex">\(3A.D8_{16}\)</span></strong></p>
 <p><em>(Nota: Los ceros de relleno son cruciales. Si en la parte fraccionaria hubiéramos tomado <code>1</code> como <code>0001</code> (1) en vez de <code>1000</code> (8), el error sería enorme)</em></p>
 </div>
