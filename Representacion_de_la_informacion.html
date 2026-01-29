@@ -1633,7 +1633,7 @@ Lo más interesante del C2 es que el bit de signo (MSB, posición <span class="a
 <div class="admonition example">
 <p class="admonition-title">Ejemplo: Obtener el número negativo <span class="arithmatex">\(-13\)</span> en C2 con 10 bits</p>
 <p>Escribir el positivo: <span class="arithmatex">\(13_{10} = 0000001101_2\)</span> (Rellenamos con ceros hasta 10 bits)</p>
-<p><strong>Método 1: Inversión + 1 (Estándar)</strong></p>
+<p><strong>Método 1: Inversión + 1 (Uso no recomendado)</strong></p>
 <ul>
 <li>Invertir todos los bits: <code>1111110010</code></li>
 <li>Sumar 1: <code>1111110010</code> + <code>1</code> = <strong><code>1111110011</code></strong></li>
@@ -1660,14 +1660,14 @@ Lo más interesante del C2 es que el bit de signo (MSB, posición <span class="a
 <p>Si el reloj marca las <code>:00</code> y queremos restar 10 minutos:</p>
 <ul>
 <li><strong>Opción A (Resta):</strong> Mover la aguja 10 minutos hacia atrás <span class="arithmatex">\(\to\)</span> Posición <code>:50</code>.</li>
-<li><strong>Opción B (Suma del Complemento):</strong> Mover la aguja 50 minutos hacia adelante <span class="arithmatex">\(\to\)</span> Posición <code>:50</code>.</li>
+<li><strong>Opción B (Suma del Complemento):</strong> Mover la aguja 60-10=50 minutos hacia adelante <span class="arithmatex">\(\to\)</span> Posición <code>:50</code>.</li>
 </ul>
 <p>En un sistema cíclico (limitado), <strong>avanzar 50</strong> pasos te deja en el mismo sitio que <strong>retroceder 10</strong>.</p>
 <p>El ordenador usa este truco para <strong>no tener que implementar la resta</strong> en hardware (que es costosa).
 Por ejemplo, en un sistema de 8 bits (donde la vuelta completa son 256 pasos), restar 1 es equivalente a sumar 255.</p>
-<p>Si calculamos <span class="arithmatex">\(5 + 255\)</span>, la suma aritmética es <span class="arithmatex">\(260\)</span>. Pero como solo tenemos 8 bits, se produce un <strong>desbordamiento</strong> (se pierde el bit que sobra al dar la vuelta) y el contador se queda en <span class="arithmatex">\(4\)</span>.
-$$ 5 + 255 \equiv 4 \pmod{256} $$
-¡Hemos conseguido el resultado correcto (<span class="arithmatex">\(5-1=4\)</span>) usando solo la suma!</p>
+<p>Si calculamos <span class="arithmatex">\(5 + 255\)</span>, la suma aritmética es <span class="arithmatex">\(260\)</span>. Pero como solo tenemos 8 bits, se produce un <strong>desbordamiento</strong> (se pierde el bit que sobra al dar la vuelta) y el contador se queda en <span class="arithmatex">\(4\)</span>.</p>
+<div class="arithmatex">\[ 5 + 255 \equiv 4 \pmod{256} \]</div>
+<p>¡Hemos conseguido el resultado correcto (<span class="arithmatex">\(5-1=4\)</span>) usando solo la suma!</p>
 </div>
 <h3 id="la-suma-binaria">La suma Binaria</h3>
 <p>Aunque las CPUs modernas son capaces de realizar operaciones aritméticas complejas (multiplicación, división...), la base fundamental del diseño hardware es la <strong>suma</strong>. De hecho, operaciones como la multiplicación se implementan a menudo mediante secuencias rápidas de sumas y desplazamientos (<em>shifts</em>). Por este motivo, nos centraremos en analizar en detalle el circuito sumador como bloque constructivo esencial de la ALU.</p>
