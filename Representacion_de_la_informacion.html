@@ -1915,10 +1915,10 @@ Eliminan el bit de signo para duplicar el rango positivo (<span class="arithmate
 <li><strong>Sin tipos <code>unsigned</code>:</strong> Todos los enteros tienen signo.</li>
 </ul>
 <p><strong>Estructura Interna (Precisión Arbitraria o <em>BigNum</em>)</strong></p>
-<p>A diferencia de C++, donde un entero es una caja de tamaño fijo (si metes algo más grande, se rompe), en Python un entero es como un <em>acordeón</em> que se estira según se necesite.</p>
+<p>A diferencia de C++, donde un entero es una caja de tamaño fijo, en Python un entero es como un <em>acordeón</em> que se estira según se necesite.</p>
 <p>Para lograr esto, Python no guarda el número tal cual lo hace el procesador. En su lugar, trocea el número grande en pequeños bloques de 30 bits y los trata como si fueran <em>dígitos</em> de una base numérica gigante (<strong>Base <span class="arithmatex">\(2^{30}\)</span></strong>).</p>
-<p>Matemáticamente, funciona igual que nuestro sistema decimal (donde sumamos unidades, decenas, centenas...), pero usando potencias de <span class="arithmatex">\(2^{30}\)</span>:
-$<span class="arithmatex">\(N = \sum_{i=0} d_i \cdot (2^{30})^i = d_0 + d_1 \cdot 2^{30} + d_2 \cdot 2^{60} + \dots\)</span>$</p>
+<p>Matemáticamente, funciona igual que nuestro sistema decimal (donde sumamos unidades, decenas, centenas...), pero usando potencias de <span class="arithmatex">\(2^{30}\)</span>:</p>
+<div class="arithmatex">\[N = \sum_{i=0} d_i \cdot (2^{30})^i = d_0 + d_1 \cdot 2^{30} + d_2 \cdot 2^{60} + \dots\]</div>
 <div class="admonition example">
 <p class="admonition-title">Ejemplo Práctico</p>
 <p>Imagina un número enorme como <code>123456789101112131415</code> (requiere unos 70 bits).
