@@ -2258,9 +2258,11 @@ Hagamos el proceso inverso para ver el error cometido.</p>
 <p>Durante la Guerra del Golfo, una batería de misiles Patriot en Dhahran (Arabia Saudí) falló al interceptar un Scud iraquí y murieron 28 soldados. El fallo no se debió al tiempo de vuelo del misil, sino al <strong>tiempo que la batería llevaba encendida</strong>.</p>
 <ul>
 <li><strong>El Error de Base:</strong> El sistema medía el tiempo en décimas de segundo y lo multiplicaba por <span class="arithmatex">\(0.1\)</span> para obtener segundos. Como <span class="arithmatex">\(0.1\)</span> tiene infinitos decimales en binario, el registro de 24 bits truncaba el valor, cometiendo un error de <span class="arithmatex">\(0.000000095\)</span> s.</li>
-<li><strong>La Acumulación (Reloj Global):</strong> El sistema <strong>no reseteaba el reloj</strong> al detectar un misil, sino que usaba el <strong>tiempo absoluto</strong> desde el arranque (100 horas) para todos sus cálculos de seguimiento.
-    Aunque el misil Scud acababa de aparecer, el ordenador calculaba su posición usando este tiempo absoluto corrupto. Al multiplicar el error base por cada décima de segundo de las 100 horas, el desfase era enorme:
-    $$ 100 \text{ h} \times 3600 \frac{\text{s}}{\text{h}} \times 10 \frac{\text{décimas}}{\text{s}} \times 0.000000095 \text{ s} \approx \mathbf{0.34 \text{ segundos}} $$</li>
+<li>
+<p><strong>La Acumulación (Reloj Global):</strong> El sistema <strong>no reseteaba el reloj</strong> al detectar un misil, sino que usaba el <strong>tiempo absoluto</strong> desde el arranque (100 horas) para todos sus cálculos de seguimiento.
+    Aunque el misil Scud acababa de aparecer, el ordenador calculaba su posición usando este tiempo absoluto corrupto. Al multiplicar el error base por cada décima de segundo de las 100 horas, el desfase era enorme:</p>
+<div class="arithmatex">\[ 100 \text{ h} \times 3600 \frac{\text{s}}{\text{h}} \times 10 \frac{\text{décimas}}{\text{s}} \times 0.000000095 \text{ s} \approx \mathbf{0.34 \text{ segundos}} \]</div>
+</li>
 <li>
 <p><strong>El Fallo de Software (Bug de Precisión Mixta)</strong>: si todo el sistema hubiera tenido el mismo error, NO habría pasado nada, porque los errores se habrían cancelado al restar tiempos (<span class="arithmatex">\(t_2 - t_1\)</span>).
     El desastre ocurrió porque se instaló una actualización de software que corregía el problema de precisión en una subrutina, pero <strong>se olvidaron de corregirlo en otra</strong>.</p>
