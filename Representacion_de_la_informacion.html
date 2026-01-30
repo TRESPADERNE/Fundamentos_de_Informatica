@@ -2068,26 +2068,29 @@ Supongamos el número <span class="arithmatex">\(0.001101_2\)</span> (<span clas
 </div>
 <p>Al colocar el exponente en los bits más significativos (a la izquierda de la mantisa), logramos que un número con mayor orden de magnitud parezca <em>visual y numéricamente</em> mayor que uno con menor orden de magnitud, independientemente de sus decimales.</p>
 <p>Pero para que este truco funcione, es <strong>crítico que el exponente use representación en EXCESO</strong> (que siempre es positivo) y <strong>NO en Complemento a 2</strong>.</p>
-<p>!! example La importancia derepresentar el exponente en Exceso en lugar de en C2
-    Comparemos un número grande positivo (Exponente <span class="arithmatex">\(+1\)</span>) con un número pequeño (Exponente <span class="arithmatex">\(-1\)</span>).</p>
-<pre><code>*   $A$: $1.0 \times 2^{+1}$ (Grande)
-*   $B$: $1.0 \times 2^{-1}$ (Pequeño)
-
-**Caso 1: Usando Exponente en Complemento a 2 (Falso)**
-
-*   $+1$ en C2 (3 bits) $\to$ `001`
-*   $-1$ en C2 (3 bits) $\to$ `111`
-*   Al comparar los bits como enteros sin signo: `111` ($7$) &gt; `001` ($1$).
-*   **Resultado:** ¡El hardware pensaría erróneamente que el número pequeño ($B$) es mayor que el grande ($A$)!
-
-**Caso 2: Usando Exponente en Exceso (Real - IEEE 754)**
-Supongamos un Bias de 3 ($2^{3-1}-1$).
-
-*   Exponente real $+1$ $\to$ Guardado: $1 + 3 = 4$ (`100`)
-*   Exponente real $-1$ $\to$ Guardado: $-1 + 3 = 2$ (`010`)
-*   Comparación de bits: `100` ($4$) &gt; `010` ($2$).
-*   **Resultado:** `A &gt; B`. **CORRECTO**.
-</code></pre>
+<div class="admonition example la importancia derepresentar el exponente en exceso en lugar de en c2">
+<p class="admonition-title">Example</p>
+<p>Comparemos un número grande positivo (Exponente <span class="arithmatex">\(+1\)</span>) con un número pequeño (Exponente <span class="arithmatex">\(-1\)</span>).</p>
+<ul>
+<li><span class="arithmatex">\(A\)</span>: <span class="arithmatex">\(1.0 \times 2^{+1}\)</span> (Grande)</li>
+<li><span class="arithmatex">\(B\)</span>: <span class="arithmatex">\(1.0 \times 2^{-1}\)</span> (Pequeño)</li>
+</ul>
+<p><strong>Caso 1: Usando Exponente en Complemento a 2 (Falso)</strong></p>
+<ul>
+<li><span class="arithmatex">\(+1\)</span> en C2 (3 bits) <span class="arithmatex">\(\to\)</span> <code>001</code></li>
+<li><span class="arithmatex">\(-1\)</span> en C2 (3 bits) <span class="arithmatex">\(\to\)</span> <code>111</code></li>
+<li>Al comparar los bits como enteros sin signo: <code>111</code> (<span class="arithmatex">\(7\)</span>) &gt; <code>001</code> (<span class="arithmatex">\(1\)</span>).</li>
+<li><strong>Resultado:</strong> ¡El hardware pensaría erróneamente que el número pequeño (<span class="arithmatex">\(B\)</span>) es mayor que el grande (<span class="arithmatex">\(A\)</span>)!</li>
+</ul>
+<p><strong>Caso 2: Usando Exponente en Exceso (Real - IEEE 754)</strong>
+Supongamos un Bias de 3 (<span class="arithmatex">\(2^{3-1}-1\)</span>).</p>
+<ul>
+<li>Exponente real <span class="arithmatex">\(+1\)</span> <span class="arithmatex">\(\to\)</span> Guardado: <span class="arithmatex">\(1 + 3 = 4\)</span> (<code>100</code>)</li>
+<li>Exponente real <span class="arithmatex">\(-1\)</span> <span class="arithmatex">\(\to\)</span> Guardado: <span class="arithmatex">\(-1 + 3 = 2\)</span> (<code>010</code>)</li>
+<li>Comparación de bits: <code>100</code> (<span class="arithmatex">\(4\)</span>) &gt; <code>010</code> (<span class="arithmatex">\(2\)</span>).</li>
+<li><strong>Resultado:</strong> <code>A &gt; B</code>. <strong>CORRECTO</strong>.</li>
+</ul>
+</div>
 <div class="admonition success">
 <p class="admonition-title">Diseño Inteligente</p>
 <p>Gracias al uso del <strong>Exceso</strong>, los exponentes negativos se representan con códigos binarios <em>pequeños</em> (ej. 00...) y los positivos con códigos <em>grandes</em> (ej. 11...), preservando el orden natural de los números enteros. Esto permite usar comparadores rápidos de enteros en la ALU.</p>
