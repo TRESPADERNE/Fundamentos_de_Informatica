@@ -2166,8 +2166,9 @@ Hagamos el proceso inverso para ver el error cometido.</p>
 <li><strong>0-31:</strong> Caracteres de control (no imprimibles). Ej: Retorno de carro (<code>\r</code>), salto de línea (<code>\n</code>), tabulador (<code>\t</code>).</li>
 <li><strong>32-127:</strong> Caracteres imprimibles (letras inglesas, números y signos de puntuación). El espacio es el 32 y el último es el carácter <code>DEL</code> (127).</li>
 </ul>
-<p><strong>Características de diseño ingeniosas:</strong>
-Los diseñadores de ASCII ordenaron los caracteres estratégicamente para facilitar el procesamiento por hardware o algoritmos simples:</p>
+<div class="admonition tip">
+<p class="admonition-title">Características de diseño ingeniosas</p>
+<p>Los diseñadores de ASCII ordenaron los caracteres estratégicamente para facilitar el procesamiento por hardware o algoritmos simples:</p>
 <ol>
 <li><strong>Dígitos consecutivos y coincidencia binaria:</strong> <code>'0'</code> es el 48 (<code>0011 0000</code>), <code>'1'</code> es el 49 (<code>0011 0001</code>)...<ul>
 <li>Si observas los <strong>4 bits inferiores</strong> (el nibble bajo), coinciden <em>exactamente</em> con el valor numérico del dígito (<span class="arithmatex">\(0000_2=0\)</span>, <span class="arithmatex">\(0001_2=1\)</span>...).</li>
@@ -2181,6 +2182,7 @@ Los diseñadores de ASCII ordenaron los caracteres estratégicamente para facili
 </ul>
 </li>
 </ol>
+</div>
 <p><img alt="Tabla ASCII" src="img/RI/ascii.jpg" style="display: block; margin: 0 auto" /></p>
 <center><em>Tabla del código ASCII extendido Latin-1</em></center>
 <p><br></p>
