@@ -2353,7 +2353,7 @@ Hagamos el proceso inverso para ver el error cometido.</p>
 <li><code>'A'</code> = 65 (<code>0100 0001</code>)</li>
 <li><code>'a'</code> = 97 (<code>0110 0001</code>)</li>
 </ul>
-<p>La única diferencia es el <strong>bit 5</strong>. Para pasar de mayúscula a minúscula basta con <em>activar</em> ese bit (operación <code>OR 32</code>). Para pasar a mayúscula, basta con <em>desactivarlo</em> (operación <code>AND ~32</code>).</p>
+<p>La única diferencia es el <strong>bit 5</strong>. Para pasar de mayúscula a minúscula basta con <em>activar</em> ese bit . Para pasar a mayúscula, basta con <em>desactivarlo</em>.</p>
 </li>
 </ol>
 </div>
@@ -2430,7 +2430,8 @@ Hagamos el proceso inverso para ver el error cometido.</p>
 </div>
 <p style="text-align: center;"><em>Tabla UTF-8</em></p>
 
-<p><strong>Ejemplo Práctico: De Code Point a Bytes</strong></p>
+<div class="admonition example">
+<p class="admonition-title">De Code Point a Bytes</p>
 <ol>
 <li>
 <p><strong>La letra 'a' <code>U+0061</code></strong> (<span class="arithmatex">\(97_{10}\)</span>):</p>
@@ -2482,6 +2483,7 @@ Hagamos el proceso inverso para ver el error cometido.</p>
 </ul>
 </li>
 </ol>
+</div>
 <div class="admonition success">
 <p class="admonition-title">Por qué ganó UTF-8</p>
 <ul>
@@ -2530,6 +2532,23 @@ Hagamos el proceso inverso para ver el error cometido.</p>
 <p>Si hay algún carácter <em>raro</em> (emojis, símbolos históricos, etc.), usa 4 bytes por carácter (UTF-32).</p>
 </li>
 </ul>
+<div class="admonition example">
+<p class="admonition-title">Representar caracteres por punto de código en Python</p>
+<p>En Python puedes crear un carácter a partir de su punto de código Unicode usando la función <code>chr()</code> o mediante literales con prefijo <code>\u</code> o <code>\U</code>:
+<div class="highlight"><pre><span></span><code><span class="c1"># Usando chr() con el punto de código decimal o hexadecimal</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="mi">241</span><span class="p">))</span>        <span class="c1"># &#39;ñ&#39; (U+00F1)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="mh">0x1F602</span><span class="p">))</span>   <span class="c1"># &#39;😂&#39; (U+1F602)</span>
+
+<span class="c1"># Usando literales Unicode</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\u00F1</span><span class="s1">&#39;</span><span class="p">)</span>       <span class="c1"># &#39;ñ&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\U0001F602</span><span class="s1">&#39;</span><span class="p">)</span>   <span class="c1"># &#39;😂&#39;</span>
+
+<span class="c1"># Obtener el punto de código de un carácter</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;ñ&#39;</span><span class="p">))</span>       <span class="c1"># 241</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">hex</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;😂&#39;</span><span class="p">)))</span>  <span class="c1"># 0x1f602</span>
+</code></pre></div>
+Así puedes trabajar directamente con cualquier símbolo Unicode en tus programas.</p>
+</div>
 </li>
 </ul>
 <div class="admonition example">
