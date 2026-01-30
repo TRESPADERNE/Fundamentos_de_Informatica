@@ -2345,11 +2345,13 @@ Hagamos el proceso inverso para ver el error cometido.</p>
 <li>Esto permitía a los antiguos programadores convertir de texto a número instantáneamente sin hacer restas: bastaba con tomar los últimos 4 bits (operación <code>AND 00001111</code> o <code>AND 0x0F</code>).</li>
 </ul>
 </li>
-<li><strong>Mayúsculas y Minúsculas:</strong> <ul>
+<li>
+<ul>
 <li><code>'A'</code> = 65 (<code>0100 0001</code>)</li>
-<li><code>'a'</code> = 97 (<code>0110 0001</code>)
-La única diferencia es el <strong>bit 5</strong> (<span class="arithmatex">\(32\)</span>). Para pasar de mayúscula a minúscula basta con <em>activar</em> ese bit (operación <code>OR 32</code>). Para pasar a mayúscula, basta con <em>desactivarlo</em> (operación <code>AND ~32</code>).</li>
+<li><code>'a'</code> = 97 (<code>0110 0001</code>)</li>
 </ul>
+<p><strong>Mayúsculas y Minúsculas:</strong> </p>
+<p>La única diferencia es el <strong>bit 5</strong> (<span class="arithmatex">\(32\)</span>). Para pasar de mayúscula a minúscula basta con <em>activar</em> ese bit (operación <code>OR 32</code>). Para pasar a mayúscula, basta con <em>desactivarlo</em> (operación <code>AND ~32</code>).</p>
 </li>
 </ol>
 </div>
