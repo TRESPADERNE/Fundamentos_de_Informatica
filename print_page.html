@@ -2283,7 +2283,7 @@ Hagamos el proceso inverso para ver el error cometido.</p>
 </ul>
 </li>
 <li>Resultado Hex: <code>0xC3 0xB1</code>.</li>
-<li><em>Curiosidad:</em> Por eso si abres un archivo UTF-8 como si fuera Latin-1, la ñ se ve como dos caracteres extraños ("Ã±"): el ordenador interpreta <code>0xC3</code> ("Ã") y <code>0xB1</code> ("±") por separado.</li>
+<li><em>Curiosidad:</em> si abres un archivo UTF-8 como si fuera Latin-1, la ñ se ve como dos caracteres extraños ("Ã±"): el ordenador interpreta <code>0xC3</code> ("Ã") y <code>0xB1</code> ("±") por separado.</li>
 </ul>
 </li>
 <li>
@@ -2298,7 +2298,7 @@ Hagamos el proceso inverso para ver el error cometido.</p>
 <li>5 cifras hexadecimales equivalen a <strong>20 bits</strong> (<span class="arithmatex">\(5 \times 4\)</span>). La plantilla de 4 bytes de UTF-8 tiene huecos para <strong>21 bits</strong> (<span class="arithmatex">\(3+6+6+6\)</span>). ¡Cabe perfectamente!</li>
 <li><strong>Paso a paso:</strong><ol>
 <li>Hex <code>1F602</code> a Binario <span class="arithmatex">\(\to\)</span> <code>0001 1111 0110 0000 0010</code>.</li>
-<li>Rellenamos con ceros hasta 21 bits: <strong><code>0000</code></strong><code>1111101100000010</code>.</li>
+<li>Rellenamos con ceros hasta 21 bits: <strong><code>0</code></strong><code>0001111101100000010</code>.</li>
 <li>Agrupamos para "rellenar huecos": <code>000</code> <code>011111</code> <code>011000</code> <code>000010</code>.</li>
 <li>Aplicamos la plantilla <code>11110xxx 10xxxxxx ...</code>:<ul>
 <li><code>11110</code><strong><code>000</code></strong> <span class="arithmatex">\(\to\)</span> <code>0xF0</code></li>
@@ -2317,13 +2317,19 @@ Hagamos el proceso inverso para ver el error cometido.</p>
 <div class="admonition success">
 <p class="admonition-title">Por qué ganó UTF-8</p>
 <ul>
-<li><strong>Ahorro de espacio:</strong><ul>
-<li><strong>Inglés:</strong> Los textos clásicos (novelas, ensayos) y el código fuente (HTML, Python, C++) contienen solo caracteres ASCII. En UTF-8 ocupan exactamente <strong>1 byte por carácter</strong>, igual que en los años 70.</li>
-<li><strong>Español:</strong> La sobrecarga es mínima. En un texto normal (como <em>El Quijote</em>), solo las vocales acentuadas y la 'ñ' ocupan 2 bytes. El 98% del texto (letras normales, espacios, puntuación) sigue ocupando 1 byte. El aumento total de tamaño suele rondar apenas el <strong>2%</strong>.</li>
-<li><em>Comparativa:</em> Si usáramos UTF-16, el archivo ocuparía <strong>el doble</strong> de tamaño, ya que <em>cada letra</em> (incluida la 'a' o el espacio) gastaría 2 bytes obligatoriamente.</li>
+<li>
+<p><strong>Ahorro de espacio:</strong></p>
+<ul>
+<li><strong>Inglés:</strong> Los textos clásicos (novelas, ensayos) y normalmente el código fuente (HTML, Python, C++) contienen solo caracteres ASCII. En UTF-8 ocupan exactamente <strong>1 byte por carácter</strong>, igual que en los años 70.</li>
+<li>
+<p><strong>Español:</strong> La sobrecarga es mínima. En un texto normal (como <em>El Quijote</em>), solo las vocales acentuadas y la 'ñ' ocupan 2 bytes. El 98% del texto (letras normales, espacios, puntuación) sigue ocupando 1 byte. El aumento total de tamaño suele rondar apenas el <strong>2%</strong>.</p>
+<p>Si usáramos UTF-16, el archivo ocuparía <strong>el doble</strong> de tamaño, ya que <em>cada letra</em> (incluida la 'a' o el espacio) gastaría 2 bytes obligatoriamente.</p>
+</li>
 </ul>
 </li>
-<li><strong>Robustez:</strong> Es auto-sincronizado. Si se pierde un byte en la transmisión, es fácil saber dónde empieza el siguiente carácter (todos los bytes de continuación empiezan por <code>10...</code>).</li>
+<li>
+<p><strong>Robustez:</strong> Es auto-sincronizado. Si se pierde un byte en la transmisión, es fácil saber dónde empieza el siguiente carácter (todos los bytes de continuación empiezan por <code>10...</code>).</p>
+</li>
 </ul>
 </div>
 <h4 id="representacion_de_la_informacion-otras-codificaciones-la-paradoja-del-uso">Otras Codificaciones (La paradoja del uso)</h4>
