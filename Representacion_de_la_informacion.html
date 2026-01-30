@@ -2062,6 +2062,14 @@ Supongamos el número <span class="arithmatex">\(0.001101_2\)</span> (<span clas
 <p>El orden físico de los bits en la memoria es estricto: primero el <strong>Signo</strong>, seguido del <strong>Exponente</strong>, seguido de la <strong>Mantisa</strong>.</p>
 <p><code>[Signo]</code> | <code>[Exponente]</code> | <code>[Mantisa]</code></p>
 <p>El orden no es baladí: permite que los <strong>algoritmos de comparación</strong> (y por tanto los chips que los implementan) diseñados para números enteros sean también válidos (en su mayoría) para esta representación de números reales.</p>
+<div class="admonition tip">
+<p class="admonition-title">Comparación eficiente en la ALU</p>
+<p>Gracias a este orden, la <strong>ALU</strong> (Unidad Aritmético-Lógica) puede comparar dos números reales simplemente recorriendo los bits de izquierda a derecha:
+1. Primero compara el bit de <strong>signo</strong> (positivo/negativo).
+2. Si los signos son iguales, compara el <strong>exponente</strong> (mayor orden de magnitud).
+3. Si los exponentes son iguales, compara la <strong>mantisa</strong> (precisión decimal).
+Este proceso es muy eficiente, ya que la comparación se realiza igual que con enteros: basta con buscar el primer bit distinto de izquierda a derecha para decidir cuál es mayor, sin necesidad de cálculos adicionales.</p>
+</div>
 <div class="admonition info">
 <p class="admonition-title">Terminología Técnica</p>
 <p>En alguna bibliografía clásica se utiliza la palabra <strong>característica</strong> para distinguir el <em>valor almacenado</em> (con el sesgo sumado) del <em>exponente real</em> matemático.</p>
@@ -2075,7 +2083,7 @@ Supongamos el número <span class="arithmatex">\(0.001101_2\)</span> (<span clas
 <li><span class="arithmatex">\(A\)</span>: <span class="arithmatex">\(1.0 \times 2^{+1}\)</span> (Grande)</li>
 <li><span class="arithmatex">\(B\)</span>: <span class="arithmatex">\(1.0 \times 2^{-1}\)</span> (Pequeño)</li>
 </ul>
-<p><strong>Caso 1: Usando Exponente en Complemento a 2 (Falso)</strong></p>
+<p><strong>Caso 1: Usando Exponente en Complemento a 2 (Estrategia fallida)</strong></p>
 <ul>
 <li><span class="arithmatex">\(+1\)</span> en C2 (3 bits) <span class="arithmatex">\(\to\)</span> <code>001</code></li>
 <li><span class="arithmatex">\(-1\)</span> en C2 (3 bits) <span class="arithmatex">\(\to\)</span> <code>111</code></li>
