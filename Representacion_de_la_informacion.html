@@ -2218,12 +2218,16 @@ Dado que el exponente en IEEE 754 de 32 bits varía aproximadamente entre <span 
 <p class="admonition-title">Ejemplo: El error de representación de 0.1</p>
 <p>Veamos qué pasa representando el valor <span class="arithmatex">\(0.1_{10}\)</span> en simple precisión (32 bits).</p>
 <p><strong>1. Transformación a Binario:</strong>
-La parte fraccionaria <span class="arithmatex">\(0.1\)</span> en binario es una fracción periódica:
-$$ 0.1_{10} = 0.0\,\overline{0011}\,_2 = 0.0001100110011..._2 $$</p>
-<p><strong>2. Signo y Normalización:</strong>
-*   <strong>Signo:</strong> Positivo <span class="arithmatex">\(\to \mathbf{0}\)</span>.
-*   <strong>Notación Científica:</strong> Desplazamos la coma 4 posiciones a la derecha:
-    $$ 1.100110011..._2 \times 2^{-4} $$</p>
+La parte fraccionaria <span class="arithmatex">\(0.1\)</span> en binario es una fracción periódica:</p>
+<div class="arithmatex">\[ 0.1_{10} = 0.0\,\overline{0011}\,_2 = 0.0001100110011..._2 \]</div>
+<p><strong>2. Signo y Normalización:</strong></p>
+<ul>
+<li><strong>Signo:</strong> Positivo <span class="arithmatex">\(\to \mathbf{0}\)</span>.</li>
+<li>
+<p><strong>Notación Científica:</strong> Desplazamos la coma 4 posiciones a la derecha:</p>
+<div class="arithmatex">\[ 1.100110011..._2 \times 2^{-4} \]</div>
+</li>
+</ul>
 <p><strong>3. Mantisa (Redondeo):</strong>
 Necesitamos quedarnos con 23 bits después de la coma.</p>
 <ul>
@@ -2231,11 +2235,13 @@ Necesitamos quedarnos con 23 bits después de la coma.</p>
 <li>Aplicamos <strong>redondeo al par más cercano</strong> (o simplemente redondeo hacia arriba en este caso simple): sumamos 1 al bit 23 (<span class="arithmatex">\(0 \to 1\)</span>).</li>
 <li>Mantisa Guardada (<span class="arithmatex">\(M\)</span>): <span class="arithmatex">\(\mathbf{10011001100110011001101}\)</span></li>
 </ul>
-<p><strong>4. Exponente:</strong>
-*   <span class="arithmatex">\(E_{real} = -4\)</span>.
-*   <span class="arithmatex">\(E_{guardado} = -4 + 127 = 123_{10} = \mathbf{01111011}_2\)</span>.</p>
-<p><strong>5. Resultado final en memoria (Hex <code>0x3DCCCCCD</code>):</strong>
-<code>0</code> <code>01111011</code> <code>10011001100110011001101</code></p>
+<p><strong>4. Exponente:</strong></p>
+<ul>
+<li><span class="arithmatex">\(E_{real} = -4\)</span>.</li>
+<li><span class="arithmatex">\(E_{guardado} = -4 + 127 = 123_{10} = \mathbf{01111011}_2\)</span>.</li>
+</ul>
+<p><strong>5. Resultado final en memoria (Hex <code>0x3DCCCCCD</code>):</strong></p>
+<p><code>0</code> <code>01111011</code> <code>10011001100110011001101</code></p>
 <hr />
 <p><strong>Comprobación: ¿Qué número hemos guardado REALMENTE?</strong>
 Hagamos el proceso inverso para ver el error cometido.</p>
