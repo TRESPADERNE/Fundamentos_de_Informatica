@@ -1077,6 +1077,62 @@ De facto, la VM funciona como un <strong>intérprete puro</strong> (pero sobre e
 
 <p style="text-align: center;"><em>Modelo de la memoria como una tabla de celdas</em></p>
 
+<h4 id="representacion_de_la_informacion-el-orden-de-los-bytes-endianness">El Orden de los Bytes: Endianness</h4>
+<p>Cuando un dato ocupa más de un byte (como el entero de 32 bits de la tabla anterior), surge una decisión de diseño crítica: <strong>¿en qué orden guardamos los bytes en las celdas de memoria?</strong> </p>
+<p>El procesador debe decidir qué byte va en la dirección de memoria más baja. Existen dos estándares:</p>
+<ol>
+<li><strong>Big-Endian (Orden "Humano"):</strong> El byte <strong>más significativo</strong> (el que tiene más valor) se guarda en la dirección más baja. Es el orden natural en el que escribimos los números. Es el estándar en protocolos de Internet (llamado en este contexto Network Byte Order) y grandes sistemas bancarios (Mainframes).</li>
+<li><strong>Little-Endian (Orden de la Máquina):</strong> El byte <strong>menos significativo</strong> se guarda en la dirección más baja. Es el estándar usado por los procesadores <strong>Intel (x86)</strong> y <strong>ARM</strong> (Apple Silicon, móviles). Aunque parezca contraintuitivo, facilita ciertas operaciones lógicas a nivel de circuitos.</li>
+</ol>
+<div class="admonition example">
+<p class="admonition-title">Comparativa: Guardar el número <code>0x12345678</code> en la dirección 2000</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Dirección</th>
+<th style="text-align: center;">Big-Endian</th>
+<th style="text-align: center;">Little-Endian</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>2000</strong></td>
+<td style="text-align: center;"><code>12</code></td>
+<td style="text-align: center;"><code>78</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>2001</strong></td>
+<td style="text-align: center;"><code>34</code></td>
+<td style="text-align: center;"><code>56</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>2002</strong></td>
+<td style="text-align: center;"><code>56</code></td>
+<td style="text-align: center;"><code>34</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>2003</strong></td>
+<td style="text-align: center;"><code>78</code></td>
+<td style="text-align: center;"><code>12</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Nota importante: ¿Y los bits?</p>
+<p>El <em>endianness</em> afecta únicamente al orden de los <strong>bytes</strong>. Los bits dentro de cada byte <strong>no se giran</strong>; mantienen siempre su orden posicional interno.</p>
+</div>
+<p>Mientras trabajamos dentro de un mismo sistema (un PC o un móvil), el <em>endianness</em> es transparente: el procesador guarda y lee usando su propia lógica y todo encaja. El problema surge cuando <strong>dos máquinas diferentes deben comunicarse</strong>.</p>
+<p>Para que el mundo digital no sea una <em>Torre de Babel</em>, Internet utiliza Big-Endian. Si un PC con Intel (Little-Endian) quiere enviar un dato por la red, debe <em>girar</em> el orden de los bytes de cualquier dato numérico o magnitud que ocupe más de un byte (como un int de 32 bits o un float) antes de enviarlos para que el resto del mundo lo entienda correctamente.</p>
+<div class="admonition example">
+<p class="admonition-title">Un ejemplo de fallo en comunicación industrial</p>
+<p>Imagina un sensor de presión en una fábrica que usa el protocolo <strong>Modbus</strong>. Este sensor mide la presión y la envía a un procesador supervisor como un entero de 2 bytes.</p>
+<ul>
+<li>Si el sensor mide <code>1</code> (en hexadecimal <code>0x0001</code>) y es Big-Endian, enviará los bytes: <code>00</code> y luego <code>01</code>.</li>
+<li>Si el procesador (Little-Endian) no los gira, pensará que ha recibido el número <code>0x0100</code> (que en decimal es <strong>256</strong>).</li>
+</ul>
+<p><strong>Resultado:</strong> ¡El sistema de control creerá que la presión es 256 veces mayor de lo que realmente es y activará una alarma de emergencia por error! Por eso, en industria, es crítico configurar el orden de los bytes antes de empezar a medir.</p>
+</div>
 <h3 id="representacion_de_la_informacion-necesidad-de-la-codificación">Necesidad de la Codificación</h3>
 <p>Los humanos interactuamos con información simbólica (letras, números) o analógica (imágenes, sonido), mientras que el procesador trabaja internamente con estados binarios. Para salvar esta brecha es necesaria una transformación rigurosa:</p>
 <div class="arithmatex">\[ \text{Mundo Real} \xrightarrow{\text{Codificación}} \text{Mundo Digital} \]</div>
