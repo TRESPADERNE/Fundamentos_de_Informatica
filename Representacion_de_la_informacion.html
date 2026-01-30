@@ -906,34 +906,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Precisión">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#número-de-bits-de-la-mantisa" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Número de bits de la mantisa
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#distribución-en-la-recta-real" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Distribución en la recta real
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -2099,10 +2071,6 @@ Supongamos un Bias de 3 (<span class="arithmatex">\(2^{3-1}-1\)</span>).</p>
 <li><strong>Resultado:</strong> <code>A &gt; B</code>. <strong>CORRECTO</strong>.</li>
 </ul>
 </div>
-<div class="admonition success">
-<p class="admonition-title">Diseño Inteligente</p>
-<p>Gracias al uso del <strong>Exceso</strong>, los exponentes negativos se representan con códigos binarios <em>pequeños</em> (ej. 00...) y los positivos con códigos <em>grandes</em> (ej. 11...), preservando el orden natural de los números enteros. Esto permite usar comparadores rápidos de enteros en la ALU.</p>
-</div>
 <div class="admonition example">
 <p class="admonition-title">Ejemplo: Convertir 13.125 a IEEE 754 (Simple)</p>
 <ol>
@@ -2202,10 +2170,16 @@ Supongamos un Bias de 3 (<span class="arithmatex">\(2^{3-1}-1\)</span>).</p>
 </div>
 <h4 id="precisión">Precisión</h4>
 <p>Los números reales en el ordenador son un subconjunto discreto de los reales matemáticos.</p>
-<h5 id="número-de-bits-de-la-mantisa">Número de bits de la mantisa</h5>
-<p>La influencia de disponer de un bit a mayores en la mantisa supone que la distancia entre 2 números consecutivos representables se divide por 2. Por tanto, el término <em>doble precisión</em> no es riguroso: la precisión que ofrece el formato de 64 bits es inmensamente mayor. Pasa de 23 a 52 bits de mantisa, mejorando la resolución en un factor de <span class="arithmatex">\(2^{29}\)</span>, no solo el doble.</p>
-<h5 id="distribución-en-la-recta-real">Distribución en la recta real</h5>
-<p>Los números <strong>no están uniformemente distribuidos</strong> sobre la recta real, sino que están más próximos cerca del origen (exponentes más pequeños) y más separados a medida que nos alejamos de él (exponentes más grandes).</p>
+<ul>
+<li>
+<p><strong>Número de bits de la mantisa</strong>
+La influencia de disponer de un bit a mayores en la mantisa supone que la distancia entre 2 números consecutivos representables se divide por 2. Por tanto, el término <em>doble precisión</em> no es riguroso: la precisión que ofrece el formato de 64 bits es inmensamente mayor. Pasa de 23 a 52 bits de mantisa, mejorando la resolución en un factor de <span class="arithmatex">\(2^{29}\)</span>, no solo el doble.</p>
+</li>
+<li>
+<p><strong>Distribución en la recta real</strong>
+Los números <strong>no están uniformemente distribuidos</strong> sobre la recta real, sino que están más próximos cerca del origen (exponentes más pequeños) y más separados a medida que nos alejamos de él (exponentes más grandes).</p>
+</li>
+</ul>
 <p><img alt="Floats en la recta real" src="img/RI/recta_real.jpg" style="display: block; margin: 0 auto" /></p>
 <center><em>Distribución de los float's en la recta real</em></center>
 <p><br></p>
