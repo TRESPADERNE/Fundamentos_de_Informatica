@@ -2297,14 +2297,14 @@ Hagamos el proceso inverso para ver el error cometido.</p>
 <span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.1</span><span class="p">;</span><span class="w">  </span><span class="c1">// Se guarda con mucha más precisión (Error en 17º decimal)</span>
 </code></pre></div></p>
 <h4 id="python_1">Python</h4>
-<p><strong>Filosofía:</strong> Simplicidad y Unificación.</p>
+<p><strong>Filosofía:</strong> Simplicidad y unificación.</p>
 <p>A diferencia de los enteros (que eran <em>mágicos</em> y crecían <em>infinitamente</em> hasta los límites de la memoria), <strong>los reales en Python NO tienen precisión arbitraria por defecto</strong>. </p>
 <ul>
 <li><strong>Tipo único <code>float</code>:</strong> En Python estandar, un <code>float</code> corresponde siempre a un <strong><code>double</code></strong> de C (64 bits IEEE 754). No existe tipo de 32 bits nativo para ahorrar memoria (salvo usando librerías externas como <em>NumPy</em>).</li>
 <li><strong>Limitaciones:</strong> Sufren los mismos problemas de redondeo y desbordamiento que el <code>double</code> de C++.</li>
 </ul>
 <div class="admonition example">
-<p class="admonition-title">Comparativa Int vs Float en Python</p>
+<p class="admonition-title">Comparativa <code>int</code> vs <code>float</code> en Python</p>
 <ul>
 <li><code>2 ** 1000</code> <span class="arithmatex">\(\to\)</span> Calcula el número exacto (un entero de cientos de dígitos).</li>
 <li><code>2.0 ** 1000</code> <span class="arithmatex">\(\to\)</span> Genera <code>OverflowError</code> (o devuelve <code>inf</code>), porque el resultado supera el valor máximo de IEEE 754 (<span class="arithmatex">\(\approx 1.8 \times 10^{308}\)</span>).</li>
