@@ -2318,14 +2318,12 @@ Hagamos el proceso inverso para ver el error cometido.</p>
 <p class="admonition-title">Por qué ganó UTF-8</p>
 <ul>
 <li>
-<p><strong>Ahorro de espacio:</strong></p>
 <ul>
 <li><strong>Inglés:</strong> Los textos clásicos (novelas, ensayos) y normalmente el código fuente (HTML, Python, C++) contienen solo caracteres ASCII. En UTF-8 ocupan exactamente <strong>1 byte por carácter</strong>, igual que en los años 70.</li>
-<li>
-<p><strong>Español:</strong> La sobrecarga es mínima. En un texto normal (como <em>El Quijote</em>), solo las vocales acentuadas y la 'ñ' ocupan 2 bytes. El 98% del texto (letras normales, espacios, puntuación) sigue ocupando 1 byte. El aumento total de tamaño suele rondar apenas el <strong>2%</strong>.</p>
-<p>Si usáramos UTF-16, el archivo ocuparía <strong>el doble</strong> de tamaño, ya que <em>cada letra</em> (incluida la 'a' o el espacio) gastaría 2 bytes obligatoriamente.</p>
-</li>
+<li><strong>Español:</strong> La sobrecarga es mínima. En un texto normal (como <em>El Quijote</em>), solo las vocales acentuadas y la 'ñ' ocupan 2 bytes. El 98% del texto (letras normales, espacios, puntuación) sigue ocupando 1 byte. El aumento total de tamaño suele rondar apenas el <strong>2%</strong>.</li>
 </ul>
+<p><strong>Ahorro de espacio:</strong></p>
+<p>Si usáramos UTF-16, el archivo ocuparía <strong>el doble</strong> de tamaño, ya que <em>cada letra</em> (incluida la 'a' o el espacio) gastaría 2 bytes obligatoriamente.</p>
 </li>
 <li>
 <p><strong>Robustez:</strong> Es auto-sincronizado. Si se pierde un byte en la transmisión, es fácil saber dónde empieza el siguiente carácter (todos los bytes de continuación empiezan por <code>10...</code>).</p>
@@ -2394,26 +2392,33 @@ Así puedes trabajar directamente con cualquier símbolo Unicode en tus programa
 <li><strong>Python:</strong> Ve texto. Una cadena es una secuencia abstracta de símbolos Unicode.</li>
 </ul>
 </div>
-<p>&lt;!--</p>
-<h4 id="representacion_de_la_informacion-bytes-vs-str-y-archivos-de-textobinario-en-python">Bytes vs. str y archivos de texto/binario en Python</h4>
-<p>En Python, es fundamental distinguir entre <strong>texto</strong> (tipo <code>str</code>) y <strong>datos binarios</strong> (tipo <code>bytes</code>).</p>
-<ul>
-<li>Un objeto <code>str</code> representa <strong>texto Unicode</strong>: cada elemento es un símbolo abstracto, no un byte concreto. Ejemplo: <code>s = "España"</code>.</li>
-<li>Un objeto <code>bytes</code> representa <strong>datos binarios puros</strong>: una secuencia de valores entre 0 y 255. Ejemplo: una contraseña segura generada aleatoriamente: <code>clave = bytes([137, 44, 255, ...])</code> (32 valores para 256 bits).</li>
-</ul>
-<p><strong>¿Por qué es importante?</strong></p>
-<p>Si intentamos tratar una secuencia de bytes arbitrarios como si fuera texto, pueden aparecer símbolos extraños, errores o incluso pérdida de información. Por ejemplo:</p>
-<p>```python</p>
-<h1 id="representacion_de_la_informacion-contraseña-binaria-de-256-bits-32-bytes-aleatorios">Contraseña binaria de 256 bits (32 bytes aleatorios)</h1>
-<p>clave = bytes([137, 44, 255, 0, 18, 77, 201, 123, 88, 34, 190, 5, 222, 1, 99, 42,
+<div style="display: none;">
+#### Bytes vs. str y archivos de texto/binario en Python
+
+En Python, es fundamental distinguir entre **texto** (tipo `str`) y **datos binarios** (tipo `bytes`).
+
+*   Un objeto `str` representa **texto Unicode**: cada elemento es un símbolo abstracto, no un byte concreto. Ejemplo: `s = "España"`.
+*   Un objeto `bytes` representa **datos binarios puros**: una secuencia de valores entre 0 y 255. Ejemplo: una contraseña segura generada aleatoriamente: `clave = bytes([137, 44, 255, ...])` (32 valores para 256 bits).
+
+**¿Por qué es importante?**
+
+Si intentamos tratar una secuencia de bytes arbitrarios como si fuera texto, pueden aparecer símbolos extraños, errores o incluso pérdida de información. Por ejemplo:
+
+```python
+# Contraseña binaria de 256 bits (32 bytes aleatorios)
+clave = bytes([137, 44, 255, 0, 18, 77, 201, 123, 88, 34, 190, 5, 222, 1, 99, 42,
                17, 200, 33, 77, 250, 111, 0, 201, 100, 3, 77, 222, 11, 99, 42])
-print(clave)  # Muestra: b'\x89,\xff\x00\x12M\xc9{X\"\xbe\x05...'</p>
-<h1 id="representacion_de_la_informacion-si-intentamos-convertirla-a-texto-directamente">Si intentamos convertirla a texto directamente:</h1>
-<p>try:
+print(clave)  # Muestra: b'\\x89,\\xff\\x00\\x12M\\xc9{X\"\\xbe\\x05...'
+
+# Si intentamos convertirla a texto directamente:
+try:
     texto = clave.decode("utf-8")
 except UnicodeDecodeError as e:
-    print("¡Error al interpretar como texto!", e)</p>
-<hr /></section></div><style>.print-site-enumerate-headings #index > h1:before { content: '1 ' }
+    print("¡Error al interpretar como texto!", e)
+
+
+
+</div></section></div><style>.print-site-enumerate-headings #index > h1:before { content: '1 ' }
 
                 .print-site-enumerate-headings #index h2:before { content: '1.' counter(counter-index-2) ' ' }
                 .print-site-enumerate-headings #index h2 {  counter-reset: counter-index-3 ;  counter-increment: counter-index-2 }
