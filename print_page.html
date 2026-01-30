@@ -1769,7 +1769,7 @@ Finalmente, para mostrarlo al usuario, el programador escribe el código para <e
 <h3 id="representacion_de_la_informacion-la-coma-flotante-floating-point">La Coma Flotante (Floating Point)</h3>
 <p>Esta es la solución adoptada universalmente en la informática moderna para uso general. Permite cubrir un rango de valores gigantesco sacrificando precisión absoluta en los decimales menos significativos. El nombre proviene de que la coma <em>flota</em> (se mueve), permitiendo representar con la misma cantidad de bits números muy grandes (con poca precisión decimal) o números muy pequeños (con mucha precisión).</p>
 <div class="admonition failure">
-<p class="admonition-title">Contexto Histórico: El Caos Previo a 1985</p>
+<p class="admonition-title">Contexto Histórico: El caos previo a 1985</p>
 <p>Hasta finales del siglo XX (concretamente antes de 1985), <strong>no existía un estándar unificado</strong>. Cada fabricante de hardware (IBM, DEC, Cray, VAX...) diseñaba su propio formato de coma flotante, con sus propias reglas de redondeo y tamaños de exponente.</p>
 <p>Esto provocaba graves problemas de <strong>portabilidad</strong>: un mismo programa científico en C o Fortran podía arrojar resultados numéricos distintos dependiendo de si se ejecutaba en un mainframe IBM o en un ordenador personal. Esta <em>Torre de Babel</em> numérica impedía el intercambio fiable de datos y obligó a la industria a consensuar una norma común.</p>
 </div>
@@ -1785,10 +1785,12 @@ Finalmente, para mostrarlo al usuario, el programador escribe el código para <e
 <div class="admonition example">
 <p class="admonition-title">Comparativa: Base 10 vs Base 2</p>
 <p><strong>En Decimal (Base 10):</strong>
-Supongamos el número <span class="arithmatex">\(-0.00345\)</span>.
-*   Normalizado: <span class="arithmatex">\(-3.45 \times 10^{-3}\)</span>
-*   Mantisa: <span class="arithmatex">\(3.45\)</span>
-*   Exponente: <span class="arithmatex">\(-3\)</span></p>
+Supongamos el número <span class="arithmatex">\(-0.00345\)</span>.</p>
+<ul>
+<li>Normalizado: <span class="arithmatex">\(-3.45 \times 10^{-3}\)</span></li>
+<li>Mantisa: <span class="arithmatex">\(3.45\)</span></li>
+<li>Exponente: <span class="arithmatex">\(-3\)</span></li>
+</ul>
 <p><strong>En Binario (Base 2):</strong>
 Supongamos el número <span class="arithmatex">\(0.001101_2\)</span> (<span class="arithmatex">\(0.203125_{10}\)</span>).
 *   Desplazamos la coma hasta dejar un solo '1' a la izquierda: <span class="arithmatex">\(1.101 \times 2^{-3}\)</span>.
