@@ -2170,18 +2170,20 @@ Hagamos el proceso inverso para ver el error cometido.</p>
 <p class="admonition-title">Características de diseño ingeniosas</p>
 <p>Los diseñadores de ASCII ordenaron los caracteres estratégicamente para facilitar el procesamiento por hardware o simplificar los algoritmos que trabajan con caracteres:</p>
 <ol>
-<li><strong>Dígitos consecutivos y coincidencia binaria:</strong> <code>'0'</code> es el 48 (<code>0011 0000</code>), <code>'1'</code> es el 49 (<code>0011 0001</code>)...<ul>
+<li>
+<p><strong>Dígitos consecutivos y coincidencia binaria:</strong> <code>'0'</code> es el 48 (<code>0011 0000</code>), <code>'1'</code> es el 49 (<code>0011 0001</code>)...</p>
+<ul>
 <li>Si observas los <strong>4 bits inferiores</strong> (el nibble bajo), coinciden <em>exactamente</em> con el valor numérico del dígito (<span class="arithmatex">\(0000_2=0\)</span>, <span class="arithmatex">\(0001_2=1\)</span>...).</li>
 <li>Esto permitía a los antiguos programadores convertir de texto a número instantáneamente sin hacer restas: bastaba con tomar los últimos 4 bits (operación <code>AND 00001111</code> o <code>AND 0x0F</code>).</li>
 </ul>
 </li>
 <li>
+<p><strong>Mayúsculas y Minúsculas:</strong> </p>
 <ul>
 <li><code>'A'</code> = 65 (<code>0100 0001</code>)</li>
 <li><code>'a'</code> = 97 (<code>0110 0001</code>)</li>
 </ul>
-<p><strong>Mayúsculas y Minúsculas:</strong> </p>
-<p>La única diferencia es el <strong>bit 5</strong> (<span class="arithmatex">\(32\)</span>). Para pasar de mayúscula a minúscula basta con <em>activar</em> ese bit (operación <code>OR 32</code>). Para pasar a mayúscula, basta con <em>desactivarlo</em> (operación <code>AND ~32</code>).</p>
+<p>La única diferencia es el <strong>bit 5</strong>. Para pasar de mayúscula a minúscula basta con <em>activar</em> ese bit (operación <code>OR 32</code>). Para pasar a mayúscula, basta con <em>desactivarlo</em> (operación <code>AND ~32</code>).</p>
 </li>
 </ol>
 </div>
