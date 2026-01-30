@@ -1930,7 +1930,7 @@ Eliminan el bit de signo para duplicar el rango positivo (<span class="arithmate
 <p>Si multiplicas este número por 1000 y el resultado necesita más espacio, Python simplemente añade un cuarto dígito a la lista.</p>
 </div>
 <div class="admonition note">
-<p class="admonition-title">El precio de la magia</p>
+<p class="admonition-title">El precio de la <em>magia</em></p>
 <p>Mientras que en C++ sumar dos números es <strong>una sola instrucción</strong> (nanosegundos), en Python implica ejecutar un pequeño programa que recorre estas listas, gestiona los acarreos y asigna memoria. Es mucho más cómodo, pero mucho más lento.</p>
 </div>
 <h2 id="4-representación-de-números-reales">4. Representación de Números Reales</h2>
@@ -1940,7 +1940,7 @@ Existen dos opciones de representación: <strong>coma fija</strong> o <strong>co
 <p>Se asigna una cantidad fija de dígitos para la parte entera y una cantidad fija para la parte fraccionaria.</p>
 <p>Obviando por el momento el signo, si disponemos de 8 bits y reservamos 5 bits para la parte entera y 3 para la fraccionaria, el número <span class="arithmatex">\(21.75_{10}\)</span> (<span class="arithmatex">\(10101_2\)</span> entero y <span class="arithmatex">\(0.11_2\)</span> fraccionario) se almacenaría como <strong><code>10101110</code></strong>.</p>
 <p>Al usar la notación en coma fija, queda muy limitado el rango de cantidades a representar, aunque todas ellas tienen la misma resolución (distancia entre valores).</p>
-<p><strong>Ejemplo: 8 bits (5 bits parte entera y 3 bits parte fraccionaria)</strong>. Sin tener en cuenta el signo:</p>
+<p><strong>Ejemplo: 8 bits con 5 bits parte entera y 3 bits parte fraccionaria</strong>, sin tener en cuenta el signo:</p>
 <ul>
 <li>No podremos representar números enteros mayores o iguales que <span class="arithmatex">\(32\)</span> (<span class="arithmatex">\(2^5\)</span>).</li>
 <li>Ni números más pequeños que <span class="arithmatex">\(0.125\)</span> (<span class="arithmatex">\(2^{-3}\)</span>).</li>
@@ -1948,7 +1948,7 @@ Existen dos opciones de representación: <strong>coma fija</strong> o <strong>co
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Uso actual e Implementación Real: Enteros Escalados</p>
-<p>Aunque simple, las limitaciones conceptuales de rango hacen que la coma fija rara vez se use para cálculos científicos generales. Sin embargo, sigue siendo el estándar en dos áreas críticas:</p>
+<p>Aunque simple, las limitaciones de rango hacen que la coma fija rara vez se use para cálculos científicos generales. Sin embargo, sigue siendo el estándar en dos áreas críticas:</p>
 <ol>
 <li><strong>Sistemas Financieros:</strong> La coma flotante comete errores minúsculos de redondeo (ej. <code>0.1 + 0.2</code> a menudo da <code>0.30000000000000004</code>). En banca, un céntimo perdido es inaceptable.</li>
 <li><strong>Microcontroladores y DSP:</strong> Muchos procesadores pequeños (como los de una lavadora o un juguete) no tienen circuitería compleja para decimales (FPU) por ser cara y lenta.</li>
