@@ -2012,23 +2012,23 @@ Supongamos un Bias de 3 (<span class="arithmatex">\(2^{3-1}-1\)</span>).</p>
 <center><em>Distribución de los float's en la recta real</em></center>
 <br></p>
 <div class="admonition tip">
-<p class="admonition-title">Ejemplo: Densidad constante, Precisión variable</p>
+<p class="admonition-title">Densidad constante, precisión variable</p>
 <p>En cada intervalo definido por una potencia de 2 (ej. entre <span class="arithmatex">\(2^0\)</span> y <span class="arithmatex">\(2^1\)</span>, o entre <span class="arithmatex">\(2^1\)</span> y <span class="arithmatex">\(2^2\)</span>), el exponente se mantiene fijo. Por tanto, los únicos valores distintos que podemos representar dependen de las combinaciones de la <strong>Mantisa</strong>.</p>
 <p>Como en IEEE 754 de 32 bits tenemos <strong>23 bits</strong> de mantisa, existen exactamente <strong><span class="arithmatex">\(2^{23}\)</span> (unos 8.3 millones)</strong> de combinaciones (pasos) dentro de cada intervalo de potencias.</p>
 <ul>
 <li>
 <p><strong>Intervalo <span class="arithmatex">\([1, 2)\)</span>:</strong> La distancia total es <span class="arithmatex">\(1\)</span>.
-    Al dividir este espacio de 1 unidad en <span class="arithmatex">\(2^{23}\)</span> pasos, el <em>salto</em> o resolución entre un número y el siguiente es:
-    $$ \text{Salto} = \frac{1}{2^{23}} = 2^{-23} \approx 0.000000119 $$</p>
+    Al dividir este espacio de 1 unidad en <span class="arithmatex">\(2^{23}\)</span> pasos, el <em>salto</em> o resolución entre un número y el siguiente es:</p>
+<div class="arithmatex">\[ \text{Salto} = \frac{1}{2^{23}} = 2^{-23} \approx 0.000000119 \]</div>
 </li>
 <li>
 <p><strong>Intervalo <span class="arithmatex">\([2, 4)\)</span>:</strong> La distancia total es <span class="arithmatex">\(2\)</span> (<span class="arithmatex">\(4-2\)</span>).
-    Sigue habiendo los mismos <span class="arithmatex">\(2^{23}\)</span> escalones disponibles. Al repartirlos en un espacio el doble de grande, el salto es el doble:
-    $$ \text{Salto} = \frac{2}{2^{23}} = 2^{1-23} = 2^{-22} \approx 0.000000238 $$</p>
+    Sigue habiendo los mismos <span class="arithmatex">\(2^{23}\)</span> escalones disponibles. Al repartirlos en un espacio el doble de grande, el salto es el doble:</p>
+<div class="arithmatex">\[ \text{Salto} = \frac{2}{2^{23}} = 2^{1-23} = 2^{-22} \approx 0.000000238 \]</div>
 </li>
 <li>
-<p><strong>Intervalo <span class="arithmatex">\([1024, 2048)\)</span>:</strong> La distancia es <span class="arithmatex">\(1024\)</span> (<span class="arithmatex">\(2^{10}\)</span>).
-    $$ \text{Salto} = \frac{2^{10}}{2^{23}} = 2^{10-23} = 2^{-13} \approx 0.000122 $$</p>
+<p><strong>Intervalo <span class="arithmatex">\([1024, 2048)\)</span>:</strong> La distancia es <span class="arithmatex">\(1024\)</span> (<span class="arithmatex">\(2^{10}\)</span>).</p>
+<div class="arithmatex">\[ \text{Salto} = \frac{2^{10}}{2^{23}} = 2^{10-23} = 2^{-13} \approx 0.000122 \]</div>
 </li>
 </ul>
 <p><strong>Conclusión:</strong> Cuanto más grande es el número, mayores son los saltos (peor precisión absoluta), manteniendo el error relativo constante.</p>
