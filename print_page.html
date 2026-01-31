@@ -2849,18 +2849,18 @@ El sistema operativo es un <strong>conjunto de programas</strong> que <strong>in
 <li><strong>Número y tamaño de los registros</strong> de la CPU, las celdas de memoria interna de alta velocidad situadas dentro de la propia CPU.</li>
 </ol>
 <div class="admonition info">
-<p class="admonition-title">La guerra de las arquitecturas: ¿Por qué mi móvil no usa Intel?</p>
-<p>La ISA es el <em>idioma</em> que entiende el procesador. Hoy en día, el mundo está dividido principalmente en dos grandes familias de ISA's:</p>
+<p class="admonition-title">La compatibilidad binaria</p>
+<p>La ISA es el <strong>idioma</strong> que entiende el procesador. Hoy en día, el mundo de la informática personal está dividido principalmente en dos grandes familias:</p>
 <ul>
 <li>
 <p><strong>Familia x86 (Intel y AMD):</strong> Es la que usan los PC tradicionales y servidores. Si un programa se compila para x86, funcionará en cualquier CPU de Intel o AMD porque ambas comparten la misma ISA.</p>
 </li>
 <li>
-<p><strong>Familia ARM (Apple M1/M2/M3, Qualcomm, Samsung):</strong> Es la reina de los móviles por su eficiencia energética. Apple la ha llevado también a sus ordenadores (Apple Silicon).</p>
+<p><strong>Familia ARM (Apple Silicon, Qualcomm, Samsung):</strong> Es la reina de los dispositivos móviles por su eficiencia energética. Apple la ha incorporado también a sus ordenadores modernos.</p>
 </li>
 </ul>
 <p><strong>¿Qué pasa si intento mezclarlas?</strong>
-Si intentas ejecutar un juego diseñado para un PC con Intel (x86) directamente en un iPad o un Mac moderno (ARM), <strong>no funcionará</strong>. Los bits que forman las instrucciones significan cosas distintas para cada procesador. </p>
+Si intentas ejecutar un programa diseñado para un PC con Intel (x86) directamente en un Mac moderno o un smartphone (ARM), <strong>no funcionará</strong>. Los bits que forman las instrucciones significan cosas distintas para cada procesador. No existe <strong>compatibilidad binaria</strong> porque, aunque ambos son procesadores, no hablan el mismo <em>lenguaje</em> ISA.</p>
 </div>
 <h3 id="arquitectura_de_computadores-41-tipos-de-instrucciones">4.1 Tipos de instrucciones</h3>
 <p>Podemos distinguir cuatro tipos de instrucciones principales, en consonancia con las acciones que se realizan durante la fase de ejecución del ciclo de instrucción:</p>
@@ -2894,10 +2894,29 @@ Si intentas ejecutar un juego diseñado para un PC con Intel (x86) directamente 
 <p>Por tanto, un operando puede ser un <strong>registro</strong>, una <strong>dirección de memoria</strong> o un puerto de <strong>E/S</strong>.</p>
 </div>
 <h3 id="arquitectura_de_computadores-42-codificación-y-formatos">4.2 Codificación y formatos</h3>
-<p>Un formato de instrucción incluye el <strong>opcode</strong> (operación) y los campos de <strong>direccionamiento</strong> (operandos).</p>
-<blockquote>
-<p><strong>[Figura 4.1 – Formato de una instrucción]</strong></p>
-</blockquote>
+<p>Analizando el ciclo de instrucción se deduce que la codificación de la instrucción debe contener información sobre:</p>
+<ul>
+<li>la <strong>operación</strong> que debe realizar el procesador</li>
+<li>el <strong>origen</strong> de sus <strong>operandos fuente</strong></li>
+<li>el <strong>destino</strong> del <strong>operando resultado</strong></li>
+</ul>
+<p>Un <strong>formato de instrucción</strong> determina cómo codificar la información que contiene una instrucción, especificando:</p>
+<ul>
+<li>
+<p>el <strong>número de campos</strong> en los que se divide el conjunto de bits que forman dicha instrucción</p>
+<ul>
+<li>uno de los campos, <strong>opcode</strong>, <strong>codifica la operación</strong></li>
+<li>el resto de los campos son los <strong>campos de direccionamiento</strong>, que permiten conocer los operandos fuente y destino</li>
+<li>el <strong>tamaño</strong> en número de bits <strong>de cada campo</strong></li>
+<li>el <strong>contenido semántico</strong> vía codificación de cada campo</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Formato Instrucción" src="img/AC/formato_instruccion.jpg" style="display: block; margin: 0 auto" /></p>
+<center><em>Figura 4.1 – Formato de una instrucción</em></center>
+<p><br></p>
+<p>Lo habitual es un tamaño <span class="arithmatex">\(n\)</span> fijo en la mayor parte de las instrucciones de una ISA, pero puede variar para algunas instrucciones. Del mismo modo, aún para instrucciones con el mismo tamaño <span class="arithmatex">\(n\)</span>, el número de bits <span class="arithmatex">\(n1\)</span> del <strong>opcode</strong>, el número de campos de direccionamiento y el tamaño de cada uno de estos campos puede diferir para cada tipo de instrucción.</p>
+<p>La colección de instrucciones que conforman un programa vistas como una secuencia fija de bits constituyen el <strong>código máquina</strong>. El <strong>lenguaje ensamblador</strong> facilita al programador la escritura de programas a este nivel. Mediante la utilización de <strong>mnemotécnicos</strong> tanto para operaciones como para operandos, se logra una correspondencia entre instrucción en lenguaje ensamblador e instrucción en lenguaje máquina.</p>
 <h3 id="arquitectura_de_computadores-43-clasificación-de-arquitecturas">4.3 Clasificación de arquitecturas</h3>
 <p>Según el almacenamiento de operandos:
 1.  <strong>Pila:</strong> Operandos implícitos.
