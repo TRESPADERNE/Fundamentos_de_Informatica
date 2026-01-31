@@ -2813,13 +2813,13 @@ El sistema operativo es un <strong>conjunto de programas</strong> que <strong>in
 <p>Un programa es, en esencia, una <strong>secuencia ordenada de instrucciones</strong> almacenadas en posiciones consecutivas de la memoria. Para que el procesador pueda recorrerlas, se utiliza el registro llamado <strong>contador de programa</strong> (<strong>PC</strong>, <strong>P</strong>rogram <strong>C</strong>ounter).</p>
 <p>Este registro almacena la <strong>dirección de memoria</strong> de la instrucción que debe procesarse a continuación. El funcionamiento estándar sigue un <strong>modelo secuencial</strong>:</p>
 <ol>
-<li>La CPU lee la instrucción apuntada por el PC.</li>
+<li>La CPU lee la instrucción apuntada por el <strong>PC</strong>.</li>
 <li>Inmediatamente después, la CPU <strong>incrementa el valor del PC</strong> (normalmente apunta a la siguiente posición de memoria).</li>
 <li>De este modo, el procesador queda preparado para captar la siguiente instrucción de la lista en el próximo ciclo.</li>
 </ol>
-<p>La instrucción captada se traslada desde la memoria al <strong>registro de instrucción</strong> (<strong>IR</strong>, <em>I</em>nstruction <em>R</em>egister) para ser procesada.</p>
+<p>La instrucción captada se traslada desde la memoria al <strong>registro de instrucción</strong> (<strong>IR</strong>, <strong>I</strong>nstruction <strong>R</strong>egister) para ser procesada.</p>
 <h4 id="arquitectura_de_computadores-la-decodificación">La decodificación</h4>
-<p>La instrucción consiste en un código binario que especifica la <strong>acción</strong> que debe realizar la CPU y los <strong>operandos</strong> (datos) que intervienen. La Unidad de Control (<strong>UC</strong>) interpreta este código y prepara los "caminos de datos" necesarios activando, a través de los buses internos, las señales eléctricas requeridas. </p>
+<p>La instrucción consiste en un código binario que especifica la <strong>acción</strong> que debe realizar la CPU y los <strong>operandos</strong> (datos) que intervienen. La Unidad de Control (<strong>UC</strong>) interpreta este código y prepara los <strong>caminos de datos</strong> necesarios activando, a través de los buses internos, las señales eléctricas requeridas. </p>
 <p>En cierta bibliografía, es común encontrar esta fase de decodificación englobada dentro de la fase de ejecución.</p>
 <h4 id="arquitectura_de_computadores-la-ejecución">La ejecución</h4>
 <p>Las dos fases anteriores son comunes a todas las instrucciones; las diferencias se manifiestan en esta etapa, que suele descomponerse en tres subetapas:</p>
@@ -2841,14 +2841,58 @@ El sistema operativo es un <strong>conjunto de programas</strong> que <strong>in
 <p>Aunque este <strong>modelo secuencial</strong> (una tras otra) es la base para entender el funcionamiento, las microarquitecturas modernas son mucho más agresivas. Para ganar velocidad, utilizan técnicas como la <strong>segmentación</strong> (<strong>pipelining</strong>), que permite tener varias instrucciones en distintas etapas del ciclo a la vez (como una cadena de montaje), o la <strong>ejecución fuera de orden</strong>, donde el procesador reorganiza las instrucciones para que la CPU no esté ociosa esperando un dato.</p>
 </div>
 <h2 id="arquitectura_de_computadores-4-el-repertorio-de-instrucciones-isa">4. El repertorio de instrucciones (ISA)</h2>
-<p>Describe los aspectos del procesador visibles para el programador de sistemas: tipos de formatos, tipos de datos y número de registros.</p>
-<h3 id="arquitectura_de_computadores-41-tipos-de-instrucciones">4.1 Tipos de instrucciones</h3>
+<p>El <strong>repertorio de instrucciones</strong> o <strong>ISA</strong>, (<strong>I</strong>nstruction <strong>S</strong>et <strong>A</strong>rchitecture), describe los <strong>aspectos del procesador</strong> generalmente <strong>visibles</strong> para los <strong>programadores de sistemas</strong>.</p>
+<p>El conjunto de instrucciones determina cómo debe comportarse el procesador a la hora de ejecutar los programas y, por tanto, de qué características se dispondrá a la hora de programarlo:</p>
+<ol>
+<li><strong>Tipos y formatos de las instrucciones</strong>: operaciones contempladas, formas de acceder a datos en la memoria y E/S, etc.</li>
+<li><strong>Tipos de datos</strong> con los que deberá trabajar el procesador: enteros, coma flotante, tamaños, etc.</li>
+<li><strong>Número y tamaño de los registros</strong> de la CPU, las celdas de memoria interna de alta velocidad situadas dentro de la propia CPU.</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">La guerra de las arquitecturas: ¿Por qué mi móvil no usa Intel?</p>
+<p>La ISA es el <em>idioma</em> que entiende el procesador. Hoy en día, el mundo está dividido principalmente en dos grandes familias de ISA's:</p>
 <ul>
-<li><strong>Transformación:</strong> Operaciones sobre datos.</li>
-<li><strong>Transferencia:</strong> Copia de datos (Memoria <span class="arithmatex">\(\leftrightarrow\)</span> Registros, etc.).</li>
-<li><strong>Control del flujo:</strong> Saltos en la ejecución.</li>
-<li><strong>Control del procesador:</strong> Cambio de modo de funcionamiento.</li>
+<li>
+<p><strong>Familia x86 (Intel y AMD):</strong> Es la que usan los PC tradicionales y servidores. Si un programa se compila para x86, funcionará en cualquier CPU de Intel o AMD porque ambas comparten la misma ISA.</p>
+</li>
+<li>
+<p><strong>Familia ARM (Apple M1/M2/M3, Qualcomm, Samsung):</strong> Es la reina de los móviles por su eficiencia energética. Apple la ha llevado también a sus ordenadores (Apple Silicon).</p>
+</li>
 </ul>
+<p><strong>¿Qué pasa si intento mezclarlas?</strong>
+Si intentas ejecutar un juego diseñado para un PC con Intel (x86) directamente en un iPad o un Mac moderno (ARM), <strong>no funcionará</strong>. Los bits que forman las instrucciones significan cosas distintas para cada procesador. </p>
+</div>
+<h3 id="arquitectura_de_computadores-41-tipos-de-instrucciones">4.1 Tipos de instrucciones</h3>
+<p>Podemos distinguir cuatro tipos de instrucciones principales, en consonancia con las acciones que se realizan durante la fase de ejecución del ciclo de instrucción:</p>
+<ul>
+<li>
+<p><strong>Instrucciones de transformación</strong></p>
+<p>Codifican operaciones sobre los datos, generalmente involucrando <strong>operandos de entrada</strong> para obtener un <strong>resultado</strong> que se deposita en un <strong>operando de salida</strong>. Aquí se incluyen todas las operaciones aritméticas (suma, resta) y lógicas (AND, OR, etc.).</p>
+</li>
+<li>
+<p><strong>Instrucciones de transferencia</strong></p>
+<p>Copian datos de unas unidades de almacenamiento a otras sin alterar su contenido. Los movimientos más habituales son:</p>
+<ul>
+<li>Entre <strong>memoria</strong> y <strong>registros</strong>.</li>
+<li>De <strong>registro</strong> a <strong>registro</strong>.</li>
+<li>De <strong>memoria</strong> a <strong>memoria</strong> (muy inusual en la mayoría de las <strong>ISA</strong> modernas).</li>
+<li>Entre <strong>registros</strong> y <strong>módulos de E/S</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Instrucciones de control de flujo</strong></p>
+<p>Permiten alterar el orden de ejecución secuencial de las instrucciones. Son las que permiten implementar estructuras de control como bucles (<em>loops</em>), condiciones (<em>if/else</em>) o llamadas a funciones.</p>
+</li>
+<li>
+<p><strong>Instrucciones de control del procesador</strong></p>
+<p>Sirven para cambiar el estado o el modo de funcionamiento de la CPU, como habilitar o deshabilitar interrupciones o cambiar entre modo usuario y modo supervisor.</p>
+</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Nota terminológica: ¿Qué es un operando?</p>
+<p>En el ámbito de la arquitectura de computadores, el término <strong>operando</strong> no se refiere solo al valor numérico (como el <span class="arithmatex">\(5\)</span> en una suma), sino al <strong>recurso o ubicación</strong> donde reside ese valor o donde se almacenará el resultado. </p>
+<p>Por tanto, un operando puede ser un <strong>registro</strong>, una <strong>dirección de memoria</strong> o un puerto de <strong>E/S</strong>.</p>
+</div>
 <h3 id="arquitectura_de_computadores-42-codificación-y-formatos">4.2 Codificación y formatos</h3>
 <p>Un formato de instrucción incluye el <strong>opcode</strong> (operación) y los campos de <strong>direccionamiento</strong> (operandos).</p>
 <blockquote>
