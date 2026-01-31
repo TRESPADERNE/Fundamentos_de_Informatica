@@ -2923,37 +2923,32 @@ Si intentas ejecutar un programa diseñado para un PC con Intel (x86) directamen
 <p>El ensamblador facilita la escritura de programas mediante el uso de <strong>mnemotécnicos</strong> (palabras cortas como <code>ADD</code>, <code>SUB</code>, <code>MOV</code>) tanto para las operaciones como para los operandos. Esto permite una <strong>correspondencia directa (uno a uno)</strong> entre una instrucción en lenguaje ensamblador y su equivalente en lenguaje máquina, haciendo el código mucho más legible sin perder el control total sobre el hardware.</p>
 <h3 id="arquitectura_de_computadores-43-clasificación-de-arquitecturas">4.3 Clasificación de arquitecturas</h3>
 <p>Cómo se realiza internamente en la CPU el almacenamiento temporal de los operandos está íntimamente ligado al número de campos necesarios en la sección de <strong>direccionamiento</strong> de la instrucción y viceversa. Es un claro ejemplo de cómo la ISA (nivel 2) y el diseño de la microarquitectura (nivel 1) se condicionan mutuamente.</p>
-<p>En función del tipo de almacenamiento interno al operar con la ALU tenemos:</p>
+<p>En función del tipo de almacenamiento interno al operar con la ALU, podemos clasificar las arquitecturas en:</p>
 <ul>
-<li>Arquitectura tipo <strong>pila</strong>, donde los operandos son implícitos</li>
-<li>Arquitectura con <strong>acumulador</strong> con un operando explícito y el otro es un valor implícito, almacenado en un registro llamado <strong>acumulador</strong>. El operando resultado de una operación se almacena también en el acumulador.</li>
-<li>
-<p>Arquitectura de <strong>registros de propósito general</strong> (<strong>GPR</strong>), donde se dispone de una colección de registros de almacenamiento visibles al programador de sistemas elegibles explícitamente en la instrucción para almacenar los operandos. Este grupo puede subdividirse a su vez en dos subgrupos:</p>
-<ul>
-<li>Arquitectura <strong>memoria – registro</strong>, donde uno de los operandos explícitos puede provenir de la memoria</li>
-<li>Arquitectura <strong>registro – registro</strong>, donde los operandos siempre son registros internos, salvo para las operaciones de <strong>carga</strong> (<strong>load</strong>) y almacenamiento (<strong>store</strong>)</li>
+<li><strong>Arquitectura de pila (stack)</strong>: Los operandos son implícitos; se encuentran siempre en la parte superior de una estructura de pila.</li>
+<li><strong>Arquitectura de acumulador</strong>: Utiliza un operando explícito y el otro es un valor implícito almacenado en un registro especial llamado <strong>acumulador</strong>. El resultado de la operación se almacena también en dicho acumulador.</li>
+<li><strong>Arquitectura de registros de propósito general (GPR)</strong>: Dispone de una colección de registros visibles al programador que pueden ser elegidos explícitamente en la instrucción. Este grupo se subdivide en:<ul>
+<li><strong>Memoria-registro</strong>: Uno de los operandos puede provenir directamente de la memoria principal.</li>
+<li><strong>Registro-registro (o Load-Store)</strong>: Los operandos deben estar siempre en registros internos para operar con ellos. El acceso a memoria se limita a instrucciones específicas de <strong>carga</strong> (<em>load</em>) y <strong>almacenamiento</strong> (<em>store</em>).</li>
 </ul>
 </li>
 </ul>
 <p><img alt="Tipos arquitecturas" src="img/AC/tipos_arquitecturas.jpg" style="display: block; margin: 0 auto" /></p>
-<center><em>Figura 4.2 – Situación de los operandos para cuatro tipos de arquitecturas<br><small>(Fuente: J. L. Hennesy, D. A. Patterson. Computer Architecture: A Quantitative Approach, Apéndice A.2)</small></em>)</center>
+<center><em>Figura 4.2 – Situación de los operandos para cuatro tipos de arquitecturas<br><small>(Fuente: J. L. Hennessy, D. A. Patterson. Computer Architecture: A Quantitative Approach)</small></em></center>
+
 <p><br></p>
-<p>Las flechas en la figura 4.2 indican cuándo el operando es una entrada, el resultado de una operación en la ALU o ambas, una entrada y un resultado.</p>
-<p>Ilustraremos cada tipo de arquitectura analizando un <strong>pseudocódigo</strong> en ensamblador para una operación <code>z=x+y</code>, donde el mnemotécnico <strong>ADD</strong> se referirá a la operación <strong>suma</strong> y <strong>LOAD</strong> y <strong>STORE</strong> a la transferencia de datos desde o hacia la memoria.</p>
+<p>Las flechas en la figura 4.2 indican cuándo el operando es una entrada, el resultado de una operación en la ALU o ambas (entrada y resultado a la vez).</p>
+<p>A continuación, ilustraremos cada tipo analizando el <strong>pseudocódigo</strong> necesario para realizar la operación <code>z = x + y</code>. Usaremos el mnemotécnico <strong>ADD</strong> para la suma y <strong>LOAD</strong> / <strong>STORE</strong> para las transferencias con la memoria.</p>
 <h4 id="arquitectura_de_computadores-arquitectura-tipo-pila">Arquitectura tipo pila</h4>
-<p>Una <strong>pila</strong> es un banco de registros (o una región de la memoria RAM) con una estructura <strong>LIFO</strong>, último en entrar, primero en salir. En la figura 4.2 (A) solo aparecen dos celdas en la pila, pero en la práctica son muchas más.</p>
-<p>Un registro especial en esta arquitectura, <strong>TOS</strong> (<strong>T</strong>op <strong>O</strong>f <strong>S</strong>tack), indica la posición (dirección) del último valor introducido.</p>
-<ul>
-<li><strong>Apilamos</strong> un dato con una instrucción <strong>PUSH</strong>. En ese caso, <strong>TOS</strong> se incrementa en una posición.</li>
-<li><strong>Retiramos</strong> un valor con la instrucción <strong>POP</strong>. Ahora <strong>TOS</strong> se decrementa en una posición.</li>
-</ul>
-<p>¿Cómo funciona la operación ADD con operandos implícitos?</p>
-<ul>
-<li>los operandos son <strong>siempre</strong> los <strong>dos primeros valores de la pila</strong>, es decir, <strong>los últimos en entrar</strong>.</li>
-<li>el resultado se almacena en la <strong>2ª posición</strong></li>
-<li>se <strong>actualiza TOS</strong> para que apunte a la 2ª posición (el antiguo primer valor se sobrescribirá si hay una nueva instrucción <strong>PUSH</strong>)</li>
-</ul>
-<p>En la figura 4.2 (A), tras realizar la operación <strong>ADD</strong>, <strong>TOS</strong> pasará a apuntar al registro de color obscuro.</p>
+<p>Una <strong>pila</strong> es un banco de registros (o una región de la RAM) con una estructura <strong>LIFO</strong> (<em>Last In, First Out</em>: el último en entrar es el primero en salir). </p>
+<p>Un registro especial, llamado <strong>TOS</strong> (<strong>T</strong>op <strong>O</strong>f <strong>S</strong>tack), indica la dirección del último valor introducido.
+*   Para introducir un dato, usamos la instrucción <strong>PUSH</strong> (TOS se incrementa).
+*   Para extraer un dato, usamos la instrucción <strong>POP</strong> (TOS se decrementa).</p>
+<p>¿Cómo funciona una instrucción <strong>ADD</strong> en esta arquitectura?
+1.  Los operandos son <strong>siempre</strong> los dos valores situados en el tope de la pila (operandos implícitos).
+2.  La ALU los suma, extrae ambos y <strong>apila el resultado</strong>.
+3.  El registro <strong>TOS</strong> se actualiza automáticamente para apuntar al nuevo resultado.</p>
+<p>En la figura 4.2 (A), tras realizar la operación <strong>ADD</strong>, el puntero <strong>TOS</strong> pasará a apuntar al registro que contiene el resultado (marcado en color oscuro).</p>
 <div class="center-table">
 <table>
 <thead>
@@ -2977,14 +2972,136 @@ Si intentas ejecutar un programa diseñado para un PC con Intel (x86) directamen
 </tr>
 <tr>
 <td style="text-align: left;"><code>POP z</code></td>
-<td style="text-align: left;">Se desapila <strong>z</strong>, almacenándose en memoria</td>
+<td style="text-align: left;">Se desapila el resultado y se guarda en la dirección <strong>z</strong></td>
 </tr>
 </tbody>
 </table>
 </div>
 <p style="text-align: center;"><em>Pseudocódigo en ensamblador para la <strong>arquitectura tipo pila</strong> de la operación <code>z = x + y</code></em></p>
 
-<p>Las máquinas virtuales de Java y Python usan esta arquitectura, es decir, una arquitectura software. El hardware no es más que software petrificado y cualquier instrucción ejecutada por hardware es susceptible de ser simulada en software.</p>
+<div class="admonition tip">
+<p class="admonition-title">Arquitecturas virtuales: Java y Python</p>
+<p>Aunque hoy en día es raro encontrar CPUs físicas basadas exclusivamente en pilas (fueron populares en los años 60), este modelo es la base de muchas <strong>Máquinas Virtuales</strong> modernas. </p>
+<p>El <strong>Bytecode</strong> de Java o el de Python se ejecuta sobre una arquitectura de pila simulada por software. Se eligió este modelo porque es independiente del hardware. Mientras que un procesador real tiene un número limitado y fijo de registros (por ejemplo, 8 o 32), una pila es una estructura abstracta que puede crecer según se necesite. Esto permite que el mismo Bytecode funcione igual en cualquier procesador, sin importar cuántos registros físicos tenga este.</p>
+<p>Como bien se dice en computación: <em>el hardware no es más que software petrificado</em>; cualquier comportamiento definido en una ISA puede ser ejecutado por circuitos físicos o simulado mediante un programa.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Caso práctico: Análisis de un Bytecode de un fragmento sencillo de código Python</p>
+<p>Para el fragmento:
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">w</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">w</span>
+</code></pre></div>
+el intérprete de Python realiza primero las asignaciones y luego el cálculo. A continuación, desglosamos cada paso indicando qué ocurre en la pila:</p>
+<p><strong>1. Preparación de variables (Asignaciones)</strong>
+Antes de sumar, el procesador debe <em>inicializar</em> las variables en memoria. Cada asignación es, en realidad, un par <strong>PUSH + POP</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Dirección</th>
+<th style="text-align: left;">Instrucción</th>
+<th style="text-align: left;">Operación</th>
+<th style="text-align: left;">Acción sobre la pila</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;"><code>LOAD_CONST 0 (3)</code></td>
+<td style="text-align: left;"><strong>PUSH 3</strong></td>
+<td style="text-align: left;">El valor <code>3</code> entra en la pila</td>
+</tr>
+<tr>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;"><code>STORE_NAME 0 (x)</code></td>
+<td style="text-align: left;"><strong>POP x</strong></td>
+<td style="text-align: left;">Se saca el <code>3</code> y se guarda en la dirección <code>x</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;"><code>LOAD_CONST 1 (5)</code></td>
+<td style="text-align: left;"><strong>PUSH 5</strong></td>
+<td style="text-align: left;">El valor <code>5</code> entra en la pila</td>
+</tr>
+<tr>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;"><code>STORE_NAME 1 (y)</code></td>
+<td style="text-align: left;"><strong>POP y</strong></td>
+<td style="text-align: left;">Se saca el <code>5</code> y se guarda en la dirección <code>y</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;"><code>LOAD_CONST 2 (7)</code></td>
+<td style="text-align: left;"><strong>PUSH 7</strong></td>
+<td style="text-align: left;">El valor <code>7</code> entra en la pila</td>
+</tr>
+<tr>
+<td style="text-align: left;">12</td>
+<td style="text-align: left;"><code>STORE_NAME 2 (w)</code></td>
+<td style="text-align: left;"><strong>POP w</strong></td>
+<td style="text-align: left;">Se saca el <code>7</code> y se guarda en la dirección <code>w</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>2. Ejecución del cálculo (Suma de tres operandos)</strong>
+Una vez las variables existen en memoria, el procesador ejecuta la sentencia <code>z = x + y + w</code>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Dirección</th>
+<th style="text-align: left;">Instrucción</th>
+<th style="text-align: left;">Operación</th>
+<th style="text-align: left;">Estado de la Pila (TOS a la derecha)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;"><code>LOAD_NAME 0 (x)</code></td>
+<td style="text-align: left;"><strong>PUSH x</strong></td>
+<td style="text-align: left;"><code>[3]</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">16</td>
+<td style="text-align: left;"><code>LOAD_NAME 1 (y)</code></td>
+<td style="text-align: left;"><strong>PUSH y</strong></td>
+<td style="text-align: left;"><code>[3, 5]</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">18</td>
+<td style="text-align: left;"><code>BINARY_OP 0 (+)</code></td>
+<td style="text-align: left;"><strong>ADD</strong></td>
+<td style="text-align: left;"><code>[8]</code> (Resultado parcial: 3+5)</td>
+</tr>
+<tr>
+<td style="text-align: left;">22</td>
+<td style="text-align: left;"><code>LOAD_NAME 2 (w)</code></td>
+<td style="text-align: left;"><strong>PUSH w</strong></td>
+<td style="text-align: left;"><code>[8, 7]</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">24</td>
+<td style="text-align: left;"><code>BINARY_OP 0 (+)</code></td>
+<td style="text-align: left;"><strong>ADD</strong></td>
+<td style="text-align: left;"><code>[15]</code> (Resultado final: 8+7)</td>
+</tr>
+<tr>
+<td style="text-align: left;">28</td>
+<td style="text-align: left;"><code>STORE_NAME 3 (z)</code></td>
+<td style="text-align: left;"><strong>POP z</strong></td>
+<td style="text-align: left;"><code>[]</code> (Pila vacía, resultado guardado en <code>z</code>)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>¿Qué estamos aprendiendo aquí?</strong></p>
+<ul>
+<li><strong>El operando es una ubicación:</strong> las instrucciones <code>LOAD</code> y <code>STORE</code> usan números (<code>0, 1, 2</code>) que son los índices de las direcciones de memoria <em>ficticias</em> donde residen los datos.</li>
+<li><strong>Gestión de temporales:</strong> Fíjate que el valor <strong>8</strong> (la suma de x+y) nunca se guarda en una variable del programador. La arquitectura de pila lo mantiene como un <strong>valor temporal invisible</strong> en el tope de la pila hasta que llega el siguiente operando.</li>
+<li><strong>Instrucciones implícitas:</strong> La instrucción <code>BINARY_OP (+)</code> en la dirección <strong>24</strong> no sabe que está sumando un resultado previo con una variable; simplemente suma los dos valores que hay en ese momento en la pila.</li>
+</ul>
+<p>Como ves, el código que escribes en un lenguaje moderno termina convirtiéndose en las mismas operaciones básicas que estamos estudiando.</p>
+</div>
 <h4 id="arquitectura_de_computadores-arquitectura-con-acumulador">Arquitectura con acumulador</h4>
 <p>Un registro especial llamado acumulador es siempre uno de los operandos. El segundo operando es un valor almacenado en memoria. El resultado se almacena siempre en el acumulador.</p>
 <p>Habitual en los diseños pioneros, en la actualidad se usa esta arquitectura en algunos diseños de microcontroladores. Muchos libros de texto la utilizan para ilustrar el ciclo de instrucción, a modo de arquitectura de juguete.
@@ -3005,6 +3122,20 @@ Desde aproximadamente 1980 las arquitecturas de computadoras son del tipo GPR, y
 En el cálculo (x<em>y)+(y</em>z)-(x*w) un compilador puede elegir realizar las multiplicaciones en cualquier orden, dado que los operandos ya se encuentran almacenados en los registros, evitando así traerlos desde memoria de forma repetida.
 •   el tráfico de información con la memoria se reduce, pues un registro puede participar en varias instrucciones sucesivas, aumentando la velocidad
 •   la densidad de información disminuye dado que para referirse a un registro basta con unos pocos bits mientras que referenciar a un dato en memoria necesita de muchos más bits.</p>
+<div class="admonition info">
+<p class="admonition-title">La escala del lenguaje: Python vs. Intel</p>
+<p>Para entender la diferencia entre una arquitectura software (virtual) y una hardware (física), basta con mirar el tamaño de sus <em>diccionarios</em> de instrucciones:</p>
+<ul>
+<li>
+<p><strong>Python (v3.13):</strong> Tiene un repertorio de unos <strong>260 códigos</strong> aproximadamente. Al ser un lenguaje diseñado para ser portable y sencillo, prefiere tener pocas piezas pero muy potentes.</p>
+</li>
+<li>
+<p><strong>Intel x86-64 (Actual):</strong> Contiene más de <strong>1.500 mnemotécnicos</strong> (nombres de instrucciones) que se traducen en más de <strong>3.600 variantes</strong> binarias. </p>
+</li>
+</ul>
+<p><strong>¿A qué se debe esta diferencia abismal?</strong>
+El procesador Intel es como una "navaja suiza" gigante: tiene una hoja específica para cada tarea imaginable (multimedia, IA, criptografía, compatibilidad con programas de hace 40 años...). En cambio, Python es como un <strong>juego de LEGO</strong>: con un puñado de piezas básicas (apilar, desapilar, sumar) puede construir cualquier programa complejo, delegando la eficiencia y la velocidad final en la Máquina Virtual que traduce y ejecuta ese bytecode sobre el hardware real..</p>
+</div>
 <h2 id="arquitectura_de_computadores-5-el-rendimiento-de-un-computador">5. El rendimiento de un computador</h2>
 <p>Se define como la capacidad para ejecutar programas en el menor tiempo posible.</p>
 <h3 id="arquitectura_de_computadores-51-el-reloj">5.1 El reloj</h3>
