@@ -2780,8 +2780,16 @@ El sistema operativo es un <strong>conjunto de programas</strong> que <strong>in
 <ul>
 <li>la <strong>dirección</strong> donde quiere realizar el acceso utilizando el <strong>bus de direcciones</strong></li>
 <li>los <strong>datos</strong>, que los colocará el procesador, la memoria o algún dispositivo de E/S en el <strong>bus de datos</strong></li>
-<li><strong>señales de control</strong> para indicar las características del acceso y para pautar la sincronización de acuerdo con el protocolo del bus utilizando el <strong>bus de control</strong></li>
+<li><strong>señales de control</strong> para gestionar el acceso y la sincronización a través del <strong>bus de control</strong>. Entre estas señales destacan:<ul>
+<li>El <strong>reloj del sistema</strong>, que marca el ritmo al que se realizan las transferencias.</li>
+<li>La <strong>indicación del tipo de operación</strong> (lectura o escritura).</li>
+<li>El <strong>arbitraje del bus</strong>, que decide qué dispositivo puede <em>adueñarse</em> del bus cuando varios quieren usarlo a la vez.</li>
 </ul>
+</li>
+</ul>
+<h3 id="arquitectura_de_computadores-un-pequeño-tip-de-estilo-para-tu-mkdocs">Un pequeño "Tip" de estilo para tu MkDocs:</h3>
+<p>Como el bus de sistema es algo muy físico, si tienes una imagen de las pistas de una placa base o un diagrama de bloques simple donde se vean los tres buses saliendo de la CPU, quedaría genial justo debajo de este texto. </p>
+<p>Si no, el texto tal cual lo tienes (con el retoque del bus de control) es <strong>limpio, preciso y profesional</strong>. No necesita más para una introducción.</p>
 <h3 id="arquitectura_de_computadores-32-el-ciclo-de-instrucción">3.2 El ciclo de instrucción</h3>
 <p>Pasos básicos:
 1.  <strong>Captación (fetch):</strong> Se obtiene la instrucción de memoria (usando el PC) y se guarda en el IR. Se incrementa el PC.
