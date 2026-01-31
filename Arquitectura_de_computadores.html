@@ -778,6 +778,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="4.2 Codificación y formatos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#del-código-máquina-al-ensamblador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Del código máquina al ensamblador
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -788,6 +805,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="4.3 Clasificación de arquitecturas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arquitectura-tipo-pila" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arquitectura tipo pila
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1397,42 +1431,83 @@ Si intentas ejecutar un programa diseñado para un PC con Intel (x86) directamen
 <p>Por tanto, un operando puede ser un <strong>registro</strong>, una <strong>dirección de memoria</strong> o un puerto de <strong>E/S</strong>.</p>
 </div>
 <h3 id="42-codificación-y-formatos">4.2 Codificación y formatos</h3>
-<p>Analizando el ciclo de instrucción se deduce que la codificación de la instrucción debe contener información sobre:</p>
+<p>Analizando el ciclo de instrucción, se deduce que la codificación de cada instrucción debe contener información sobre:</p>
 <ul>
-<li>la <strong>operación</strong> que debe realizar el procesador</li>
-<li>el <strong>origen</strong> de sus <strong>operandos fuente</strong></li>
-<li>el <strong>destino</strong> del <strong>operando resultado</strong></li>
+<li>La <strong>operación</strong> que debe realizar el procesador.</li>
+<li>El <strong>origen</strong> de sus <strong>operandos fuente</strong>.</li>
+<li>El <strong>destino</strong> del <strong>operando resultado</strong>.</li>
 </ul>
-<p>Un <strong>formato de instrucción</strong> determina cómo codificar la información que contiene una instrucción, especificando:</p>
+<p>Un <strong>formato de instrucción</strong> determina cómo se codifica esta información en una secuencia de bits, especificando:</p>
 <ul>
 <li>
-<p>el <strong>número de campos</strong> en los que se divide el conjunto de bits que forman dicha instrucción</p>
+<p>El <strong>número de campos</strong> en los que se divide la instrucción:</p>
 <ul>
-<li>uno de los campos, <strong>opcode</strong>, <strong>codifica la operación</strong></li>
-<li>el resto de los campos son los <strong>campos de direccionamiento</strong>, que periten conocer los operandos fuente y destino</li>
+<li><strong>Opcode</strong> (código de operación): un campo que <strong>codifica la operación</strong> específica (el <em>qué</em>).</li>
+<li><strong>Campos de direccionamiento</strong>: el resto de los campos que <strong>permiten</strong> identificar los operandos fuente y destino (el <em>quién</em>).</li>
 </ul>
 </li>
 <li>
-<p>el <strong>tamaño</strong> en número de bits <strong>de cada campo</strong></p>
+<p>El <strong>tamaño</strong> (número de bits) de cada campo.</p>
 </li>
-<li>el <strong>contenido semántico</strong> vía codificación de cada campo</li>
+<li>El <strong>contenido semántico</strong> de cada campo según su codificación.</li>
 </ul>
 <p><img alt="Formato Instrucción" src="img/AC/formato_instruccion.jpg" style="display: block; margin: 0 auto" /></p>
 <center><em>Figura 4.1 – Formato de una instrucción</em></center>
 <p><br></p>
-<p>Lo habitual es un tamaño <span class="arithmatex">\(n\)</span> fijo en la mayor parte de las instrucciones de una ISA, pero puede variar para algunas instrucciones. Del mismo modo, aún para instrucciones con el mismo tamaño <span class="arithmatex">\(n\)</span>, el número de bits <span class="arithmatex">\(n1\)</span> del <strong>opcode</strong>, el número de campos de direccionamiento y el tamaño de cada uno de estos campos puede diferir para cada tipo de instrucción.</p>
-<p>La colección de instrucciones que conforman un programa vistas como una secuencia fija de bits constituyen el <strong>código máquina</strong>. El <strong>lenguaje ensamblador</strong> facilita al programador la escritura de programas a este nivel. Mediante la utilización de <strong>mnemotécnicos</strong> tanto para operaciones como para operandos, se logra una correspondencia entre instrucción en lenguaje ensamblador e instrucción en lenguaje máquina.</p>
+<p>Lo habitual es que la mayor parte de las instrucciones de una <strong>ISA</strong> tengan un tamaño <span class="arithmatex">\(n\)</span> fijo, aunque este puede variar en ciertas arquitecturas. Del mismo modo, incluso en instrucciones con un mismo tamaño <span class="arithmatex">\(n\)</span>, el número de bits <span class="arithmatex">\(n1\)</span> del <strong>opcode</strong> o el número y tamaño de los campos de direccionamiento pueden diferir según el tipo de instrucción.</p>
+<h4 id="del-código-máquina-al-ensamblador">Del código máquina al ensamblador</h4>
+<p>La colección de instrucciones que conforman un programa, vistas como una secuencia pura de bits, constituyen el <strong>código máquina</strong>. Como programar en binario es extremadamente difícil para los humanos, se utiliza el <strong>lenguaje ensamblador</strong>.</p>
+<p>El ensamblador facilita la escritura de programas mediante el uso de <strong>mnemotécnicos</strong> (palabras cortas como <code>ADD</code>, <code>SUB</code>, <code>MOV</code>) tanto para las operaciones como para los operandos. Esto permite una <strong>correspondencia directa (uno a uno)</strong> entre una instrucción en lenguaje ensamblador y su equivalente en lenguaje máquina, haciendo el código mucho más legible sin perder el control total sobre el hardware.</p>
 <h3 id="43-clasificación-de-arquitecturas">4.3 Clasificación de arquitecturas</h3>
-<p>Según el almacenamiento de operandos:
-1.  <strong>Pila:</strong> Operandos implícitos.
-2.  <strong>Acumulador:</strong> Un operando es siempre el registro acumulador.
-3.  <strong>GPR (Registros de propósito general):</strong>
-    *   <strong>Memoria-Registro:</strong> Un operando puede estar en memoria.
-    *   <strong>Registro-Registro (RISC):</strong> Operandos solo en registros. Solo <code>LOAD</code> y <code>STORE</code> acceden a memoria.</p>
-<blockquote>
-<p><strong>[Figura 4.2 – Situación de los operandos para cuatro tipos de arquitecturas]</strong></p>
-</blockquote>
-<hr />
+<p>Cómo se realiza internamente en la CPU el almacenamiento temporal de los operandos está íntimamente ligado al número de campos necesarios en la sección de <strong>direccionamiento</strong> de la instrucción y viceversa. Es un claro ejemplo de cómo la ISA (nivel 2) y el diseño de la microarquitectura (nivel 1) se condicionan mutuamente.</p>
+<p>En función del tipo de almacenamiento interno al operar con la ALU tenemos:</p>
+<ul>
+<li>Arquitectura tipo <strong>pila</strong>, donde los operandos son implícitos</li>
+<li>Arquitectura con <strong>acumulador</strong> con un operando explícito y el otro es un valor implícito, almacenado en un registro llamado <strong>acumulador</strong>. El operando resultado de una operación se almacena también en el acumulador.</li>
+<li>
+<p>Arquitectura de <strong>registros de propósito general</strong> (<strong>GPR</strong>), donde se dispone de una colección de registros de almacenamiento visibles al programador de sistemas elegibles explícitamente en la instrucción para almacenar los operandos. Este grupo puede subdividirse a su vez en dos subgrupos:</p>
+<ul>
+<li>Arquitectura <strong>memoria – registro</strong>, donde uno de los operandos explícitos puede provenir de la memoria</li>
+<li>Arquitectura <strong>registro – registro</strong>, donde los operandos siempre son registros internos, salvo para las operaciones de <strong>carga</strong> (<strong>load</strong>) y almacenamiento (<strong>store</strong>)</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Tipos arquitecturas" src="img/AC/tipos_arquitecturas.jpg" style="display: block; margin: 0 auto" /></p>
+<center><em>Figura 4.2 – Situación de los operandos para cuatro tipos de arquitecturas<br><small>(Fuente: J. L. Hennesy, D. A. Patterson. Computer Architecture: A Quantitative Approach, Apéndice A.2)</small></em>)</center>
+<p><br></p>
+<p>Las flechas en la figura 4.2 indican cuándo el operando es una entrada, el resultado de una operación en la ALU o ambas, una entrada y un resultado.</p>
+<p>Ilustraremos cada tipo de arquitectura analizando un <strong>pseudocódigo</strong> en ensamblador para una operación <code>z=x+y</code>, donde el mnemotécnico <strong>ADD</strong> se referirá a la operación <strong>suma</strong> y <strong>LOAD</strong> y <strong>STORE</strong> a la transferencia de datos desde o hacia la memoria.</p>
+<h4 id="arquitectura-tipo-pila">Arquitectura tipo pila</h4>
+<p>Una pila es un banco de registros (o una región de la memoria RAM) con una estructura LIFO, último en entrar, primero en salir. En la figura 4.2 (A) solo aparecen dos celdas en la pila, pero en la práctica son muchas más.
+Un registro especial en esta arquitectura, TOS (Top Of Stack), indica la posición (dirección) del último valor introducido.
+•   Apilamos un dato con una instrucción PUSH. En ese caso, TOS se incrementa en una posición.
+•   Retiramos un valor con la instrucción POP. Ahora TOS se decrementa en una posición.
+¿Cómo funciona la operación ADD con operandos implícitos?
+•   los operandos son siempre los dos primeros valores de la pila, es decir, los últimos en entrar.
+•   el resultado se almacena en la 2ª posición
+•   se actualiza TOS para que apunte a la 2ª posición (el antiguo primer valor se sobrescribirá si hay una nueva instrucción PUSH)
+En la figura 4.2 (A), tras realizar la operación ADD, TOS pasará a apuntar al registro de color obscuro.</p>
+<p>Las máquinas virtuales de Java y Python usan esta arquitectura, es decir, una arquitectura software. El hardware no es más que software petrificado y cualquier instrucción ejecutada por hardware es susceptible de ser simulada en software.
+Arquitectura con acumulador 
+Un registro especial llamado acumulador es siempre uno de los operandos. El segundo operando es un valor almacenado en memoria. El resultado se almacena siempre en el acumulador.</p>
+<p>Habitual en los diseños pioneros, en la actualidad se usa esta arquitectura en algunos diseños de microcontroladores. Muchos libros de texto la utilizan para ilustrar el ciclo de instrucción, a modo de arquitectura de juguete.
+Arquitectura GPR registro - memoria
+Un operando está en la memoria y otro en un registro. El operando resultado se escribe en un registro.
+•   Las instrucciones son más complejas y, dependiendo del número de operandos, tardan en ejecutarse un número de ciclos de reloj diferente.
+•   Los programas son más cortos al incluir uno de los operandos el valor en memoria, ahorrándose una instrucción para cargar en un registro el dato procedente de la memoria</p>
+<p>Ejemplo de esta arquitectura es la familia x86 que usan Intel o AMD, utilizados en ordenadores de sobremesa y portátiles.
+Arquitectura GPR registro - registro
+Todos los operandos, incluido el resultado, son registros.
+En estas arquitecturas (conocidas como RISC), los únicos intercambios con la memoria RAM son a través de 2 únicas instrucciones, LOAD y STORE.
+•   Las instrucciones son simples y tardan en ejecutarse un número de ciclos de reloj similar.
+•   Los programas son más largos al tener instrucciones para traer operandos desde memoria a los registros.</p>
+<p>Ejemplos de esta arquitectura son PowerPC (Mac, consolas de videojuegos), M1 (Apple), ARM (smartphones, Arduino, Raspberry Pi) y RISC-V (de uso libre y abierto)
+Desde aproximadamente 1980 las arquitecturas de computadoras son del tipo GPR, y parece que la tendencia es hacia registro – registro, por varias razones:
+•   acceder a un registro es considerablemente más rápido que acceder a memoria
+•   los compiladores tienen mucho más margen de maniobra para optimizar el código al disponer de más libertad de elección respecto a los registros que participan en una secuencia de operaciones
+En el cálculo (x<em>y)+(y</em>z)-(x*w) un compilador puede elegir realizar las multiplicaciones en cualquier orden, dado que los operandos ya se encuentran almacenados en los registros, evitando así traerlos desde memoria de forma repetida.
+•   el tráfico de información con la memoria se reduce, pues un registro puede participar en varias instrucciones sucesivas, aumentando la velocidad
+•   la densidad de información disminuye dado que para referirse a un registro basta con unos pocos bits mientras que referenciar a un dato en memoria necesita de muchos más bits.</p>
 <h2 id="5-el-rendimiento-de-un-computador">5. El rendimiento de un computador</h2>
 <p>Se define como la capacidad para ejecutar programas en el menor tiempo posible.</p>
 <h3 id="51-el-reloj">5.1 El reloj</h3>
