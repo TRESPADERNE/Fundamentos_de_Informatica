@@ -269,14 +269,66 @@ El **bus del sistema** es el conjunto de buses que utiliza el procesador para in
 
 
 ### 3.2 El ciclo de instrucción
-Pasos básicos:
-1.  **Captación (fetch):** Se obtiene la instrucción de memoria (usando el PC) y se guarda en el IR. Se incrementa el PC.
-2.  **Decodificación (decode):** La UC interpreta el código binario.
-3.  **Ejecución (execute):** Se leen operandos, se opera y se almacenan resultados.
 
-> **[Figura 3.3 – El ciclo de instrucción (Diagrama)]**
+Cuando se enciende un ordenador, sus circuitos activan una señal de **reset** que pone al procesador en un estado conocido. En este momento, se carga de forma automática en su **Contador de Programa (PC)** una **dirección de memoria predeterminada** grabada en su hardware.
 
----
+En esa dirección se encuentra un pequeño **programa de arranque** (conocido como *firmware*, BIOS o UEFI), cuya misión es chequear el hardware y localizar el **Sistema Operativo** en la **unidad de almacenamiento** (donde reside permanentemente) para cargarlo en la memoria.
+
+A partir de ese instante, la ejecución de instrucciones es un proceso ininterrumpido que solo se detendrá si:
+
+*   La máquina se desconecta o se apaga.
+*   Se produce algún tipo de error irrecuperable (excepción grave del sistema).
+*   Se ejecuta una instrucción específica de detención (*Halt*).
+
+Independientemente de la complejidad de la tarea, el procesador funciona siguiendo un bucle repetitivo llamado **ciclo de instrucción**, común en rasgos generales a todos los procesadores:
+
+*   **Captación** o **búsqueda** (**fetch** cycle)
+*   **Decodificación** (**decode** cycle)
+*   **Ejecución** (**execute** cycle)
+
+!!! tip "El latido del computador"
+    Este ciclo se repite miles de millones de veces por segundo, marcado por el ritmo del **reloj del sistema**. Es el proceso más básico y fundamental de la computación: todo lo que ves en tu pantalla, desde una IA hasta un videojuego, es el resultado de ejecutar este ciclo sin descanso.
+
+![Ciclo de Instrucción](img/AC/ciclo_instruccion.jpg){: style="display: block; margin: 0 auto" }
+<center><em>Figura 3.3 – El ciclo de instrucción</em></center>
+<br>
+
+#### La búsqueda
+Un programa es, en esencia, una **secuencia ordenada de instrucciones** almacenadas en posiciones consecutivas de la memoria. Para que el procesador pueda recorrerlas, se utiliza el registro llamado **contador de programa** (**PC**, **P**rogram **C**ounter).
+
+Este registro almacena la **dirección de memoria** de la instrucción que debe procesarse a continuación. El funcionamiento estándar sigue un **modelo secuencial**:
+
+1.  La CPU lee la instrucción apuntada por el **PC**.
+2.  Inmediatamente después, la CPU **incrementa el valor del PC** (normalmente apunta a la siguiente posición de memoria).
+3.  De este modo, el procesador queda preparado para captar la siguiente instrucción de la lista en el próximo ciclo.
+
+La instrucción captada se traslada desde la memoria al **registro de instrucción** (**IR**, **I**nstruction **R**egister) para ser procesada.
+
+#### La decodificación
+La instrucción consiste en un código binario que especifica la **acción** que debe realizar la CPU y los **operandos** (datos) que intervienen. La Unidad de Control (**UC**) interpreta este código y prepara los **caminos de datos** necesarios activando, a través de los buses internos, las señales eléctricas requeridas. 
+
+En cierta bibliografía, es común encontrar esta fase de decodificación englobada dentro de la fase de ejecución.
+
+#### La ejecución
+Las dos fases anteriores son comunes a todas las instrucciones; las diferencias se manifiestan en esta etapa, que suele descomponerse en tres subetapas:
+
+*   **Lectura de los operandos**: Se obtienen los datos necesarios desde registros, memoria o E/S.
+*   **Operación**: La ALU realiza el procesamiento (como una suma o una comparación).
+*   **Escritura de resultados**: Se guarda el resultado en su destino.
+
+En general, existen cuatro tipos de acciones que pueden realizarse durante la ejecución:
+
+1.  **Transferencias de datos**: Entre CPU y Memoria o E/S.
+2.  **Procesamiento lógico o aritmético** de los datos.
+3.  **Alteración de la secuencia** natural de ejecución: Son las instrucciones de **salto** o **bifurcación** que cargan un valor nuevo en el **PC**, rompiendo el orden lineal (por ejemplo, para repetir un bucle o ejecutar un `if`).
+4.  **Alteración del modo de funcionamiento** de la CPU (como cambios de privilegios).
+
+Una vez completado el ciclo, el procesador vuelve a la fase de búsqueda, usando el valor actual del **PC** (que ya apunta a la nueva instrucción).
+
+!!! info "Realidad vs. Modelo: Pipelining y ejecución fuera de orden"
+    Aunque este **modelo secuencial** (una tras otra) es la base para entender el funcionamiento, las microarquitecturas modernas son mucho más agresivas. Para ganar velocidad, utilizan técnicas como la **segmentación** (**pipelining**), que permite tener varias instrucciones en distintas etapas del ciclo a la vez (como una cadena de montaje), o la **ejecución fuera de orden**, donde el procesador reorganiza las instrucciones para que la CPU no esté ociosa esperando un dato.
+
+
 
 ## 4. El repertorio de instrucciones (ISA)
 Describe los aspectos del procesador visibles para el programador de sistemas: tipos de formatos, tipos de datos y número de registros.
