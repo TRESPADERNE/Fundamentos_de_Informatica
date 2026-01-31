@@ -2615,7 +2615,7 @@ except UnicodeDecodeError as e:
 <p>Faltan dos elementos esenciales para que el sistema software pueda funcionar:</p>
 <ul>
 <li><strong>Módulo de Entrada/Salida</strong>: los datos e instrucciones deben introducirse en el sistema con algún componente que transforme los formatos de entrada a los formatos que utilice el sistema. Del mismo modo, los resultados deben poder ser accesibles desde el exterior.</li>
-<li><strong>La memoria principal</strong>: es un componente que en la arquitectura Von Neumann sirve de almacén tanto de las instrucciones como de los datos durante la ejecución del programa. Aunque, a priori, sería factible para cálculos simples proporcionar secuencialmente las instrucciones y datos según se vayan ejecutando (es lo que se hace formalmente con una calculadora de bolsillo), de forma general, un cálculo complejo no siempre ejecutará las instrucciones siguiendo la secuencia predeterminada, pudiendo hacer <strong>saltos</strong> hacia adelante y hacia atrás. Además, durante el proceso pueden generarse operandos intermedios que se utilizarán más adelante y que, por tanto, necesitan ser almacenados temporalmente. </li>
+<li><strong>La memoria principal</strong>: es un componente que en la arquitectura Von Neumann sirve de almacén tanto de las instrucciones como de los valores durante la ejecución del programa. Aunque, a priori, sería factible para cálculos simples proporcionar secuencialmente las instrucciones y valores según se vayan ejecutando (es lo que se hace formalmente con una calculadora de bolsillo), de forma general, un cálculo complejo no siempre ejecutará las instrucciones siguiendo la secuencia predeterminada, pudiendo hacer <strong>saltos</strong> hacia adelante y hacia atrás. Además, durante el proceso pueden generarse operandos intermedios que se utilizarán más adelante y que, por tanto, necesitan ser almacenados temporalmente. </li>
 </ul>
 <hr />
 <h2 id="arquitectura_de_computadores-2-estructura-de-un-computador-enfoque-multinivel">2. Estructura de un computador: enfoque multinivel</h2>
@@ -2625,8 +2625,8 @@ except UnicodeDecodeError as e:
 <p>El enfoque multinivel considera al computador estructurado en niveles.</p>
 <h3 id="arquitectura_de_computadores-21-nivel-0-lógica-digital">2.1 Nivel 0: Lógica digital</h3>
 <p>Es el hardware de la máquina, donde encontramos <strong>compuertas lógicas</strong> formadas por transistores y las líneas eléctricas que las conectan. Las compuertas lógicas son circuitos digitales que implementan funciones booleanas, es decir, funciones con entradas y salidas en el conjunto de valores {0, 1}. Ejemplos básicos son las compuertas que implementan las operaciones AND y OR.</p>
-<p><strong>Tablas de verdad</strong>
-El funcionamiento de un tipo de compuerta se modela por su <strong>tabla de verdad</strong>: nos muestra la salida de la compuerta para cada combinación de entradas posible. En general, para una función booleana de <span class="arithmatex">\(n\)</span> entradas tenemos una tabla de <span class="arithmatex">\(2^n\)</span> filas.</p>
+<h4 id="arquitectura_de_computadores-tablas-de-verdad">Tablas de verdad</h4>
+<p>El funcionamiento de un tipo de compuerta se modela por su <strong>tabla de verdad</strong>: nos muestra la salida de la compuerta para cada combinación de entradas posible. En general, para una función booleana de <span class="arithmatex">\(n\)</span> entradas tenemos una tabla de <span class="arithmatex">\(2^n\)</span> filas.</p>
 <p><img alt="Compuerta lógica" src="img/AC/compuerta_logica.jpg" style="display: block; margin: 0 auto" /></p>
 <center><em>Figura 2.2 – Compuerta lógica AND formada por transistores<br><small>(Fuente: <a>https://es.wikipedia.org/wiki/Puerta_lógica)</a></small></em></center>
 <p><br></p>
