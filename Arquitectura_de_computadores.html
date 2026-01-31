@@ -1478,15 +1478,47 @@ Si intentas ejecutar un programa diseñado para un PC con Intel (x86) directamen
 <p>Las flechas en la figura 4.2 indican cuándo el operando es una entrada, el resultado de una operación en la ALU o ambas, una entrada y un resultado.</p>
 <p>Ilustraremos cada tipo de arquitectura analizando un <strong>pseudocódigo</strong> en ensamblador para una operación <code>z=x+y</code>, donde el mnemotécnico <strong>ADD</strong> se referirá a la operación <strong>suma</strong> y <strong>LOAD</strong> y <strong>STORE</strong> a la transferencia de datos desde o hacia la memoria.</p>
 <h4 id="arquitectura-tipo-pila">Arquitectura tipo pila</h4>
-<p>Una pila es un banco de registros (o una región de la memoria RAM) con una estructura LIFO, último en entrar, primero en salir. En la figura 4.2 (A) solo aparecen dos celdas en la pila, pero en la práctica son muchas más.
-Un registro especial en esta arquitectura, TOS (Top Of Stack), indica la posición (dirección) del último valor introducido.
-•   Apilamos un dato con una instrucción PUSH. En ese caso, TOS se incrementa en una posición.
-•   Retiramos un valor con la instrucción POP. Ahora TOS se decrementa en una posición.
-¿Cómo funciona la operación ADD con operandos implícitos?
-•   los operandos son siempre los dos primeros valores de la pila, es decir, los últimos en entrar.
-•   el resultado se almacena en la 2ª posición
-•   se actualiza TOS para que apunte a la 2ª posición (el antiguo primer valor se sobrescribirá si hay una nueva instrucción PUSH)
-En la figura 4.2 (A), tras realizar la operación ADD, TOS pasará a apuntar al registro de color obscuro.</p>
+<p>Una <strong>pila</strong> es un banco de registros (o una región de la memoria RAM) con una estructura <strong>LIFO</strong>, último en entrar, primero en salir. En la figura 4.2 (A) solo aparecen dos celdas en la pila, pero en la práctica son muchas más.</p>
+<p>Un registro especial en esta arquitectura, <strong>TOS</strong> (<strong>T</strong>op <strong>O</strong>f <strong>S</strong>tack), indica la posición (dirección) del último valor introducido.</p>
+<ul>
+<li><strong>Apilamos</strong> un dato con una instrucción <strong>PUSH</strong>. En ese caso, <strong>TOS</strong> se incrementa en una posición.</li>
+<li><strong>Retiramos</strong> un valor con la instrucción <strong>POP</strong>. Ahora <strong>TOS</strong> se decrementa en una posición.</li>
+</ul>
+<p>¿Cómo funciona la operación ADD con operandos implícitos?</p>
+<ul>
+<li>los operandos son <strong>siempre</strong> los <strong>dos primeros valores de la pila</strong>, es decir, <strong>los últimos en entrar</strong>.</li>
+<li>el resultado se almacena en la <strong>2ª posición</strong></li>
+<li>se <strong>actualiza TOS</strong> para que apunte a la 2ª posición (el antiguo primer valor se sobrescribirá si hay una nueva instrucción <strong>PUSH</strong>)</li>
+</ul>
+<p>En la figura 4.2 (A), tras realizar la operación <strong>ADD</strong>, <strong>TOS</strong> pasará a apuntar al registro de color obscuro.</p>
+<div class="center-table">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Instrucción</th>
+<th style="text-align: left;">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>PUSH x</code></td>
+<td style="text-align: left;">Se trae desde memoria <strong>x</strong> y se apila</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PUSH y</code></td>
+<td style="text-align: left;">Se trae desde memoria <strong>y</strong> y se apila</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ADD</code></td>
+<td style="text-align: left;">Se realiza la operación <strong>¡Operandos implícitos!</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>POP z</code></td>
+<td style="text-align: left;">Se desapila <strong>z</strong>, almacenándose en memoria</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: center;"><em>Pseudocódigo en ensamblador para la <strong>arquitectura tipo pila</strong> de la operación <code>z = x + y</code></em></p>
 <p>Las máquinas virtuales de Java y Python usan esta arquitectura, es decir, una arquitectura software. El hardware no es más que software petrificado y cualquier instrucción ejecutada por hardware es susceptible de ser simulada en software.
 Arquitectura con acumulador 
 Un registro especial llamado acumulador es siempre uno de los operandos. El segundo operando es un valor almacenado en memoria. El resultado se almacena siempre en el acumulador.</p>
@@ -1605,6 +1637,7 @@ $<span class="arithmatex">\(\text{Tiempo de CPU} = \text{Número de instruccione
 <hr />
 <h2 id="bibliografía">Bibliografía</h2>
 <p><em>(Listado de referencias del documento original)</em></p>
+</div>
 
 
 
