@@ -6,7 +6,8 @@ hide:
 ---
 
 # Grado en Ingeniería Biomédica
-## Departamento de Ingeniería de Sistemas y Automática. EII. Universidad de Valladolid
+## Departamento de Ingeniería de Sistemas y Automática. EII.
+### Universidad de Valladolid
 
 ---
 
@@ -14,3 +15,4 @@ hide:
 
 *   [**Tema 1: Lenguajes de Programación**](Lenguajes_de_programacion.md)
 *   [**Tema 2: Representación de la Información**](Representacion_de_la_informacion.md)
+*   [**Tema 3: Arquitectura de Computadores**](Arquitectura_de_computadores.md)

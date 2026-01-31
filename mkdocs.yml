@@ -49,6 +49,7 @@ nav:
   - Inicio: index.md
   - Lenguajes de Programación: Lenguajes_de_programacion.md
   - Representación de la Información: Representacion_de_la_informacion.md
+  - Arquitectura de Computadores: Arquitectura_de_computadores.md
 
 extra_javascript:
   - javascripts/mathjax.js

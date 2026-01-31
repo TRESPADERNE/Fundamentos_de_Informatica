@@ -17,19 +17,30 @@
 ## 1. Introducción
 En 1945 John Von Neumann publicó un modelo de arquitectura de computador que sigue hoy en día siendo la base de la mayor parte de las arquitecturas de computador actuales.
 
-La **arquitectura Von Neumann** distingue tres bloques funcionales fundamentales:
+La **arquitectura Von Neumann** distingue tres **bloques funcionales** fundamentales:
+
 *   **El procesador o CPU (Central Processing Unit)**
-Ejecuta los programas.
+    
+    Ejecuta los programas.
+
 *   **La memoria**
-Contiene **datos** e **instrucciones**, que pueden ser leídos y escritos.
-    *   **valores**, como peso, volumen, sueldo, velocidad, cantidades, nombres, fechas, etc. y **direcciones de memoria**.
-    *  **instrucciones** para procesar esos valores.
+
+    Contiene **datos** que pueden ser leídos y escritos.
+
+    *   los **datos** son:
+        
+        * **valores**, que pueden representar entidades como peso, volumen, sueldo, velocidad, cantidades, nombres, fechas, etc. e, incluso, **direcciones de memoria**.
+
+        *  **instrucciones**, órdenes que indican al procesador qué operación realizar. Al igual que los valores, están ubicadas en posiciones específicas de la memoria identificadas por direcciones.
+
 *   **Dispositivos de entrada/salida**
-Suministran al computador los datos que debe procesar y reciben los resultados.
+
+    Suministran al computador los datos que debe procesar y reciben los resultados.
 
 Estos bloques funcionales se interconectan a través del **bus del sistema**, conjunto de conductores eléctricos que transmiten:
+
 * las **direcciones** de memoria para acceder a los datos,
-* los propios **datos** (instrucciones y valores) y
+* los propios **datos** y
 * las **señales de control**.
 
 ![Bus del Sistema](img/AC/bus_sistema.jpg){: style="display: block; margin: 0 auto" }
@@ -38,17 +49,29 @@ Estos bloques funcionales se interconectan a través del **bus del sistema**, co
 <br>
 
 Las características fundamentales de la **arquitectura Von Neumann** son:
+
 1.	Valores e instrucciones se almacenan en la misma memoria (**programa almacenado**). 
 2.	El contenido de la memoria se organiza en **celdas**, que son accesibles (lectura y escritura) proporcionando una **dirección**.
 3.	La **ejecución** de los programas se realiza por defecto de forma **secuencial**, una lista consecutiva de **instrucciones** que se ejecutan una tras otra.
 
 !!! note "El *cuello de botella* de Von Neumann"
-    Valores e instrucciones comparten el **bus de datos** para ser transferidos a la CPU. Como consecuencia, el procesador no puede acceder simultáneamente a las instrucciones y a los datos, lo que genera una restricción en el rendimiento conocida como el **cuello de botella de Von Neumann**. En la práctica, esto significa que la velocidad del sistema está limitada por el ancho de banda del bus de memoria, que suele ser mucho más lento que la velocidad de procesamiento de la CPU.
+    Valores e instrucciones comparten el **bus de datos** para ser transferidos a la CPU. Como consecuencia, el procesador no puede acceder simultáneamente a las instrucciones y a los valores, lo que genera una restricción en el rendimiento conocida como el **cuello de botella de Von Neumann**. En la práctica, esto significa que la velocidad del sistema está limitada por el ancho de banda del bus de memoria, que suele ser mucho más lento que la velocidad de procesamiento de la CPU.
+
+!!! info "Aclaración terminológica: ¿Las instrucciones son datos?"
+    Encontrarás que la bibliografía (este documento no es una excepción) a veces usa el término **datos** de dos formas distintas:
+
+    1.  **Sentido amplio (Concepto de Programa Almacenado):** Bajo la arquitectura Von Neumann, **todo son datos**. Tanto las instrucciones como los valores son simplemente secuencias de bits almacenadas en la misma memoria. En este sentido, una instrucción *es* un dato más. Acabamos de ver que por el **bus de datos** circulan valores e instrucciones.
+    
+    2.  **Sentido estricto (Ciclo de ejecución):** Cuando se describe el funcionamiento de la CPU, se suele distinguir entre **instrucciones** (el código de operación que dice qué hacer) y **datos** (los valores o operandos sobre los que actúa la instrucción). 
+
+    **En resumen:** Aunque físicamente en la memoria no hay diferencia (todo son bits), funcionalmente los separamos para entender qué es la *orden* (instrucción) y qué es el *operando* (dato) sobre el que actúa esa orden.
+
 ### 1.1 Programación cableada frente a programación software
-*   **Programa cableado**
-Mediante la combinación de componentes lógicos es factible recrear funciones que, a partir de unos datos de entrada, permitan obtener las salidas correspondientes. El proceso de diseño y posterior interconexión de estos componentes para lograr efectuar un cálculo **determinado** es de hecho una forma de programación, es un **programa cableado**.
-*   **Programa software**
+#### Programa cableado
+Mediante la combinación de componentes lógicos electrónicos es factible recrear funciones que, a partir de unos datos de entrada, permitan obtener las salidas correspondientes. El proceso de diseño y posterior interconexión de estos componentes para lograr efectuar un cálculo **determinado** es de hecho una forma de programación, es un **programa cableado**.
+#### Programa software
 Para dotar de un **propósito general** a un dispositivo, la alternativa es utilizar una combinación de componentes que implementen diversas **operaciones básicas** lógico/aritméticas. Esto permite ejecutar diferentes funciones según se apliquen diferentes señales de control sobre los datos de entrada.
+
 Se asocia a cada operación básica un **código** y se añade un hardware que, en función del código recibido, genera las señales de control asociadas. Para recrear un cálculo o **algoritmo** determinado, basta determinar la **secuencia de códigos** adecuada. Esta secuencia de códigos o **instrucciones** es el **programa software**.
 
 
@@ -59,8 +82,9 @@ Se asocia a cada operación básica un **código** y se añade un hardware que, 
 Las dos cajas mostradas en la figura 1.2.b se corresponden con la **CPU**: bloque funcional formado por el intérprete de instrucciones, la **Unidad de Control** (**CU**), y el módulo de uso general que implementa las funciones aritméticas y lógicas, la **Unidad Aritmético Lógica** (**ALU**).
 
 Faltan dos elementos esenciales para que el sistema software pueda funcionar:
+
 * **Módulo de Entrada/Salida**: los datos e instrucciones deben introducirse en el sistema con algún componente que transforme los formatos de entrada a los formatos que utilice el sistema. Del mismo modo, los resultados deben poder ser accesibles desde el exterior.
-* **La memoria principal**: es un componente que en la arquitectura Von Neumann sirve de almacén tanto de las instrucciones como de los datos durante la ejecución del programa. Aunque, a priori, sería factible para cálculos simples proporcionar secuencialmente las instrucciones y datos según se vayan ejecutando (es lo que se hace formalmente con una calculadora de bolsillo), de forma general, un cálculo complejo no siempre ejecutará las instrucciones siguiendo la secuencia predeterminada, pudiendo hacer **saltos** hacia adelante y hacia atrás. Además, durante el proceso pueden generarse operandos intermedios que se utilizarán más adelante y que, por tanto, necesitan ser almacenados temporalmente. 
+* **La memoria principal**: es un componente que en la arquitectura Von Neumann sirve de almacén tanto de las instrucciones como de los valores durante la ejecución del programa. Aunque, a priori, sería factible para cálculos simples proporcionar secuencialmente las instrucciones y valores según se vayan ejecutando (es lo que se hace formalmente con una calculadora de bolsillo), de forma general, un cálculo complejo no siempre ejecutará las instrucciones siguiendo la secuencia predeterminada, pudiendo hacer **saltos** hacia adelante y hacia atrás. Además, durante el proceso pueden generarse operandos intermedios que se utilizarán más adelante y que, por tanto, necesitan ser almacenados temporalmente. 
 
  
 
@@ -78,23 +102,25 @@ El enfoque multinivel considera al computador estructurado en niveles.
 ### 2.1 Nivel 0: Lógica digital
 Es el hardware de la máquina, donde encontramos **compuertas lógicas** formadas por transistores y las líneas eléctricas que las conectan. Las compuertas lógicas son circuitos digitales que implementan funciones booleanas, es decir, funciones con entradas y salidas en el conjunto de valores {0, 1}. Ejemplos básicos son las compuertas que implementan las operaciones AND y OR.
 
-**Tablas de verdad**
+#### Tablas de verdad
 El funcionamiento de un tipo de compuerta se modela por su **tabla de verdad**: nos muestra la salida de la compuerta para cada combinación de entradas posible. En general, para una función booleana de $n$ entradas tenemos una tabla de $2^n$ filas.
 
 
 ![Compuerta lógica](img/AC/compuerta_logica.jpg){: style="display: block; margin: 0 auto" }
-<center><em>Figura 2.2 – Compuerta lógica AND formada por transistores<br><small>(Fuente: <a>https://es.wikipedia.org/wiki/Puerta_lógica)</a></small></em></center>
+<center><em>Figura 2.2 – Compuerta lógica AND formada por transistores<br><small>(Fuente: <a href="https://es.wikipedia.org/wiki/Puerta_lógica">https://es.wikipedia.org/wiki/Puerta_lógica)</a></small></em></center>
 <br>
 
 ### 2.2 Nivel 1: Microarquitectura
 Detalla cómo están conectados e interactúan entre sí los dispositivos del nivel 0 y como se organizan formando unidades funcionales. Aquí se decide qué señales de control se utilizarán, las interfaces con los dispositivos de E/S, las tecnologías de memoria utilizadas, etc.
 
 Desde el punto de vista de un programador, la organización **no es visible**.
-> Una instrucción de multiplicar puede llevarse a cabo en el nivel de microarquitectura con un circuito integrado (chip) especializado o con un microprograma interno que realiza de forma iterada sumas.
+
+!!! tip "Lo que el programador no ve"
+    Una instrucción de multiplicar puede llevarse a cabo en el nivel de microarquitectura con un circuito integrado (chip) especializado o con un microprograma interno que realiza de forma iterada sumas.
 
 
 ![Microarquitectura](img/AC/microarquitectura.jpg){: style="display: block; margin: 0 auto" }
-<center><em>Figura 2.3 - Microarquitectura del Intel 80286<br><small>(Fuente: <a>hhttps://en.wikipedia.org/wiki/Microarchitecture)</a></small></em></center>
+<center><em>Figura 2.3 - Microarquitectura del Intel 80286<br><small>(Fuente: <a href=https://en.wikipedia.org/wiki/Microarchitecture>https://en.wikipedia.org/wiki/Microarchitecture)</a></small></em></center>
 <br>
 
 ### 2.3 Nivel 2: Arquitectura del Conjunto de instrucciones (ISA)
@@ -105,6 +131,7 @@ Aunque depende de la bibliografía, el conjunto formado por la ISA y la microarq
 ### 2.4 Nivel 3: Sistema Operativo
 Un **Sistema Operativo** actúa como interfaz entre el usuario y el hardware del computador.
 El sistema operativo es un **conjunto de programas** que **interpretan** complejas **instrucciones** que:
+
 * **asignan** y **gestionan** los recursos del computador
 * **controlan** los programas de los usuarios y las operaciones de E/S. 
 
@@ -120,35 +147,126 @@ El S.O. **extiende** el repertorio de instrucciones de la ISA con **llamadas al 
 ### 2.5 Niveles 4 y 5: Lenguajes ensamblador y alto nivel
 Ya hemos hablado de ellos en temas anteriores. Los niveles 1 al 3 son utilizados por los **programadores de sistemas**, es decir, los encargados de **diseñar** y/o **implementar** programas tales como **Sistemas Operativos**, **Compiladores**, **Controladores de Dispositivos**, etc.
 
-Los niveles 4 y particularmente el 5 son utilizados por los **programadores de aplicaciones**, tales como procesadores de texto, aplicaciones de contabilidad, páginas web, etc.
+Los niveles 4 y particularmente el 5 son utilizados por los **programadores de aplicaciones**. En estos niveles se desarrollan:
+
+*   **Software de propósito general**
+
+    Como procesadores de texto, herramientas de contabilidad o plataformas web.
+
+*   **Inteligencia Artificial y Big Data**
+
+    Sistemas de aprendizaje profundo, análisis predictivo y procesamiento de lenguaje natural.
+
+*   **Computación científica**
+
+    Simuladores de física de partículas, modelos biotecnológicos y análisis astrofísicos.
+
+*   **Entretenimiento y entornos virtuales**
+
+    Motores de videojuegos y sistemas de realidad virtual que requieren procesar gráficos y física en tiempo real.
 
 
 ---
 
 ## 3. Organización y funcionamiento de la CPU
 
-### 3.1 Introducción
-Un procesador debe realizar 5 tareas: captar instrucciones, interpretarlas, captar datos, procesar datos y escribir datos.
+### 3.1 La CPU
+Un procesador debe ser capaz de realizar las siguientes 5 tareas:
 
-> **[Figura 3.1 - El procesador (Esquema interno)]**
+1.	**Captar instrucciones** de la memoria
+2.	**Interpretar las instrucciones** para determinar qué acciones son necesarias
+3.	**Captar datos**, de memoria o de algún módulo de E/S, necesarios para llevar a buen término la ejecución de una instrucción
+4.	**Procesar datos**, en consonancia con la operación lógica o aritmética asociada a una instrucción
+5.	**Escribir datos**, en memoria o en algún módulo de E/S, correspondientes a los resultados de la ejecución de una instrucción
 
-Componentes básicos:
-1.  **Unidad de Control (CU):** Decodifica, secuencia transferencias y controla la ALU.
-2.  **Unidad Aritmético Lógica (ALU):** Realiza operaciones aritmético-lógicas.
-3.  **Registros:** Almacenamiento temporal interno.
-4.  **Buses:** Canales de comunicación interna.
 
-> **[Figura 3.2 – Representación esquemática de la ALU]**
+![Procesador](img/AC/procesador.jpg){: style="display: block; margin: 0 auto" }
+<center><em>Figura 3.1 - El procesador<br><small>(Fuente: <a href=https://de.wikipedia.org/wiki/Prozessor>https://de.wikipedia.org/wiki/Prozessor)</a></small></em></center>
+<br>
+
+Podemos distinguir cuatro componentes básicos en una CPU:
+
+* La **Unidad de Control**
+* La **Unidad Aritmético Lógica**
+* Los **Registros**
+* Los **Buses**
+
+#### La Unidad de Control
+La **Unidad de Control** (**CU**, **C**ontrol **U**nit) tiene como cometidos principales:
+
+* **decodificar** las instrucciones
+* **secuenciar** las transferencias de datos e instrucciones hacia dentro y hacia fuera del procesador enviando señales de control
+* **controlar** el funcionamiento de la **Unidad Aritmético Lógica** (**ALU**)
+
+#### La Unidad Aritmético Lógica
+La realización de las operaciones aritmético – lógicas es el cometido de la Unidad Aritmético Lógica (**ALU**, **A**rithmetic **L**ogic **U**nit). La figura 3.2 muestra una representación típica esquemática de la ALU:
+
+![ALU](img/AC/alu.jpg){: style="display: block; margin: 0 auto" }
+<center><em>Figura 3.2 – Representación esquemática de la ALU<br><small>(Fuente: <a href=https://es.wikipedia.org/wiki/Unidad_aritmética_lógica>https://es.wikipedia.org/wiki/Unidad_aritmética_lógica)</a></small></em></center>
+<br>
+
+* **A** y **B** son los **operandos**
+* **R** es el **resultado** de la operación
+*   **F** es la entrada desde la Unidad de Control, que determina qué **operación** debe realizarse.
+    
+    A través de esta señal, la Unidad de Control selecciona la función específica que la ALU debe aplicar sobre los operandos. Algunos ejemplos son:
+    
+    *   **Aritméticas:** Suma, resta o multiplicación.
+    *   **Lógicas:** Operaciones de bit como `AND`, `OR` o `XOR`.
+    *   **Comparaciones:** Permiten determinar si dos valores son iguales o cuál es mayor.
+
+* **D** es una **salida de estado** (**flag**) que informa sobre las características del resultado **R**.
+
+    Estas señales (si el resultado es cero, si es negativo, si hubo error, etc.) se envían al bloque de registros para ser almacenadas en un registro especial llamado **PSW**, que el procesador consultará para tomar decisiones.
+
 
 #### Los Registros
-*   **Visibles por el usuario:** Permiten minimizar accesos a memoria (generalmente 32 o 64 bits).
-*   **De control y de estado:**
-    *   **PC (Program Counter):** Dirección de la siguiente instrucción.
-    *   **IR (Instruction Register):** Instrucción captada más recientemente.
-    *   **PSW (Program Status Word):** Bits indicadores (Signo, Cero, Acarreo, etc.).
+Todas las operaciones que la CPU debe realizar requieren del concurso de memoria interna, los **registros**. De esta forma, es posible **almacenar temporalmente** datos, instrucciones y otro tipo de información relevante en el curso de la ejecución.
+ 
+Como veremos más adelante, un computador emplea una jerarquía de memoria. En sus niveles más altos, la memoria es más rápida, más pequeña y más cara (por bit). Los registros internos de la CPU estarían en la cúspide jerárquica.
+
+De forma general, los registros del procesador pueden clasificarse como:
+
+* **Registros visibles por el usuario**: permiten al **programador de sistemas** minimizar las lecturas y/o escrituras a memoria principal aprovechando la mayor velocidad de acceso a los datos almacenados en **bancos** internos de memoria. Estos bancos están formados por un número variable y limitado de registros según microarquitecturas (8, 16, 32, 256, 512, …).
+
+    Se suele conocer como longitud de palabra de una CPU al tamaño en número de bits de estos registros (32 y 64 son valores habituales hoy en día). 
+
+* **Registros de control y de estado**: son utilizados por la unidad de control para controlar el funcionamiento del procesador y por programas privilegiados del sistema operativo para controlar la ejecución de programas.
+
+    No hay una separación bien definida de registros dentro de estas dos categorías. Naturalmente, microarquitecturas diferentes tendrán distintas organizaciones de registros y usarán distinta terminología.
+
+    !!! info "Los registros de control y de estado *habituales*"
+        Entre los **registros de control y estado**, de una forma u otra, aparecen en todas las arquitecturas los dos siguientes registros:
+
+        * **Contador de programa** (**PC**, **P**rogram **C**ounter): contiene la **dirección en memoria** de la instrucción que se va a captar a continuación
+        * **Registro de instrucción** (**IR**, **I**nstruction **R**egister): contiene la instrucción captada más recientemente
+
+        Algunos diseños de procesadores incluyen un registro (o varios), conocidos a menudo como **palabra de estado del programa** (**PSW**, **P**rogram **S**tatus **W**ord). Almacena los indicadores (flags) generados por la salida **D** de la **ALU** tras la **última operación ejecutada**. Entre los bits indicadores comunes se incluyen los siguientes:
+
+        * **Signo**: contiene el bit de signo del resultado de la última operación aritmética.
+        * **Cero**: bit puesto a uno cuando el resultado es 0.
+        * **Acarreo**: puesto a uno si una operación da lugar a un acarreo (en la suma) o adeudo (en la resta) del bit más significativo.
+        * **Igual**: bit puesto a uno si el resultado de una comparación lógica es la igualdad.
+        * **Desbordamiento**: usado para indicar un desbordamiento aritmético.
+
+        Además de estos indicadores de la ALU, la PSW también gestiona estados del sistema como:
+
+        * **Interrupciones habilitadas/inhabilitadas**: usado para permitir o inhabilitar interrupciones (las estudiaremos más adelante).
+        * **Supervisor**: indica si el procesador funciona en modo supervisor o usuario. Únicamente en modo supervisor se pueden ejecutar ciertas instrucciones privilegiadas y se puede acceder a ciertas áreas de memoria.
+
 
 #### Los Buses
-Agrupación de conductores para intercambio de información. El bus del sistema incluye: bus de direcciones, bus de datos y bus de control.
+Un bus es una agrupación de conductores eléctricos relacionados, por el que se intercambia información entre dos o más dispositivos electrónicos digitales. Todos los dispositivos conectados al mismo bus deben adaptarse a la forma en que dicha información se transmite: niveles de tensión, etapas temporales de sincronización, etc. El conjunto de especificaciones que rigen el funcionamiento de un bus recibe el nombre de **protocolo de bus**.
+
+El **bus del sistema** es el conjunto de buses que utiliza el procesador para interactuar con el resto de los elementos principales del ordenador. El procesador necesita tres tipos de información para realizar un acceso:
+
+* la **dirección** donde quiere realizar el acceso utilizando el **bus de direcciones**
+* los **datos**, que los colocará el procesador, la memoria o algún dispositivo de E/S en el **bus de datos**
+*   **señales de control** para gestionar el acceso y la sincronización a través del **bus de control**. Entre estas señales destacan:
+    *   El **reloj del sistema**, que marca el ritmo al que se realizan las transferencias.
+    *   La **indicación del tipo de operación** (lectura o escritura).
+    *   El **arbitraje del bus**, que decide qué dispositivo puede *adueñarse* del bus cuando varios quieren usarlo a la vez.
+
 
 ### 3.2 El ciclo de instrucción
 Pasos básicos:
