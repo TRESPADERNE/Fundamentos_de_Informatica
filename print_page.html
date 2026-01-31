@@ -2752,7 +2752,7 @@ El sistema operativo es un <strong>conjunto de programas</strong> que <strong>in
 <p><strong>Registros de control y de estado</strong>: son utilizados por la unidad de control para controlar el funcionamiento del procesador y por programas privilegiados del sistema operativo para controlar la ejecución de programas.</p>
 <p>No hay una separación bien definida de registros dentro de estas dos categorías. Naturalmente, microarquitecturas diferentes tendrán distintas organizaciones de registros y usarán distinta terminología.</p>
 <div class="admonition info">
-<p class="admonition-title">Los registros de control y de estado habituales</p>
+<p class="admonition-title">Los registros de control y de estado <em>habituales</em></p>
 <p>Entre los <strong>registros de control y estado</strong>, de una forma u otra, aparecen en todas las arquitecturas los dos siguientes registros:</p>
 <ul>
 <li><strong>Contador de programa</strong> (<strong>PC</strong>, <strong>P</strong>rogram <strong>C</strong>ounter): contiene la <strong>dirección en memoria</strong> de la instrucción que se va a captar a continuación</li>
@@ -2788,10 +2788,20 @@ El sistema operativo es un <strong>conjunto de programas</strong> que <strong>in
 </li>
 </ul>
 <h3 id="arquitectura_de_computadores-32-el-ciclo-de-instrucción">3.2 El ciclo de instrucción</h3>
-<p>Pasos básicos:
-1.  <strong>Captación (fetch):</strong> Se obtiene la instrucción de memoria (usando el PC) y se guarda en el IR. Se incrementa el PC.
-2.  <strong>Decodificación (decode):</strong> La UC interpreta el código binario.
-3.  <strong>Ejecución (execute):</strong> Se leen operandos, se opera y se almacenan resultados.</p>
+<p>Cuando se enciende un ordenador sus circuitos activan una señal <strong>reset</strong>, de inicio del procesador. Tras un proceso de configuración interna, ejecuta la primera instrucción del programa, ubicada en una <strong>dirección predeterminada</strong> de la memoria principal.</p>
+<p>A partir de ese instante, la ejecución del programa se detendrá solo si:</p>
+<ul>
+<li>la máquina se desconecta</li>
+<li>se produce algún tipo de error irrecuperable</li>
+<li>se ejecuta una instrucción del programa que detiene al computador</li>
+</ul>
+<p>Independientemente de la operación que realice, cada instrucción se ejecuta siguiendo una serie de pasos que se conoce como <strong>ciclo de instrucción</strong>, común en rasgos generales a todos los procesadores. </p>
+<p>El ciclo de instrucción puede dividirse en tres etapas:</p>
+<ul>
+<li><strong>Captación</strong> o <strong>búsqueda</strong> (<strong>fetch</strong> cycle)</li>
+<li><strong>Decodificación</strong> (<strong>decode</strong> cycle)</li>
+<li><strong>Ejecución</strong> (<strong>execute</strong> cycle)</li>
+</ul>
 <blockquote>
 <p><strong>[Figura 3.3 – El ciclo de instrucción (Diagrama)]</strong></p>
 </blockquote>
