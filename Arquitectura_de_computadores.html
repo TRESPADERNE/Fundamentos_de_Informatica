@@ -1237,7 +1237,13 @@ El sistema operativo es un <strong>conjunto de programas</strong> que <strong>in
 <li><strong>Supervisor</strong>: indica si el procesador funciona en modo supervisor o usuario. Únicamente en modo supervisor se pueden ejecutar ciertas instrucciones privilegiadas y se puede acceder a ciertas áreas de memoria.</li>
 </ul>
 <h4 id="los-buses">Los Buses</h4>
-<p>Agrupación de conductores para intercambio de información. El bus del sistema incluye: bus de direcciones, bus de datos y bus de control.</p>
+<p>Un bus es una agrupación de conductores eléctricos relacionados, por el que se intercambia información entre dos o más dispositivos electrónicos digitales. Todos los dispositivos conectados al mismo bus deben adaptarse a la forma en que dicha información se transmite: niveles de tensión, etapas temporales de sincronización, etc. El conjunto de especificaciones que rigen el funcionamiento de un bus recibe el nombre de <strong>protocolo de bus</strong>.</p>
+<p>El <strong>bus del sistema</strong> es el conjunto de buses que utiliza el procesador para interactuar con el resto de los elementos principales del ordenador. El procesador necesita tres tipos de información para realizar un acceso:</p>
+<ul>
+<li>la <strong>dirección</strong> donde quiere realizar el acceso utilizando el <strong>bus de direcciones</strong></li>
+<li>los <strong>datos</strong>, que los colocará el procesador, la memoria o algún dispositivo de E/S en el <strong>bus de datos</strong></li>
+<li><strong>señales de control</strong> para indicar las características del acceso y para pautar la sincronización de acuerdo con el protocolo del bus utilizando el <strong>bus de control</strong></li>
+</ul>
 <h3 id="32-el-ciclo-de-instrucción">3.2 El ciclo de instrucción</h3>
 <p>Pasos básicos:
 1.  <strong>Captación (fetch):</strong> Se obtiene la instrucción de memoria (usando el PC) y se guarda en el IR. Se incrementa el PC.
