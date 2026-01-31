@@ -2750,28 +2750,30 @@ El sistema operativo es un <strong>conjunto de programas</strong> que <strong>in
 </li>
 <li>
 <p><strong>Registros de control y de estado</strong>: son utilizados por la unidad de control para controlar el funcionamiento del procesador y por programas privilegiados del sistema operativo para controlar la ejecución de programas.</p>
+<p>No hay una separación bien definida de registros dentro de estas dos categorías. Naturalmente, microarquitecturas diferentes tendrán distintas organizaciones de registros y usarán distinta terminología.</p>
+<div class="admonition info">
+<p class="admonition-title">Registros de control y estado</p>
+<p>Entre los <strong>registros de control y estado</strong>, de una forma u otra, aparecen en todas las arquitecturas los dos siguientes registros:</p>
+<ul>
+<li><strong>Contador de programa</strong> (<strong>PC</strong>, <strong>P</strong>rogram <strong>C</strong>ounter): contiene la <strong>dirección en memoria</strong> de la instrucción que se va a captar a continuación</li>
+<li><strong>Registro de instrucción</strong> (<strong>IR</strong>, <strong>I</strong>nstruction <strong>R</strong>egister): contiene la instrucción captada más recientemente</li>
+</ul>
+<p>Algunos diseños de procesadores incluyen un registro (o varios), conocidos a menudo como <strong>palabra de estado del programa</strong> (<strong>PSW</strong>, <strong>P</strong>rogram <strong>S</strong>tatus <strong>W</strong>ord). Almacena los indicadores (flags) generados por la salida <strong>D</strong> de la <strong>ALU</strong> tras la <strong>última operación ejecutada</strong>. Entre los bits indicadores comunes se incluyen los siguientes:</p>
+<ul>
+<li><strong>Signo</strong>: contiene el bit de signo del resultado de la última operación aritmética.</li>
+<li><strong>Cero</strong>: bit puesto a uno cuando el resultado es 0.</li>
+<li><strong>Acarreo</strong>: puesto a uno si una operación da lugar a un acarreo (en la suma) o adeudo (en la resta) del bit más significativo.</li>
+<li><strong>Igual</strong>: bit puesto a uno si el resultado de una comparación lógica es la igualdad.</li>
+<li><strong>Desbordamiento</strong>: usado para indicar un desbordamiento aritmético.</li>
+</ul>
+<p>Además de estos indicadores de la ALU, la PSW también gestiona estados del sistema como:</p>
+<ul>
+<li><strong>Interrupciones habilitadas/inhabilitadas</strong>: usado para permitir o inhabilitar interrupciones (las estudiaremos más adelante).</li>
+<li><strong>Supervisor</strong>: indica si el procesador funciona en modo supervisor o usuario. Únicamente en modo supervisor se pueden ejecutar ciertas instrucciones privilegiadas y se puede acceder a ciertas áreas de memoria.</li>
+</ul>
+</div>
 </li>
 </ul>
-<p>No hay una separación bien definida de registros dentro de estas dos categorías. Naturalmente, microarquitecturas diferentes tendrán distintas organizaciones de registros y usarán distinta terminología.</p>
-<pre><code>!!! info "Registros de control y estado"
-    Entre los **registros de control y estado**, de una forma u otra, aparecen en todas las arquitecturas los dos siguientes registros:
-
-    * **Contador de programa** (**PC**, **P**rogram **C**ounter): contiene la **dirección en memoria** de la instrucción que se va a captar a continuación
-    * **Registro de instrucción** (**IR**, **I**nstruction **R**egister): contiene la instrucción captada más recientemente
-
-    Algunos diseños de procesadores incluyen un registro (o varios), conocidos a menudo como **palabra de estado del programa** (**PSW**, **P**rogram **S**tatus **W**ord). Almacena los indicadores (flags) generados por la salida **D** de la **ALU** tras la **última operación ejecutada**. Entre los bits indicadores comunes se incluyen los siguientes:
-
-    * **Signo**: contiene el bit de signo del resultado de la última operación aritmética.
-    * **Cero**: bit puesto a uno cuando el resultado es 0.
-    * **Acarreo**: puesto a uno si una operación da lugar a un acarreo (en la suma) o adeudo (en la resta) del bit más significativo.
-    * **Igual**: bit puesto a uno si el resultado de una comparación lógica es la igualdad.
-    * **Desbordamiento**: usado para indicar un desbordamiento aritmético.
-
-    Además de estos indicadores de la ALU, la PSW también gestiona estados del sistema como:
-
-    * **Interrupciones habilitadas/inhabilitadas**: usado para permitir o inhabilitar interrupciones (las estudiaremos más adelante).
-    * **Supervisor**: indica si el procesador funciona en modo supervisor o usuario. Únicamente en modo supervisor se pueden ejecutar ciertas instrucciones privilegiadas y se puede acceder a ciertas áreas de memoria.
-</code></pre>
 <h4 id="arquitectura_de_computadores-los-buses">Los Buses</h4>
 <p>Un bus es una agrupación de conductores eléctricos relacionados, por el que se intercambia información entre dos o más dispositivos electrónicos digitales. Todos los dispositivos conectados al mismo bus deben adaptarse a la forma en que dicha información se transmite: niveles de tensión, etapas temporales de sincronización, etc. El conjunto de especificaciones que rigen el funcionamiento de un bus recibe el nombre de <strong>protocolo de bus</strong>.</p>
 <p>El <strong>bus del sistema</strong> es el conjunto de buses que utiliza el procesador para interactuar con el resto de los elementos principales del ordenador. El procesador necesita tres tipos de información para realizar un acceso:</p>
