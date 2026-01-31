@@ -2788,7 +2788,7 @@ El sistema operativo es un <strong>conjunto de programas</strong> que <strong>in
 </li>
 </ul>
 <h3 id="arquitectura_de_computadores-32-el-ciclo-de-instrucción">3.2 El ciclo de instrucción</h3>
-<p>Cuando se enciende un ordenador, sus circuitos activan una señal de <strong>reset</strong> que pone al procesador en un estado conocido. En este momento se carga de forma automática en su <strong>Contador de Programa (PC)</strong> una <strong>dirección de memoria predeterminada</strong> grabada en su hardware.</p>
+<p>Cuando se enciende un ordenador, sus circuitos activan una señal de <strong>reset</strong> que pone al procesador en un estado conocido. En este momento, se carga de forma automática en su <strong>Contador de Programa (PC)</strong> una <strong>dirección de memoria predeterminada</strong> grabada en su hardware.</p>
 <p>En esa dirección se encuentra un pequeño <strong>programa de arranque</strong> (conocido como <em>firmware</em>, BIOS o UEFI), cuya misión es chequear el hardware y localizar el <strong>Sistema Operativo</strong> en la <strong>unidad de almacenamiento</strong> (donde reside permanentemente) para cargarlo en la memoria.</p>
 <p>A partir de ese instante, la ejecución de instrucciones es un proceso ininterrumpido que solo se detendrá si:</p>
 <ul>
@@ -2810,22 +2810,30 @@ El sistema operativo es un <strong>conjunto de programas</strong> que <strong>in
 <center><em>Figura 3.3 – El ciclo de instrucción</em></center>
 <p><br></p>
 <h4 id="arquitectura_de_computadores-la-búsqueda">La búsqueda</h4>
-<p>En una CPU típica, se utiliza el registro llamado <strong>contador de programa</strong> (<strong>PC</strong>, <strong>P</strong>rogram <strong>C</strong>ounter) para almacenar la <strong>dirección en memoria</strong> de la instrucción que debe procesarse a continuación. Por regla general, la CPU siempre incrementa el PC después de captar cada instrucción, de forma que apuntará a la posición en memoria de la siguiente instrucción de la secuencia.
-La instrucción captada se almacena en el registro de instrucción (IR, Instruction Register).</p>
+<p>En una CPU típica, se utiliza el registro llamado <strong>contador de programa</strong> (<strong>PC</strong>, <strong>P</strong>rogram <strong>C</strong>ounter) para almacenar la <strong>dirección en memoria</strong> de la instrucción que debe procesarse a continuación. Por regla general, la CPU siempre <strong>incrementa</strong> el <strong>PC</strong> automáticamente después de captar cada instrucción, de forma que este quede apuntando a la posición de la siguiente instrucción de la secuencia.</p>
+<p>La instrucción captada se almacena en el <strong>registro de instrucción</strong> (<strong>IR</strong>, <em>I</em>nstruction <em>R</em>egister).</p>
 <h4 id="arquitectura_de_computadores-la-decodificación">La decodificación</h4>
-<p>La instrucción consiste en un código binario que especifica la acción que debe realizar la CPU. La UC interpreta la instrucción y lleva a cabo la acción requerida activando a través de los buses internos de la CPU las señales eléctricas requeridas. Esta fase de decodificación puede aparecer englobada dentro de la de ejecución en la bibliografía.</p>
+<p>La instrucción consiste en un código binario que especifica la <strong>acción</strong> que debe realizar la CPU y los <strong>operandos</strong> (datos) que intervienen. La Unidad de Control (<strong>UC</strong>) interpreta este código y prepara los caminos de datos necesarios activando, a través de los buses internos, las señales eléctricas requeridas. </p>
+<p>En cierta bibliografía, es común encontrar esta fase de decodificación englobada dentro de la fase de ejecución.</p>
 <h4 id="arquitectura_de_computadores-la-ejecución">La ejecución</h4>
-<p>Las dos fases anteriores son comunes a todas las instrucciones; las diferencias entre unas instrucciones y otras se manifiestan en esta fase de ejecución, que en la mayor parte de las instrucciones se puede descomponer en tres subetapas:
-•   Lectura de los operandos, desde algún recurso (registros, memoria, E/S), por ejemplo, los correspondientes a una suma
-•   Ejecución, como sería la obtención del resultado de una suma 
-•   Escritura de resultados, donde se almacena el resultado en algún recurso de almacenamiento (registro, memoria, E/S)
-En general, hay 4 tipos de acciones que pueden realizarse durante la ejecución:
-1.  Transferencias de datos entre CPU y Memoria principal o entre CPU y E/S
-2.  Procesamiento lógico o aritmético de los datos
-3.  Alteración de la secuencia natural de ejecución
-4.  Alteración del modo de funcionamiento de la CPU
-Una vez completado un ciclo, el procesador repetirá de nuevo las mismas etapas, pero esta vez con la siguiente instrucción del programa, que se encontrará en memoria en la dirección indicada por el PC, que recordemos se había incrementado en la fase de búsqueda.
-Conviene tener en cuenta que, más allá de que alguna instrucción involucre un salto hacia adelante o hacia atrás que altere la secuencia natural, las microarquitecturas modernas en la práctica ejecutan las instrucciones de un programa simultaneándolas o incluso en un orden diferente al que aparece en el programa almacenado.</p>
+<p>Las dos fases anteriores son comunes a todas las instrucciones; las diferencias se manifiestan en esta etapa de ejecución. En la mayor parte de las instrucciones, la ejecución se puede descomponer en tres subetapas:</p>
+<ol>
+<li><strong>Lectura de los operandos</strong>: Se obtienen los datos necesarios desde los registros, la memoria o el sistema de E/S.</li>
+<li><strong>Operación</strong>: La ALU realiza el procesamiento (por ejemplo, una suma o una comparación lógica).</li>
+<li><strong>Escritura de resultados</strong>: Se almacena el resultado en el destino indicado (un registro, la memoria o un dispositivo de E/S).</li>
+</ol>
+<p>En general, existen cuatro tipos de acciones que pueden realizarse durante la ejecución:</p>
+<ol>
+<li><strong>Transferencias de datos</strong>: Entre CPU y Memoria principal o entre CPU y E/S.</li>
+<li><strong>Procesamiento lógico o aritmético</strong> de los datos.</li>
+<li><strong>Alteración de la secuencia</strong> natural de ejecución (saltos o bifurcaciones).</li>
+<li><strong>Alteración del modo de funcionamiento</strong> de la CPU (cambio de privilegios o estados).</li>
+</ol>
+<p>Una vez completado el ciclo, el procesador lo repite con la siguiente instrucción indicada por el <strong>PC</strong>, el cual, como recordamos, ya se había actualizado durante la fase de búsqueda.</p>
+<div class="admonition info">
+<p class="admonition-title">Realidad vs. Modelo: Pipelining y Ejecución fuera de orden</p>
+<p>Aunque el modelo secuencial es la base para entender cómo funciona un procesador, las microarquitecturas modernas son mucho más complejas. Para ganar velocidad, los procesadores actuales utilizan técnicas como el <strong>segmentado (pipelining)</strong>, que permite ejecutar varias instrucciones simultáneamente en diferentes etapas del ciclo, o la <strong>ejecución fuera de orden</strong>, donde el procesador decide el orden más eficiente para procesar las instrucciones, siempre que no se altere el resultado final del programa.</p>
+</div>
 <h2 id="arquitectura_de_computadores-4-el-repertorio-de-instrucciones-isa">4. El repertorio de instrucciones (ISA)</h2>
 <p>Describe los aspectos del procesador visibles para el programador de sistemas: tipos de formatos, tipos de datos y número de registros.</p>
 <h3 id="arquitectura_de_computadores-41-tipos-de-instrucciones">4.1 Tipos de instrucciones</h3>
