@@ -2788,24 +2788,44 @@ El sistema operativo es un <strong>conjunto de programas</strong> que <strong>in
 </li>
 </ul>
 <h3 id="arquitectura_de_computadores-32-el-ciclo-de-instrucción">3.2 El ciclo de instrucción</h3>
-<p>Cuando se enciende un ordenador sus circuitos activan una señal <strong>reset</strong>, de inicio del procesador. Tras un proceso de configuración interna, ejecuta la primera instrucción del programa, ubicada en una <strong>dirección predeterminada</strong> de la memoria principal.</p>
-<p>A partir de ese instante, la ejecución del programa se detendrá solo si:</p>
+<p>Cuando se enciende un ordenador, sus circuitos activan una señal de <strong>reset</strong> que pone al procesador en un estado conocido. En este momento se carga de forma automática en su <strong>Contador de Programa (PC)</strong> una <strong>dirección de memoria predeterminada</strong> grabada en su hardware.</p>
+<p>En esa dirección se encuentra un pequeño <strong>programa de arranque</strong> (conocido como <em>firmware</em>, BIOS o UEFI), cuya misión es chequear el hardware y localizar el <strong>Sistema Operativo</strong> en la <strong>unidad de almacenamiento</strong> (donde reside permanentemente) para cargarlo en la memoria.</p>
+<p>A partir de ese instante, la ejecución de instrucciones es un proceso ininterrumpido que solo se detendrá si:</p>
 <ul>
-<li>la máquina se desconecta</li>
-<li>se produce algún tipo de error irrecuperable</li>
-<li>se ejecuta una instrucción del programa que detiene al computador</li>
+<li>La máquina se desconecta o se apaga.</li>
+<li>Se produce algún tipo de error irrecuperable (excepción grave del sistema).</li>
+<li>Se ejecuta una instrucción específica de detención (<em>Halt</em>).</li>
 </ul>
-<p>Independientemente de la operación que realice, cada instrucción se ejecuta siguiendo una serie de pasos que se conoce como <strong>ciclo de instrucción</strong>, común en rasgos generales a todos los procesadores. </p>
-<p>El ciclo de instrucción puede dividirse en tres etapas:</p>
+<p>Independientemente de la complejidad de la tarea, el procesador funciona siguiendo un bucle repetitivo llamado <strong>ciclo de instrucción</strong>, común en rasgos generales a todos los procesadores:</p>
 <ul>
 <li><strong>Captación</strong> o <strong>búsqueda</strong> (<strong>fetch</strong> cycle)</li>
 <li><strong>Decodificación</strong> (<strong>decode</strong> cycle)</li>
 <li><strong>Ejecución</strong> (<strong>execute</strong> cycle)</li>
 </ul>
-<blockquote>
-<p><strong>[Figura 3.3 – El ciclo de instrucción (Diagrama)]</strong></p>
-</blockquote>
-<hr />
+<div class="admonition tip">
+<p class="admonition-title">El latido del computador</p>
+<p>Este ciclo se repite miles de millones de veces por segundo, marcado por el ritmo del <strong>reloj del sistema</strong>. Es el proceso más básico y fundamental de la computación: todo lo que ves en tu pantalla, desde una IA hasta un videojuego, es el resultado de ejecutar este ciclo sin descanso.</p>
+</div>
+<p><img alt="Ciclo de Instrucción" src="img/AC/ciclo_instruccion.jpg" style="display: block; margin: 0 auto" /></p>
+<center><em>Figura 3.3 – El ciclo de instrucción</em></center>
+<p><br></p>
+<h4 id="arquitectura_de_computadores-la-búsqueda">La búsqueda</h4>
+<p>En una CPU típica, se utiliza el registro llamado <strong>contador de programa</strong> (<strong>PC</strong>, <strong>P</strong>rogram <strong>C</strong>ounter) para almacenar la <strong>dirección en memoria</strong> de la instrucción que debe procesarse a continuación. Por regla general, la CPU siempre incrementa el PC después de captar cada instrucción, de forma que apuntará a la posición en memoria de la siguiente instrucción de la secuencia.
+La instrucción captada se almacena en el registro de instrucción (IR, Instruction Register).</p>
+<h4 id="arquitectura_de_computadores-la-decodificación">La decodificación</h4>
+<p>La instrucción consiste en un código binario que especifica la acción que debe realizar la CPU. La UC interpreta la instrucción y lleva a cabo la acción requerida activando a través de los buses internos de la CPU las señales eléctricas requeridas. Esta fase de decodificación puede aparecer englobada dentro de la de ejecución en la bibliografía.</p>
+<h4 id="arquitectura_de_computadores-la-ejecución">La ejecución</h4>
+<p>Las dos fases anteriores son comunes a todas las instrucciones; las diferencias entre unas instrucciones y otras se manifiestan en esta fase de ejecución, que en la mayor parte de las instrucciones se puede descomponer en tres subetapas:
+•   Lectura de los operandos, desde algún recurso (registros, memoria, E/S), por ejemplo, los correspondientes a una suma
+•   Ejecución, como sería la obtención del resultado de una suma 
+•   Escritura de resultados, donde se almacena el resultado en algún recurso de almacenamiento (registro, memoria, E/S)
+En general, hay 4 tipos de acciones que pueden realizarse durante la ejecución:
+1.  Transferencias de datos entre CPU y Memoria principal o entre CPU y E/S
+2.  Procesamiento lógico o aritmético de los datos
+3.  Alteración de la secuencia natural de ejecución
+4.  Alteración del modo de funcionamiento de la CPU
+Una vez completado un ciclo, el procesador repetirá de nuevo las mismas etapas, pero esta vez con la siguiente instrucción del programa, que se encontrará en memoria en la dirección indicada por el PC, que recordemos se había incrementado en la fase de búsqueda.
+Conviene tener en cuenta que, más allá de que alguna instrucción involucre un salto hacia adelante o hacia atrás que altere la secuencia natural, las microarquitecturas modernas en la práctica ejecutan las instrucciones de un programa simultaneándolas o incluso en un orden diferente al que aparece en el programa almacenado.</p>
 <h2 id="arquitectura_de_computadores-4-el-repertorio-de-instrucciones-isa">4. El repertorio de instrucciones (ISA)</h2>
 <p>Describe los aspectos del procesador visibles para el programador de sistemas: tipos de formatos, tipos de datos y número de registros.</p>
 <h3 id="arquitectura_de_computadores-41-tipos-de-instrucciones">4.1 Tipos de instrucciones</h3>
