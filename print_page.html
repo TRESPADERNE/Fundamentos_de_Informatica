@@ -249,6 +249,25 @@
   
   
     <li class="md-tabs__item">
+      <a href="Arquitectura_de_computadores.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Arquitectura de Computadores
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
       <a href="print_page.html" class="md-tabs__link">
         
   
@@ -386,6 +405,33 @@
   
   
     <li class="md-nav__item">
+      <a href="Arquitectura_de_computadores.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitectura de Computadores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
@@ -472,6 +518,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#arquitectura_de_computadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 Arquitectura de Computadores
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -506,12 +563,14 @@
             </div>
         </section>
         <section class="print-page" id="index" heading-number="1"><h1 id="index-grado-en-ingeniería-biomédica">Grado en Ingeniería Biomédica</h1>
-<h2 id="index-departamento-de-ingeniería-de-sistemas-y-automática-eii-universidad-de-valladolid">Departamento de Ingeniería de Sistemas y Automática. EII. Universidad de Valladolid</h2>
+<h2 id="index-departamento-de-ingeniería-de-sistemas-y-automática-eii">Departamento de Ingeniería de Sistemas y Automática. EII.</h2>
+<h3 id="index-universidad-de-valladolid">Universidad de Valladolid</h3>
 <hr />
 <h3 id="index-fundamentos-de-informática">Fundamentos de Informática</h3>
 <ul>
 <li><a href="#lenguajes_de_programacion"><strong>Tema 1: Lenguajes de Programación</strong></a></li>
 <li><a href="#representacion_de_la_informacion"><strong>Tema 2: Representación de la Información</strong></a></li>
+<li><a href="#arquitectura_de_computadores"><strong>Tema 3: Arquitectura de Computadores</strong></a></li>
 </ul></section><section class="print-page" id="lenguajes_de_programacion" heading-number="2"><h1 id="lenguajes_de_programacion-lenguajes-de-programación">Lenguajes de Programación</h1>
 <h2 id="lenguajes_de_programacion-índice">Índice</h2>
 <ol>
@@ -2480,7 +2539,273 @@ except UnicodeDecodeError as e:
 
 
 
-</div></section></div><style>.print-site-enumerate-headings #index > h1:before { content: '1 ' }
+</div></section><section class="print-page" id="arquitectura_de_computadores" heading-number="4"><h1 id="arquitectura_de_computadores-introducción-a-la-arquitectura-de-computadores">Introducción a la Arquitectura de Computadores</h1>
+<h2 id="arquitectura_de_computadores-índice">Índice</h2>
+<ol>
+<li><a href="#arquitectura_de_computadores-1-introducción">Introducción</a></li>
+<li><a href="#arquitectura_de_computadores-2-estructura-de-un-computador-enfoque-multinivel">Estructura de un computador: enfoque multinivel</a></li>
+<li><a href="#arquitectura_de_computadores-3-organización-y-funcionamiento-de-la-cpu">Organización y funcionamiento de la CPU</a></li>
+<li><a href="#arquitectura_de_computadores-4-el-repertorio-de-instrucciones-isa">El repertorio de instrucciones (ISA)</a></li>
+<li><a href="#arquitectura_de_computadores-5-el-rendimiento-de-un-computador">El rendimiento de un computador</a></li>
+<li><a href="#arquitectura_de_computadores-6-la-memoria">La memoria</a></li>
+<li><a href="#arquitectura_de_computadores-7-interrupciones">Interrupciones</a></li>
+<li><a href="#arquitectura_de_computadores-8-dispositivos-de-entradasalida">Dispositivos de Entrada/Salida</a></li>
+<li><a href="#arquitectura_de_computadores-bibliografía">Bibliografía</a></li>
+</ol>
+<h2 id="arquitectura_de_computadores-1-introducción">1. Introducción</h2>
+<p>En 1945 John Von Neumann publicó un modelo de arquitectura de computador que sigue hoy en día siendo la base de la mayor parte de las arquitecturas de computador actuales.</p>
+<p>La <strong>arquitectura Von Neumann</strong> distingue tres bloques funcionales fundamentales:
+*   <strong>El procesador o CPU (Central Processing Unit)</strong>
+Ejecuta los programas.
+*   <strong>La memoria</strong>
+Contiene <strong>datos</strong> e <strong>instrucciones</strong>, que pueden ser leídos y escritos.
+    *   <strong>valores</strong>, como peso, volumen, sueldo, velocidad, cantidades, nombres, fechas, etc. y <strong>direcciones de memoria</strong>.
+    *  <strong>instrucciones</strong> para procesar esos valores.
+*   <strong>Dispositivos de entrada/salida</strong>
+Suministran al computador los datos que debe procesar y reciben los resultados.</p>
+<p>Estos bloques funcionales se interconectan a través del <strong>bus del sistema</strong>, conjunto de conductores eléctricos que transmiten:
+* las <strong>direcciones</strong> de memoria para acceder a los datos,
+* los propios <strong>datos</strong> (instrucciones y valores) y
+* las <strong>señales de control</strong>.</p>
+<p><img alt="Bus del Sistema" src="img/AC/bus_sistema.jpg" style="display: block; margin: 0 auto" /></p>
+<center><em>Figura 1.1 - Bloques funcionales de la arquitectura Von Neumann.<br><small>(Fuente: <a href="https://es.wikipedia.org/wiki/Arquitectura_de_Von_Neumann">https://es.wikipedia.org/wiki/Arquitectura_de_Von_Neumann</a>)</small></em></center>
+
+<p><br></p>
+<p>Las características fundamentales de la <strong>arquitectura Von Neumann</strong> son:
+1.  Valores e instrucciones se almacenan en la misma memoria (<strong>programa almacenado</strong>). 
+2.  El contenido de la memoria se organiza en <strong>celdas</strong>, que son accesibles (lectura y escritura) proporcionando una <strong>dirección</strong>.
+3.  La <strong>ejecución</strong> de los programas se realiza por defecto de forma <strong>secuencial</strong>, una lista consecutiva de <strong>instrucciones</strong> que se ejecutan una tras otra.</p>
+<div class="admonition note">
+<p class="admonition-title">El <em>cuello de botella</em> de Von Neumann</p>
+<p>Valores e instrucciones comparten el <strong>bus de datos</strong> para ser transferidos a la CPU. Como consecuencia, el procesador no puede acceder simultáneamente a las instrucciones y a los datos, lo que genera una restricción en el rendimiento conocida como el <strong>cuello de botella de Von Neumann</strong>. En la práctica, esto significa que la velocidad del sistema está limitada por el ancho de banda del bus de memoria, que suele ser mucho más lento que la velocidad de procesamiento de la CPU.</p>
+</div>
+<h3 id="arquitectura_de_computadores-11-programación-cableada-frente-a-programación-software">1.1 Programación cableada frente a programación software</h3>
+<ul>
+<li><strong>Programa cableado</strong>
+Mediante la combinación de componentes lógicos es factible recrear funciones que, a partir de unos datos de entrada, permitan obtener las salidas correspondientes. El proceso de diseño y posterior interconexión de estos componentes para lograr efectuar un cálculo <strong>determinado</strong> es de hecho una forma de programación, es un <strong>programa cableado</strong>.</li>
+<li><strong>Programa software</strong>
+Para dotar de un <strong>propósito general</strong> a un dispositivo, la alternativa es utilizar una combinación de componentes que implementen diversas <strong>operaciones básicas</strong> lógico/aritméticas. Esto permite ejecutar diferentes funciones según se apliquen diferentes señales de control sobre los datos de entrada.
+Se asocia a cada operación básica un <strong>código</strong> y se añade un hardware que, en función del código recibido, genera las señales de control asociadas. Para recrear un cálculo o <strong>algoritmo</strong> determinado, basta determinar la <strong>secuencia de códigos</strong> adecuada. Esta secuencia de códigos o <strong>instrucciones</strong> es el <strong>programa software</strong>.</li>
+</ul>
+<p><img alt="Programa Hardware vs Software" src="img/AC/programa_hard_vs_soft.jpg" style="display: block; margin: 0 auto" /></p>
+<center><em>Figura 1.2 - Programación cableada frente a programación software.<br><small>(Fuente: W. Stallings. Organización y arquitectura de computadores, pág. 59)</small></em></center>
+<p><br></p>
+<p>Las dos cajas mostradas en la figura 1.2.b se corresponden con la <strong>CPU</strong>: bloque funcional formado por el intérprete de instrucciones, la <strong>Unidad de Control</strong> (<strong>CU</strong>), y el módulo de uso general que implementa las funciones aritméticas y lógicas, la <strong>Unidad Aritmético Lógica</strong> (<strong>ALU</strong>).</p>
+<p>Faltan dos elementos esenciales para que el sistema software pueda funcionar:
+* <strong>Módulo de Entrada/Salida</strong>: los datos e instrucciones deben introducirse en el sistema con algún componente que transforme los formatos de entrada a los formatos que utilice el sistema. Del mismo modo, los resultados deben poder ser accesibles desde el exterior.
+* <strong>La memoria principal</strong>: es un componente que en la arquitectura Von Neumann sirve de almacén tanto de las instrucciones como de los datos durante la ejecución del programa. Aunque, a priori, sería factible para cálculos simples proporcionar secuencialmente las instrucciones y datos según se vayan ejecutando (es lo que se hace formalmente con una calculadora de bolsillo), de forma general, un cálculo complejo no siempre ejecutará las instrucciones siguiendo la secuencia predeterminada, pudiendo hacer <strong>saltos</strong> hacia adelante y hacia atrás. Además, durante el proceso pueden generarse operandos intermedios que se utilizarán más adelante y que, por tanto, necesitan ser almacenados temporalmente. </p>
+<hr />
+<h2 id="arquitectura_de_computadores-2-estructura-de-un-computador-enfoque-multinivel">2. Estructura de un computador: enfoque multinivel</h2>
+<p><img alt="Enfoque multinivel" src="img/AC/enfoque_multinivel.jpg" style="display: block; margin: 0 auto" /></p>
+<center><em>Figura 2.1 – Enfoque multinivel de un computador<br><small>(Fuente: A. Tanembaum. Organización de computadoras. Un enfoque estructurado, pág. 5)</small></em></center>
+<p><br></p>
+<p>El enfoque multinivel considera al computador estructurado en niveles.</p>
+<h3 id="arquitectura_de_computadores-21-nivel-0-lógica-digital">2.1 Nivel 0: Lógica digital</h3>
+<p>Es el hardware de la máquina, donde encontramos <strong>compuertas lógicas</strong> formadas por transistores y las líneas eléctricas que las conectan. Las compuertas lógicas son circuitos digitales que implementan funciones booleanas, es decir, funciones con entradas y salidas en el conjunto de valores {0, 1}. Ejemplos básicos son las compuertas que implementan las operaciones AND y OR.</p>
+<p><strong>Tablas de verdad</strong>
+El funcionamiento de un tipo de compuerta se modela por su <strong>tabla de verdad</strong>: nos muestra la salida de la compuerta para cada combinación de entradas posible. En general, para una función booleana de <span class="arithmatex">\(n\)</span> entradas tenemos una tabla de <span class="arithmatex">\(2^n\)</span> filas.</p>
+<p><img alt="Compuerta lógica" src="img/AC/compuerta_logica.jpg" style="display: block; margin: 0 auto" /></p>
+<center><em>Figura 2.2 – Compuerta lógica AND formada por transistores<br><small>(Fuente: <a>https://es.wikipedia.org/wiki/Puerta_lógica)</a></small></em></center>
+<p><br></p>
+<h3 id="arquitectura_de_computadores-22-nivel-1-microarquitectura">2.2 Nivel 1: Microarquitectura</h3>
+<p>Detalla cómo están conectados e interactúan entre sí los dispositivos del nivel 0 y como se organizan formando unidades funcionales. Aquí se decide qué señales de control se utilizarán, las interfaces con los dispositivos de E/S, las tecnologías de memoria utilizadas, etc.</p>
+<p>Desde el punto de vista de un programador, la organización <strong>no es visible</strong>.</p>
+<blockquote>
+<p>Una instrucción de multiplicar puede llevarse a cabo en el nivel de microarquitectura con un circuito integrado (chip) especializado o con un microprograma interno que realiza de forma iterada sumas.</p>
+</blockquote>
+<p><img alt="Microarquitectura" src="img/AC/microarquitectura.jpg" style="display: block; margin: 0 auto" /></p>
+<center><em>Figura 2.3 - Microarquitectura del Intel 80286<br><small>(Fuente: <a>https://en.wikipedia.org/wiki/Microarchitecture)</a></small></em></center>
+<p><br></p>
+<h3 id="arquitectura_de_computadores-23-nivel-2-arquitectura-del-conjunto-de-instrucciones-isa">2.3 Nivel 2: Arquitectura del Conjunto de instrucciones (ISA)</h3>
+<p>El acrónimo <strong>ISA</strong>: <strong>I</strong>nstruction <strong>S</strong>et <strong>A</strong>rchitecture es una <strong>especificación</strong> que define el <strong>conjunto</strong> o <strong>repertorio</strong> de todas las <strong>instrucciones</strong> disponibles para una familia de diseños de microarquitecturas compatibles.</p>
+<p>Aunque depende de la bibliografía, el conjunto formado por la ISA y la microarquitectura se conoce como la <strong>arquitectura de un computador</strong>. Como es lógico, el diseño del repertorio de instrucciones y la microarquitectura asociada están íntimamente ligados.</p>
+<h3 id="arquitectura_de_computadores-24-nivel-3-sistema-operativo">2.4 Nivel 3: Sistema Operativo</h3>
+<p>Un <strong>Sistema Operativo</strong> actúa como interfaz entre el usuario y el hardware del computador.
+El sistema operativo es un <strong>conjunto de programas</strong> que <strong>interpretan</strong> complejas <strong>instrucciones</strong> que:
+* <strong>asignan</strong> y <strong>gestionan</strong> los recursos del computador
+* <strong>controlan</strong> los programas de los usuarios y las operaciones de E/S. </p>
+<p>Las instrucciones ISA también son accesibles desde este nivel.</p>
+<p>El S.O. <strong>extiende</strong> el repertorio de instrucciones de la ISA con <strong>llamadas al sistema</strong> (<strong>System Calls</strong>). Para un programador de nivel 3, una instrucción para escribir en un archivo es tan <em>básica</em> como una suma, aunque por debajo implique miles de operaciones.</p>
+<p><img alt="Logos S.O." src="img/AC/logos_so.jpg" style="display: block; margin: 0 auto" /></p>
+<center><em>Figura 2.4 – Logos de algunos Sistemas Operativos actuales</em></center>
+<p><br></p>
+<h3 id="arquitectura_de_computadores-25-niveles-4-y-5-lenguajes-ensamblador-y-alto-nivel">2.5 Niveles 4 y 5: Lenguajes ensamblador y alto nivel</h3>
+<p>Ya hemos hablado de ellos en temas anteriores. Los niveles 1 al 3 son utilizados por los <strong>programadores de sistemas</strong>, es decir, los encargados de <strong>diseñar</strong> y/o <strong>implementar</strong> programas tales como <strong>Sistemas Operativos</strong>, <strong>Compiladores</strong>, <strong>Controladores de Dispositivos</strong>, etc.</p>
+<p>Los niveles 4 y particularmente el 5 son utilizados por los <strong>programadores de aplicaciones</strong>, tales como procesadores de texto, aplicaciones de contabilidad, páginas web, etc.</p>
+<hr />
+<h2 id="arquitectura_de_computadores-3-organización-y-funcionamiento-de-la-cpu">3. Organización y funcionamiento de la CPU</h2>
+<h3 id="arquitectura_de_computadores-31-la-cpu">3.1 La CPU</h3>
+<p>Un procesador debe ser capaz de realizar las siguientes 5 tareas:
+1.  <strong>Captar instrucciones</strong> de la memoria
+2.  <strong>Interpretar las instrucciones</strong> para determinar qué acciones son necesarias
+3.  <strong>Captar datos</strong>, de memoria o de algún módulo de E/S, necesarios para llevar a buen término la ejecución de una instrucción
+4.  <strong>Procesar datos</strong>, en consonancia con la operación lógica o aritmética asociada a una instrucción
+5.  <strong>Escribir datos</strong>, en memoria o en algún módulo de E/S, correspondientes a los resultados de la ejecución de una instrucción</p>
+<p><img alt="Procesador" src="img/AC/procesador.jpg" style="display: block; margin: 0 auto" /></p>
+<center><em>Figura 3.1 - El procesador<br><small>(Fuente: <a>https://de.wikipedia.org/wiki/Prozessor)</a></small></em></center>
+<p><br></p>
+<p>Podemos distinguir cuatro componentes básicos en una CPU:
+* La <strong>Unidad de Control</strong>
+* La <strong>Unidad Aritmético Lógica</strong>
+* Los <strong>Registros</strong>
+* Los <strong>Buses</strong></p>
+<h4 id="arquitectura_de_computadores-la-unidad-de-control">La Unidad de Control</h4>
+<p>La <strong>Unidad de Control</strong> (<strong>CU</strong>, <strong>C</strong>ontrol <strong>U</strong>nit) tiene como cometidos principales:
+* <strong>decodificar</strong> las instrucciones
+* <strong>secuenciar</strong> las transferencias de datos e instrucciones hacia dentro y hacia fuera del procesador enviando señales de control
+* <strong>controlar</strong> el funcionamiento de la <strong>Unidad Aritmético Lógica</strong> (<strong>ALU</strong>)</p>
+<h4 id="arquitectura_de_computadores-la-unidad-aritmético-lógica">La Unidad Aritmético Lógica</h4>
+<p>La realización de las operaciones aritmético – lógicas es el cometido de la Unidad Aritmético Lógica (<strong>ALU</strong>, <strong>A</strong>rithmetic <strong>L</strong>ogic <strong>U</strong>nit). La figura 3.2 muestra una representación típica esquemática de la ALU:
+* <strong>A</strong> y <strong>B</strong> son los <strong>operandos</strong>
+* <strong>R</strong> es el <strong>resultado</strong> de la operación
+* <strong>F</strong> es la entrada desde la Unidad de Control, que determina qué <strong>operación</strong> debe realizarse
+* <strong>D</strong> es una salida de estado que permite conocer detalles de la operación</p>
+<p><img alt="ALU" src="img/AC/alu.jpg" style="display: block; margin: 0 auto" /></p>
+<center><em>Figura 3.2 – Representación esquemática de la ALU<br><small>(Fuente: <a>https://es.wikipedia.org/wiki/Unidad_aritmética_lógica)</a></small></em></center>
+<p><br></p>
+<h4 id="arquitectura_de_computadores-los-registros">Los Registros</h4>
+<ul>
+<li><strong>Visibles por el usuario:</strong> Permiten minimizar accesos a memoria (generalmente 32 o 64 bits).</li>
+<li><strong>De control y de estado:</strong><ul>
+<li><strong>PC (Program Counter):</strong> Dirección de la siguiente instrucción.</li>
+<li><strong>IR (Instruction Register):</strong> Instrucción captada más recientemente.</li>
+<li><strong>PSW (Program Status Word):</strong> Bits indicadores (Signo, Cero, Acarreo, etc.).</li>
+</ul>
+</li>
+</ul>
+<h4 id="arquitectura_de_computadores-los-buses">Los Buses</h4>
+<p>Agrupación de conductores para intercambio de información. El bus del sistema incluye: bus de direcciones, bus de datos y bus de control.</p>
+<h3 id="arquitectura_de_computadores-32-el-ciclo-de-instrucción">3.2 El ciclo de instrucción</h3>
+<p>Pasos básicos:
+1.  <strong>Captación (fetch):</strong> Se obtiene la instrucción de memoria (usando el PC) y se guarda en el IR. Se incrementa el PC.
+2.  <strong>Decodificación (decode):</strong> La UC interpreta el código binario.
+3.  <strong>Ejecución (execute):</strong> Se leen operandos, se opera y se almacenan resultados.</p>
+<blockquote>
+<p><strong>[Figura 3.3 – El ciclo de instrucción (Diagrama)]</strong></p>
+</blockquote>
+<hr />
+<h2 id="arquitectura_de_computadores-4-el-repertorio-de-instrucciones-isa">4. El repertorio de instrucciones (ISA)</h2>
+<p>Describe los aspectos del procesador visibles para el programador de sistemas: tipos de formatos, tipos de datos y número de registros.</p>
+<h3 id="arquitectura_de_computadores-41-tipos-de-instrucciones">4.1 Tipos de instrucciones</h3>
+<ul>
+<li><strong>Transformación:</strong> Operaciones sobre datos.</li>
+<li><strong>Transferencia:</strong> Copia de datos (Memoria <span class="arithmatex">\(\leftrightarrow\)</span> Registros, etc.).</li>
+<li><strong>Control del flujo:</strong> Saltos en la ejecución.</li>
+<li><strong>Control del procesador:</strong> Cambio de modo de funcionamiento.</li>
+</ul>
+<h3 id="arquitectura_de_computadores-42-codificación-y-formatos">4.2 Codificación y formatos</h3>
+<p>Un formato de instrucción incluye el <strong>opcode</strong> (operación) y los campos de <strong>direccionamiento</strong> (operandos).</p>
+<blockquote>
+<p><strong>[Figura 4.1 – Formato de una instrucción]</strong></p>
+</blockquote>
+<h3 id="arquitectura_de_computadores-43-clasificación-de-arquitecturas">4.3 Clasificación de arquitecturas</h3>
+<p>Según el almacenamiento de operandos:
+1.  <strong>Pila:</strong> Operandos implícitos.
+2.  <strong>Acumulador:</strong> Un operando es siempre el registro acumulador.
+3.  <strong>GPR (Registros de propósito general):</strong>
+    *   <strong>Memoria-Registro:</strong> Un operando puede estar en memoria.
+    *   <strong>Registro-Registro (RISC):</strong> Operandos solo en registros. Solo <code>LOAD</code> y <code>STORE</code> acceden a memoria.</p>
+<blockquote>
+<p><strong>[Figura 4.2 – Situación de los operandos para cuatro tipos de arquitecturas]</strong></p>
+</blockquote>
+<hr />
+<h2 id="arquitectura_de_computadores-5-el-rendimiento-de-un-computador">5. El rendimiento de un computador</h2>
+<p>Se define como la capacidad para ejecutar programas en el menor tiempo posible.</p>
+<h3 id="arquitectura_de_computadores-51-el-reloj">5.1 El reloj</h3>
+<p>Sincroniza las operaciones. La frecuencia (Hz) es la referencia de rendimiento.</p>
+<blockquote>
+<p><strong>[Figura 5.1 – Oscilador de cristal y generador de reloj]</strong>
+<strong>[Figura 5.2 – Señal de onda rectangular]</strong></p>
+</blockquote>
+<p><strong>Fórmula de tiempo de CPU:</strong>
+$<span class="arithmatex">\(\text{Tiempo de CPU} = \text{Número de instrucciones} \times \text{CPI} \times \text{Tiempo de ciclo}\)</span>$</p>
+<h3 id="arquitectura_de_computadores-52-paralelismo-procesadores-multinucleo">5.2 Paralelismo: procesadores multinucleo</h3>
+<p>Varios núcleos en un mismo chip para ejecutar procesos o hilos (threads) concurrentemente.</p>
+<blockquote>
+<p><strong>[Figura 5.3 – Frecuencia y Potencia de procesadores Intel x86 (30 años)]</strong>
+<strong>[Figura 5.4 – Sistema de refrigeración de una CPU]</strong></p>
+</blockquote>
+<h3 id="arquitectura_de_computadores-53-segmentación-de-instrucciones-pipelining">5.3 Segmentación de instrucciones (Pipelining)</h3>
+<p>Divide la ejecución en etapas (ej. IF, ID, EX, MEM, WB) para procesar varias instrucciones a la vez.</p>
+<blockquote>
+<p><strong>[Figura 5.5 – Tiempos de ejecución de las etapas para diferentes tipos de instrucción]</strong>
+<strong>[Figura 5.6 – Comparación de ciclo simple frente a segmentación]</strong></p>
+</blockquote>
+<hr />
+<h2 id="arquitectura_de_computadores-6-la-memoria">6. La memoria</h2>
+<p>Organizada jerárquicamente para equilibrar coste, capacidad y velocidad.</p>
+<h3 id="arquitectura_de_computadores-61-tipos-de-memorias">6.1 Tipos de memorias</h3>
+<ul>
+<li><strong>Volátiles:</strong> SRAM (caché, rápida) y DRAM (memoria principal, lenta pero densa).</li>
+<li><strong>No volátiles:</strong> ROM, PROM, EPROM, EEPROM y Memoria Flash.</li>
+<li><strong>Secundaria:</strong> Discos duros, SSD, etc.</li>
+</ul>
+<blockquote>
+<p><strong>[Figura 6.1 – Tecnología de almacenamiento secundario obsoleta]</strong></p>
+</blockquote>
+<h3 id="arquitectura_de_computadores-62-la-jerarquía-de-memoria">6.2 La jerarquía de memoria</h3>
+<p>Basada en los principios de <strong>localidad temporal</strong> (reuso de datos) y <strong>localidad espacial</strong> (datos cercanos en memoria).</p>
+<blockquote>
+<p><strong>[Figura 6.2 – Fragmentos de código con buena/mala localidad espacial]</strong>
+<strong>[Figura 6.3 – La pirámide de la jerarquía de memoria]</strong>
+<strong>[Figura 6.4 – Intercambios de datos entre niveles (palabras, bloques, páginas)]</strong></p>
+</blockquote>
+<h3 id="arquitectura_de_computadores-63-la-memoria-caché">6.3 La memoria caché</h3>
+<p>Memoria pequeña y rápida entre la CPU y la RAM.
+*   <strong>Conceptos:</strong> Hit (acierto), Miss (fallo), Ancho de banda y Latencia.
+*   <strong>Políticas de ubicación:</strong> Directa, Asociativa y Asociativa por conjuntos.</p>
+<blockquote>
+<p><strong>[Figura 6.5 – Principio de funcionamiento de una caché]</strong>
+<strong>[Figura 6.6 – Jerarquía caché en un Intel Core i7]</strong></p>
+</blockquote>
+<h3 id="arquitectura_de_computadores-64-la-arquitectura-harvard">6.4 La arquitectura Harvard</h3>
+<p>Usa memorias y buses físicamente separados para instrucciones y datos. Ventaja: acceso simultáneo.</p>
+<blockquote>
+<p><strong>[Figura 6.7 – Comparativa Von Neumann vs Harvard]</strong>
+<strong>[Figura 6.8 – Arquitectura Harvard en microcontrolador Arduino]</strong></p>
+</blockquote>
+<hr />
+<h2 id="arquitectura_de_computadores-7-interrupciones">7. Interrupciones</h2>
+<p>Alteración forzada del flujo de ejecución ante un evento. Incluye un número de interrupción (IRQ) y una rutina de servicio (ISR).</p>
+<blockquote>
+<p><strong>[Figura 7.1 – Ciclo de instrucción con interrupciones]</strong></p>
+</blockquote>
+<ul>
+<li><strong>Tipos:</strong> Hardware (asíncronas), Llamadas al sistema (traps) y Excepciones (errores).</li>
+</ul>
+<hr />
+<h2 id="arquitectura_de_computadores-8-dispositivos-de-entradasalida">8. Dispositivos de Entrada/Salida</h2>
+<h3 id="arquitectura_de_computadores-81-módulos-de-es">8.1 Módulos de E/S</h3>
+<p>Actúan como interfaz para gestionar la diversidad de periféricos y velocidades.</p>
+<blockquote>
+<p><strong>[Figura 8.1 – Diagrama de bloques de un módulo de E/S]</strong></p>
+</blockquote>
+<h3 id="arquitectura_de_computadores-82-buses-de-es">8.2 Buses de E/S</h3>
+<p>Estándares actuales: <strong>USB</strong> (propósito general), <strong>PCIe</strong> (alta velocidad/tarjetas), <strong>SPI</strong> (baja velocidad/sensores) y <strong>SATA</strong> (almacenamiento).</p>
+<blockquote>
+<p><strong>[Figura 8.2 – Componentes de una placa base]</strong>
+<strong>[Figura 8.3 – Diagrama de bloques del chipset Intel Z690]</strong></p>
+</blockquote>
+<h3 id="arquitectura_de_computadores-84-técnicas-de-sincronización">8.4 Técnicas de sincronización</h3>
+<ol>
+<li><strong>Sondeo (Polling):</strong> La CPU consulta periódicamente el estado.</li>
+<li><strong>Interrupción:</strong> El dispositivo avisa a la CPU cuando está listo.</li>
+</ol>
+<blockquote>
+<p><strong>[Figura 8.4 – Diagramas de flujo de sondeo continuo y periódico]</strong>
+<strong>[Figura 8.5 – Sincronización mediante interrupciones]</strong></p>
+</blockquote>
+<h3 id="arquitectura_de_computadores-85-transferencia-de-datos">8.5 Transferencia de datos</h3>
+<ul>
+<li><strong>Por programa:</strong> La CPU mueve los datos uno a uno.</li>
+<li><strong>DMA (Direct Memory Access):</strong> Un controlador especializado mueve bloques de datos entre periférico y memoria sin usar la CPU.</li>
+</ul>
+<blockquote>
+<p><strong>[Figura 8.6 – Transferencias de datos entre disco y memoria: PIO vs DMA]</strong></p>
+</blockquote>
+<hr />
+<h2 id="arquitectura_de_computadores-bibliografía">Bibliografía</h2>
+<p><em>(Listado de referencias del documento original)</em></p></section></div><style>.print-site-enumerate-headings #index > h1:before { content: '1 ' }
 
                 .print-site-enumerate-headings #index h2:before { content: '1.' counter(counter-index-2) ' ' }
                 .print-site-enumerate-headings #index h2 {  counter-reset: counter-index-3 ;  counter-increment: counter-index-2 }
@@ -2503,6 +2828,14 @@ except UnicodeDecodeError as e:
             
                 .print-site-enumerate-headings #representacion_de_la_informacion h3:before { content: '3.' counter(counter-representacion_de_la_informacion-2) '.' counter(counter-representacion_de_la_informacion-3) ' ' }
                 .print-site-enumerate-headings #representacion_de_la_informacion h3 {  counter-increment: counter-representacion_de_la_informacion-3 }
+            
+.print-site-enumerate-headings #arquitectura_de_computadores > h1:before { content: '4 ' }
+
+                .print-site-enumerate-headings #arquitectura_de_computadores h2:before { content: '4.' counter(counter-arquitectura_de_computadores-2) ' ' }
+                .print-site-enumerate-headings #arquitectura_de_computadores h2 {  counter-reset: counter-arquitectura_de_computadores-3 ;  counter-increment: counter-arquitectura_de_computadores-2 }
+            
+                .print-site-enumerate-headings #arquitectura_de_computadores h3:before { content: '4.' counter(counter-arquitectura_de_computadores-2) '.' counter(counter-arquitectura_de_computadores-3) ' ' }
+                .print-site-enumerate-headings #arquitectura_de_computadores h3 {  counter-increment: counter-arquitectura_de_computadores-3 }
             </style>
 
 
