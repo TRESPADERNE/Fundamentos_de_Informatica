@@ -2722,8 +2722,26 @@ El sistema operativo es un <strong>conjunto de programas</strong> que <strong>in
 <ul>
 <li><strong>A</strong> y <strong>B</strong> son los <strong>operandos</strong></li>
 <li><strong>R</strong> es el <strong>resultado</strong> de la operación</li>
-<li><strong>F</strong> es la entrada desde la Unidad de Control, que determina qué <strong>operación</strong> debe realizarse</li>
+<li>
+<p><strong>F</strong> es la entrada desde la Unidad de Control, que determina qué <strong>operación</strong> debe realizarse.</p>
+<p>A través de esta señal, la Unidad de Control selecciona la función específica que la ALU debe aplicar sobre los operandos. Algunos ejemplos son:</p>
+<ul>
+<li><strong>Aritméticas:</strong> Suma, resta o multiplicación.</li>
+<li><strong>Lógicas:</strong> Operaciones de bit como <code>AND</code>, <code>OR</code> o <code>XOR</code>.</li>
+<li><strong>Comparaciones:</strong> Permiten determinar si dos valores son iguales o cuál es mayor.</li>
+</ul>
+</li>
+<li>
+<p><strong>D</strong> es una salida de estado (<strong>Flags</strong>) que permite conocer detalles del resultado.</p>
+<p>Es fundamental para que el procesador "tome decisiones". Refleja situaciones como:</p>
+<ul>
+<li><strong>Z (Zero):</strong> El resultado ha sido cero.</li>
+<li><strong>V (Overflow):</strong> Se ha producido un desbordamiento.</li>
+<li><strong>C (Carry):</strong> Existe un acarreo en la operación.</li>
+<li><strong>Error:</strong> Como en el caso de la división por cero.</li>
 <li><strong>D</strong> es una salida de estado que permite conocer detalles de la operación</li>
+</ul>
+</li>
 </ul>
 <p><img alt="ALU" src="img/AC/alu.jpg" style="display: block; margin: 0 auto" /></p>
 <center><em>Figura 3.2 – Representación esquemática de la ALU<br><small>(Fuente: <a>https://es.wikipedia.org/wiki/Unidad_aritmética_lógica)</a></small></em></center>
