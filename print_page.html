@@ -2604,16 +2604,16 @@ except UnicodeDecodeError as e:
 </div>
 <div class="admonition info">
 <p class="admonition-title">Aclaración terminológica: ¿Las instrucciones son datos?</p>
-<p>Encontrarás que la bibliografía a veces usa el término <strong>datos</strong> de dos formas distintas:</p>
+<p>Encontrarás que la bibliografía (este documento no es una excepción) a veces usa el término <strong>datos</strong> de dos formas distintas:</p>
 <ol>
 <li>
-<p><strong>Sentido amplio (Concepto de Programa Almacenado):</strong> Bajo la arquitectura Von Neumann, <strong>todo son datos</strong>. Tanto las instrucciones como los valores son simplemente secuencias de bits almacenadas en la misma memoria. En este sentido, una instrucción <em>es</em> un dato más.</p>
+<p><strong>Sentido amplio (Concepto de Programa Almacenado):</strong> Bajo la arquitectura Von Neumann, <strong>todo son datos</strong>. Tanto las instrucciones como los valores son simplemente secuencias de bits almacenadas en la misma memoria. En este sentido, una instrucción <em>es</em> un dato más. Acabamos de ver que por el <strong>bus de datos</strong> circulan valores e instrucciones.</p>
 </li>
 <li>
 <p><strong>Sentido estricto (Ciclo de ejecución):</strong> Cuando se describe el funcionamiento de la CPU, se suele distinguir entre <strong>instrucciones</strong> (el código de operación que dice qué hacer) y <strong>datos</strong> (los valores o operandos sobre los que actúa la instrucción). </p>
 </li>
 </ol>
-<p><strong>En resumen:</strong> Aunque físicamente en la memoria no hay diferencia (todo son bits), funcionalmente los separamos para entender qué es la <em>orden</em> y qué es el <em>operando</em> sobre el que actúa esa orden.</p>
+<p><strong>En resumen:</strong> Aunque físicamente en la memoria no hay diferencia (todo son bits), funcionalmente los separamos para entender qué es la <em>orden</em> (instrucción) y qué es el <em>operando</em> (dato) sobre el que actúa esa orden.</p>
 </div>
 <h3 id="arquitectura_de_computadores-11-programación-cableada-frente-a-programación-software">1.1 Programación cableada frente a programación software</h3>
 <h4 id="arquitectura_de_computadores-programa-cableado">Programa cableado</h4>
@@ -2711,16 +2711,20 @@ El sistema operativo es un <strong>conjunto de programas</strong> que <strong>in
 <li>Los <strong>Buses</strong></li>
 </ul>
 <h4 id="arquitectura_de_computadores-la-unidad-de-control">La Unidad de Control</h4>
-<p>La <strong>Unidad de Control</strong> (<strong>CU</strong>, <strong>C</strong>ontrol <strong>U</strong>nit) tiene como cometidos principales:
-* <strong>decodificar</strong> las instrucciones
-* <strong>secuenciar</strong> las transferencias de datos e instrucciones hacia dentro y hacia fuera del procesador enviando señales de control
-* <strong>controlar</strong> el funcionamiento de la <strong>Unidad Aritmético Lógica</strong> (<strong>ALU</strong>)</p>
+<p>La <strong>Unidad de Control</strong> (<strong>CU</strong>, <strong>C</strong>ontrol <strong>U</strong>nit) tiene como cometidos principales:</p>
+<ul>
+<li><strong>decodificar</strong> las instrucciones</li>
+<li><strong>secuenciar</strong> las transferencias de datos e instrucciones hacia dentro y hacia fuera del procesador enviando señales de control</li>
+<li><strong>controlar</strong> el funcionamiento de la <strong>Unidad Aritmético Lógica</strong> (<strong>ALU</strong>)</li>
+</ul>
 <h4 id="arquitectura_de_computadores-la-unidad-aritmético-lógica">La Unidad Aritmético Lógica</h4>
-<p>La realización de las operaciones aritmético – lógicas es el cometido de la Unidad Aritmético Lógica (<strong>ALU</strong>, <strong>A</strong>rithmetic <strong>L</strong>ogic <strong>U</strong>nit). La figura 3.2 muestra una representación típica esquemática de la ALU:
-* <strong>A</strong> y <strong>B</strong> son los <strong>operandos</strong>
-* <strong>R</strong> es el <strong>resultado</strong> de la operación
-* <strong>F</strong> es la entrada desde la Unidad de Control, que determina qué <strong>operación</strong> debe realizarse
-* <strong>D</strong> es una salida de estado que permite conocer detalles de la operación</p>
+<p>La realización de las operaciones aritmético – lógicas es el cometido de la Unidad Aritmético Lógica (<strong>ALU</strong>, <strong>A</strong>rithmetic <strong>L</strong>ogic <strong>U</strong>nit). La figura 3.2 muestra una representación típica esquemática de la ALU:</p>
+<ul>
+<li><strong>A</strong> y <strong>B</strong> son los <strong>operandos</strong></li>
+<li><strong>R</strong> es el <strong>resultado</strong> de la operación</li>
+<li><strong>F</strong> es la entrada desde la Unidad de Control, que determina qué <strong>operación</strong> debe realizarse</li>
+<li><strong>D</strong> es una salida de estado que permite conocer detalles de la operación</li>
+</ul>
 <p><img alt="ALU" src="img/AC/alu.jpg" style="display: block; margin: 0 auto" /></p>
 <center><em>Figura 3.2 – Representación esquemática de la ALU<br><small>(Fuente: <a>https://es.wikipedia.org/wiki/Unidad_aritmética_lógica)</a></small></em></center>
 <p><br></p>
